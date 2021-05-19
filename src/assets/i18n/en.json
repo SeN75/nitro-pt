@@ -1,0 +1,22 @@
+{
+    "SETTINGS": {
+        "": "",
+        "nitro": "nitro",
+        "account-settings": "account settings"
+    },
+    "SUBSCRIBERS": {
+        "subscribers": "subscribers"
+    },
+    "ORDERS": {
+        "orders": "orders"
+    },
+    "CATEGORIES": {
+        "categories": "categories"
+    },
+    "PACKAGES": {
+        "packages": "packages"
+    },
+    "WORKSOUT": {
+        "worksout": "worksout"
+    }
+} 

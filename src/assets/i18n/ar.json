@@ -1,0 +1,22 @@
+{
+    "SETTINGS": {
+        "": "",
+        "nitro": "نيترو",
+        "account-settings": "اعدادات الحساب"
+    },
+    "SUBSCRIBERS": {
+        "subscribers": "المشتركين"
+    },
+    "ORDERS": {
+        "orders": "الطلبات"
+    },
+    "CATEGORIES": {
+        "categories": "الاصناف"
+    },
+    "PACKAGES": {
+        "packages": "الباقات"
+    },
+    "WORKSOUT": {
+        "worksout": "التمارين الرياضية"
+    }
+} 
