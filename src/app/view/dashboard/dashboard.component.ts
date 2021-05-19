@@ -8,7 +8,6 @@ import { categories, sideMenu } from './../../_common/globle';
 })
 export class DashboardComponent implements OnInit {
   sideMenu = sideMenu;
-  categories = categories;
   constructor() { }
 
   ngOnInit(): void {

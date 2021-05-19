@@ -9,14 +9,16 @@ import { LandingPageComponent } from './view/landing-page/landing-page.component
 import { RegistrationComponent } from './view/registration/registration.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { DashboardRoutingMoudle } from './view/dashboard/dashboard.routing.module';
 import { CategoryCardComponent } from './view/components/category-card/category-card.component';
-
-
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { BaseComponent } from './view/components/base/base.component';
+import { DialogComponent } from './view/components/dialog/dialog.component';
 
 // functions for translet service {
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -28,7 +30,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     DashboardComponent,
     LandingPageComponent,
     RegistrationComponent,
-    CategoryCardComponent
+    CategoryCardComponent,
+    BaseComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +42,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     DashboardRoutingMoudle,
     MatButtonModule,
     MatIconModule,
+    MatDialogModule,
     TranslateModule,
     TranslateModule.forRoot({ // this is for translate
       loader: {
@@ -48,6 +53,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     }),
   ],
   providers: [],
+  entryComponents: [DialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

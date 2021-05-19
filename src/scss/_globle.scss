@@ -8,3 +8,39 @@
   color: var(--primray);
   font-size: 16px;
 }
+
+/* dialog */
+.mat-dialog-container {
+  background-color: var(--gray-blue);
+}
+.dialog-title {
+  color: var(--primray) !important;
+  font-weight: bolder;
+  font-size: larger;
+  text-align: right;
+}
+
+/* dialog */
+
+/*  fromgroup   */
+.form-group label {
+  color: var(--gray);
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.form-group .form-control {
+  background-color: var(--white);
+  border: 1px solid var(--gray-blue);
+  height: 52px;
+}
+
+.button-group {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.button-group button {
+  margin: 0 5px;
+}
+/*  fromgroup   */

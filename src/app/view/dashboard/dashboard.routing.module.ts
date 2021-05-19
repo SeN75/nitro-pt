@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BaseComponent } from '../components/base/base.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { DashboardComponent } from './dashboard.component';
 import { OrdersComponent } from './orders/orders.component';
@@ -9,6 +10,7 @@ import { SubscribersComponent } from './subscribers/subscribers.component';
 import { WorksoutComponent } from './worksout/worksout.component';
 
 const children: Routes = [
+    { component: BaseComponent, path: 'base' },
     { component: SubscribersComponent, path: 'subscribers' },
     { component: OrdersComponent, path: 'orders' },
     { component: CategoriesComponent, path: 'categories' },
