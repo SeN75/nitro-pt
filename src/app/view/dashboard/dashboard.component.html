@@ -1,1 +1,19 @@
-<p>dashboard works!</p>
+<section class="main">
+    <div class="side-menu">
+        <img class="nitro-logo" src="../../../assets/images/Logo.svg">
+        <div class="logo-underline"></div>
+
+        <!-- [routerLinkActive]="i != 0 ? 'active' : ''" -->
+        <nav class="menu">
+            <a *ngFor="let item of sideMenu; index as i" [routerLink]="i != 0 ? item.path : ''" class="items"
+                [routerLinkActive]="i != 0 ? 'active' : ''">
+                <img class="icon" src="../../../assets/icons/{{item.img}}">
+                <span>{{ item.name | translate}}</span>
+            </a>
+        </nav>
+    </div>
+
+    <section class="dashboard">
+        <router-outlet></router-outlet>
+    </section>
+</section>
