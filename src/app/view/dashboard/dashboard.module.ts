@@ -8,6 +8,8 @@ import { WorksoutComponent } from './worksout/worksout.component';
 import { SettingsComponent } from './settings/settings.component';
 
 
+import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
     declarations: [
         SubscribersComponent,
@@ -18,7 +20,8 @@ import { SettingsComponent } from './settings/settings.component';
         SettingsComponent
     ],
     imports: [
-        DashboardRoutingMoudle
+        DashboardRoutingMoudle,
+        MatIconModule
     ],
     exports: []
 })

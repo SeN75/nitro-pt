@@ -1,7 +1,8 @@
+@import "../../../scss/thems";
 .side-menu {
   position: fixed;
   width: 200px;
-  background-color: #1d4980;
+  background-color: var(--primray);
   top: 0;
   height: 100%;
   border-top-left-radius: 18px;
@@ -15,6 +16,8 @@
   margin: 30px auto 0;
 }
 .main {
+  background-color: #f9faff;
+  height: 100%;
   position: relative;
   direction: rtl;
 }
@@ -51,7 +54,7 @@
   height: auto;
 }
 .main .items.active {
-  color: #1d4980;
+  color: var(--primray);
   background-color: white;
   text-decoration: none;
 }

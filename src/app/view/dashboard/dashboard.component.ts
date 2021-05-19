@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { sideMenu } from './../../_common/globle';
+import { categories, sideMenu } from './../../_common/globle';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,6 +8,7 @@ import { sideMenu } from './../../_common/globle';
 })
 export class DashboardComponent implements OnInit {
   sideMenu = sideMenu;
+  categories = categories;
   constructor() { }
 
   ngOnInit(): void {

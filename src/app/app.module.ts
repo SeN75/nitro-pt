@@ -12,6 +12,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { DashboardRoutingMoudle } from './view/dashboard/dashboard.routing.module';
+import { CategoryCardComponent } from './view/components/category-card/category-card.component';
+
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
 // functions for translet service {
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -21,7 +27,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AppComponent,
     DashboardComponent,
     LandingPageComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    CategoryCardComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +36,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     BrowserAnimationsModule,
     HttpClientModule,
     DashboardRoutingMoudle,
+    MatButtonModule,
+    MatIconModule,
     TranslateModule,
     TranslateModule.forRoot({ // this is for translate
       loader: {

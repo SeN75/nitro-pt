@@ -11,7 +11,16 @@
         "orders": "orders"
     },
     "CATEGORIES": {
-        "categories": "categories"
+        "categories": "categories",
+        "calories": "calories",
+        "protein": "protein",
+        "carp":"carp",
+        "fat": "fat",
+        "measuring-unit": {
+            "": "measuring unit",
+            "gram": "gram",
+            "cup": "cup"
+        }
     },
     "PACKAGES": {
         "packages": "packages"
