@@ -15,6 +15,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
 }
+
+import { DataTablesModule } from "angular-datatables";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +38,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

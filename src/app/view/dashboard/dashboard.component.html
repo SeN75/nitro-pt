@@ -1,1 +1,133 @@
 <p>dashboard works!</p>
+
+<!-- Table -->
+<div class="container">
+  <style>
+    .table-theme-1{
+      border-spacing: 0 1em;
+    }
+
+    .table-theme-1 th{
+      border-collapse:collapse;
+      background-color: #1D4980;
+      color: #FFFFFF;
+      height: 30px;
+    }
+
+    .table-theme-1 td{
+      border-collapse:collapse;
+      background-color: #FFFFFF;
+      color: #1D4980;
+      height: 30px;
+    }
+
+    .table-theme-1 td{
+      border-top: solid #E2E2E3 1px;
+      border-bottom: solid #E2E2E3 1px;
+    }
+
+    .table-theme-1 td:first-child{
+      border-inline-start: solid #E2E2E3 1px;
+    }
+
+    .table-theme-1 td:last-child{
+      border-inline-end: solid #E2E2E3 1px;
+    }
+
+    .table-theme-1 tr::before{
+      height: 20px!important;
+      display: block!important;
+    }
+
+    .table-theme-1 th{
+      margin-bottom: 10px!important;
+      margin-top: 10px!important;
+    }
+
+    .table-theme-2{
+      border-collapse:collapse;
+      background-color: #E2E2E3;
+      color: #313438;
+      height: 30px;
+    }
+
+    a.table_row_link{
+      display: table-cell;
+      width: 100%;
+    }
+
+  </style>
+  <!-- NOTE, There is a script i've used to add a link to the TR, in JS, in My Projects, Look for it -->
+  <table datatable class="hover table-theme-1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First name</th>
+        <th>Last name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Foo</td>
+        <td>Bar</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Someone</td>
+        <td>Youknow</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Iamout</td>
+        <td>Ofinspiration</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Yoda</td>
+        <td>Skywalker</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Patrick</td>
+        <td>Dupont</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Barack</td>
+        <td>Obama</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>François</td>
+        <td>Holland</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Michel</td>
+        <td>Popo</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Chuck</td>
+        <td>Norris</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Simon</td>
+        <td>Robin</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>Louis</td>
+        <td>Lin</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Zelda</td>
+        <td>Link</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- Table End -->
