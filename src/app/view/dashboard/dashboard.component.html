@@ -1,3 +1,7 @@
+
+<app-package-card></app-package-card>
+
+
 <p>dashboard works!</p>
 
 <!-- Table -->
@@ -16,11 +20,21 @@
 
     .table-theme-1 td{
       border-collapse:collapse;
-      background-color: #FFFFFF;
+      background-color: transparent;
       color: #1D4980;
       height: 30px;
     }
-
+    .table-theme-1 tr{
+      background-color: #FFFFFF;
+      transition: 0.4s;
+    }
+    .table-theme-1 tr:hover{
+      cursor: pointer;
+      transition: 0.4s;
+    }
+    .table-theme-1 tr:hover ~ .table-theme-1 td{
+      background-color: red!important;
+    }
     .table-theme-1 td{
       border-top: solid #E2E2E3 1px;
       border-bottom: solid #E2E2E3 1px;
@@ -51,94 +65,88 @@
       display: table-cell;
       width: 100%;
     }
-    .link_to_item_details{
-      display: none;
-    }
-
   </style>
   <!-- NOTE, There is a script i've used to add a link to the TR, in JS, in My Projects, Look for it -->
 <p class="text-danger">You clicked on: <strong>{{ message }}</strong></p>
   <table datatable [dtOptions]="dtOptions" class="table-theme-1 hover">
     <thead>
-      <tr>
+      <tr href="link_to_item">
         <th>ID</th>
         <th>First name</th>
         <th>Last name</th>
-        <th class="link_to_item_details"></th>
       </tr>
     </thead>
     <tbody>
-      <tr href="hello1">
+      <tr href="link_to_item">
         <td>1</td>
         <td>Foo</td>
         <td>Bar</td>
-        <td class="link_to_item_details">link_to_item_details</td>
       </tr>
-      <tr>
-        <td  href="hello1">2</td>
+      <tr href="link_to_item">
+        <td>2</td>
         <td>Someone</td>
         <td>Youknow</td>
-        <td class="link_to_item_details">link_to_item_details</td>
+
       </tr>
-      <tr>
+      <tr href="link_to_item">
         <td>3</td>
         <td>Iamout</td>
         <td>Ofinspiration</td>
-        <td class="link_to_item_details">link_to_item_details</td>
+
       </tr>
-      <tr>
+      <tr href="link_to_item">
         <td>4</td>
         <td>Yoda</td>
         <td>Skywalker</td>
-        <td class="link_to_item_details">link_to_item_details</td>
+
       </tr>
-      <tr>
+      <tr href="link_to_item">
         <td>5</td>
         <td>Patrick</td>
         <td>Dupont</td>
-        <td class="link_to_item_details">link_to_item_details</td>
+
       </tr>
-      <tr>
+      <tr href="link_to_item">
         <td>6</td>
         <td>Barack</td>
         <td>Obama</td>
-        <td class="link_to_item_details">link_to_item_details</td>
+
       </tr>
-      <tr>
+      <tr href="link_to_item">
         <td>7</td>
         <td>François</td>
         <td>Holland</td>
-        <td class="link_to_item_details">link_to_item_details</td>
+
       </tr>
-      <tr>
+      <tr href="link_to_item">
         <td>8</td>
         <td>Michel</td>
         <td>Popo</td>
-        <td class="link_to_item_details">link_to_item_details</td>
+
       </tr>
-      <tr>
+      <tr href="link_to_item">
         <td>9</td>
         <td>Chuck</td>
         <td>Norris</td>
-        <td class="link_to_item_details">link_to_item_details</td>
+
       </tr>
-      <tr>
+      <tr href="link_to_item">
         <td>10</td>
         <td>Simon</td>
         <td>Robin</td>
-        <td class="link_to_item_details">link_to_item_details</td>
+
       </tr>
-      <tr>
+      <tr href="link_to_item">
         <td>11</td>
         <td>Louis</td>
         <td>Lin</td>
-        <td class="link_to_item_details">link_to_item_details</td>
+
       </tr>
-      <tr>
+      <tr href="link_to_item">
         <td>12</td>
         <td>Zelda</td>
         <td>Link</td>
-        <td class="link_to_item_details">link_to_item_details</td>
+
       </tr>
     </tbody>
   </table>

@@ -17,13 +17,15 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 }
 
 import { DataTablesModule } from "angular-datatables";
+import { PackageCardComponent } from './package-card/package-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     LandingPageComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    PackageCardComponent
   ],
   imports: [
     BrowserModule,

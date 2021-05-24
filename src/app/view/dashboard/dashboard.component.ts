@@ -11,8 +11,8 @@ export class DashboardComponent implements OnInit {
 
   constructor() { }
 
-  someClickHandler(info: any): void {
-    window.location = info.link_to_item_details;
+  viewItemDetails(row: any): void {
+    window.location =  row.getAttribute("href");
   }
 
   ngOnInit(): void {
@@ -27,9 +27,6 @@ export class DashboardComponent implements OnInit {
       }, {
         title: 'Last name',
         data: 'lastName'
-      }, {
-        title: '',
-        data: 'link_to_item_details'
       }],
       rowCallback: (row: Node, data: any[] | Object, index: number) => {
         const self = this;
@@ -39,31 +36,10 @@ export class DashboardComponent implements OnInit {
         // deprecated in favor of `off` and `on`
         $('td', row).off('click');
         $('td', row).on('click', () => {
-          self.someClickHandler(data);
+          self.viewItemDetails(row);
         });
         return row;
       }
     };
   }
 }
-
-// $(document).ready(function() {
-//   var table = $('.AVCTable').DataTable({
-//       language: {
-//           url: "./js/Arabic.json",
-//           searchPlaceholder: 'ابحث عن إختبار',
-//       },
-//       searching: true,
-//       pageLength: 6,
-//       lengthChange: false,
-//       order: [],
-//       ordering: false
-//   });
-//   $('.AVCTable tbody').on('click', 'tr', function() {
-//       var data = table.row(this).data();
-//       get_link = data[0].split('href="')[1];
-//       let regex = /(?=\.|[\"])/;
-//       get_link = get_link.split(regex)[0];
-//       window.location = get_link;
-//   });
-// });
