@@ -34,10 +34,6 @@
       border-inline-end: solid #E2E2E3 1px;
     }
 
-    .table-theme-1 tr::before{
-      height: 20px!important;
-      display: block!important;
-    }
 
     .table-theme-1 th{
       margin-bottom: 10px!important;
@@ -55,77 +51,94 @@
       display: table-cell;
       width: 100%;
     }
+    .link_to_item_details{
+      display: none;
+    }
 
   </style>
   <!-- NOTE, There is a script i've used to add a link to the TR, in JS, in My Projects, Look for it -->
-  <table datatable class="hover table-theme-1">
+<p class="text-danger">You clicked on: <strong>{{ message }}</strong></p>
+  <table datatable [dtOptions]="dtOptions" class="table-theme-1 hover">
     <thead>
       <tr>
         <th>ID</th>
         <th>First name</th>
         <th>Last name</th>
+        <th class="link_to_item_details"></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr href="hello1">
         <td>1</td>
         <td>Foo</td>
         <td>Bar</td>
+        <td class="link_to_item_details">link_to_item_details</td>
       </tr>
       <tr>
-        <td>2</td>
+        <td  href="hello1">2</td>
         <td>Someone</td>
         <td>Youknow</td>
+        <td class="link_to_item_details">link_to_item_details</td>
       </tr>
       <tr>
         <td>3</td>
         <td>Iamout</td>
         <td>Ofinspiration</td>
+        <td class="link_to_item_details">link_to_item_details</td>
       </tr>
       <tr>
         <td>4</td>
         <td>Yoda</td>
         <td>Skywalker</td>
+        <td class="link_to_item_details">link_to_item_details</td>
       </tr>
       <tr>
         <td>5</td>
         <td>Patrick</td>
         <td>Dupont</td>
+        <td class="link_to_item_details">link_to_item_details</td>
       </tr>
       <tr>
         <td>6</td>
         <td>Barack</td>
         <td>Obama</td>
+        <td class="link_to_item_details">link_to_item_details</td>
       </tr>
       <tr>
         <td>7</td>
         <td>François</td>
         <td>Holland</td>
+        <td class="link_to_item_details">link_to_item_details</td>
       </tr>
       <tr>
         <td>8</td>
         <td>Michel</td>
         <td>Popo</td>
+        <td class="link_to_item_details">link_to_item_details</td>
       </tr>
       <tr>
         <td>9</td>
         <td>Chuck</td>
         <td>Norris</td>
+        <td class="link_to_item_details">link_to_item_details</td>
       </tr>
       <tr>
         <td>10</td>
         <td>Simon</td>
         <td>Robin</td>
+        <td class="link_to_item_details">link_to_item_details</td>
       </tr>
       <tr>
         <td>11</td>
         <td>Louis</td>
         <td>Lin</td>
+        <td class="link_to_item_details">link_to_item_details</td>
       </tr>
       <tr>
         <td>12</td>
         <td>Zelda</td>
         <td>Link</td>
+        <td class="link_to_item_details">link_to_item_details</td>
       </tr>
     </tbody>
   </table>
