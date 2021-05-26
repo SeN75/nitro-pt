@@ -8,23 +8,23 @@
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #CBBEBE29;
     border-radius: 10px;
-    width: 30%;
     text-align: center;
     color: #1D4980;
     position: relative;
+    height: 100%;
 }
 
 .package_card_header {
     border-radius: 10px;
-    height: 100px;
+    height: 130px;
     margin-bottom: 30px;
     position: relative;
 }
 
 .package_card_header p {
-    font-size: 28px;
     color: white;
-    padding-top: 23px;
+    padding-top: 25px;
+    font-weight: bold;font: normal normal bold 27px/60px Helvetica;
 }
 
 .package_body {
@@ -98,5 +98,9 @@
     font-size: 28px;
 }
 
-
+.hide_button{
+  visibility: none;
+  opacity: 0;
+  display: none!important;
+}
 /* Other Buttons Styles Goes Here */

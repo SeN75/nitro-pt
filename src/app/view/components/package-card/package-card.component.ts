@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-package-card',
@@ -8,8 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class PackageCardComponent implements OnInit {
 
   constructor() { }
-
   ngOnInit(): void {
+    if(this.with_button==false){
+      this.class_button="hide_button"
+    }
   }
 
+  @Input() package_title :string = "";
+  @Input() package_price :number = 0;
+  @Input() package_months :number =0;
+  @Input() theme_number : number = 0;
+  @Input() with_button : boolean = false;
+  @Input() class_button : string = "";
 }
