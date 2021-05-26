@@ -1,0 +1,49 @@
+@import "../../../../scss/thems";
+
+.category-card {
+  width: 100%;
+  background-color: white;
+  border: solid 1px var(--gray-blue);
+  max-width: 425px;
+  border-radius: 0.25em;
+  padding: 10px 20px;
+}
+.category-body {
+  font-size: 14px;
+}
+.category-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  //   border-bottom: 1px solid var(--gray-blue);
+}
+
+.category-header .title {
+  color: var(--primray);
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+.organic-compound {
+  text-align: center;
+  border-top: 1px solid var(--gray-blue);
+  padding-top: 20px;
+}
+
+.organic-compound .title {
+  text-align: center;
+  color: var(--primray);
+}
+.organic-compound .compound-header {
+  margin-top: 10px;
+  background-color: var(--gray-blue);
+  padding: 0 5px;
+  border-radius: 0.25em;
+  color: var(--black);
+}
+
+.organic-compound .compound-body {
+  color: var(--primray);
+  padding: 0 5px 20px;
+}

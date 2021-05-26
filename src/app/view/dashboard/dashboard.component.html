@@ -1,3 +1,29 @@
-<p>dashboard works!</p>
+<!-- Alsaggaf -->
+<section class="main">
+    <div class="side-menu">
+        <img class="nitro-logo" src="../../../assets/images/Logo.svg">
+        <div class="logo-underline"></div>
 
-<app-shalabi></app-shalabi>
+        <!-- [routerLinkActive]="i != 0 ? 'active' : ''" -->
+        <nav class="menu">
+            <a *ngFor="let item of sideMenu; index as i" [routerLink]="i != 0 ? item.path : ''" class="items" [routerLinkActive]="i != 0 ? 'active' : ''">
+                <img class="icon" src="../../../assets/icons/{{item.img}}">
+                <span>{{ item.name | translate}}</span>
+            </a>
+        </nav>
+    </div>
+
+    <section class="dashboard">
+        <router-outlet></router-outlet>
+
+
+        <!-- Shalabi -->
+        <p>dashboard works!</p>
+        <app-shalabi></app-shalabi>
+        <!-- Shalabi End -->
+
+
+    </section>
+</section>
+
+<!-- Alsaggaf end -->

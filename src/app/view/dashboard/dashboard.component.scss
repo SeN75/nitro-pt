@@ -1,0 +1,66 @@
+@import "../../../scss/thems";
+.side-menu {
+  position: fixed;
+  width: 200px;
+  background-color: var(--primray);
+  top: 0;
+  height: 100%;
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+  overflow: auto;
+}
+.nitro-logo {
+  width: 90px;
+  height: auto;
+  display: block;
+  margin: 30px auto 0;
+}
+.main {
+  background-color: #f9faff;
+  height: 100%;
+  position: relative;
+  direction: rtl;
+}
+
+.logo-underline {
+  width: 95px;
+  height: 0.15px;
+  background-color: rgb(224, 224, 224);
+  margin: 10px auto 0;
+}
+
+.menu {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.main .items {
+  width: 100%;
+  padding: 10px;
+  color: white;
+  margin: 15px 0;
+  text-decoration: none;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.main .items span {
+  text-transform: capitalize;
+  margin: 0 20px;
+  font-size: 14px;
+}
+.main .items .icon {
+  width: 20px;
+  height: auto;
+}
+.main .items.active {
+  color: var(--primray);
+  background-color: white;
+  text-decoration: none;
+}
+
+.dashboard {
+  padding: 0 20px;
+  width: calc(100% - 200px);
+  margin-right: auto;
+}

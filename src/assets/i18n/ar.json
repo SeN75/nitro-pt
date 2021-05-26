@@ -1,0 +1,31 @@
+{
+    "SETTINGS": {
+        "": "",
+        "nitro": "نيترو",
+        "account-settings": "اعدادات الحساب"
+    },
+    "SUBSCRIBERS": {
+        "subscribers": "المشتركين"
+    },
+    "ORDERS": {
+        "orders": "الطلبات"
+    },
+    "CATEGORIES": {
+        "categories": "الاصناف",
+        "calories": "السعرات الحرارية",
+        "protein": "البروتين",
+        "carp":"الكارب",
+        "fat": "الدهون",
+        "measuring-unit": {
+            "": "وحده قياس",
+            "gram": "جرام",
+            "cup": "كوب"
+        }
+    },
+    "PACKAGES": {
+        "packages": "الباقات"
+    },
+    "WORKSOUT": {
+        "worksout": "التمارين الرياضية"
+    }
+} 

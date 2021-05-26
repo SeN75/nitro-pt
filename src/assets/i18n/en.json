@@ -1,0 +1,31 @@
+{
+    "SETTINGS": {
+        "": "",
+        "nitro": "nitro",
+        "account-settings": "account settings"
+    },
+    "SUBSCRIBERS": {
+        "subscribers": "subscribers"
+    },
+    "ORDERS": {
+        "orders": "orders"
+    },
+    "CATEGORIES": {
+        "categories": "categories",
+        "calories": "calories",
+        "protein": "protein",
+        "carp":"carp",
+        "fat": "fat",
+        "measuring-unit": {
+            "": "measuring unit",
+            "gram": "gram",
+            "cup": "cup"
+        }
+    },
+    "PACKAGES": {
+        "packages": "packages"
+    },
+    "WORKSOUT": {
+        "worksout": "worksout"
+    }
+} 

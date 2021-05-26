@@ -1,0 +1,59 @@
+@import "~@angular/material/theming";
+@include mat-core();
+
+:root {
+  --primray: #1d4980;
+  --gray: #adabac;
+  --gray-blue: #eff1f8;
+  --white: rgb(255, 255, 255);
+  --black: #1e1e1e;
+}
+
+$nt-primary: (
+  50: #c6e5fc,
+  100: #b4dcf8,
+  200: #93d0fc,
+  300: #78bae9,
+  400: #619bc5,
+  500: #2e72a3,
+  600: #2a5c99,
+  700: #1d4980,
+  800: #10335f,
+  900: #0a2241,
+  A100: #b4dcf8,
+  A200: #2e72a3,
+  A400: #1d4980,
+  A700: #10335f,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$nitro-primary: mat-palette($nt-primary);
+$nitro-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$nitro-warn: mat-palette($mat-red);
+$nitro-theme: mat-light-theme(
+  (
+    color: (
+      primary: $nitro-primary,
+      accent: $nitro-accent,
+      warn: $nitro-warn,
+    ),
+  )
+);
+@include angular-material-theme($nitro-theme);

@@ -1,0 +1,32 @@
+<section class="category-card">
+    <button mat-icon-button>
+        <mat-icon>open_in_new</mat-icon>
+    </button>
+    <header class="category-header">
+        <span class="title">{{category.title}}</span>
+        <span class="measruing-unit">
+            <label class="label">{{ 'CATEGORIES.measuring-unit.' | translate}}</label>
+            <p class="detail">{{ 'CATEGORIES.measuring-unit.' + category.type | translate}}</p>
+        </span>
+    </header>
+
+    <div class="category-body">
+        <div class="organic-compound" *ngFor="let compound of category.compounds">
+            <div class="title">{{ 'CATEGORIES.' + compound.title | translate}}</div>
+            <div class="container">
+                <div class="row compound-header">
+                    <div class="col">1 {{ 'CATEGORIES.measuring-unit.' + category.type | translate}} </div>
+                    <div class="col">100 {{ 'CATEGORIES.measuring-unit.' + category.type | translate}}</div>
+                    <div class="col">150 {{ 'CATEGORIES.measuring-unit.' + category.type | translate}}</div>
+                    <div class="col">250 {{ 'CATEGORIES.measuring-unit.' + category.type | translate}}</div>
+                </div>
+                <div class="row compound-body">
+                    <div class="col">{{category.unit}}</div>
+                    <div class="col">{{category.unit * 100}}</div>
+                    <div class="col">{{category.unit * 150}}</div>
+                    <div class="col">{{category.unit * 250}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

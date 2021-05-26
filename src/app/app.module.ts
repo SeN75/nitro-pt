@@ -9,17 +9,26 @@ import { LandingPageComponent } from './view/landing-page/landing-page.component
 import { RegistrationComponent } from './view/registration/registration.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { DashboardRoutingMoudle } from './view/dashboard/dashboard.routing.module';
+import { CategoryCardComponent } from './view/components/category-card/category-card.component';
+import { BaseComponent } from './view/components/base/base.component';
+import { DialogComponent } from './view/components/dialog/dialog.component';
+
 // functions for translet service {
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
 }
 
 import { DataTablesModule } from "angular-datatables";
-import { PackageCardComponent } from './view/package-card/package-card.component';
-import { ShalabiComponent } from './view/shalabi/shalabi.component';
-import { InfoItemComponent } from './view/info-item/info-item.component';
+import { PackageCardComponent } from './view/components/package-card/package-card.component';
+import { ShalabiComponent } from './view/components/shalabi/shalabi.component';
+import { InfoItemComponent } from './view/components/info-item/info-item.component';
 
 @NgModule({
   declarations: [
@@ -27,15 +36,25 @@ import { InfoItemComponent } from './view/info-item/info-item.component';
     DashboardComponent,
     LandingPageComponent,
     RegistrationComponent,
+    /* Shalabi Components */
     PackageCardComponent,
     ShalabiComponent,
     InfoItemComponent,
+
+    /* Alsaggaf Components */
+    CategoryCardComponent,
+    BaseComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    DashboardRoutingMoudle,
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule,
     TranslateModule,
     TranslateModule.forRoot({ // this is for translate
       loader: {
@@ -47,6 +66,7 @@ import { InfoItemComponent } from './view/info-item/info-item.component';
     DataTablesModule
   ],
   providers: [],
+  entryComponents: [DialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

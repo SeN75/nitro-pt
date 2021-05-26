@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { categories, sideMenu } from './../../_common/globle';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
+  sideMenu = sideMenu;
   constructor() { }
 
   ngOnInit(): void {
