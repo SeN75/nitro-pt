@@ -17,7 +17,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 }
 
 import { DataTablesModule } from "angular-datatables";
-import { PackageCardComponent } from './package-card/package-card.component';
+import { PackageCardComponent } from './view/package-card/package-card.component';
+import { ShalabiComponent } from './view/shalabi/shalabi.component';
+import { InfoItemComponent } from './view/info-item/info-item.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { PackageCardComponent } from './package-card/package-card.component';
     DashboardComponent,
     LandingPageComponent,
     RegistrationComponent,
-    PackageCardComponent
+    PackageCardComponent,
+    ShalabiComponent,
+    InfoItemComponent,
   ],
   imports: [
     BrowserModule,
