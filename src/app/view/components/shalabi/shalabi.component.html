@@ -1,76 +1,74 @@
-
-
 <div class="container">
     <div class="row">
-      <div class="col-4">
-        <app-package-card [package_title]="'باقة الصيف'" [package_months]=6 [package_price]=2000 [theme_number]=1 [with_button]=false></app-package-card>
-      </div>
-      <div class="col-4">
-        <app-package-card [package_title]="'باقة الطلاب'" [package_months]=6 [package_price]=2000 [theme_number]=2 [with_button]=true></app-package-card>
-      </div>
-      <div class="col-4">
-        <app-package-card [package_title]="'باقة التضخيم'" [package_months]=6 [package_price]=4000 [theme_number]=3 [with_button]=false></app-package-card>
-      </div>
+        <div class="col-4">
+            <app-package-card [package_title]="'باقة الصيف'" [package_months]=6 [package_price]=2000 [theme_number]=1 [with_button]=false></app-package-card>
+        </div>
+        <div class="col-4">
+            <app-package-card [package_title]="'باقة الطلاب'" [package_months]=6 [package_price]=2000 [theme_number]=2 [with_button]=true></app-package-card>
+        </div>
+        <div class="col-4">
+            <app-package-card [package_title]="'باقة التضخيم'" [package_months]=6 [package_price]=4000 [theme_number]=3 [with_button]=false></app-package-card>
+        </div>
     </div>
     <!-- Table -->
     <style>
         .table-theme-1 {
             border-spacing: 0 1em;
         }
-
+        
         .table-theme-1 th {
             border-collapse: collapse;
             background-color: #1D4980;
             color: #FFFFFF;
             height: 30px;
         }
-
+        
         .table-theme-1 td {
             border-collapse: collapse;
             background-color: transparent;
             color: #1D4980;
             height: 30px;
         }
-
+        
         .table-theme-1 tr {
             background-color: #FFFFFF;
             transition: 0.4s;
         }
-
+        
         .table-theme-1 tr:hover {
             cursor: pointer;
             transition: 0.4s;
         }
-
+        
         .table-theme-1 tr:hover~.table-theme-1 td {
             background-color: red!important;
         }
-
+        
         .table-theme-1 td {
             border-top: solid #E2E2E3 1px;
             border-bottom: solid #E2E2E3 1px;
         }
-
+        
         .table-theme-1 td:first-child {
             border-inline-start: solid #E2E2E3 1px;
         }
-
+        
         .table-theme-1 td:last-child {
             border-inline-end: solid #E2E2E3 1px;
         }
-
+        
         .table-theme-1 th {
             margin-bottom: 10px!important;
             margin-top: 10px!important;
         }
-
+        
         .table-theme-2 {
             border-collapse: collapse;
             background-color: #E2E2E3;
             color: #313438;
             height: 30px;
         }
-
+        
         a.table_row_link {
             display: table-cell;
             width: 100%;
@@ -164,16 +162,16 @@
 
     <div class="row">
         <div class="col-3">
-            <app-info-item [info_item_img]="'https://image.flaticon.com/icons/png/512/35/35774.png'" [info_item_title]="'الإسم'" [info_item_value]="'محمد شلبي'"></app-info-item>
+            <app-info-item [info_item_img]="'./assets/icons/profile/call.svg'" [info_item_title]="'الإسم'" [info_item_value]="'محمد شلبي'"></app-info-item>
         </div>
         <div class="col-3">
-            <app-info-item [info_item_img]="'https://image.flaticon.com/icons/png/512/35/35774.png'" [info_item_title]="'الإسم'" [info_item_value]="'محمد شلبي'"></app-info-item>
+            <app-info-item [info_item_img]="'./assets/icons/profile/gender.svg'" [info_item_title]="'الإسم'" [info_item_value]="'محمد شلبي'"></app-info-item>
         </div>
         <div class="col-3">
-            <app-info-item [info_item_img]="'https://image.flaticon.com/icons/png/512/35/35774.png'" [info_item_title]="'الإسم'" [info_item_value]="'محمد شلبي'"></app-info-item>
+            <app-info-item [info_item_img]="'./assets/icons/profile/health_issues_icon.svg'" [info_item_title]="'الإسم'" [info_item_value]="'محمد شلبي'"></app-info-item>
         </div>
         <div class="col-3">
-            <app-info-item [info_item_img]="'https://image.flaticon.com/icons/png/512/35/35774.png'" [info_item_title]="'الإسم'" [info_item_value]="'محمد شلبي'"></app-info-item>
+            <app-info-item [info_item_img]="'./assets/icons/profile/height-limit_icon.svg'" [info_item_title]="'الإسم'" [info_item_value]="'محمد شلبي'"></app-info-item>
         </div>
     </div>
 </div>
