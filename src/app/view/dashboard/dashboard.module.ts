@@ -9,6 +9,9 @@ import { SettingsComponent } from './settings/settings.component';
 
 
 import { MatIconModule } from '@angular/material/icon';
+import { DietPlanComponent } from './diet-plan/diet-plan.component';
+import { DietPlanViewDetailsComponent } from './diet-plan/diet-plan-view-details/diet-plan-view-details.component';
+import { DietPlanEditDetailsComponent } from './diet-plan/diet-plan-edit-details/diet-plan-edit-details.component';
 
 @NgModule({
     declarations: [
@@ -17,7 +20,10 @@ import { MatIconModule } from '@angular/material/icon';
         CategoriesComponent,
         PackagesComponent,
         WorksoutComponent,
-        SettingsComponent
+        SettingsComponent,
+        DietPlanComponent,
+        DietPlanViewDetailsComponent,
+        DietPlanEditDetailsComponent
     ],
     imports: [
         DashboardRoutingMoudle,

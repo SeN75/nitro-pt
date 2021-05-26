@@ -27,5 +27,7 @@
     },
     "WORKSOUT": {
         "worksout": "worksout"
+    },"DIETPLAN":{
+      "dietplan":"Diet Plans"
     }
-} 
+}

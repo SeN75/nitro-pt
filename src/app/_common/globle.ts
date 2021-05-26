@@ -4,6 +4,7 @@ export const sideMenu = [
     { name: "ORDERS.orders", img: "orders.svg", path: "/dashboard/orders" },
     { name: "CATEGORIES.categories", img: "protein.svg", path: "/dashboard/categories" },
     { name: "PACKAGES.packages", img: "subscription.svg", path: "/dashboard/packages" },
+    { name: "DIETPLAN.dietplan", img: "settings.svg", path: "/dashboard/diet" },
     { name: "WORKSOUT.worksout", img: "workout.svg", path: "/dashboard/worksout" },
     { name: "SETTINGS.account-settings", img: "settings.svg", path: "/dashboard/settings" },
 ]

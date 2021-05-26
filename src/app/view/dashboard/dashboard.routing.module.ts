@@ -1,3 +1,7 @@
+import { DietPlanEditDetailsComponent } from './diet-plan/diet-plan-edit-details/diet-plan-edit-details.component';
+import { DietPlanViewDetailsComponent } from './diet-plan/diet-plan-view-details/diet-plan-view-details.component';
+import { DietPlanComponent } from './diet-plan/diet-plan.component';
+import { ShalabiComponent } from './../components/shalabi/shalabi.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BaseComponent } from '../components/base/base.component';
@@ -17,6 +21,10 @@ const children: Routes = [
     { component: PackagesComponent, path: 'packages' },
     { component: WorksoutComponent, path: 'worksout' },
     { component: SettingsComponent, path: 'settings' },
+    { component: ShalabiComponent, path: 'shalabi' },
+    { component: DietPlanComponent, path: 'diet' },
+    { component: DietPlanViewDetailsComponent, path: 'diet/:id/view' },
+    { component: DietPlanEditDetailsComponent, path: 'diet/:id/edit' },
 
 ]
 const routes: Routes = [
