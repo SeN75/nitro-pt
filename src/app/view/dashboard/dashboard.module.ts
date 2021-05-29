@@ -12,6 +12,17 @@ import { MatIconModule } from '@angular/material/icon';
 import { DietPlanComponent } from './diet-plan/diet-plan.component';
 import { DietPlanViewDetailsComponent } from './diet-plan/diet-plan-view-details/diet-plan-view-details.component';
 import { DietPlanEditDetailsComponent } from './diet-plan/diet-plan-edit-details/diet-plan-edit-details.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRippleModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserModule } from '@angular/platform-browser';
+import { ComponentsModule } from '../components/components.module';
+import { PackageDialogComponent } from './packages/package-dialog/package-dialog.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -23,13 +34,28 @@ import { DietPlanEditDetailsComponent } from './diet-plan/diet-plan-edit-details
         SettingsComponent,
         DietPlanComponent,
         DietPlanViewDetailsComponent,
-        DietPlanEditDetailsComponent
+        DietPlanEditDetailsComponent,
+        PackagesComponent,
+        PackageDialogComponent,
     ],
     imports: [
+        BrowserModule,
+        TranslateModule,
+        TranslateModule.forRoot(),
         DashboardRoutingMoudle,
-        MatIconModule
+        MatButtonModule,
+        MatIconModule,
+        MatDialogModule,
+        MatCheckboxModule,
+        ComponentsModule,
+        MatRippleModule,
+        MatFormFieldModule,
+        MatInputModule,
+        FormsModule,
+        ReactiveFormsModule,
     ],
-    exports: []
+    exports: [],
+    entryComponents: [PackageDialogComponent]
 })
 
 export class DashboardMoudle { }

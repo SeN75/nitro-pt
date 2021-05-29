@@ -12,10 +12,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatRippleModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { DashboardRoutingMoudle } from './view/dashboard/dashboard.routing.module';
 import { CategoryCardComponent } from './view/components/category-card/category-card.component';
 import { BaseComponent } from './view/components/base/base.component';
 import { DialogComponent } from './view/components/dialog/dialog.component';
@@ -29,6 +31,9 @@ import { DataTablesModule } from "angular-datatables";
 import { PackageCardComponent } from './view/components/package-card/package-card.component';
 import { ShalabiComponent } from './view/components/shalabi/shalabi.component';
 import { InfoItemComponent } from './view/components/info-item/info-item.component';
+import { DashboardMoudle } from './view/dashboard/dashboard.module';
+import { ComponentsModule } from './view/components/components.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,7 +42,6 @@ import { InfoItemComponent } from './view/components/info-item/info-item.compone
     LandingPageComponent,
     RegistrationComponent,
     /* Shalabi Components */
-    PackageCardComponent,
     ShalabiComponent,
     InfoItemComponent,
 
@@ -51,11 +55,17 @@ import { InfoItemComponent } from './view/components/info-item/info-item.compone
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    DashboardRoutingMoudle,
+    DashboardMoudle,
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
+    MatRippleModule,
+    MatFormFieldModule,
+    MatInputModule,
     TranslateModule,
+    ComponentsModule,
+    FormsModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({ // this is for translate
       loader: {
         provide: TranslateLoader,
@@ -66,6 +76,7 @@ import { InfoItemComponent } from './view/components/info-item/info-item.compone
     DataTablesModule
   ],
   providers: [],
+  exports: [],
   entryComponents: [DialogComponent],
   bootstrap: [AppComponent]
 })

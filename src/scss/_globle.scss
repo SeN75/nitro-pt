@@ -1,4 +1,5 @@
 /*
+sidemenu
 */
 .side-menu {
   position: fixed;
@@ -65,9 +66,11 @@
   padding: 0 20px;
   width: calc(100% - 200px);
   margin-left: auto;
+  background-color: #f9faff;
 }
 
 /*
+sidemenu
 */
 
 .label {
@@ -88,8 +91,9 @@
 .dialog-title {
   color: var(--primray) !important;
   font-weight: bolder;
-  font-size: larger;
-  text-align: right;
+  text-transform: uppercase;
+  font-size: 26px;
+  text-align: left;
 }
 
 /* dialog */
@@ -103,16 +107,38 @@
 .form-group .form-control {
   background-color: var(--white);
   border: 1px solid var(--gray-blue);
+  color: var(--primray);
   height: 52px;
+  text-align: left;
+  outline: none !important;
+}
+.form-control:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .button-group {
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
+
   justify-content: center;
 }
 .button-group button {
   margin: 0 5px;
 }
 /*  fromgroup   */
+
+.content {
+  padding: 80px 20px 60px;
+}
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.title {
+  color: #1d4980;
+  text-transform: capitalize;
+}
