@@ -2,7 +2,8 @@
     "SETTINGS": {
         "": "",
         "nitro": "nitro",
-        "account-settings": "account settings"
+        "account-settings": "account settings",
+        "search": "search"
     },
     "SUBSCRIBERS": {
         "subscribers": "subscribers"
@@ -23,11 +24,27 @@
         }
     },
     "PACKAGES": {
-        "packages": "packages"
+        "packages": "packages",
+        "new-pack": "new package",
+        "add": "Add new package",
+        "edit": "update package information",
+        "pack-name": "package name",
+        "pack-duration": "package duration",
+        "pack-value": "package value",
+        "account-number": "account number",
+        "discount-amount": "discount amount",
+        "upload-attach": "upload attach",
+        "attach-name": "attach name",
+        "show-in-website": "show in webite"
     },
     "WORKSOUT": {
         "worksout": "worksout"
     },"DIETPLAN":{
       "dietplan":"Diet Plans"
+    },
+    "FORM": {
+        "add": "add",
+        "edit":"edit",
+        "cancel": "cancel"
     }
 }

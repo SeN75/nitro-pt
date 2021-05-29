@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DialogService } from './../../../_services/dialog.service';
 
 @Component({
   selector: 'package-card',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PackageCardComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogSrv: DialogService) { }
   ngOnInit(): void {
     if (this.with_button == false) {
       this.class_button = "hide_button"
@@ -20,4 +21,5 @@ export class PackageCardComponent implements OnInit {
   @Input() theme_number: number = 0;
   @Input() with_button: boolean = false;
   @Input() class_button: string = "";
+  @Input() pack: any;
 }

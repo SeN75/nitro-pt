@@ -29,3 +29,11 @@ export const categories = [
         ]
     }
 ]
+
+
+export const packages = [
+    { title: 'باقة الصيف', month: 6, price: 2000, accountNumber: "000000000", haveAttach: false, showOnWebsite: false, theme: 1, haveButton: false, },
+    { title: 'باقة الطلاب', month: 6, price: 2000, accountNumber: "000000000", haveAttach: false, showOnWebsite: false, theme: 2, haveButton: false },
+    { title: 'باقة التضخيم', month: 6, price: 2000, accountNumber: "000000000", haveAttach: false, showOnWebsite: false, theme: 3, haveButton: false },
+    { title: 'باقة التضخيم', month: 6, price: 2000, accountNumber: "000000000", haveAttach: false, showOnWebsite: false, theme: 3, haveButton: false },
+]

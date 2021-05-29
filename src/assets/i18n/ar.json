@@ -2,7 +2,8 @@
     "SETTINGS": {
         "": "",
         "nitro": "نيترو",
-        "account-settings": "اعدادات الحساب"
+        "account-settings": "اعدادات الحساب",
+        "search": "بحث"
     },
     "SUBSCRIBERS": {
         "subscribers": "المشتركين"
@@ -23,11 +24,27 @@
         }
     },
     "PACKAGES": {
-        "packages": "الباقات"
+        "packages": "الباقات",
+        "new-pack": "باقة جديدة",
+        "add": "اضافة باقة جديدة",
+        "edit": "تحديث بيانات الباقة",
+        "pack-name": "اسم الباقة",
+        "pack-duration": "مدة الباقة",
+        "pack-value": "قيمه الباقة",
+        "account-number": "رقم الحساب",
+        "discount-amount": "قيمه الخصم",
+        "upload-attach": "ارفاق مرفق",
+        "attach-name": "اسم المرفق",
+        "show-in-website": "عرض على الموقع"
     },
     "WORKSOUT": {
         "worksout": "التمارين الرياضية"
     },"DIETPLAN":{
       "dietplan":"البرامج الغذائية"
+    },
+    "FORM": {
+        "add": "اضافة",
+        "edit":"تعديل",
+        "cancel": "الالغاء"
     }
 }

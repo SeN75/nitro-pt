@@ -15,4 +15,22 @@
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
   }
+  .mat-form-field,
+  mat-form-field {
+    text-align: right;
+    direction: ltr;
+  }
+  .dialog-title,
+  .form-group .form-control,
+  .row {
+    text-align: right;
+  }
+  .button-group,
+  .row {
+    direction: rtl;
+  }
+  .mat-checkbox-inner-container {
+    margin: unset;
+    margin-left: 8px;
+  }
 }
