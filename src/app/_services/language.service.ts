@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 type direction = 'rtl' | 'ltr';
 type language = 'ar' | 'en';
+const body = document.getElementsByTagName('body')[0]
 @Injectable({
   providedIn: 'root'
 })
@@ -25,9 +26,12 @@ export class LanguageService {
   ar() {
     this.setLanguage('ar');
     this.setDirection('rtl');
+    body.classList.add('rtl-active');
   }
   en() {
     this.setLanguage('en')
     this.setDirection('ltr');
+    body.classList.remove('rtl-active');
+
   }
 }

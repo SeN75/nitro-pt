@@ -1,0 +1,18 @@
+.rtl-active {
+  text-align: right;
+  direction: rtl;
+  .dashboard {
+    margin: unset;
+    margin-right: auto;
+  }
+  .side-menu {
+    border-radius: 0;
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
+  }
+  .main .items {
+    border-radius: 0;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+}
