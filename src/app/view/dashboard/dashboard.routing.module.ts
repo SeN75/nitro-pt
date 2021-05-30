@@ -12,6 +12,7 @@ import { PackagesComponent } from './packages/packages.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SubscribersComponent } from './subscribers/subscribers.component';
 import { WorksoutComponent } from './worksout/worksout.component';
+import { ExerciseScheduleComponent } from './worksout/exercise-schedule/exercise-schedule.component';
 
 const children: Routes = [
     { component: BaseComponent, path: 'base' },
@@ -20,6 +21,7 @@ const children: Routes = [
     { component: CategoriesComponent, path: 'categories' },
     { component: PackagesComponent, path: 'packages' },
     { component: WorksoutComponent, path: 'worksout' },
+    { component: ExerciseScheduleComponent, path: 'worksout/exercise' },
     { component: SettingsComponent, path: 'settings' },
     { component: ShalabiComponent, path: 'shalabi' },
     { component: DietPlanComponent, path: 'diet' },

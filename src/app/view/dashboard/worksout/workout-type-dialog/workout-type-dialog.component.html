@@ -1,0 +1,18 @@
+<h1 mat-dialog-title class="dialog-title text-center"> {{'WORKSOUT.'+ (data.state == 'edit' ? 'edit' : 'add') |
+    translate}}</h1>
+<div mat-dialog-content class="row">
+    <div class="form-group col-12">
+        <label for="input">{{'WORKSOUT.type' | translate}}</label>
+        <input name="input" [formControl]="workoutType" class="form-control">
+    </div>
+    <div class="button-group mt-3">
+        <button mat-raised-button color="primary" (click)="action()"> {{'FORM.'+ (data.state == 'edit' ? 'edit' : 'add')
+            | translate}}
+        </button>
+        <button *ngIf="data.state != 'edit'" mat-stroked-button color="primary" (click)="onNoClick()"> {{'FORM.cancel'
+            |
+            translate}} </button>
+        <button *ngIf="data.state == 'edit'" mat-stroked-button color="warn" (click)="onNoClick()"> {{'FORM.remove' |
+            translate}} </button>
+    </div>
+</div>

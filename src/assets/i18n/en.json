@@ -38,13 +38,25 @@
         "show-in-website": "show in webite"
     },
     "WORKSOUT": {
-        "worksout": "worksout"
+        "table": "worksout table",
+        "worksout": "worksout",
+        "type": "type of workout",
+        "number": "number of worksout",
+        "add": "add workout type",
+        "edit": "edit type name workout",
+        "exercise-table": "table",
+        "name": "workout name",
+        "link": "workout link",
+        "execrise-add":"add workout", 
+        "execrise-edit":"edit workout"
+
     },"DIETPLAN":{
       "dietplan":"Diet Plans"
     },
     "FORM": {
         "add": "add",
         "edit":"edit",
-        "cancel": "cancel"
+        "cancel": "cancel",
+        "remove": "remove"
     }
 }

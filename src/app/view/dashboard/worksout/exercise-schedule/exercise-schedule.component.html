@@ -1,12 +1,13 @@
 <section class="content">
     <header class="page-header">
         <h1 class="title">
-            {{'WORKSOUT.table' | translate}}
+            {{(lang.dir == 'rtl'?'WORKSOUT.exercise-table': '') | translate}} {{workout.type}}{{(lang.dir ==
+            'ltr'?'WORKSOUT.exercise-table': '') | translate}}
         </h1>
         <span>
 
             <button class="mx-2" mat-raised-button color="primary"
-                (click)="dialogSrv.openWorkoutTypeDialog()">{{'WORKSOUT.add' |
+                (click)="dialogSrv.openWorkoutDialog()">{{'WORKSOUT.execrise-add' |
                 translate}}</button>
         </span>
     </header>
@@ -15,24 +16,22 @@
             <thead class="text-center">
                 <tr>
                     <th>#</th>
-                    <th>{{'WORKSOUT.type' | translate}}</th>
-                    <th>{{'WORKSOUT.number' | translate}}</th>
+                    <th>{{'WORKSOUT.name' | translate}}</th>
+                    <th>{{'WORKSOUT.link' | translate}}</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody class="text-center">
-                <tr *ngFor="let workout of workouts; let i = index">
+                <tr *ngFor="let workout of workout.exercises; let i = index">
                     <td>{{i + 1 }}</td>
-                    <td>{{workout.type}}</td>
-                    <td>{{workout.exercises.length}}</td>
+                    <td>{{workout.name}}</td>
+                    <td>{{workout.link}}</td>
                     <td class="text-end">
                         <span>
-                            <button mat-icon-button (click)="dialogSrv.openWorkoutTypeDialog('edit', workout)">
+                            <button mat-icon-button (click)="dialogSrv.openWorkoutDialog('edit', workout)">
                                 <mat-icon>edit</mat-icon>
                             </button>
-                            <button mat-icon-button (click)="showExercise(workout)">
-                                <mat-icon>arrow_back_ios</mat-icon>
-                            </button>
+
 
                         </span>
                     </td>

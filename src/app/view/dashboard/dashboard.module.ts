@@ -23,6 +23,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ComponentsModule } from '../components/components.module';
 import { PackageDialogComponent } from './packages/package-dialog/package-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DataTablesModule } from 'angular-datatables';
+import { WorkoutDialogComponent } from './worksout/workout-dialog/workout-dialog.component';
+import { WorkoutTypeDialogComponent } from './worksout/workout-type-dialog/workout-type-dialog.component';
+import { ExerciseScheduleComponent } from './worksout/exercise-schedule/exercise-schedule.component';
 
 @NgModule({
     declarations: [
@@ -37,6 +41,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         DietPlanEditDetailsComponent,
         PackagesComponent,
         PackageDialogComponent,
+        WorkoutDialogComponent,
+        WorkoutTypeDialogComponent,
+        ExerciseScheduleComponent
     ],
     imports: [
         BrowserModule,
@@ -53,9 +60,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         MatInputModule,
         FormsModule,
         ReactiveFormsModule,
+        DataTablesModule
     ],
     exports: [],
-    entryComponents: [PackageDialogComponent]
+    entryComponents: [PackageDialogComponent, WorkoutTypeDialogComponent, WorkoutDialogComponent]
 })
 
 export class DashboardMoudle { }

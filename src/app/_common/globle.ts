@@ -37,3 +37,18 @@ export const packages = [
     { title: 'باقة التضخيم', month: 6, price: 2000, accountNumber: "000000000", haveAttach: false, showOnWebsite: false, theme: 3, haveButton: false },
     { title: 'باقة التضخيم', month: 6, price: 2000, accountNumber: "000000000", haveAttach: false, showOnWebsite: false, theme: 3, haveButton: false },
 ]
+
+export const workout = [
+    {
+        type: 'workout name', exercises: [
+            { name: 'exercies', link: 'http://localhost:4200/dashboard/worksout' },
+            { name: 'exercies', link: 'http://localhost:4200/dashboard/worksout' },
+        ]
+    },
+    {
+        type: 'workout name', exercises: [
+            { name: 'exercies', link: 'http://localhost:4200/dashboard/worksout' },
+            { name: 'exercies', link: 'http://localhost:4200/dashboard/worksout' },
+        ]
+    },
+]
