@@ -27,6 +27,10 @@ import { DataTablesModule } from 'angular-datatables';
 import { WorkoutDialogComponent } from './worksout/workout-dialog/workout-dialog.component';
 import { WorkoutTypeDialogComponent } from './worksout/workout-type-dialog/workout-type-dialog.component';
 import { ExerciseScheduleComponent } from './worksout/exercise-schedule/exercise-schedule.component';
+import { CategoryTypeDialogComponent } from './categories/category-type-dialog/category-type-dialog.component';
+import { CategoriesTableComponent } from './categories/categories-table/categories-table.component';
+import { CategoriesDialogComponent } from './categories/categories-dialog/categories-dialog.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
@@ -43,7 +47,10 @@ import { ExerciseScheduleComponent } from './worksout/exercise-schedule/exercise
         PackageDialogComponent,
         WorkoutDialogComponent,
         WorkoutTypeDialogComponent,
-        ExerciseScheduleComponent
+        ExerciseScheduleComponent,
+        CategoryTypeDialogComponent,
+        CategoriesTableComponent,
+        CategoriesDialogComponent
     ],
     imports: [
         BrowserModule,
@@ -59,11 +66,18 @@ import { ExerciseScheduleComponent } from './worksout/exercise-schedule/exercise
         MatFormFieldModule,
         MatInputModule,
         FormsModule,
+        RouterModule,
         ReactiveFormsModule,
         DataTablesModule
     ],
     exports: [],
-    entryComponents: [PackageDialogComponent, WorkoutTypeDialogComponent, WorkoutDialogComponent]
+    entryComponents: [
+        PackageDialogComponent,
+        WorkoutTypeDialogComponent,
+        WorkoutDialogComponent,
+        CategoryTypeDialogComponent,
+        CategoriesDialogComponent
+    ]
 })
 
 export class DashboardMoudle { }

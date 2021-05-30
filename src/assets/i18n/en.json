@@ -13,12 +13,22 @@
     },
     "CATEGORIES": {
         "categories": "categories",
+        "table": "categories table",
+        "add": "add new category type",
+        "new-type": "new category type",
+        "name": "name",
+        "number": "total",
+        "new-cate": "new category",
+        "type": "category type",
+        "calc":"calculation method",
+        "per": "per",
         "calories": "calories",
         "protein": "protein",
         "carp":"carp",
         "fat": "fat",
         "measuring-unit": {
-            "": "measuring unit",
+            "": "",
+            "unit": "measuring unit",
             "gram": "gram",
             "cup": "cup"
         }
@@ -57,6 +67,7 @@
         "add": "add",
         "edit":"edit",
         "cancel": "cancel",
-        "remove": "remove"
+        "remove": "remove",
+        "back": "back"
     }
 }

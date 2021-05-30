@@ -1,11 +1,13 @@
 <section class="category-card">
-    <button mat-icon-button>
-        <mat-icon>open_in_new</mat-icon>
-    </button>
+    <div class="text-end">
+        <button mat-icon-button (click)="dialogSrv.openCategoryDialog('edit', category)">
+            <mat-icon>more_horiz</mat-icon>
+        </button>
+    </div>
     <header class="category-header">
         <span class="title">{{category.title}}</span>
         <span class="measruing-unit">
-            <label class="label">{{ 'CATEGORIES.measuring-unit.' | translate}}</label>
+            <label class="label">{{ 'CATEGORIES.measuring-unit.unit' | translate}}</label>
             <p class="detail">{{ 'CATEGORIES.measuring-unit.' + category.type | translate}}</p>
         </span>
     </header>

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { CategoriesDialogComponent } from '../view/dashboard/categories/categories-dialog/categories-dialog.component';
+import { CategoryTypeDialogComponent } from '../view/dashboard/categories/category-type-dialog/category-type-dialog.component';
 import { PackageDialogComponent } from '../view/dashboard/packages/package-dialog/package-dialog.component';
 import { WorkoutDialogComponent } from '../view/dashboard/worksout/workout-dialog/workout-dialog.component';
 import { WorkoutTypeDialogComponent } from '../view/dashboard/worksout/workout-type-dialog/workout-type-dialog.component';
@@ -47,7 +49,27 @@ export class DialogService {
       minWidth: '450px',
       maxWidth: "750px",
       width: 'auto',
-      data: { state: state, workout: workout, test: 'te' }
+      data: { state: state, workout: workout }
+    });
+    dialogRef.afterClosed().subscribe(res => console.log("dialog closed"));
+  }
+  openCategoryTypeDialog(state?: string, cate?: any) {
+    const dialogRef = this.dialog.open(CategoryTypeDialogComponent, {
+      height: 'auto',
+      minWidth: '450px',
+      maxWidth: "750px",
+      width: 'auto',
+      data: { state: state, cate: cate }
+    });
+    dialogRef.afterClosed().subscribe(res => console.log("dialog closed"));
+  }
+  openCategoryDialog(state?: string, cate?: any) {
+    const dialogRef = this.dialog.open(CategoriesDialogComponent, {
+      height: 'auto',
+      minWidth: '450px',
+      maxWidth: "750px",
+      width: 'auto',
+      data: { state: state, cate: cate }
     });
     dialogRef.afterClosed().subscribe(res => console.log("dialog closed"));
   }

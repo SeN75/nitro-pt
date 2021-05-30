@@ -30,6 +30,14 @@ export const categories = [
     }
 ]
 
+export const categoriesWithcompounds = [
+    { catType: 'protein', categories: categories },
+    { catType: 'fat', categories: categories },
+    { catType: 'carp', categories: categories },
+]
+
+
+export const measuring_units = ['gram', 'cup']
 
 export const packages = [
     { title: 'باقة الصيف', month: 6, price: 2000, accountNumber: "000000000", haveAttach: false, showOnWebsite: false, theme: 1, haveButton: false, },

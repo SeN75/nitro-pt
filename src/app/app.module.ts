@@ -46,7 +46,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     InfoItemComponent,
 
     /* Alsaggaf Components */
-    CategoryCardComponent,
     BaseComponent,
     DialogComponent
   ],

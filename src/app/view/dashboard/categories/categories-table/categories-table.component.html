@@ -1,0 +1,39 @@
+<section class="content">
+    <header class="page-header">
+        <h1 class="title">
+            {{'CATEGORIES.table' | translate}}
+        </h1>
+        <span style="align-items: inherit; display: flex;" routerLink="..">
+            <button mat-button>
+                {{'FORM.back' | translate}}
+                <mat-icon color="primary" class="mx-2">arrow_back</mat-icon>
+            </button>
+        </span>
+    </header>
+    <header class="row  page-header page-header-card  my-4 aling-items-center">
+        <div class="col">
+            <h3 class="title">{{categorySrv.categories.catType}}</h3>
+        </div>
+        <div class="col text-center">
+            <h4>
+                <label class="label">{{'CATEGORIES.number' | translate}}</label>
+                <p class="detail"> {{categorySrv.categories.categories.length}}</p>
+            </h4>
+        </div>
+        <div class="col text-end aling-self-center">
+            <mat-form-field appearance="outline">
+                <mat-label>{{'SETTINGS.search' | translate}}</mat-label>
+                <mat-icon *ngIf="lang.dir == 'rtl'" matPrefix>search</mat-icon>
+                <mat-icon *ngIf="lang.dir == 'ltr'" matSuffix>search</mat-icon>
+                <input type="text" matInput placeholder="{{'SETTINGS.search' | translate}}">
+            </mat-form-field>
+            <button class="mx-2" mat-raised-button color="primary"
+                (click)="dialogSrv.openCategoryDialog()">{{'CATEGORIES.new-cate' |
+                translate}}</button>
+        </div>
+    </header>
+    <div class="body row">
+        <category-card class="col" *ngFor="let cate of categorySrv.categories.categories" [category]="cate">
+        </category-card>
+    </div>
+</section>

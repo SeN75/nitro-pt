@@ -13,12 +13,14 @@ import { SettingsComponent } from './settings/settings.component';
 import { SubscribersComponent } from './subscribers/subscribers.component';
 import { WorksoutComponent } from './worksout/worksout.component';
 import { ExerciseScheduleComponent } from './worksout/exercise-schedule/exercise-schedule.component';
+import { CategoriesTableComponent } from './categories/categories-table/categories-table.component';
 
 const children: Routes = [
     { component: BaseComponent, path: 'base' },
     { component: SubscribersComponent, path: 'subscribers' },
     { component: OrdersComponent, path: 'orders' },
     { component: CategoriesComponent, path: 'categories' },
+    { component: CategoriesTableComponent, path: 'categories/compounds' },
     { component: PackagesComponent, path: 'packages' },
     { component: WorksoutComponent, path: 'worksout' },
     { component: ExerciseScheduleComponent, path: 'worksout/exercise' },
