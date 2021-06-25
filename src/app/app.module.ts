@@ -29,6 +29,8 @@ import { DataTablesModule } from "angular-datatables";
 import { PackageCardComponent } from './view/components/package-card/package-card.component';
 import { ShalabiComponent } from './view/components/shalabi/shalabi.component';
 import { InfoItemComponent } from './view/components/info-item/info-item.component';
+import { DashboardMoudle } from './view/dashboard/dashboard.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,7 @@ import { InfoItemComponent } from './view/components/info-item/info-item.compone
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    DashboardRoutingMoudle,
+    DashboardMoudle,
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
@@ -63,7 +65,9 @@ import { InfoItemComponent } from './view/components/info-item/info-item.compone
         deps: [HttpClient]
       }
     }),
-    DataTablesModule
+    DataTablesModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   entryComponents: [DialogComponent],

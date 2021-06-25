@@ -9,7 +9,7 @@ export class DietPlanService {
     calories:2000,
     protein:50,
     carbs:25,
-    fat:25
+    fat:25,
   }
   constructor() { }
 }
