@@ -28,9 +28,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 }
 
 import { DataTablesModule } from "angular-datatables";
-import { PackageCardComponent } from './view/components/package-card/package-card.component';
 import { ShalabiComponent } from './view/components/shalabi/shalabi.component';
-import { InfoItemComponent } from './view/components/info-item/info-item.component';
 import { DashboardMoudle } from './view/dashboard/dashboard.module';
 import { ComponentsModule } from './view/components/components.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -43,7 +41,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RegistrationComponent,
     /* Shalabi Components */
     ShalabiComponent,
-    InfoItemComponent,
 
     /* Alsaggaf Components */
     BaseComponent,

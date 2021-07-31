@@ -151,4 +151,48 @@ sidemenu
 
 .body {
   margin-top: 65px;
+  height: 75vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+/* width */
+.scroll::-webkit-scrollbar {
+  width: 0.7em;
+}
+.scroll::-webkit-scrollbar:hover {
+  width: 30px !important;
+}
+
+/* Track */
+.scroll::-webkit-scrollbar-track {
+  background: var(--gray-blue);
+}
+
+/* Handle */
+.scroll::-webkit-scrollbar-thumb {
+  background: var(--gray);
+}
+
+/* Handle on hover */
+.scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--gray);
+}
+
+.nitro-card {
+  background-color: var(--white);
+  border: 1px solid var(--gray-blue);
+  box-shadow: 2px ​1px 5px 2px var(--gray-blue);
+  padding: 1.5em 0.8em;
+}
+
+/* */
+mat-expansion-panel {
+  box-shadow: 0px 3px 3px -2px rgb(29 73 128 / 20%),
+    0px 2px 2px 0px rgb(29 73 128 / 14%), 0px 1px 5px 0px rgb(29 73 128 / 12%) !important;
+}
+
+mat-panel-title {
+  color: #1d4980 !important;
+  font-size: 1.2em;
 }

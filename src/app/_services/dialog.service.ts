@@ -73,4 +73,14 @@ export class DialogService {
     });
     dialogRef.afterClosed().subscribe(res => console.log("dialog closed"));
   }
+  openSubscribersDialog(state?: string, cate?: any) {
+    const dialogRef = this.dialog.open(CategoriesDialogComponent, {
+      height: 'auto',
+      minWidth: '450px',
+      maxWidth: "750px",
+      width: 'auto',
+      data: { state: state, cate: cate }
+    });
+    dialogRef.afterClosed().subscribe(res => console.log("dialog closed"));
+  }
 }

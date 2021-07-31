@@ -6,10 +6,50 @@
         "search": "search"
     },
     "SUBSCRIBERS": {
-        "subscribers": "subscribers"
+        "subscribers": "subscribers",
+        "table": "Subscribers Schedule ",
+        "name": "Subscriber's name",
+        "start-date": "Subscription start date",
+        "end-date": "Subscription end date",
+        "amount-paid": "Subscription amount",
+        "subscription-number": "Subscription number",
+        "status": "status",
+        "info": "subscriber information",
+        "joint-sports-health": "joint sports health",
+        "work-type": "work type",
+        "health-problem": "health problem ",
+        "use-of-supplements": "use of supplements",
+        "goal-of-programe": "goal of programe",
+        "sleeping-hours": "sleeping hours",
+        "bed-time": "bed time",
+        "wakeup-time": "wakeup time",
+        "number-of-meals": "number of meals can eat",
+        "current-program": "current programe",
+        "non-preferred-food": "non preferred food",
+        "allergenic-food": "allergenic food",
+        "recent-operations": "Operations recently conducted"
+    },
+    "PERSONAL-DATA": {
+        "personal-data": "personal data",
+        "name": "name",
+        "contact-number": "contact number",
+        "birthday": "birthday",
+        "social-status": "social status",
+        "gender": "gender",
+        "height": "height",
+        "wight": "wight",
+        "city": "city"
     },
     "ORDERS": {
-        "orders": "orders"
+        "orders": "orders",
+        "new-table": "new order",
+        "complete-table": "complete order",
+        "no": "order no",
+        "name": "customer name",
+        "type": "order type",
+        "status": "order status",
+        "date": "order date",
+        "info": "order information"
     },
     "CATEGORIES": {
         "categories": "categories",
@@ -57,7 +97,7 @@
         "exercise-table": "table",
         "name": "workout name",
         "link": "workout link",
-        "execrise-add":"add workout", 
+        "execrise-add":"add workout",
         "execrise-edit":"edit workout"
 
     },"DIETPLAN":{

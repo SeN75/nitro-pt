@@ -6,10 +6,50 @@
         "search": "بحث"
     },
     "SUBSCRIBERS": {
-        "subscribers": "المشتركين"
+        "subscribers": "المشتركين",
+        "table": "جدول المشتركين ",
+        "name": "اسم  المشترك",
+        "start-date": "تاريخ بداية الاشتراك",
+        "end-date": "تاريخ نهاية الاشتراك",
+        "amount-paid": "المبلغ الاشتراك",
+        "subscription-number": "رقم الاشتراك",
+        "status": "الحاله",
+        "info": "معلومات المشترك",
+        "joint-sports-health": "معلومات المشترك الرياضية الصحية",
+        "work-type": "طبيعة العمل",
+        "health-problem": "مشاكل صحية ",
+        "use-of-supplements": "استعمال المكملات",
+        "goal-of-programe": "الهدف من البرنامح",
+        "sleeping-hours": "ساعات النوم",
+        "bed-time": "وقت النوم",
+        "wakeup-time": "وقت الاستيقاظ",
+        "number-of-meals": "عدد الوجبات الممكن اكلها",
+        "current-program": "البرنامج الحالي",
+        "non-preferred-food": "طعام غير مفضل",
+        "allergenic-food": "مسببات حساسية",
+        "recent-operations": "عمليات اجريت ماخرا"
+    },
+    "PERSONAL-DATA": {
+        "personal-data": "بيانات الشخصية",
+        "name": "الاسم",
+        "contact-number": "رقم التواصل",
+        "birthday": "تاريخ الميلاد",
+        "social-status": "الحالة الاجتماعية",
+        "gender": "الجنس",
+        "height": "الطول",
+        "wight": "الوزن",
+        "city": "المدينة"
     },
     "ORDERS": {
-        "orders": "الطلبات"
+        "orders": "الطلبات",
+        "new-table": "الطلبات الجديده",
+        "complete-table": "الطلبات المنتهية",
+        "no": "رقم الطلب",
+        "name": "اسم  المشترك",
+        "type": "نوع الطلب",
+        "status": "حالة الطلب",
+        "date": "تاريخ الطلب",
+        "info": "معلومات الطلب"
     },
     "CATEGORIES": {
         "categories": "الاصناف",
@@ -65,7 +105,7 @@
         "exercise-table": "جدول",
         "name": "اسم التمرين",
         "link": "رابط التمرين",
-        "execrise-add":"اضافة تمرين", 
+        "execrise-add":"اضافة تمرين",
         "execrise-edit":"تعديل تمرين"
     },
     "DIETPLAN":{
