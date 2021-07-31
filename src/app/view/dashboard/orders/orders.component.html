@@ -1,1 +1,84 @@
-<p>orders works!</p>
+<section class="content">
+  <header class="page-header">
+    <h1 class="title">
+      {{'ORDERS.new-table' | translate}}
+    </h1>
+    <span>
+    </span>
+  </header>
+  <div class="body">
+    <table datatable [dtOptions]="dtOptions" class="table-theme-1 hover">
+      <thead class="text-center">
+        <tr>
+          <th>#</th>
+          <th>{{'ORDERS.no' | translate}}</th>
+          <th>{{'ORDERS.name' | translate}}</th>
+          <th>{{'ORDERS.type' | translate}}</th>
+          <th>{{'ORDERS.status' | translate}}</th>
+          <th>{{'ORDERS.date' | translate}}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let order of newOrders; let i = index">
+          <td>{{i + 1 }}</td>
+          <td>{{order.orderNo}}</td>
+          <td>{{order.name}}</td>
+          <td>{{order.orderType}}</td>
+          <td>{{order.orderStatus}}</td>
+          <td>{{order.orderDate | date}}</td>
+          <td class="text-end">
+            <span>
+
+              <button mat-icon-button (click)="showOrder(order)">
+                <mat-icon>arrow_back_ios</mat-icon>
+              </button>
+
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <header class="page-header mt-3">
+    <h1 class="title">
+      {{'ORDERS.complete-table' | translate}}
+    </h1>
+    <span>
+    </span>
+  </header>
+  <div class="body">
+    <table datatable [dtOptions]="dtOptions" class="table-theme-1 hover">
+      <thead class="text-center">
+        <tr>
+          <th>#</th>
+          <th>{{'ORDERS.no' | translate}}</th>
+          <th>{{'ORDERS.name' | translate}}</th>
+          <th>{{'ORDERS.type' | translate}}</th>
+          <th>{{'ORDERS.status' | translate}}</th>
+          <th>{{'ORDERS.date' | translate}}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let order of newOrders; let i = index">
+          <td>{{i + 1 }}</td>
+          <td>{{order.orderNo}}</td>
+          <td>{{order.name}}</td>
+          <td>{{order.orderType}}</td>
+          <td>{{order.orderStatus}}</td>
+          <td>{{order.orderDate | date}}</td>
+          <td class="text-end">
+            <span>
+
+              <button mat-icon-button (click)="showOrder(order)">
+                <mat-icon>arrow_back_ios</mat-icon>
+              </button>
+
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
