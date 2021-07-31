@@ -1,0 +1,47 @@
+<section class="content">
+  <header class="page-header">
+    <h1 class="title">
+      {{'SUBSCRIBERS.info' | translate}}
+    </h1>
+    <span style="align-items: inherit; display: flex;" routerLink="..">
+      <button mat-button>
+        {{'FORM.back' | translate}}
+        <mat-icon color="primary" class="mx-2">arrow_back</mat-icon>
+      </button>
+    </span>
+  </header>
+  <header class="nitro-card row mt-3">
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.name' | translate}}" [info_item_value]="'محمد شلبي'">
+    </info-item>
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.start-date' | translate}}" [info_item_value]="'محمد شلبي'">
+    </info-item>
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.end-date' | translate}}" [info_item_value]="'محمد شلبي'">
+    </info-item>
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.amount-paid' | translate}}" [info_item_value]="'محمد شلبي'">
+    </info-item>
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.subscription-number' | translate}}"
+      [info_item_value]="'محمد شلبي'">
+    </info-item>
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.status' | translate}}" [info_item_value]="'محمد شلبي'">
+    </info-item>
+  </header>
+  <div class="body scroll">
+
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title color="primary">
+            {{'PERSONAL-DATA.personal-data' | translate}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <personal-data [info]="info.personalData" class="mt-3"></personal-data>
+        <div class="my-5">
+          <mat-label color="primary"> {{'SUBSCRIBERS.joint-sports-health' | translate}}
+          </mat-label>
+        </div>
+        <sports-health-suber-info [info]="info.subscriber"></sports-health-suber-info>
+      </mat-expansion-panel>
+
+    </mat-accordion>
+  </div>
+</section>

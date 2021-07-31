@@ -1,1 +1,48 @@
-<p>subscribers works!</p>
+<section class="content">
+  <header class="page-header">
+    <h1 class="title">
+      {{'SUBSCRIBERS.table' | translate}}
+    </h1>
+    <span>
+      <!--
+            <button class="mx-2" mat-raised-button color="primary"
+                (click)="dialogSrv.openCategoryTypeDialog()">{{'SUBSCRIBERS.new' |
+                translate}}</button> -->
+    </span>
+  </header>
+  <div class="body">
+    <table datatable [dtOptions]="dtOptions" class="table-theme-1 hover">
+      <thead class="text-center">
+        <tr>
+          <th>#</th>
+          <th>{{'SUBSCRIBERS.name' | translate}}</th>
+          <th>{{'SUBSCRIBERS.start-date' | translate}}</th>
+          <th>{{'SUBSCRIBERS.end-date' | translate}}</th>
+          <th>{{'SUBSCRIBERS.amount-paid' | translate}}</th>
+          <th>{{'SUBSCRIBERS.subscription-number' | translate}}</th>
+          <th>{{'SUBSCRIBERS.status' | translate}}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let sub of subscribers; let i = index">
+          <td>{{i + 1 }}</td>
+          <td>{{sub.name }}</td>
+          <td>{{sub.startDate | date }}</td>
+          <td>{{sub.endDate | date }}</td>
+          <td>{{sub.amountPaid | number:'1.2-2' }}</td>
+          <td>{{sub.subscriptionNumber }}</td>
+          <td>{{sub.status }}</td>
+          <td class="text-end">
+            <span>
+              <button mat-icon-button routerLink="client-details">
+                <mat-icon>arrow_back_ios</mat-icon>
+              </button>
+
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
