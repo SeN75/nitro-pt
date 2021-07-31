@@ -19,6 +19,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { ComponentsModule } from '../components/components.module';
 import { PackageDialogComponent } from './packages/package-dialog/package-dialog.component';
@@ -31,6 +33,8 @@ import { CategoryTypeDialogComponent } from './categories/category-type-dialog/c
 import { CategoriesTableComponent } from './categories/categories-table/categories-table.component';
 import { CategoriesDialogComponent } from './categories/categories-dialog/categories-dialog.component';
 import { RouterModule } from '@angular/router';
+import { SubscriberInfoComponent } from './subscribers/subscriber-info/subscriber-info.component';
+import { OrderInfoComponent } from './orders/order-info/order-info.component';
 
 @NgModule({
     declarations: [
@@ -50,7 +54,9 @@ import { RouterModule } from '@angular/router';
         ExerciseScheduleComponent,
         CategoryTypeDialogComponent,
         CategoriesTableComponent,
-        CategoriesDialogComponent
+        CategoriesDialogComponent,
+        SubscriberInfoComponent,
+        OrderInfoComponent
     ],
     imports: [
         BrowserModule,
@@ -63,6 +69,7 @@ import { RouterModule } from '@angular/router';
         MatCheckboxModule,
         ComponentsModule,
         MatRippleModule,
+        MatExpansionModule,
         MatFormFieldModule,
         MatInputModule,
         FormsModule,
