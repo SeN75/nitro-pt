@@ -29,12 +29,14 @@
 }
 
 .package_feature_title {
-  font-size: 12px;
+  font: normal normal normal 13px/29px Helvetica;
+  color: #1d4980;
 }
 
 .package_feature_value {
-  font-size: 44px;
   position: relative;
+  font: normal normal normal 35px/78px Helvetica;
+  color: #1d4980;
 }
 
 .package_edit_link {
@@ -48,10 +50,9 @@
 
 .package_feature_value::before {
   content: "•";
-  font-size: 100px;
+  font-size: 65px;
   position: absolute;
   right: 5%;
-  bottom: -50%;
 }
 
 .package_theme_1 .package_card_header {
@@ -106,4 +107,5 @@
   opacity: 0;
   display: none !important;
 }
+
 /* Other Buttons Styles Goes Here */

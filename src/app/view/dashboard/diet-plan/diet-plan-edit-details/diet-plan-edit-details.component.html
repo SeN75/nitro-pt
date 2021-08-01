@@ -1,1 +1,179 @@
 <p>diet-plan-edit-details works!</p>
+
+<div class="container">
+    <div class="content_section">
+        <div class="content_title">الجداول الغذائية</div>
+        <!-- <div class="flex_container titles content_flex"> -->
+        <div class="row diet_plan_row">
+            <div class="col-2">
+                <input type="text" [(ngModel)]="table_name" class="form-control" placeholder="اسم الجدول">
+            </div>
+
+            <div class="col-2">
+                <input type="text" [(ngModel)]="calories_count" class="form-control" placeholder="السعرات الحرارية">
+            </div>
+
+            <div class="col-2">
+                <input type="text" [(ngModel)]="protein_count" class="form-control" placeholder="نسبة البروتين ٪">
+            </div>
+
+            <div class="col-2">
+                <input type="text" [(ngModel)]="carbs_count" class="form-control" placeholder="نسبة الكربوهيدرات ٪">
+            </div>
+
+            <div class="col-2">
+                <input type="text" [(ngModel)]="fat_count" class="form-control" placeholder="نسبة الدهون ٪">
+            </div>
+
+            <div class="col-2">
+                <button class="button_add" (click)="addTable()">إضافة جدول</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2 diet_plan_header">اسم الجدول</div>
+            <div class="col-2 diet_plan_header">عدد الوجبات</div>
+            <div class="col-2 diet_plan_header">إجمالي السعرات</div>
+            <div class="col-2 diet_plan_header">&nbsp;</div>
+            <div class="col-2 diet_plan_header">&nbsp;</div>
+            <div class="col-2 diet_plan_header">&nbsp;</div>
+        </div>
+
+        <div class="row dietplan_container" *ngFor="let item_table of tables">
+
+
+            <div class="col-2 diet_plan_header_inner_table">{{item_table.table_name}}</div>
+            <div class="col-2 diet_plan_header_inner_table">{{item_table.calories_count}}</div>
+            <div class="col-2 diet_plan_header_inner_table">{{item_table.protein_count}}</div>
+            <div class="col-2 diet_plan_header_inner_table">{{item_table.carbs_count}}</div>
+            <div class="col-2 diet_plan_header_inner_table">{{item_table.fat_count}}</div>
+            <div class="col-2 diet_plan_header_inner_table">&nbsp;</div>
+
+            <div class="row diet_plan_row">
+                <div class="col-10">
+                    <input type="text" [(ngModel)]="meal_name" class="form-control" placeholder="إسم الوجبة">
+                </div>
+                <div class="col-2">
+                    <button class="button_add" (click)="addMeal()">إضافة وجبة</button>
+                </div>
+            </div>
+
+            <div class="row diet_plan_meal">
+                <div class="row diet_plan_values">
+                    <div class="col-2">اسم الوجبة</div>
+                    <div class="col-2">عدد الأصناف</div>
+                    <div class="col-2">إجمالي السعرات</div>
+                    <div class="col-2">&nbsp;</div>
+                    <div class="col-2">&nbsp;</div>
+                    <div class="col-2">&nbsp;</div>
+                    <!-- <div class="col-2">
+                        <button class="button_add">إضافة وجبة</button>
+                    </div> -->
+                </div>
+
+                <div class="meal" *ngFor="let item_meal of meals">
+                    <div class="row diet_plan_values">
+                        <div class="col-2">{{item_meal.meal_name}}</div>
+                        <div class="col-2">{{item_meal.meal_categories_count}}</div>
+                        <div class="col-2">{{item_meal.meal_calories_count}}</div>
+                        <div class="col-2">&nbsp;</div>
+                        <div class="col-2">&nbsp;</div>
+                        <div class="col-2"><button class="button_add" (click)="addCategory()">إضافة صنف</button></div>
+                    </div>
+
+                    <div class="row">
+                        <table>
+                            <tr *ngFor="let item of categories_service;index as i;" [class.cate_active]="cate_selected===i&&cate_checked">
+                                <td><input type="checkbox" (click)="cate_selected=i;cate_checked= !cate_checked" [(ngModel)]="cate_checked"></td>
+                                <td>{{item.title}}</td>
+                                <td *ngFor="let comp of item.compounds">
+                                    {{comp.title}}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="categories_table">
+                        <div class="row diet_plan_values">
+                            <div class="col">اسم الصنف</div>
+                            <div class="col">السعرات الحرارية</div>
+                            <div class="col">البروتين</div>
+                            <div class="col">الكارب</div>
+                            <div class="col">الدهون</div>
+                            <div class="col">البروتين / جم</div>
+                            <div class="col">الكارب / جم</div>
+                            <div class="col">الدهون / جم</div>
+                        </div>
+                        <div class="row diet_plan_values" *ngFor="let category_item of item_meal.meal_categories">
+                            <div class="col">{{category_item.category_name}}</div>
+                            <div class="col">{{category_item.category_calories}}</div>
+                            <div class="col">{{category_item.category_protein}}</div>
+                            <div class="col">{{category_item.category_carbs}}</div>
+                            <div class="col">{{category_item.category_fat}}</div>
+                            <div class="col">{{category_item.category_protein_gram}}g</div>
+                            <div class="col">{{category_item.category_carbs_gram}}g</div>
+                            <div class="col">{{category_item.category_fat_gram}}g</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="diet_plan_table">
+                        <div class="flex_container titles">
+                            <div class="row_title empty_row_title">&nbsp;</div>
+                            <div class="flex_item">السعرات الحرارية</div>
+                            <div class="flex_item">البروتين</div>
+                            <div class="flex_item">الكارب</div>
+                            <div class="flex_item">الدهون</div>
+                            <div class="flex_item">البروتين / جم</div>
+                            <div class="flex_item">الكارب / جم</div>
+                            <div class="flex_item">الدهون / جم</div>
+                        </div>
+
+                        <div class="flex_container dite_plan_data">
+                            <div class="row_title empty_row_title">&nbsp;</div>
+                            <div class="flex_item">{{item_table.calories_count}}</div>
+                            <div class="flex_item">{{(item_table.protein_count/100)*calories}}</div>
+                            <div class="flex_item">{{(item_table.carbs_count/100)*calories}}</div>
+                            <div class="flex_item">{{(item_table.fat_count/100)*calories}}</div>
+                            <div class="flex_item">{{((item_table.protein_count/100)*calories)/4}}g</div>
+                            <div class="flex_item">{{((item_table.carbs_count/100)*calories)/4}}g</div>
+                            <div class="flex_item">{{((item_table.fat_count/100)*calories)/9 | number:'1.2-2'}}g</div>
+                        </div>
+                        <div class="flex_container dite_plan_data">
+                            <div class="row_title empty_row_title">&nbsp;</div>
+                            <div class="flex_item">100%</div>
+                            <div class="flex_item">{{item_table.protein_count}}</div>
+                            <div class="flex_item">{{item_table.carbs_count}}</div>
+                            <div class="flex_item">{{item_table.fat_count}}</div>
+                            <div class="flex_item">&nbsp;</div>
+                            <div class="flex_item">G</div>
+                            <div class="flex_item">&nbsp;</div>
+                        </div>
+                        <div class="flex_container">
+                            <div class="row_title">المدخلات</div>
+                            <div class="flex_item">500</div>
+                            <div class="flex_item">200</div>
+                            <div class="flex_item">200</div>
+                            <div class="flex_item">180</div>
+                            <div class="flex_item">50g</div>
+                            <div class="flex_item">50g</div>
+                            <div class="flex_item">20g</div>
+                        </div>
+                        <div class="flex_container">
+                            <div class="row_title">المتبقي</div>
+                            <div class="flex_item">{{item_table.calories_count}}</div>
+                            <div class="flex_item">{{(item_table.protein_count/100)*calories}}</div>
+                            <div class="flex_item">{{(item_table.carbs_count/100)*calories}}</div>
+                            <div class="flex_item">{{(item_table.fat_count/100)*calories}}</div>
+                            <div class="flex_item">{{((item_table.protein_count/100)*calories)/4}}g</div>
+                            <div class="flex_item">{{((item_table.carbs_count/100)*calories)/4}}g</div>
+                            <div class="flex_item">{{((item_table.fat_count/100)*calories)/9 | number:'1.2-2'}}g</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

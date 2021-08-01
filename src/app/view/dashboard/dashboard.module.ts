@@ -7,7 +7,6 @@ import { PackagesComponent } from './packages/packages.component';
 import { WorksoutComponent } from './worksout/worksout.component';
 import { SettingsComponent } from './settings/settings.component';
 
-
 import { MatIconModule } from '@angular/material/icon';
 import { DietPlanComponent } from './diet-plan/diet-plan.component';
 import { DietPlanViewDetailsComponent } from './diet-plan/diet-plan-view-details/diet-plan-view-details.component';
@@ -37,54 +36,55 @@ import { SubscriberInfoComponent } from './subscribers/subscriber-info/subscribe
 import { OrderInfoComponent } from './orders/order-info/order-info.component';
 
 @NgModule({
-    declarations: [
-        SubscribersComponent,
-        OrdersComponent,
-        CategoriesComponent,
-        PackagesComponent,
-        WorksoutComponent,
-        SettingsComponent,
-        DietPlanComponent,
-        DietPlanViewDetailsComponent,
-        DietPlanEditDetailsComponent,
-        PackagesComponent,
-        PackageDialogComponent,
-        WorkoutDialogComponent,
-        WorkoutTypeDialogComponent,
-        ExerciseScheduleComponent,
-        CategoryTypeDialogComponent,
-        CategoriesTableComponent,
-        CategoriesDialogComponent,
-        SubscriberInfoComponent,
-        OrderInfoComponent
-    ],
-    imports: [
-        BrowserModule,
-        TranslateModule,
-        TranslateModule.forRoot(),
-        DashboardRoutingMoudle,
-        MatButtonModule,
-        MatIconModule,
-        MatDialogModule,
-        MatCheckboxModule,
-        ComponentsModule,
-        MatRippleModule,
-        MatExpansionModule,
-        MatFormFieldModule,
-        MatInputModule,
-        FormsModule,
-        RouterModule,
-        ReactiveFormsModule,
-        DataTablesModule
-    ],
-    exports: [],
-    entryComponents: [
-        PackageDialogComponent,
-        WorkoutTypeDialogComponent,
-        WorkoutDialogComponent,
-        CategoryTypeDialogComponent,
-        CategoriesDialogComponent
-    ]
+  declarations: [
+    SubscribersComponent,
+    OrdersComponent,
+    CategoriesComponent,
+    PackagesComponent,
+    WorksoutComponent,
+    SettingsComponent,
+    DietPlanComponent,
+    DietPlanViewDetailsComponent,
+    DietPlanEditDetailsComponent,
+    PackagesComponent,
+    PackageDialogComponent,
+    WorkoutDialogComponent,
+    WorkoutTypeDialogComponent,
+    ExerciseScheduleComponent,
+    CategoryTypeDialogComponent,
+    CategoriesTableComponent,
+    CategoriesDialogComponent,
+    SubscriberInfoComponent,
+    OrderInfoComponent
+  ],
+  imports: [
+    BrowserModule,
+    TranslateModule,
+    TranslateModule.forRoot(),
+    DashboardRoutingMoudle,
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule,
+    MatCheckboxModule,
+    ComponentsModule,
+    MatRippleModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    RouterModule,
+    ReactiveFormsModule,
+    DataTablesModule,
+    BrowserModule,
+  ],
+  exports: [],
+  entryComponents: [
+    PackageDialogComponent,
+    WorkoutTypeDialogComponent,
+    WorkoutDialogComponent,
+    CategoryTypeDialogComponent,
+    CategoriesDialogComponent
+  ]
 })
 
 export class DashboardMoudle { }

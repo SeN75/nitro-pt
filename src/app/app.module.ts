@@ -31,6 +31,7 @@ import { DataTablesModule } from "angular-datatables";
 import { ShalabiComponent } from './view/components/shalabi/shalabi.component';
 import { DashboardMoudle } from './view/dashboard/dashboard.module';
 import { ComponentsModule } from './view/components/components.module';
+import { InfoItemComponent } from './view/components/info-item/info-item.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -69,7 +70,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         deps: [HttpClient]
       }
     }),
-    DataTablesModule
+    DataTablesModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   exports: [],

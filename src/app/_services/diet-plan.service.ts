@@ -5,10 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class DietPlanService {
   dietPlanOjbect = {
+    name:'برنامج شلبي',
     calories:2000,
-    protein:40,
-    carbs:40,
-    fat:20
+    protein:50,
+    carbs:25,
+    fat:25,
   }
   constructor() { }
 }
