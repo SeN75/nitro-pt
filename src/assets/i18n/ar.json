@@ -111,6 +111,17 @@
     "DIETPLAN":{
       "dietplan":"البرامج الغذائية"
     },
+    "BODY": {
+      "upper-chest": "محيط الصدر",
+      "lower-chest": "اسفل الصدر",
+      "hips": "الخصر",
+      "abs": "البطن",
+      "quadriceps": "الارداف",
+      "hamstrings": "الفخذ",
+      "calves": "بطة الساق",
+      "biceps": "العضد(الزند)"
+
+    },
     "FORM": {
         "add": "اضافة",
         "edit":"تعديل",

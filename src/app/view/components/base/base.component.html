@@ -1,13 +1,16 @@
 <div class="container">
-    <h1>Category card</h1>
-    <div class="row">
-        <category-card *ngFor="let catego of categories" class="col" [category]="catego"></category-card>
-    </div>
-    <h1 class="mt-5">Dialog</h1>
+  <h1>Category card</h1>
+  <div class="row">
+    <category-card *ngFor="let catego of categories" class="col" [category]="catego"></category-card>
+  </div>
+  <h1 class="mt-5">Dialog</h1>
 
-    <div class="row">
-        <div class="col">
-            <button mat-button (click)="dialogSrv.openDialog()" class="">open</button>
-        </div>
+  <div class="row">
+    <div class="col">
+      <button mat-button (click)="dialogSrv.openDialog()" class="">open</button>
     </div>
+  </div>
+  <body-measurements>
+  </body-measurements>
+
 </div>

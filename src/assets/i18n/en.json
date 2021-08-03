@@ -103,6 +103,17 @@
     },"DIETPLAN":{
       "dietplan":"Diet Plans"
     },
+    "BODY": {
+      "upper-chest": "upper chest",
+      "lower-chest": "lower chest",
+      "hips": "hips",
+      "abs": "abs",
+      "quadriceps": "quadriceps",
+      "hamstrings": "hamstrings",
+      "calves": "calves",
+      "biceps": "biceps"
+
+    },
     "FORM": {
         "add": "add",
         "edit":"edit",
