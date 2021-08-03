@@ -12,17 +12,17 @@ import { DietplanCategory } from 'src/app/models/DietplanCategory';
 })
 
 export class DietPlanEditDetailsComponent implements OnInit {
-  calories: number = 0;
-  protein: number = 0;
-  carbs: number = 0;
-  fat: number = 0;
+  calories: number|any;
+  protein: number|any;
+  carbs: number|any;
+  fat: number|any;
 
 
-  public table_name : String = '';
-  public calories_count: number = 0;
-  public protein_count: number = 0;
-  public carbs_count: number = 0;
-  public fat_count: number = 0;
+  public table_name : String|any;
+  public calories_count: number|any;
+  public protein_count: number|any;
+  public carbs_count: number|any;
+  public fat_count: number|any;
   public tables : DietplanTable[] = [];
   public meals : DietplanMeal[] = [];
   public categories : DietplanCategory[] = [];
