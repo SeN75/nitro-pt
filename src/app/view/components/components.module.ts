@@ -10,6 +10,7 @@ import { PersonalDataComponent } from './info-items/personal-data/personal-data.
 import { MatExpansionModule } from "@angular/material/expansion";
 import { SportsHealthSuberInfoComponent } from './info-items/sports-health-suber-info/sports-health-suber-info.component';
 import { BodyMeasurementsComponent } from './body-measurements/body-measurements.component';
+import { BodyPicInfoComponent } from './info-items/body-pic-info/body-pic-info.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BodyMeasurementsComponent } from './body-measurements/body-measurements
     InfoItemComponent,
     PersonalDataComponent,
     SportsHealthSuberInfoComponent,
-    BodyMeasurementsComponent
+    BodyMeasurementsComponent,
+    BodyPicInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { BodyMeasurementsComponent } from './body-measurements/body-measurements
     InfoItemComponent,
     PersonalDataComponent,
     SportsHealthSuberInfoComponent,
-    BodyMeasurementsComponent
+    BodyMeasurementsComponent,
+    BodyPicInfoComponent,
   ]
 })
 export class ComponentsModule { }

@@ -119,7 +119,16 @@
       "quadriceps": "الارداف",
       "hamstrings": "الفخذ",
       "calves": "بطة الساق",
-      "biceps": "العضد(الزند)"
+      "biceps": "العضد(الزند)",
+      "body-measurements-info": "معلومات قياسات الجسم",
+      "take-the-examination": "طريقة اخذ الفحص",
+      "traditional": "طريقة تقليدية",
+      "weight": "وزن الجسم",
+      "pic": "صور الجسم",
+      "front": "أمامية",
+      "back": "خلفية",
+      "right": "جانبي (يمين)",
+      "left": "جانبي (يسار)"
 
     },
     "FORM": {

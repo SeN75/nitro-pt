@@ -77,11 +77,13 @@ sidemenu
   text-transform: capitalize;
   font-size: 12px;
   color: var(--gray);
+  font-weight: bold;
 }
 .detail {
   text-transform: capitalize;
   color: var(--primray);
   font-size: 16px;
+  font-weight: bold;
 }
 
 /* dialog */
@@ -194,5 +196,6 @@ mat-expansion-panel {
 
 mat-panel-title {
   color: #1d4980 !important;
+  font-weight: bold;
   font-size: 1.2em;
 }

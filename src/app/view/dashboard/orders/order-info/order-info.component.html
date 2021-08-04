@@ -1,4 +1,3 @@
-<p>order-info works!</p>
 <section class="content">
   <header class="page-header">
     <h1 class="title">
@@ -48,7 +47,37 @@
         <sports-health-suber-info [info]="info.subscriber"></sports-health-suber-info>
 
       </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{'BODY.body-measurements-info' | translate}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="text-center mb-4">
+          <div class="label-2">{{'BODY.take-the-examination' | translate}}</div>
+          <div class="detail-2">{{'BODY.traditional' | translate}}</div>
+        </div>
+        <body-measurements [info]="info.bodyMeasurements"></body-measurements>
+        <div class="">
+          <div class="label">{{'BODY.weight' | translate}}</div>
+          <div class="detail">
+            {{info.bodyMeasurements.weight}}
+          </div>
+        </div>
+      </mat-expansion-panel>
 
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{'BODY.pic' | translate}}
+          </mat-panel-title>
+
+        </mat-expansion-panel-header>
+
+        <body-pic-info>
+
+        </body-pic-info>
+      </mat-expansion-panel>
     </mat-accordion>
   </div>
 </section>

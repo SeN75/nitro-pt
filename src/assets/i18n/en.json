@@ -111,8 +111,10 @@
       "quadriceps": "quadriceps",
       "hamstrings": "hamstrings",
       "calves": "calves",
-      "biceps": "biceps"
-
+      "biceps": "biceps",
+      "body-measurements-info": "body measurements infomation",
+      "take-the-examination": "take the examination",
+      "traditional": "traditional way"
     },
     "FORM": {
         "add": "add",
