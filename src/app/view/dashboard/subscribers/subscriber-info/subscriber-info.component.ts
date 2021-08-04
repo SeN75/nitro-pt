@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatAccordion } from '@angular/material/expansion';
 
 @Component({
   selector: 'app-subscriber-info',
@@ -30,12 +31,28 @@ export class SubscriberInfoComponent implements OnInit {
       nonPrefrredFood: "سلمون و تونا ",
       allergenicFood: "الفستق و اللوز",
       recentOperations: "استئصال الزائده",
-
+    },
+    bodyMeasurements: {
+      upperChest: 0,
+      lowerChest: 0,
+      hips: 0,
+      abs: 0,
+      quadriceps: 0,
+      hamstrings: 0,
+      calves: 0,
+      biceps: 0,
+      weight: 85
+    },
+    ditePlan: {
+      planName: ''
     }
   }
   constructor() { }
+  @ViewChild(MatAccordion, { static: false })
+  accordion!: MatAccordion;
 
   ngOnInit(): void {
+    this.accordion.openAll()
   }
 
 }

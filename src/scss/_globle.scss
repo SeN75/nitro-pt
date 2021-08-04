@@ -194,7 +194,8 @@ mat-expansion-panel {
     0px 2px 2px 0px rgb(29 73 128 / 14%), 0px 1px 5px 0px rgb(29 73 128 / 12%) !important;
 }
 
-mat-panel-title {
+mat-panel-title,
+.section-title {
   color: #1d4980 !important;
   font-weight: bold;
   font-size: 1.2em;

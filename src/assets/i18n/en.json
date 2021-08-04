@@ -101,7 +101,9 @@
         "execrise-edit":"edit workout"
 
     },"DIETPLAN":{
-      "dietplan":"Diet Plans"
+      "dietplan":"Diet Plans",
+      "add": "add a diet program",
+      "no-plan": "there is no diet"
     },
     "BODY": {
       "upper-chest": "upper chest",
@@ -119,6 +121,10 @@
     "FORM": {
         "add": "add",
         "edit":"edit",
+        "save": "save",
+        "edit-info":"edit info",
+        "current-info":"current info",
+        "old-info":"old info",
         "cancel": "cancel",
         "remove": "remove",
         "back": "back"

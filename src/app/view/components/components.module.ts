@@ -11,6 +11,7 @@ import { MatExpansionModule } from "@angular/material/expansion";
 import { SportsHealthSuberInfoComponent } from './info-items/sports-health-suber-info/sports-health-suber-info.component';
 import { BodyMeasurementsComponent } from './body-measurements/body-measurements.component';
 import { BodyPicInfoComponent } from './info-items/body-pic-info/body-pic-info.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,8 @@ import { BodyPicInfoComponent } from './info-items/body-pic-info/body-pic-info.c
     MatIconModule,
     MatButtonModule,
     MatExpansionModule,
+    ReactiveFormsModule,
+    FormsModule
 
   ],
   exports: [

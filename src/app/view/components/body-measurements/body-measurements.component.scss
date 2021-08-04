@@ -1,10 +1,11 @@
 .body-m {
-  display: inline-block;
+  margin-top: 0.8em;
+  display: flex;
+  justify-content: space-between;
 }
 
 .title_and_value {
-  margin-bottom: -10px;
-  font-size: 18px;
+  font-size: 14px;
   color: #1d4980;
   font-weight: bold;
 }
@@ -15,4 +16,20 @@
 .body_img {
   margin-left: 30px;
   margin-right: unset;
+}
+.body_input {
+  width: 60px;
+  height: 35px;
+  text-align: center;
+  color: #1d4980;
+  margin-top: 10px;
+}
+
+.label-2 {
+  font: normal normal normal 14px/5px Helvetica;
+  color: #adabac;
+}
+.detail-2 {
+  font: normal normal bold 23px/52px Helvetica;
+  color: #1d4980;
 }
