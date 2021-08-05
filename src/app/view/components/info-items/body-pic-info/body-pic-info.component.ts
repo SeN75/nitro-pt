@@ -7,10 +7,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BodyPicInfoComponent implements OnInit {
   @Input() info: any = {
-    front: '../../../../../assets/images/noImage.png',
-    back: '../../../../../assets/images/noImage.png',
-    right: '../../../../../assets/images/noImage.png',
-    left: '../../../../../assets/images/noImage.png'
+    front: '',
+    back: '',
+    right: '',
+    left: ''
   }
   constructor() { }
 
