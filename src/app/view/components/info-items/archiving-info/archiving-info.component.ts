@@ -59,7 +59,6 @@ export class ArchivingInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.info)
   }
 
 }

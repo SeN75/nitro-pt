@@ -28,9 +28,9 @@ const children: Routes = [
   { component: PackagesComponent, path: 'packages' },
   { component: WorksoutComponent, path: 'worksout' },
   { component: ExerciseScheduleComponent, path: 'worksout/exercise' },
-  { component: SettingsComponent, path: 'settings' },
+  { component: SettingsComponent, path: 'account-settings' },
   { component: ShalabiComponent, path: 'shalabi' },
-  { component: DietPlanComponent, path: 'diet' },
+  { component: DietPlanComponent, path: 'dietplan' },
   { component: DietPlanViewDetailsComponent, path: 'diet/:id/view' },
   { component: DietPlanEditDetailsComponent, path: 'diet/:id/edit' },
 

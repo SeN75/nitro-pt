@@ -116,7 +116,8 @@
     "PROGRAM": {
       "add": "اضافة برنامج",
       "archives": "الارشيف",
-      "record-date": "تاريخ تسجيل الارشيف"
+      "record-date": "تاريخ تسجيل الارشيف",
+      "no-archives": "لا يوجد ارشيف بعد"
     },
     "BODY": {
       "upper-chest": "محيط الصدر",

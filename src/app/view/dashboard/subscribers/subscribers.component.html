@@ -27,15 +27,15 @@
       <tbody class="text-center">
         <tr *ngFor="let sub of subscribers; let i = index">
           <td>{{i + 1 }}</td>
-          <td>{{sub.name }}</td>
-          <td>{{sub.startDate | date }}</td>
-          <td>{{sub.endDate | date }}</td>
-          <td>{{sub.amountPaid | number:'1.2-2' }}</td>
-          <td>{{sub.subscriptionNumber }}</td>
-          <td>{{sub.status }}</td>
+          <td>{{sub.personalData.name }}</td>
+          <td>{{sub.subStartDate | date }}</td>
+          <td>{{sub.subEndDate | date }}</td>
+          <td>{{sub.subAmount | number:'1.2-2' }}</td>
+          <td>{{sub.subNo }}</td>
+          <td class="{{sub.subStatus}}">{{'STATUS.'+sub.subStatus | translate }}</td>
           <td class="text-end">
             <span>
-              <button mat-icon-button routerLink="client-details">
+              <button mat-icon-button (click)="subscribersDetails(sub)">
                 <mat-icon>arrow_back_ios</mat-icon>
               </button>
 

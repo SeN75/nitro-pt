@@ -108,7 +108,8 @@
     "PROGRAM": {
       "add": "add program",
       "archives": "archives",
-      "record-date": "archive record date"
+      "record-date": "archive record date",
+      "no-archives": "There is no archive yet"
     },
     "BODY": {
       "upper-chest": "upper chest",

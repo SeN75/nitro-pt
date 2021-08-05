@@ -11,8 +11,8 @@
         <div class="info_title">
           {{info_item_title}}
         </div>
-        <div class="info_value
-                {{is_status ? info_item_value: ''}}">
+        <div class="info_value {{info_item_value}}
+                ">
           {{(is_status ? ('STATUS.'+info_item_value) : info_item_value) | translate}}
 
 

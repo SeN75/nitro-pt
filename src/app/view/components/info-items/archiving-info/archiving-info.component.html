@@ -41,3 +41,9 @@
     </div>
   </mat-expansion-panel>
 </mat-accordion>
+<div class="card py-2 px-3" *ngIf="info.length == 0">
+  <h3 class="section-title mt-0">
+    {{'PROGRAM.no-archives' | translate}}
+
+  </h3>
+</div>
