@@ -12,6 +12,7 @@ import { SportsHealthSuberInfoComponent } from './info-items/sports-health-suber
 import { BodyMeasurementsComponent } from './body-measurements/body-measurements.component';
 import { BodyPicInfoComponent } from './info-items/body-pic-info/body-pic-info.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ArchivingInfoComponent } from './info-items/archiving-info/archiving-info.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     PersonalDataComponent,
     SportsHealthSuberInfoComponent,
     BodyMeasurementsComponent,
-    BodyPicInfoComponent
+    BodyPicInfoComponent,
+    ArchivingInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +43,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     SportsHealthSuberInfoComponent,
     BodyMeasurementsComponent,
     BodyPicInfoComponent,
+    ArchivingInfoComponent
   ]
 })
 export class ComponentsModule { }

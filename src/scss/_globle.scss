@@ -200,3 +200,17 @@ mat-panel-title,
   font-weight: bold;
   font-size: 1.2em;
 }
+
+/*status*/
+.active {
+  color: #4bb543;
+}
+.need-update {
+  color: #ffcc00;
+}
+.expired {
+  color: #cc3300;
+}
+.newly {
+  color: #1d4980;
+}

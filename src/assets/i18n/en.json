@@ -105,6 +105,11 @@
       "add": "add a diet program",
       "no-plan": "there is no diet"
     },
+    "PROGRAM": {
+      "add": "add program",
+      "archives": "archives",
+      "record-date": "archive record date"
+    },
     "BODY": {
       "upper-chest": "upper chest",
       "lower-chest": "lower chest",
@@ -117,6 +122,12 @@
       "body-measurements-info": "body measurements infomation",
       "take-the-examination": "take the examination",
       "traditional": "traditional way"
+    },
+    "STATUS": {
+      "active": " Active subscription",
+      "need-update": " Requires data update",
+      "expired": "subscription expired ",
+      "newly": "Newly structured"
     },
     "FORM": {
         "add": "add",

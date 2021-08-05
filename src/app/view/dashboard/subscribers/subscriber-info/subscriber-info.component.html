@@ -11,18 +11,23 @@
     </span>
   </header>
   <header class="nitro-card row mt-3">
-    <info-item class="col" info_item_title="{{'SUBSCRIBERS.name' | translate}}" [info_item_value]="'محمد شلبي'">
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.name' | translate}}"
+      [info_item_value]="info.personalData.name">
     </info-item>
-    <info-item class="col" info_item_title="{{'SUBSCRIBERS.start-date' | translate}}" [info_item_value]="'محمد شلبي'">
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.start-date' | translate}}"
+      info_item_value="{{info.subStartDate | date}}">
     </info-item>
-    <info-item class="col" info_item_title="{{'SUBSCRIBERS.end-date' | translate}}" [info_item_value]="'محمد شلبي'">
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.end-date' | translate}}"
+      info_item_value="{{info.subEndDate | date}}">
     </info-item>
-    <info-item class="col" info_item_title="{{'SUBSCRIBERS.amount-paid' | translate}}" [info_item_value]="'محمد شلبي'">
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.amount-paid' | translate}}"
+      [info_item_value]="info.subAmount">
     </info-item>
     <info-item class="col" info_item_title="{{'SUBSCRIBERS.subscription-number' | translate}}"
-      [info_item_value]="'محمد شلبي'">
+      [info_item_value]="info.subNo">
     </info-item>
-    <info-item class="col" info_item_title="{{'SUBSCRIBERS.status' | translate}}" [info_item_value]="'محمد شلبي'">
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.status' | translate}}" [is_status]=true
+      info_item_value="{{info.subStatus}}">
     </info-item>
   </header>
   <div class="body scroll">
@@ -66,7 +71,7 @@
           </div>
         </div>
       </mat-expansion-panel>
-
     </mat-accordion>
+    <archiving-info [info]="info.archives"></archiving-info>
   </div>
 </section>

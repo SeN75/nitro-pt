@@ -1,21 +1,24 @@
 <!-- Profile Info -->
 <div class="info_item">
-    <div class="row align-items-center">
-        <div class="col-2" *ngIf="info_item_img">
-            <div class="info_img">
-                <img src="{{info_item_img}}" alt="">
-            </div>
-        </div>
-        <div class="col-10">
-            <div class="row">
-                <div class="info_title">
-                    {{info_item_title}}
-                </div>
-                <div class="info_value">
-                    {{info_item_value}}
-                </div>
-            </div>
-        </div>
+  <div class="row align-items-center">
+    <div class="col-2" *ngIf="info_item_img">
+      <div class="info_img">
+        <img src="{{info_item_img}}" alt="">
+      </div>
     </div>
+    <div class="col-10">
+      <div class="row">
+        <div class="info_title">
+          {{info_item_title}}
+        </div>
+        <div class="info_value
+                {{is_status ? info_item_value: ''}}">
+          {{(is_status ? ('STATUS.'+info_item_value) : info_item_value) | translate}}
+
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <!-- Profile Info End -->
