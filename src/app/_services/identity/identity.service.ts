@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { API } from './../_helpers/api.config';
+import { API } from '../../_helpers/api.config';
 import { TranslateService } from '@ngx-translate/core';
-import { LoggerService } from './logger.service';
+import { LoggerService } from '../logger.service';
 const Identity = API + "auth/";
 @Injectable({
   providedIn: 'root'
