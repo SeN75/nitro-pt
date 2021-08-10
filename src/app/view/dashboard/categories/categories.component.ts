@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { categoriesWithcompounds } from 'src/app/_common/globle';
 import { DialogService } from './../../../_services/dialog.service';
 import { Router } from '@angular/router';
-import { CategoriesService } from './../../../_services/categories.service';
+import { FoodCategoriesService } from '../../../_services/dite/food-categories.service';
 
 @Component({
   selector: 'app-categories',
@@ -13,7 +13,7 @@ export class CategoriesComponent implements OnInit {
   categories = categoriesWithcompounds;
   dtOptions: DataTables.Settings = {};
 
-  constructor(public dialogSrv: DialogService, private categorySrv: CategoriesService, private router: Router) { }
+  constructor(public dialogSrv: DialogService, private categorySrv: FoodCategoriesService, private router: Router) { }
 
   ngOnInit(): void {
     this.dtOptions = {

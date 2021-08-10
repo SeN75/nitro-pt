@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LanguageService } from 'src/app/_services/language.service';
 import { DialogService } from './../../../../_services/dialog.service';
-import { WorkoutService } from './../../../../_services/workout.service';
+import { ExercisesService } from '../../../../_services/gym/exercises.service';
 
 @Component({
   selector: 'app-exercise-schedule',
@@ -12,7 +12,7 @@ export class ExerciseScheduleComponent implements OnInit {
   workout: any;
   dtOptions: DataTables.Settings = {};
 
-  constructor(public dialogSrv: DialogService, private workoutSrv: WorkoutService, public lang: LanguageService) {
+  constructor(public dialogSrv: DialogService, private workoutSrv: ExercisesService, public lang: LanguageService) {
     this.workoutSrv.checkWorkout()
     this.workout = this.workoutSrv.workout;
   }

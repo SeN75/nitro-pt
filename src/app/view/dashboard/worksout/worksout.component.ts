@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { workout } from 'src/app/_common/globle';
 import { LanguageService } from 'src/app/_services/language.service';
-import { WorkoutService } from 'src/app/_services/workout.service';
+import { ExercisesService } from 'src/app/_services/gym/exercises.service';
 import { DialogService } from './../../../_services/dialog.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class WorksoutComponent implements OnInit {
   workouts = workout;
   constructor(
     public dialogSrv: DialogService,
-    private workoutSrv: WorkoutService,
+    private workoutSrv: ExercisesService,
     private router: Router,
   ) { }
 

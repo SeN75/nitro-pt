@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogService } from 'src/app/_services/dialog.service';
 import { LanguageService } from 'src/app/_services/language.service';
-import { CategoriesService } from './../../../../_services/categories.service';
+import { FoodCategoriesService } from '../../../../_services/dite/food-categories.service';
 
 @Component({
   selector: 'app-categories-table',
@@ -10,7 +10,7 @@ import { CategoriesService } from './../../../../_services/categories.service';
 })
 export class CategoriesTableComponent implements OnInit {
 
-  constructor(public dialogSrv: DialogService, public categorySrv: CategoriesService, public lang: LanguageService) {
+  constructor(public dialogSrv: DialogService, public categorySrv: FoodCategoriesService, public lang: LanguageService) {
 
   }
 
