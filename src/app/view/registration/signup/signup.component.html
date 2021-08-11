@@ -1,0 +1,134 @@
+<h3 class="text-center section-title  ">{{'FORM.new-registr' | translate}}</h3>
+<div [formGroup]="registerForm" class="register_form">
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <div class="form-group  w-100"
+        [class.has_error]="registerFormControl.controls.firstName.invalid && registerFormControl.controls.firstName.touched">
+        <label> {{'FORM.name' | translate}}</label>
+        <input class="form-control" placeholder="{{'FORM.name' | translate}}" formControlName="firstName">
+        <div class="hint">
+          {{(
+          registerFormControl.controls.firstName.errors&&registerFormControl.controls.firstName.touched ?
+          registerFormControl.controls.firstName.errors.required ? 'VALIDATION.required':
+          '' : '')
+          | translate }}
+        </div>
+      </div>
+      <div class="form-group  w-100"
+        [class.has_error]="registerFormControl.controls.fatherName.invalid && registerFormControl.controls.fatherName.touched">
+        <label> {{'FORM.father-name' | translate}}</label>
+        <input class="form-control" placeholder="{{'FORM.father-name' | translate}}" formControlName="fatherName">
+        <div class="hint">
+          {{(
+          registerFormControl.controls.fatherName.errors&&registerFormControl.controls.fatherName.touched ?
+          registerFormControl.controls.fatherName.errors.required ? 'VALIDATION.required':
+          '' : '')
+          | translate }}
+        </div>
+      </div>
+      <div class="form-group  w-100"
+        [class.has_error]="registerFormControl.controls.familyName.invalid && registerFormControl.controls.familyName.touched">
+        <label> {{'FORM.family-name' | translate}}</label>
+        <input class="form-control" placeholder="{{'FORM.family-name' | translate}}" formControlName="familyName">
+        <div class="hint">
+          {{(
+          registerFormControl.controls.familyName.errors&&registerFormControl.controls.familyName.touched ?
+          registerFormControl.controls.familyName.errors.required ? 'VALIDATION.required':
+          '' : '')
+          | translate }}
+        </div>
+      </div>
+      <div class="form-group  w-100"
+        [class.has_error]="registerFormControl.controls.userName.invalid && registerFormControl.controls.userName.touched">
+        <label> {{'FORM.user-name' | translate}}</label>
+        <input class="form-control" placeholder="{{'FORM.user-name' | translate}}" formControlName="userName">
+        <div class="hint">
+          {{(
+          registerFormControl.controls.userName.errors&&registerFormControl.controls.userName.touched ?
+          registerFormControl.controls.userName.errors.required ? 'VALIDATION.required':
+          '' : '')
+          | translate }}
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6">
+      <div class="form-group  w-100"
+        [class.has_error]="registerFormControl.controls.email.invalid && registerFormControl.controls.email.touched">
+        <label> {{'FORM.email' | translate}}</label>
+        <input class="form-control" placeholder="email@example.com" formControlName="email">
+        <div class="hint">
+          {{(
+          registerFormControl.controls.email.errors&&registerFormControl.controls.email.touched ?
+          registerFormControl.controls.email.errors.required ? 'VALIDATION.email.required':
+          'VALIDATION.email.': '')
+          | translate }}
+        </div>
+      </div>
+      <div class="row justify-content-between align-items-end">
+        <div class="form-group col-7 col-sm-8"
+          [class.has_error]="registerFormControl.controls.phoneNumber.invalid && registerFormControl.controls.phoneNumber.touched">
+          <label for="input">{{'FORM.phone-mobile' | translate}}</label>
+          <input name="input" type="tel" maxlength="9" class="form-control" placeholder="5XX-XXX-XX"
+            formControlName="phoneNumber">
+
+        </div>
+        <div class="form-group col-5 col-sm-4">
+          <select class="form-control" placeholder="+966" formControlName="counterCode">
+            <option *ngFor="let code of countriesCode" [value]="code.phone_code">+ {{code.phone_code}}</option>
+          </select>
+        </div>
+        <div class="hint">
+          {{(
+          registerFormControl.controls.phoneNumber.errors&&registerFormControl.controls.phoneNumber.touched ?
+          registerFormControl.controls.phoneNumber.errors.required ? 'VALIDATION.required':
+          '' : '')
+          | translate }}
+        </div>
+      </div>
+      <div class="form-group password w-100"
+        [class.has_error]="registerFormControl.controls.password.invalid && registerFormControl.controls.password.touched">
+        <label> {{'FORM.password' | translate}}</label>
+        <input class="form-control" [type]="hidePassword ? 'password': 'text'" placeholder="*************"
+          formControlName="password">
+        <button mat-icon-button (click)="hidePassword = !hidePassword">
+          <mat-icon>{{ hidePassword? 'visibility': 'visibility_off'}}</mat-icon>
+        </button>
+        <div class="hint">
+          {{(
+          registerFormControl.controls.password.errors&&registerFormControl.controls.password.touched ?
+          registerFormControl.controls.password.errors.required ? 'VALIDATION.password.required':
+          '' : '')
+          | translate }}
+        </div>
+      </div>
+      <div class="form-group password w-100"
+        [class.has_error]="registerFormControl.controls.confirmPassword.invalid && registerFormControl.controls.confirmPassword.touched">
+        <label> {{'FORM.confirm-password' | translate}}</label>
+        <input class="form-control" [type]="hidePassword ? 'password': 'text'" placeholder="*************"
+          formControlName="confirmPassword">
+        <button mat-icon-button (click)="hidePassword = !hidePassword">
+          <mat-icon>{{ hidePassword? 'visibility': 'visibility_off'}}</mat-icon>
+        </button>
+        <div class="hint">
+          {{(
+          registerFormControl.controls.confirmPassword.errors&&registerFormControl.controls.confirmPassword.touched ?
+          registerFormControl.controls.confirmPassword.errors.required ? 'VALIDATION.password.required':
+          registerFormControl.controls.confirmPassword.errors.confirmPasswordValidator == true ?
+          'VALIDATION.password.not-match' : '': '')
+          | translate }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="d-flex justity-content-center mt-5 mb-3">
+    <button mat-raised-button color="primary" class="btn-lg m-auto" (click)="_signup()">{{'FORM.sign-up' |
+      translate}}</button>
+  </div>
+  <div class="d-flex justity-content-center ">
+    <span class=" m-auto link" routerLink="/register/login">{{'FORM.login' | translate}}</span>
+  </div>
+
+
+</div>
+<button class="bg-dark text-light mx-5" mat-raised-button routerLink="/home">{{'FORM.cancel' | translate}}</button>

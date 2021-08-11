@@ -30,6 +30,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 import { DataTablesModule } from "angular-datatables";
 import { ShalabiComponent } from './view/components/shalabi/shalabi.component';
 import { DashboardMoudle } from './view/dashboard/dashboard.module';
+import { RegistrationModule } from './view/registration/registration.module';
 import { ComponentsModule } from './view/components/components.module';
 import { InfoItemComponent } from './view/components/info-item/info-item.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -53,6 +54,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     HttpClientModule,
     DashboardMoudle,
+    RegistrationModule,
     MatButtonModule,
     MatIconModule,
     MatDialogModule,

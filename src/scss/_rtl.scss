@@ -43,4 +43,14 @@
     margin-right: 30px !important;
     margin-left: unset !important;
   }
+  select.form-control {
+    padding: 0.375rem 0.75rem 0.375rem 1.75rem;
+
+    background: url("../assets/images/Group.svg") no-repeat left 0.75rem
+      center/8px 10px white;
+  }
+  .form-group.password button {
+    right: unset;
+    left: 24px;
+  }
 }

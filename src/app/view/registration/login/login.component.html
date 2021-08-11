@@ -1,0 +1,46 @@
+<h3 class="text-center section-title  ">{{'FORM.login' | translate}}</h3>
+<div [formGroup]="loginForm" class="register_form">
+  <div class="row">
+    <div class="form-group  col-12"
+      [class.has_error]="loginFormControl.controls.userName.invalid && loginFormControl.controls.userName.touched">
+      <label> {{'FORM.user-name' | translate}}</label>
+      <input class="form-control" formControlName="userName" placeholder="{{'FORM.name' | translate}}">
+      <div class="hint">
+        {{(
+        loginFormControl.controls.userName.errors&&loginFormControl.controls.userName.touched ?
+        loginFormControl.controls.userName.errors.required ? 'VALIDATION.required':
+        '' : '')
+        | translate }}
+      </div>
+    </div>
+    <div class="form-group password col-12"
+      [class.has_error]="loginFormControl.controls.password.invalid && loginFormControl.controls.password.touched">
+      <label> {{'FORM.password' | translate}}</label>
+      <input class="form-control" [type]="hidePassword ? 'password': 'text'" formControlName="password"
+        placeholder="*************">
+      <button mat-icon-button (click)="hidePassword = !hidePassword">
+        <mat-icon>{{ hidePassword? 'visibility': 'visibility_off'}}</mat-icon>
+      </button>
+      <div class="hint">
+        {{(
+        loginFormControl.controls.password.errors&&loginFormControl.controls.password.touched ?
+        loginFormControl.controls.password.errors.required ? 'VALIDATION.password.required':
+        '' : '')
+        | translate }}
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justity-content-center mt-5 mb-3">
+    <button mat-raised-button color="primary" class="btn-lg m-auto mt-2"
+      [disabled]="loginFormControl.invalid">{{'FORM.login' | translate}}</button>
+  </div>
+  <div class="mx-5 my-2">
+    {{'FORM.dont-have-account' | translate}}
+    <span class="link mx-1" routerLink="/register/sign_up">{{ 'FORM.new-registr'| translate}}</span>
+  </div>
+  <div class="mx-5 my-2">
+    {{'FORM.did-you-forget-your-password' | translate}}
+    <span routerLink="/register/reset_password" class="link mx-1">{{ 'FORM.reset-password'| translate}}</span>
+  </div>
+</div>
+<button class="bg-dark text-light mx-5" mat-raised-button routerLink="/home">{{'FORM.cancel' | translate}}</button>

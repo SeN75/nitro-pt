@@ -104,7 +104,13 @@ sidemenu
 .form-group label {
   color: var(--gray);
   font-size: 15px;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+}
+.register_form .form-group {
+  margin-top: 30px;
+}
+.register_form .form-group label {
+  color: var(--primray);
 }
 .form-group .form-control {
   background-color: var(--white);
@@ -114,9 +120,39 @@ sidemenu
   text-align: left;
   outline: none !important;
 }
+.form-group.has_error .form-control {
+  border-color: var(--red);
+  color: var(--red);
+}
+.form-group.has_error label {
+  color: var(--red);
+}
+.form-group.has_error .hint {
+  color: var(--red);
+  font-size: 12px;
+}
+.register_form .form-group .form-control {
+  box-shadow: 0px 0px 1px 0px #adabac;
+}
+.form-group.password {
+  position: relative;
+}
+.form-group.password button {
+  color: #eeeeee;
+  position: absolute;
+  z-index: 3;
+  top: 36px;
+  right: 24px;
+}
 .form-control:focus {
   outline: none !important;
   box-shadow: none !important;
+}
+.register_form {
+  min-height: 65%;
+  width: 80%;
+  max-width: 423px;
+  margin: auto;
 }
 
 .button-group {
@@ -213,4 +249,23 @@ mat-panel-title,
 }
 .newly {
   color: #1d4980;
+}
+
+select.form-control {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+  padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+  background: url("../assets/images/Group.svg") no-repeat right 0.75rem
+    center/8px 10px;
+}
+
+.link {
+  text-decoration: underline;
+  color: #1d4980;
+  cursor: pointer;
 }

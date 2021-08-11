@@ -139,6 +139,38 @@
         "old-info":"old info",
         "cancel": "cancel",
         "remove": "remove",
-        "back": "back"
-    }
+        "back": "back",
+        "reset-password": "reset password",
+        "phone-mobile": "phone number",
+        "password": "password",
+        "confirm-password": "confirm password",
+        "reset": "reset",
+        "login": "login",
+        "user-name": "user name",
+        "dont-have-account":  "You don't have an account?",
+        "did-you-forget-your-password": "did you forget your password?",
+        "new-registr": "new registration",
+        "name": "name",
+        "father-name": "father name",
+        "family-name": "family name",
+        "email": "email",
+        "sign-up": "sign up"
+    },
+    "VALIDATION": {
+      "email": {
+          "": "email must be a valid email addres",
+          "required": "email is required"
+      },
+      "password": {
+          "required": "password is required",
+          "min-length": "password must be at least 6 characters"
+      },
+      "required": "Please fill in the required fields",
+      "account-create": "the account is created, please check your email to verify",
+      "request-sent": "request sent",
+      "error": "an error occurred",
+      "login": "you should login first",
+      "phone-number": "The mobile number must be nine digits long"
+
+  }
 }
