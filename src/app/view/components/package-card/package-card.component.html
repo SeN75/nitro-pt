@@ -1,6 +1,6 @@
 <div class="package_card package_theme_{{theme_number}}">
   <div class="package_card_header">
-    <a class="package_edit_link" (click)="dialogSrv.openPackageDialog('edit', pack)">...</a>
+    <a class="package_edit_link" *ngIf="!with_button" (click)="dialogSrv.openPackageDialog('edit', pack)">...</a>
     <p>{{package_title}}</p>
   </div>
   <div class="package_body">
@@ -14,7 +14,7 @@
       <p class="package_feature_value">{{package_price}} ريال</p>
     </div>
     <div class="package_join_button">
-      <a href="h" class="{{class_button}}">انضمام</a>
+      <a [routerLink]="path" class="{{class_button}}">انضمام</a>
     </div>
   </div>
 </div>

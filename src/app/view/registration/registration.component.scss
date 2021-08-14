@@ -13,9 +13,12 @@
 }
 
 .register_section {
-  flex: 2.2;
+  flex: 3.2;
   background: #f9faff;
-  padding: 50px 0;
+  padding: 0 0;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .register_logo {
@@ -34,7 +37,7 @@
   margin: auto;
 }
 
-@media screen and (max-width: 35em) {
+@media screen and (max-width: 577px) {
   .register_img {
     display: none;
   }

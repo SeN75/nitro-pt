@@ -3,11 +3,16 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { SignupComponent } from './signup/signup.component';
+import { SelectProgramComponent } from './select-program/select-program.component';
+import { TermsAndConditionComponent } from './terms-and-condition/terms-and-condition.component';
 
 export const RegistrationRouting: Routes = [
   { component: ResetPasswordComponent, path: 'reset_password' },
+  { redirectTo: 'login', path: '', pathMatch: 'full' },
   { component: LoginComponent, path: 'login' },
   { component: SignupComponent, path: 'sign_up' },
+  { component: SelectProgramComponent, path: 'join_program' },
+  { component: TermsAndConditionComponent, path: 'terms_and_condition' },
 
 ]
 

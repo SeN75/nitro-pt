@@ -269,3 +269,59 @@ select.form-control {
   color: #1d4980;
   cursor: pointer;
 }
+
+.slick-dots li button:before {
+  font-size: 20px !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #1d4980 !important;
+  opacity: 1 !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #1d4980 !important;
+  background-image: url(".././assets/icons/arrowLeft.svg") !important;
+  background-position: center bottom;
+  background-size: cover;
+  content: "__" !important;
+  font-size: 25px !important;
+}
+
+.slick-next {
+  right: -25px !important;
+}
+.slick-prev {
+  left: -25px !important;
+}
+
+.slick_wrapper {
+  position: relative;
+}
+.slick_carousel_buttons {
+  position: absolute;
+  top: 47%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-right: -45px;
+}
+.terms_carousel {
+  .slick-current {
+    height: auto !important;
+    transition: ease-in-out;
+    transform: scale(1);
+  }
+  .slick-slide {
+    height: 400px;
+    overflow: auto;
+    transform: scale(0.985);
+    transition: ease-in-out;
+  }
+  .slick-track {
+    display: flex;
+    align-items: center;
+    transition: ease-in-out;
+  }
+}

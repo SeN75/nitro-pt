@@ -55,6 +55,7 @@
         "categories": "categories",
         "table": "categories table",
         "add": "add new category type",
+        "edit-type":"edit category type",
         "new-type": "new category type",
         "name": "name",
         "number": "total",
@@ -85,7 +86,9 @@
         "discount-amount": "discount amount",
         "upload-attach": "upload attach",
         "attach-name": "attach name",
-        "show-in-website": "show in webite"
+        "show-in-website": "show in webite",
+        "choose-package": "To get started please choose a package",
+        "hello": "hello"
     },
     "WORKSOUT": {
         "table": "worksout table",
@@ -124,6 +127,21 @@
       "take-the-examination": "take the examination",
       "traditional": "traditional way"
     },
+    "TERMS": {
+      "join-request": "join request",
+      "joining-terms": "joining terms",
+      "hi":"hi",
+      "1": "The subscription will be activated after the subscriber receives his nutritional program",
+      "2": "The subscriber's lunch program will be updated every two weeks from the beginning of the subscription activation",
+      "3": "The schedule will be sent within 48 hours after completing all the data and information about the participant",
+      "4": "The subscriber will be reminded of the request for updates and the beginning and end of the subscription via SMS text messages",
+      "5": "There is no unsubscribing or unsubscribing",
+      "6": "Failure to publish the entire nutritional table, and if this is proven, the subscription will be canceled",
+      "7": "If there is any question or inquiry from the subscriber, a response will be given within a maximum period of 24 hours",
+      "8": "Ladies, please adhere to and abide by the measurement methods. If personal photos are sent, the subscription will be canceled and the subscription amount will not be refunded",
+      "9": "We would like to warn that the lunch schedule that will reach the subscriber is based on his health and sports information and will be prepared with extreme accuracy to suit the subscriber’s goal and need to reach the best desired results, so please be careful while filling in the data related to the subscriber",
+      "agree": "I agree to the terms and conditions"
+    } ,
     "STATUS": {
       "active": " Active subscription",
       "need-update": " Requires data update",

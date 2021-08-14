@@ -1,0 +1,21 @@
+<header class="text-center title mb-5 h4 ">{{'PACKAGES.hello' | translate}} {{clientInfo.name_ar}}</header>
+<h3 class="text-center section-title  h3">{{'PACKAGES.choose-package' | translate}}</h3>
+<div class="p-5 slick_wrapper">
+  <div class="slick_carousel">
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
+      (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
+      <package-card ngxSlickItem class="col col-lg-4 col-md-6 mt-3" *ngFor="let pack of packages"
+        [package_title]="pack.title" [package_months]="pack.month" [package_price]="pack.price"
+        [theme_number]="pack.theme" [with_button]="true" path="/register/terms_and_condition" [pack]="pack">
+      </package-card>
+    </ngx-slick-carousel>
+  </div>
+  <div class="slick_carousel_buttons">
+    <button color="primary" mat-icon-button class="btn-next" (click)="next()">
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+    <button color="primary" mat-icon-button class="btn-prev" (click)="prev()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+</div>

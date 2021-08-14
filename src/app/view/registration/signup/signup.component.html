@@ -1,4 +1,4 @@
-<h3 class="text-center section-title  ">{{'FORM.new-registr' | translate}}</h3>
+<h4 class="text-center section-title  h4">{{'FORM.new-registr' | translate}}</h4>
 <div [formGroup]="registerForm" class="register_form">
   <div class="row">
     <div class="col-12 col-sm-6">
@@ -122,7 +122,8 @@
 
   </div>
   <div class="d-flex justity-content-center mt-5 mb-3">
-    <button mat-raised-button color="primary" class="btn-lg m-auto" (click)="_signup()">{{'FORM.sign-up' |
+    <button mat-raised-button color="primary" class="btn-lg m-auto" (click)="_signup()"
+      routerLink="/register/join_program">{{'FORM.sign-up' |
       translate}}</button>
   </div>
   <div class="d-flex justity-content-center ">

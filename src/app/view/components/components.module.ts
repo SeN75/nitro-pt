@@ -13,6 +13,7 @@ import { BodyMeasurementsComponent } from './body-measurements/body-measurements
 import { BodyPicInfoComponent } from './info-items/body-pic-info/body-pic-info.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ArchivingInfoComponent } from './info-items/archiving-info/archiving-info.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ArchivingInfoComponent } from './info-items/archiving-info/archiving-in
     MatButtonModule,
     MatExpansionModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule
 
   ],
   exports: [

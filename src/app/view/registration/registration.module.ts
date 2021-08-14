@@ -14,6 +14,10 @@ import { ComponentsModule } from '../components/components.module';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { SelectProgramComponent } from './select-program/select-program.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { TermsAndConditionComponent } from './terms-and-condition/terms-and-condition.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -26,13 +30,15 @@ import { SignupComponent } from './signup/signup.component';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
+    MatCheckboxModule,
     MatAutocompleteModule,
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
+    SlickCarouselModule
 
   ],
-  declarations: [ResetPasswordComponent, LoginComponent, SignupComponent],
+  declarations: [ResetPasswordComponent, LoginComponent, SignupComponent, SelectProgramComponent, TermsAndConditionComponent],
   exports: [ResetPasswordComponent, MatFormFieldModule],
   providers: []
 })

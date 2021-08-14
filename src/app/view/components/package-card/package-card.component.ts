@@ -21,5 +21,6 @@ export class PackageCardComponent implements OnInit {
   @Input() theme_number: number = 0;
   @Input() with_button: boolean = false;
   @Input() class_button: string = "";
+  @Input() path: string = "";
   @Input() pack: any;
 }
