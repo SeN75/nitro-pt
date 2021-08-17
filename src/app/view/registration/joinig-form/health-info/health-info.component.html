@@ -1,84 +1,170 @@
-<div class="h5 section-title text-center">{{'SUBSCRIBERS.health-and-sports-information' | translate}}</div>
-
-<div class="" [formGroup]="healthInfoForm">
-  <div class="row form-group justify-content-between">
-    <label class="col-12">{{'SUBSCRIBERS.work-type' | translate}}</label>
-    <div class="col">
-      <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('workNature')?.value == 'office'"
-        (click)="healthInfoForm.get('workNature')?.setValue('office')">{{'SUBSCRIBERS.office' | translate}}
-      </button>
+<section class="form_wrapper scroll  py-3">
+  <div class="h5 section-title text-center">{{'SUBSCRIBERS.health-and-sports-information' | translate}}</div>
+  <div class="px-4" [formGroup]="healthInfoForm">
+    <div class="row form-group justify-content-between">
+      <label class="col-12">{{'SUBSCRIBERS.work-type' | translate}}</label>
+      <div class="col-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('workNature')?.value == 'office'"
+          (click)="healthInfoForm.get('workNature')?.setValue('office')">{{'SUBSCRIBERS.office' | translate}}
+        </button>
+      </div>
+      <div class="col-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('workNature')?.value == 'field'"
+          (click)="healthInfoForm.get('workNature')?.setValue('field')">{{'SUBSCRIBERS.field' | translate}}
+        </button>
+      </div>
+      <div class="col-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('workNature')?.value == ''"
+          (click)="healthInfoForm.get('workNature')?.setValue('')">{{'FORM.other' | translate}}
+        </button>
+      </div>
+      <div class="col-12 mt-3">
+        <input class="form-control" type="text" formControlName="workNature"
+          *ngIf="healthInfoForm.get('workNature')?.value == ''">
+      </div>
     </div>
-    <div class="col">
-      <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('workNature')?.value == 'field'"
-        (click)="healthInfoForm.get('workNature')?.setValue('field')">{{'SUBSCRIBERS.field' | translate}}
-      </button>
+    <div class="row form-group justify-content-between">
+      <label class="col-12">{{'SUBSCRIBERS.are-there-health-problems' | translate}}</label>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('healthProblems')?.value == ''"
+          (click)="healthInfoForm.get('healthProblems')?.setValue('')">
+          {{'FORM.yes' | translate}}
+        </button>
+      </div>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('healthProblems')?.value == 'no'"
+          (click)="healthInfoForm.get('healthProblems')?.setValue('no')">
+          {{'FORM.no' | translate}}
+        </button>
+      </div>
+      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('healthProblems')?.value == ''">
+        <label class="col-12">{{'SUBSCRIBERS.what-is-the-health-problem' | translate}}</label>
+        <input class="form-control" type="text" formControlName="healthProblems">
+      </div>
     </div>
-    <div class="col">
-      <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('workNature')?.value == ''"
-        (click)="healthInfoForm.get('workNature')?.setValue('')">{{'FORM.other' | translate}}
-      </button>
+    <div class="row form-group justify-content-between">
+      <label class="col-12">{{'SUBSCRIBERS.do-you-use-supplements' | translate}}</label>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('supplements')?.value == ''"
+          (click)="healthInfoForm.get('supplements')?.setValue('')">
+          {{'FORM.yes' | translate}}
+        </button>
+      </div>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('supplements')?.value == 'no'"
+          (click)="healthInfoForm.get('supplements')?.setValue('no')">
+          {{'FORM.no' | translate}}
+        </button>
+      </div>
+      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('supplements')?.value == ''">
+        <label class="col-12">{{'SUBSCRIBERS.what-are-the-supplements' | translate}}</label>
+        <input class="form-control" type="text" formControlName="supplements">
+      </div>
     </div>
-    <div class="col-12 mt-3">
-      <input class="form-control" type="text" formControlName="workNature"
-        *ngIf="healthInfoForm.get('workNature')?.value == ''">
+    <div class="row form-group">
+      <label>{{'SUBSCRIBERS.what-is-the-purpose-of-the-programme' | translate}}</label>
+      <div class="col-12">
+        <input class="form-control" type="text" formControlName="goalProblems">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-4">
+        <label>{{'SUBSCRIBERS.sleeping-hours' | translate}}</label>
+        <input formControlName="sleepHours" type="text" class="form-control">
+      </div>
+      <div class="form-group col-4">
+        <label>{{'SUBSCRIBERS.bed-time' | translate}}</label>
+        <input [ngxTimepicker]="bedTime" formControlName="bedTime" type="text" class="form-control">
+        <ngx-material-timepicker #bedTime dir="ltr"></ngx-material-timepicker>
+      </div>
+      <div class="form-group col-4">
+        <label>{{'SUBSCRIBERS.wakeup-time' | translate}}</label>
+        <input [ngxTimepicker]="weakupTime" formControlName="weakupTime" type="text" class="form-control">
+        <ngx-material-timepicker #weakupTime dir="ltr"></ngx-material-timepicker>
+      </div>
+    </div>
+    <div class="row form-group justify-content-between">
+      <label class="col-12">{{'SUBSCRIBERS.do-you-have-a-current-diet-program' | translate}}</label>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('ditePlan')?.value == ''"
+          (click)="healthInfoForm.get('ditePlan')?.setValue('')">
+          {{'FORM.yes' | translate}}
+        </button>
+      </div>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('ditePlan')?.value == 'no'"
+          (click)="healthInfoForm.get('ditePlan')?.setValue('no')">
+          {{'FORM.no' | translate}}
+        </button>
+      </div>
+      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('ditePlan')?.value == ''">
+        <label class="col-12">{{'SUBSCRIBERS.please-write-the-program' | translate}}</label>
+        <textarea class="form-control" type="text" formControlName="ditePlan" rows="4"></textarea>
+      </div>
+    </div>
+    <div class="row form-group">
+      <label>{{'SUBSCRIBERS.number-of-meals' | translate}}</label>
+      <div class="col-12">
+        <input class="form-control" formControlName="numberMeals" type="number">
+      </div>
+    </div>
+    <div class="row form-group justify-content-between">
+      <label class="col-12">{{'SUBSCRIBERS.do-you-have-an-allergy-to-a-certain-food' | translate}}</label>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('allergen')?.value == ''"
+          (click)="healthInfoForm.get('allergen')?.setValue('')">
+          {{'FORM.yes' | translate}}
+        </button>
+      </div>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('allergen')?.value == 'no'"
+          (click)="healthInfoForm.get('allergen')?.setValue('no')">
+          {{'FORM.no' | translate}}
+        </button>
+      </div>
+      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('allergen')?.value == ''">
+        <label class="col-12">{{'SUBSCRIBERS.list-the-allergens' | translate}}</label>
+        <textarea class="form-control" type="text" formControlName="allergen"></textarea>
+      </div>
+    </div>
+    <div class="row form-group justify-content-between">
+      <label class="col-12">{{'SUBSCRIBERS.do-you-have-a-food-you-dont-like' | translate}}</label>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('unlike')?.value == ''"
+          (click)="healthInfoForm.get('unlike')?.setValue('')">
+          {{'FORM.yes' | translate}}
+        </button>
+      </div>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('unlike')?.value == 'no'"
+          (click)="healthInfoForm.get('unlike')?.setValue('no')">
+          {{'FORM.no' | translate}}
+        </button>
+      </div>
+      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('unlike')?.value == ''">
+        <label class="col-12">{{'SUBSCRIBERS.please-mention-the-food-you-dont-like' | translate}}</label>
+        <textarea class="form-control" type="text" formControlName="unlike"></textarea>
+      </div>
+    </div>
+    <div class="row form-group justify-content-between">
+      <label class="col-12">{{'SUBSCRIBERS.have-you-had-surgery-recently' | translate}}</label>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('operations')?.value == ''"
+          (click)="healthInfoForm.get('operations')?.setValue('')">
+          {{'FORM.yes' | translate}}
+        </button>
+      </div>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('operations')?.value == 'no'"
+          (click)="healthInfoForm.get('operations')?.setValue('no')">
+          {{'FORM.no' | translate}}
+        </button>
+      </div>
+      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('operations')?.value == ''">
+        <label class="col-12">{{'SUBSCRIBERS.please-indicate-the-location-and-type-of-the-operation' |
+          translate}}</label>
+        <textarea class="form-control" type="text" formControlName="operations"></textarea>
+      </div>
     </div>
   </div>
-  <div class="row form-group justify-content-between">
-    <label class="col-12">{{'SUBSCRIBERS.are-there-health-problems' | translate}}</label>
-    <div class="col-5 col-md-4">
-      <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('healthProblems')?.value == ''"
-        (click)="healthInfoForm.get('healthProblems')?.setValue('')">
-        {{'FORM.yes' | translate}}
-      </button>
-    </div>
-    <div class="col-5 col-md-4">
-      <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('healthProblems')?.value == 'no'"
-        (click)="healthInfoForm.get('healthProblems')?.setValue('no')">
-        {{'FORM.no' | translate}}
-      </button>
-    </div>
-    <div class="col-12 mt-3" *ngIf="healthInfoForm.get('healthProblems')?.value == ''">
-      <label class="col-12">{{'SUBSCRIBERS.what-is-the-health-problem' | translate}}</label>
-      <input class="form-control" type="text" formControlName="healthProblems">
-    </div>
-  </div>
-  <div class="row form-group justify-content-between">
-    <label class="col-12">{{'SUBSCRIBERS.do-you-use-supplements' | translate}}</label>
-    <div class="col-5 col-md-4">
-      <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('supplements')?.value == ''"
-        (click)="healthInfoForm.get('supplements')?.setValue('')">
-        {{'FORM.yes' | translate}}
-      </button>
-    </div>
-    <div class="col-5 col-md-4">
-      <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('supplements')?.value == 'no'"
-        (click)="healthInfoForm.get('supplements')?.setValue('no')">
-        {{'FORM.no' | translate}}
-      </button>
-    </div>
-    <div class="col-12 mt-3" *ngIf="healthInfoForm.get('supplements')?.value == ''">
-      <label class="col-12">{{'SUBSCRIBERS.what-are-the-supplements' | translate}}</label>
-      <input class="form-control" type="text" formControlName="supplements">
-    </div>
-  </div>
-  <div class="row form-group">
-    <label>{{'SUBSCRIBERS.what-is-the-purpose-of-the-programme' | translate}}</label>
-    <div class="col-12">
-      <input class="form-control" type="text" formControlName="goalProblems">
-    </div>
-  </div>
-  <div class="row">
-    <div class="form-gorup col-4">
-      <label>{{'SUBSCRIBERS.' | translate}}</label>
-      <input formControlName="sleepHours" type="text" class="form-control">
-    </div>
-    <div class="form-gorup col-4">
-      <label>{{'SUBSCRIBERS.' | translate}}</label>
-      <input formControlName="sleepHours" type="text" class="form-control">
-    </div>
-    <div class="form-gorup col-4">
-      <label>{{'SUBSCRIBERS.' | translate}}</label>
-      <input formControlName="sleepHours" type="text" class="form-control">
-    </div>
-  </div>
-</div>
+</section>

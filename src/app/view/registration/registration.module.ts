@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -41,7 +42,8 @@ import { BackInfoComponent } from './joinig-form/back-info/back-info.component';
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    NgxMaterialTimepickerModule
 
   ],
   declarations: [ResetPasswordComponent, LoginComponent, SignupComponent, SelectProgramComponent, TermsAndConditionComponent, JoinigFormComponent, PersonalInfoComponent, HealthInfoComponent, MeasuringMethodComponent, BodyPicFormComponent, BackInfoComponent],

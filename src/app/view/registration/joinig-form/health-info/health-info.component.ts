@@ -27,7 +27,8 @@ export class HealthInfoComponent implements OnInit {
       ditePlan: ['no', Validators.required],
       numberMeals: ['', Validators.required],
       allergen: ['no', Validators.required],
-      unlike: ['no', Validators.required]
+      unlike: ['no', Validators.required],
+      operations: ['no', Validators.required],
     })
   }
 

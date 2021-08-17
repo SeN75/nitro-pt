@@ -14,3 +14,8 @@
 .register_form .form-group {
   margin-top: 15px;
 }
+
+.form_wrapper {
+  max-height: 60vh !important;
+  overflow-y: auto;
+}

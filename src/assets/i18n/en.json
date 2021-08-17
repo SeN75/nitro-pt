@@ -36,7 +36,15 @@
         "what-is-the-health-problem": "What is the health problem?",
         "do-you-use-supplements": "are you currently using supplements?",
         "what-are-the-supplements": "What are the supplements?",
-        "what-is-the-purpose-of-the-programme": "What is the purpose of the programme?"
+        "what-is-the-purpose-of-the-programme": "What is the purpose of the programme?",
+        "do-you-have-a-current-diet-program": "do you have a current diet program?",
+        "please-write-the-program": "please write the program",
+        "do-you-have-an-allergy-to-a-certain-food": "do you have an allergy to a certain food?",
+        "list-the-allergens":  "list the allergens",
+        "do-you-have-a-food-you-dont-like": "do you have a food you don't like?",
+        "please-mention-the-food-you-dont-like": "please mention the food you don't like",
+        "have-you-had-surgery-recently": "have you had surgery recently?",
+        "please-indicate-the-location-and-type-of-the-operation": "please indicate the location and type of the operation"
     },
     "PERSONAL-DATA": {
         "personal-data": "personal data",

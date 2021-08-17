@@ -332,3 +332,15 @@ button.selected {
   background-color: #1d4980;
   color: white;
 }
+.timepicker {
+  direction: ltr !important;
+  .timepicker__header,
+  .clock-face__number > span.active,
+  .clock-face__clock-hand {
+    background-color: #1d4980 !important;
+    color: white;
+  }
+  .timepicker-button {
+    color: #1d4980 !important;
+  }
+}

@@ -1,64 +1,67 @@
-<div class="h5 section-title text-center">{{'SUBSCRIBERS.personal-subscriber-info' | translate}}</div>
-<div class="P-3 mb-5" [formGroup]="personalInfoForm">
-  <div class="row form-group justify-content-between">
-    <label class="">{{'PERSONAL-DATA.birthday' | translate}}</label>
-    <div class="col">
-      <select [formControl]="birthDateDay" class=" form-control " (change)="setBirthDate()">
-        <option *ngFor="let day of counter(numberDaysInMonth); let i = index" [value]="i+1">{{i+1}}</option>
-      </select>
+<section class="form_wrapper mb-5 scroll ">
+  <div class="h5 section-title text-center">{{'SUBSCRIBERS.personal-subscriber-info' | translate}}</div>
+  <div class="P-3 " [formGroup]="personalInfoForm">
+    <div class="row form-group justify-content-between">
+      <label class="">{{'PERSONAL-DATA.birthday' | translate}}</label>
+      <div class="col">
+        <select [formControl]="birthDateDay" class=" form-control " (change)="setBirthDate()">
+          <option *ngFor="let day of counter(numberDaysInMonth); let i = index" [value]="i+1">{{i+1}}</option>
+        </select>
+      </div>
+      <div class="col">
+        <select [formControl]="birthDateMonth" class=" form-control " (change)="setNumberDaysInMonth(); setBirthDate()">
+          <option *ngFor="let month of counter(12); let i = index" [value]="i+1">{{i+1}}</option>
+        </select>
+      </div>
+      <div class="col">
+        <select [formControl]="birthDateYear" class=" form-control " (change)="setNumberDaysInMonth(); setBirthDate()">
+          <option *ngFor="let year of getYears()" [value]="year">{{year}}</option>
+        </select>
+      </div>
     </div>
-    <div class="col">
-      <select [formControl]="birthDateMonth" class=" form-control " (change)="setNumberDaysInMonth(); setBirthDate()">
-        <option *ngFor="let month of counter(12); let i = index" [value]="i+1">{{i+1}}</option>
-      </select>
+    <div class="row form-group">
+      <label for="">{{'PERSONAL-DATA.social-status' | translate}}</label>
+      <div class="col-12">
+        <select formControlName="socialStatus" class="form-control ">
+          <option value="married">{{'PERSONAL-DATA.married' | translate}}</option>
+          <option value="single">{{'PERSONAL-DATA.single' | translate}}</option>
+        </select>
+      </div>
     </div>
-    <div class="col">
-      <select [formControl]="birthDateYear" class=" form-control " (change)="setNumberDaysInMonth(); setBirthDate()">
-        <option *ngFor="let year of getYears()" [value]="year">{{year}}</option>
-      </select>
+    <div class="row justify-content-between">
+      <div class="form-group col-5 col-md-4">
+        <label>{{'PERSONAL-DATA.height'| translate}}</label>
+        <input class="form-control" formControlName="height">
+      </div>
+      <div class="form-group col-5 col-md-4">
+        <label>{{'PERSONAL-DATA.wight'| translate}}</label>
+        <input class="form-control" formControlName="weight">
+      </div>
     </div>
-  </div>
-  <div class="row form-group">
-    <label for="">{{'PERSONAL-DATA.social-status' | translate}}</label>
-    <div class="col-12">
-      <select formControlName="socialStatus" class="form-control ">
-        <option value="married">{{'PERSONAL-DATA.married' | translate}}</option>
-        <option value="single">{{'PERSONAL-DATA.single' | translate}}</option>
-      </select>
+    <div class="row justify-content-between form-group">
+      <label>{{'PERSONAL-DATA.gender' | translate}}</label>
+      <div class="col-5 col-md-4">
+        <button mat-stroked-button class="w-100" [class.selected]="personalInfoForm.get('gender')?.value == 'male'"
+          (click)="personalInfoForm.get('gender')?.setValue('male')">
+          {{'PERSONAL-DATA.male' | translate}}
+        </button>
+      </div>
+      <div class=" col-5 col-md-4">
+        <button mat-stroked-button class=" w-100" [class.selected]="personalInfoForm.get('gender')?.value == 'female'"
+          (click)="personalInfoForm.get('gender')?.setValue('female')">
+          {{'PERSONAL-DATA.female' | translate}}
+        </button>
+      </div>
     </div>
-  </div>
-  <div class="row justify-content-between">
-    <div class="form-group col-5 col-md-4">
-      <label>{{'PERSONAL-DATA.height'| translate}}</label>
-      <input class="form-control" formControlName="height">
-    </div>
-    <div class="form-group col-5 col-md-4">
-      <label>{{'PERSONAL-DATA.wight'| translate}}</label>
-      <input class="form-control" formControlName="weight">
-    </div>
-  </div>
-  <div class="row justify-content-between form-group">
-    <label>{{'PERSONAL-DATA.gender' | translate}}</label>
-    <div class="col-5 col-md-4">
-      <button mat-stroked-button class="w-100" [class.selected]="personalInfoForm.get('gender')?.value == 'male'"
-        (click)="personalInfoForm.get('gender')?.setValue('male')">
-        {{'PERSONAL-DATA.male' | translate}}
-      </button>
-    </div>
-    <div class=" col-5 col-md-4">
-      <button mat-stroked-button class=" w-100" [class.selected]="personalInfoForm.get('gender')?.value == 'female'"
-        (click)="personalInfoForm.get('gender')?.setValue('female')">
-        {{'PERSONAL-DATA.female' | translate}}
-      </button>
-    </div>
-  </div>
-  <div class="row form-group">
-    <label>{{'PERSONAL-DATA.city' | translate}}</label>
-    <div class="col-12">
-      <select formControlName="city" class="form-control">
-        <option *ngFor="let city of cities;" [value]="city">{{lang.dir == 'rtl' ? city.name_ar : city.name_en}}</option>
-      </select>
-    </div>
+    <div class="row form-group">
+      <label>{{'PERSONAL-DATA.city' | translate}}</label>
+      <div class="col-12">
+        <select formControlName="city" class="form-control">
+          <option *ngFor="let city of cities;" [value]="city">{{lang.dir == 'rtl' ? city.name_ar : city.name_en}}
+          </option>
+        </select>
+      </div>
 
+    </div>
   </div>
-</div>
+</section>

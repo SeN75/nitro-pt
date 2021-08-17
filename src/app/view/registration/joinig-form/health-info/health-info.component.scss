@@ -1,0 +1,10 @@
+.form_wrapper {
+  max-height: 60vh !important;
+  height: 60vh !important;
+  overflow-x: hidden;
+  overflow-y: auto;
+  .form-group label {
+    color: #adabac;
+    font-size: 12px;
+  }
+}

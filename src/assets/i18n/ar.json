@@ -36,7 +36,15 @@
         "what-is-the-health-problem": "ماهي المشكلة الصحية؟",
         "do-you-use-supplements": "هل تستخدم المكملات حاليا؟",
         "what-are-the-supplements": "ما هي المكملات؟",
-        "what-is-the-purpose-of-the-programme": "ما الهدف من البرنامج؟"
+        "what-is-the-purpose-of-the-programme": "ما الهدف من البرنامج؟",
+        "do-you-have-a-current-diet-program": "هل لديك برنامج غذائي حالي؟",
+        "please-write-the-program": "الرجاء كتابة البرنامج",
+        "do-you-have-an-allergy-to-a-certain-food": "هل لديك حساسية من اكل معين؟",
+        "list-the-allergens":  "اذكر مسببات الحساسية",
+        "do-you-have-a-food-you-dont-like": "هل لديك طعام لا تفضله؟",
+        "please-mention-the-food-you-dont-like": "الرجاء ذكر الطعام الذي لا تفضله",
+        "have-you-had-surgery-recently": "هل قمت باجراء عملية جراحية مؤخرا؟",
+        "please-indicate-the-location-and-type-of-the-operation": "من فضلك اذكر مكان العملية و نوعها"
     },
     "PERSONAL-DATA": {
         "personal-data": "بيانات الشخصية",
