@@ -5,6 +5,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { SignupComponent } from './signup/signup.component';
 import { SelectProgramComponent } from './select-program/select-program.component';
 import { TermsAndConditionComponent } from './terms-and-condition/terms-and-condition.component';
+import { JoinigFormComponent } from './joinig-form/joinig-form.component';
 
 export const RegistrationRouting: Routes = [
   { component: ResetPasswordComponent, path: 'reset_password' },
@@ -13,6 +14,7 @@ export const RegistrationRouting: Routes = [
   { component: SignupComponent, path: 'sign_up' },
   { component: SelectProgramComponent, path: 'join_program' },
   { component: TermsAndConditionComponent, path: 'terms_and_condition' },
+  { component: JoinigFormComponent, path: 'joining_form' },
 
 ]
 

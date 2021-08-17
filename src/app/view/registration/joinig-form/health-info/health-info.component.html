@@ -1,0 +1,84 @@
+<div class="h5 section-title text-center">{{'SUBSCRIBERS.health-and-sports-information' | translate}}</div>
+
+<div class="" [formGroup]="healthInfoForm">
+  <div class="row form-group justify-content-between">
+    <label class="col-12">{{'SUBSCRIBERS.work-type' | translate}}</label>
+    <div class="col">
+      <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('workNature')?.value == 'office'"
+        (click)="healthInfoForm.get('workNature')?.setValue('office')">{{'SUBSCRIBERS.office' | translate}}
+      </button>
+    </div>
+    <div class="col">
+      <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('workNature')?.value == 'field'"
+        (click)="healthInfoForm.get('workNature')?.setValue('field')">{{'SUBSCRIBERS.field' | translate}}
+      </button>
+    </div>
+    <div class="col">
+      <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('workNature')?.value == ''"
+        (click)="healthInfoForm.get('workNature')?.setValue('')">{{'FORM.other' | translate}}
+      </button>
+    </div>
+    <div class="col-12 mt-3">
+      <input class="form-control" type="text" formControlName="workNature"
+        *ngIf="healthInfoForm.get('workNature')?.value == ''">
+    </div>
+  </div>
+  <div class="row form-group justify-content-between">
+    <label class="col-12">{{'SUBSCRIBERS.are-there-health-problems' | translate}}</label>
+    <div class="col-5 col-md-4">
+      <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('healthProblems')?.value == ''"
+        (click)="healthInfoForm.get('healthProblems')?.setValue('')">
+        {{'FORM.yes' | translate}}
+      </button>
+    </div>
+    <div class="col-5 col-md-4">
+      <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('healthProblems')?.value == 'no'"
+        (click)="healthInfoForm.get('healthProblems')?.setValue('no')">
+        {{'FORM.no' | translate}}
+      </button>
+    </div>
+    <div class="col-12 mt-3" *ngIf="healthInfoForm.get('healthProblems')?.value == ''">
+      <label class="col-12">{{'SUBSCRIBERS.what-is-the-health-problem' | translate}}</label>
+      <input class="form-control" type="text" formControlName="healthProblems">
+    </div>
+  </div>
+  <div class="row form-group justify-content-between">
+    <label class="col-12">{{'SUBSCRIBERS.do-you-use-supplements' | translate}}</label>
+    <div class="col-5 col-md-4">
+      <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('supplements')?.value == ''"
+        (click)="healthInfoForm.get('supplements')?.setValue('')">
+        {{'FORM.yes' | translate}}
+      </button>
+    </div>
+    <div class="col-5 col-md-4">
+      <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('supplements')?.value == 'no'"
+        (click)="healthInfoForm.get('supplements')?.setValue('no')">
+        {{'FORM.no' | translate}}
+      </button>
+    </div>
+    <div class="col-12 mt-3" *ngIf="healthInfoForm.get('supplements')?.value == ''">
+      <label class="col-12">{{'SUBSCRIBERS.what-are-the-supplements' | translate}}</label>
+      <input class="form-control" type="text" formControlName="supplements">
+    </div>
+  </div>
+  <div class="row form-group">
+    <label>{{'SUBSCRIBERS.what-is-the-purpose-of-the-programme' | translate}}</label>
+    <div class="col-12">
+      <input class="form-control" type="text" formControlName="goalProblems">
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-gorup col-4">
+      <label>{{'SUBSCRIBERS.' | translate}}</label>
+      <input formControlName="sleepHours" type="text" class="form-control">
+    </div>
+    <div class="form-gorup col-4">
+      <label>{{'SUBSCRIBERS.' | translate}}</label>
+      <input formControlName="sleepHours" type="text" class="form-control">
+    </div>
+    <div class="form-gorup col-4">
+      <label>{{'SUBSCRIBERS.' | translate}}</label>
+      <input formControlName="sleepHours" type="text" class="form-control">
+    </div>
+  </div>
+</div>

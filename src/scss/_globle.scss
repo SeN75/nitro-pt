@@ -307,7 +307,8 @@ select.form-control {
   width: 100%;
   margin-right: -45px;
 }
-.terms_carousel {
+.terms_carousel,
+.joining_carousel {
   .slick-current {
     height: auto !important;
     transition: ease-in-out;
@@ -318,10 +319,16 @@ select.form-control {
     overflow: auto;
     transform: scale(0.985);
     transition: ease-in-out;
+    overflow: hidden;
   }
   .slick-track {
     display: flex;
     align-items: center;
     transition: ease-in-out;
   }
+}
+
+button.selected {
+  background-color: #1d4980;
+  color: white;
 }

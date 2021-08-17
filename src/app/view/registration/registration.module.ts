@@ -18,6 +18,12 @@ import { SelectProgramComponent } from './select-program/select-program.componen
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { TermsAndConditionComponent } from './terms-and-condition/terms-and-condition.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { JoinigFormComponent } from './joinig-form/joinig-form.component';
+import { PersonalInfoComponent } from './joinig-form/personal-info/personal-info.component';
+import { HealthInfoComponent } from './joinig-form/health-info/health-info.component';
+import { MeasuringMethodComponent } from './joinig-form/measuring-method/measuring-method.component';
+import { BodyPicFormComponent } from './joinig-form/body-pic-form/body-pic-form.component';
+import { BackInfoComponent } from './joinig-form/back-info/back-info.component';
 
 
 @NgModule({
@@ -38,7 +44,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     SlickCarouselModule
 
   ],
-  declarations: [ResetPasswordComponent, LoginComponent, SignupComponent, SelectProgramComponent, TermsAndConditionComponent],
+  declarations: [ResetPasswordComponent, LoginComponent, SignupComponent, SelectProgramComponent, TermsAndConditionComponent, JoinigFormComponent, PersonalInfoComponent, HealthInfoComponent, MeasuringMethodComponent, BodyPicFormComponent, BackInfoComponent],
   exports: [ResetPasswordComponent, MatFormFieldModule],
   providers: []
 })

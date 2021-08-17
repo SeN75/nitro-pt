@@ -16,6 +16,8 @@
         "status": "status",
         "info": "subscriber information",
         "joint-sports-health": "joint sports health",
+        "health-and-sports-information": "health and sports information",
+        "personal-subscriber-info": "Subscriber's personal information",
         "work-type": "work type",
         "health-problem": "health problem ",
         "use-of-supplements": "use of supplements",
@@ -27,7 +29,14 @@
         "current-program": "current programe",
         "non-preferred-food": "non preferred food",
         "allergenic-food": "allergenic food",
-        "recent-operations": "Operations recently conducted"
+        "recent-operations": "Operations recently conducted",
+        "field": "field",
+        "office": "office",
+        "are-there-health-problems": "Are there health problems?",
+        "what-is-the-health-problem": "What is the health problem?",
+        "do-you-use-supplements": "are you currently using supplements?",
+        "what-are-the-supplements": "What are the supplements?",
+        "what-is-the-purpose-of-the-programme": "What is the purpose of the programme?"
     },
     "PERSONAL-DATA": {
         "personal-data": "personal data",
@@ -38,7 +47,11 @@
         "gender": "gender",
         "height": "height",
         "wight": "wight",
-        "city": "city"
+        "city": "city",
+        "married": "married",
+        "single": "single",
+        "male": "male",
+        "female": "female"
     },
     "ORDERS": {
         "orders": "orders",
@@ -158,6 +171,7 @@
         "cancel": "cancel",
         "remove": "remove",
         "back": "back",
+        "next": "next",
         "reset-password": "reset password",
         "phone-mobile": "phone number",
         "password": "password",
@@ -172,7 +186,10 @@
         "father-name": "father name",
         "family-name": "family name",
         "email": "email",
-        "sign-up": "sign up"
+        "sign-up": "sign up",
+        "other": "other",
+        "yes": "yes",
+        "no": "no"
     },
     "VALIDATION": {
       "email": {

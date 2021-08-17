@@ -1,0 +1,16 @@
+.register_form {
+  direction: ltr;
+  position: relative;
+}
+
+.register_slick_button {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+}
+
+.register_form .form-group {
+  margin-top: 15px;
+}
