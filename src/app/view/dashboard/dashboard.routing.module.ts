@@ -12,6 +12,7 @@ import { PackagesComponent } from './packages/packages.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SubscribersComponent } from './subscribers/subscribers.component';
 import { WorksoutComponent } from './worksout/worksout.component';
+import { LandingPageComponent } from '../landing-page/landing-page.component';
 
 const children: Routes = [
     { component: BaseComponent, path: 'base' },
@@ -29,7 +30,8 @@ const children: Routes = [
 ]
 const routes: Routes = [
     { component: DashboardComponent, path: 'dashboard', children: children },
-    { component: DashboardComponent, path: '', children: children }
+    { component: DashboardComponent, path: '', children: children },
+    { component: LandingPageComponent, path: 'landing' }
 
 ];
 

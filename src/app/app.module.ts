@@ -31,6 +31,7 @@ import { ShalabiComponent } from './view/components/shalabi/shalabi.component';
 import { InfoItemComponent } from './view/components/info-item/info-item.component';
 import { DashboardMoudle } from './view/dashboard/dashboard.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './view/landing-page/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     /* Alsaggaf Components */
     CategoryCardComponent,
     BaseComponent,
-    DialogComponent
+    DialogComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
