@@ -19,3 +19,10 @@
   max-height: 60vh !important;
   overflow-y: auto;
 }
+
+@media screen and (max-width: 578px) {
+  .form_wrapper {
+    max-height: 70vh !important;
+    overflow-y: auto;
+  }
+}

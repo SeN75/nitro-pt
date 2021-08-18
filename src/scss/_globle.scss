@@ -150,11 +150,12 @@ sidemenu
 }
 .register_form {
   min-height: 65%;
-  width: 80%;
+  width: 95%;
   max-width: 423px;
   margin: auto;
 }
-
+.register_card {
+}
 .button-group {
   margin-top: 20px;
   display: flex;
@@ -313,13 +314,20 @@ select.form-control {
     height: auto !important;
     transition: ease-in-out;
     transform: scale(1);
+    .form_wrapper {
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+    }
   }
   .slick-slide {
-    height: 400px;
+    height: 50vh;
     overflow: auto;
     transform: scale(0.985);
     transition: ease-in-out;
     overflow: hidden;
+    .form_wrapper {
+      overflow: hidden;
+    }
   }
   .slick-track {
     display: flex;
@@ -342,5 +350,27 @@ button.selected {
   }
   .timepicker-button {
     color: #1d4980 !important;
+  }
+}
+
+@media screen and (max-width: 578px) {
+  .register_card {
+    background: #fff;
+    // border: 1px solid #aeaeae;
+    box-shadow: 1px 1px 15px 0 #eff1f8;
+    border-radius: 0.5em;
+  }
+  .terms_carousel,
+  .joining_carousel {
+    .slick-slide {
+      .register_card {
+        padding: 20px;
+      }
+    }
+    .slick-current {
+      .register_card {
+        padding: 10px !important;
+      }
+    }
   }
 }

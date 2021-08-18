@@ -59,4 +59,12 @@
   .register_slick_button {
     direction: rtl;
   }
+  .body_label {
+    direction: rtl;
+  }
+  ol {
+    direction: rtl;
+    padding: 0;
+    padding-right: 15px;
+  }
 }

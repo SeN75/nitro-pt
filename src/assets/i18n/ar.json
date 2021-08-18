@@ -3,7 +3,10 @@
         "": "",
         "nitro": "نيترو",
         "account-settings": "اعدادات الحساب",
-        "search": "بحث"
+        "search": "بحث",
+        "upload": "رفع",
+        "upload-file": "رفع الملف",
+        "file": " ملف"
     },
     "SUBSCRIBERS": {
         "subscribers": "المشتركين",
@@ -144,13 +147,21 @@
     },
     "BODY": {
       "upper-chest": "محيط الصدر",
+      "upper-chest-dis": "ابراز منطقة تمر ويط صدرط",
       "lower-chest": "اسفل الصدر",
+      "lower-chest-dis": "المنطقة اسفل الصدر مباشرة",
       "hips": "الخصر",
+      "hips-dis": "اضيق منطقة في الوسط",
       "abs": "البطن",
+      "abs-dis": "المنطقة التي تشكل اعلى بروز للبطن  وتمر بالسرة",
       "quadriceps": "الارداف",
+      "quadriceps-dis": "محيط اكبر حجم مع مراعاة ان تكون الاقدام متلاصقة",
       "hamstrings": "الفخذ",
+      "hamstrings-dis": "ابرز منطقة في الفخذ غالبا في المنتصف",
       "calves": "بطة الساق",
+      "calves-dis": "ابرز منطقة في الساق",
       "biceps": "العضد(الزند)",
+      "biceps-dis": "المنطقة الاقرب الى الكتف و ابرز منطقة في العضد",
       "body-measurements-info": "معلومات قياسات الجسم",
       "take-the-examination": "طريقة اخذ الفحص",
       "traditional": "طريقة تقليدية",
@@ -159,7 +170,15 @@
       "front": "أمامية",
       "back": "خلفية",
       "right": "جانبي (يمين)",
-      "left": "جانبي (يسار)"
+      "left": "جانبي (يسار)",
+      "in-body": "فحص IN BODY",
+      "choose-a-measurement-method": "رجاء اختيار طريقة اخذ الفحص",
+      "examination-conditions": "شروط اجراء الفحص",
+      "condition-1": "يكون الفحص عالريق",
+      "condition-2": "تجنب وضع المراهم على اليدين والقدمين قبل الفحص ",
+      "condition-3": "تجنب الملابس الثقيله والاكسسوارات",
+      "condition-4": "لا ينصح عمل القياس للحوامل او اثناء الدوره الشهريه ",
+      "please-attach-a-copy-of-the-examination": "الرجاء ارفاق صورة من الفحص"
 
     },
     "TERMS": {

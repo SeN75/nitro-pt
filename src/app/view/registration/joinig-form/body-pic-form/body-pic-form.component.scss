@@ -1,0 +1,91 @@
+.body_img {
+  margin: 10px auto !important;
+  height: 25vh;
+  width: auto;
+}
+
+.body_label {
+  display: flex;
+}
+
+.body_number {
+  font-size: 3em;
+  line-height: 0.5;
+  color: #1d4980;
+  font-weight: 800;
+}
+
+.input_titls label {
+  color: #1d4980;
+  font-size: 1em;
+  font-weight: 600;
+}
+.input_titls p {
+  color: #adabac;
+  font-size: 0.8em;
+}
+.register_slick_button {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: -31px;
+  width: 95%;
+  margin-left: -15px;
+}
+
+.register_form {
+  position: relative;
+}
+
+.from-group {
+  margin: 10px 0 30px !important;
+}
+
+.select_way {
+  color: #adabac;
+  margin: 10px 0 20px;
+  font-size: 13px;
+}
+
+.underline {
+  background-color: #d0d7f0;
+  width: 100%;
+}
+
+.form_wrapper {
+  max-height: 60vh !important;
+  height: 100vh !important;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.term {
+  color: #adabac;
+  font-size: 0.9em;
+}
+.uploder_img {
+  height: auto;
+  width: 90%;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+}
+.upload_file {
+  position: relative;
+  width: auto;
+  height: auto;
+}
+.upload_file .upload_button {
+  width: auto;
+  background-color: #2185d0;
+  color: #fff;
+  border-radius: 0.25em;
+  margin: -70px auto 0;
+  display: block;
+  transform: scale(0.75);
+}
+@media screen and (max-width: 578px) {
+  .form_wrapper {
+    max-height: 70vh !important;
+    overflow-y: auto;
+  }
+}

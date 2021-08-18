@@ -3,7 +3,10 @@
         "": "",
         "nitro": "nitro",
         "account-settings": "account settings",
-        "search": "search"
+        "search": "search",
+        "upload": "upload",
+        "upload-file": "upload file",
+        "file": "file"
     },
     "SUBSCRIBERS": {
         "subscribers": "subscribers",
@@ -137,16 +140,39 @@
     },
     "BODY": {
       "upper-chest": "upper chest",
+      "upper-chest-dis": "Highlighting an area that passes through the middle of the chest",
       "lower-chest": "lower chest",
+      "lower-chest-dis": "The area just below the chest",
       "hips": "hips",
+      "hips-dis": "The narrowest area in the waist",
       "abs": "abs",
+      "abs-dis": "The area that forms the highest protrusion of the abdomen and passes through the navel",
       "quadriceps": "quadriceps",
+      "quadriceps-dis": "The circumference of the largest size, taking into account that the feet are adjacent to each other",
       "hamstrings": "hamstrings",
+      "hamstrings-dis": "The most prominent area of the thigh is often in the middle",
       "calves": "calves",
+      "calves-dis": "The most prominent area of the leg",
       "biceps": "biceps",
+      "biceps-dis": "The area closest to the shoulder and the most prominent area of the humerus",
       "body-measurements-info": "body measurements infomation",
       "take-the-examination": "take the examination",
-      "traditional": "traditional way"
+      "traditional": "traditional way",
+      "weight": "weight",
+      "pic": "body pictures",
+      "front": "front",
+      "back": "back",
+      "right": "side (right)",
+      "left": "side (left)",
+      "in-body": "IN BODY",
+      "choose-a-measurement-method": "please choose measurement way",
+      "examination-conditions": "Conditions for conducting the examination",
+      "condition-1": "The examination will be on an empty stomach",
+      "condition-2": "Avoid applying ointments to the hands and feet before the examination",
+      "condition-3": "Avoid heavy clothes and accessories",
+      "condition-4": "It is not recommended to take the measurement for pregnant women or during the menstrual cycle",
+      "please-attach-a-copy-of-the-examination":"Please attach a copy of the examination"
+
     },
     "TERMS": {
       "join-request": "join request",

@@ -27,6 +27,17 @@ export class JoinigFormComponent implements OnInit {
     "adaptiveHeight": false,
     "variableWidth": false,
     "variableHeight": false,
+    "touchMove": false,
+    "swipe": false,
+    "responsive": [
+      {
+        "breakpoint": 578,
+        "settings": {
+          "centerPadding": '20px',
+
+        }
+      },
+    ]
   };
   caurselPos = 0;
   @ViewChild('slickModal')

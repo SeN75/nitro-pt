@@ -1,7 +1,7 @@
-<section class="form_wrapper mb-5 scroll ">
+<section class="form_wrapper mb-2 scroll py-3 register_card">
   <div class="h5 section-title text-center">{{'SUBSCRIBERS.personal-subscriber-info' | translate}}</div>
-  <div class="P-3 " [formGroup]="personalInfoForm">
-    <div class="row form-group justify-content-between">
+  <div class="px-4 " [formGroup]="personalInfoForm">
+    <div class="row  form-group justify-content-between">
       <label class="">{{'PERSONAL-DATA.birthday' | translate}}</label>
       <div class="col">
         <select [formControl]="birthDateDay" class=" form-control " (change)="setBirthDate()">
