@@ -6,3 +6,15 @@
     background-size: cover;
     height: 100vh;
 }
+.hero-img{
+  position: absolute;
+  background: url(../../../assets/images/bodybuilder.png) no-repeat 0px 0px;
+  height: 750px;
+  width: 900px;
+  background-size: cover;
+  display: block;
+  content: '';
+  z-index: 5;
+  bottom:0px;
+  left: 0px;
+}
