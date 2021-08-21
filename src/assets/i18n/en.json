@@ -6,7 +6,8 @@
         "search": "search",
         "upload": "upload",
         "upload-file": "upload file",
-        "file": "file"
+        "file": "file",
+        "exposition": "exposition"
     },
     "SUBSCRIBERS": {
         "subscribers": "subscribers",
@@ -171,7 +172,10 @@
       "condition-2": "Avoid applying ointments to the hands and feet before the examination",
       "condition-3": "Avoid heavy clothes and accessories",
       "condition-4": "It is not recommended to take the measurement for pregnant women or during the menstrual cycle",
-      "please-attach-a-copy-of-the-examination":"Please attach a copy of the examination"
+      "please-attach-a-copy-of-the-examination":"Please attach a copy of the examination",
+      "body-take-pic": "Instructions for taking body pictures",
+      "body-take-pic-tipe1": "Please when choosing a location for shooting, a suitable location and appropriate lighting",
+      "body-take-pic-tipe2": "And prefers not to change the place of photography when each update with taking a clear picture"
 
     },
     "TERMS": {
@@ -223,7 +227,15 @@
         "sign-up": "sign up",
         "other": "other",
         "yes": "yes",
-        "no": "no"
+        "no": "no",
+        "bank-name": "bank name",
+        "bank-info": "Bank account information",
+        "IBAN": " IBAN",
+        "account-holder-name": "Account Holder's Name",
+        "receipt-pic": "Image receipt",
+        "send":"send",
+        "return": "back"
+
     },
     "VALIDATION": {
       "email": {

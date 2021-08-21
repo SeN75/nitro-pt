@@ -98,6 +98,9 @@ sidemenu
   text-align: left;
 }
 
+#picDialog.mat-dialog-container {
+  background-color: var(--white) !important;
+}
 /* dialog */
 
 /*  fromgroup   */
@@ -352,7 +355,34 @@ button.selected {
     color: #1d4980 !important;
   }
 }
-
+.uploder_img {
+  height: auto;
+  width: 90%;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+}
+.upload_file {
+  position: relative;
+  display: block;
+  width: auto;
+  height: auto;
+}
+.upload_file .upload_button {
+  width: auto;
+  background-color: #2185d0;
+  color: #fff;
+  border-radius: 0.25em;
+  margin: -70px auto 0;
+  display: block;
+  transform: scale(0.75);
+}
+.upload_title {
+  color: #fff;
+  margin: -70px auto 0;
+  display: block;
+  transform: scale(0.75);
+}
 @media screen and (max-width: 578px) {
   .register_card {
     background: #fff;

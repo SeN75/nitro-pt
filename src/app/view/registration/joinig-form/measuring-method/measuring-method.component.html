@@ -1,1 +1,178 @@
-<p>measuring-method works!</p>
+<section class="form_wrapper mb-2 scroll register_card">
+  <div class="h5 section-title text-center">{{'BODY.body-measurements-info' | translate}}</div>
+  <div class="row justify-content-between my-3 w-100 mx-0">
+    <div class="col-12">
+      <label class="select_way ">{{'BODY.choose-a-measurement-method' | translate}}</label>
+    </div>
+    <div class="col-6 col-md-4">
+      <button mat-stroked-button class="w-100" [class.selected]="isTraditional" (click)="isTraditional = true">
+        {{'BODY.traditional' | translate}}
+      </button>
+    </div>
+    <div class="col-6 col-md-4">
+      <button mat-stroked-button class="w-100" [class.selected]="!isTraditional" (click)="isTraditional = false">
+        {{'BODY.in-body' | translate}}
+      </button>
+    </div>
+  </div>
+  <hr class="underline">
+  <div *ngIf="!isTraditional">
+    <div class="title">
+      {{'BODY.examination-conditions' | translate}}
+    </div>
+    <ol>
+      <li class="term">{{'BODY.condition-1' | translate }}</li>
+      <li class="term">{{'BODY.condition-2' | translate }}</li>
+      <li class="term">{{'BODY.condition-3' | translate }}</li>
+      <li class="term">{{'BODY.condition-4' | translate }}</li>
+    </ol>
+    <p class="term my-3">{{'BODY.please-attach-a-copy-of-the-examination' | translate}}</p>
+    <div class="upload_file">
+      <img src="../../../../../assets/images/uploader.svg" class="uploder_img">
+      <button mat-button class="upload_button">
+        {{'SETTINGS.upload-file' | translate}}
+      </button>
+    </div>
+  </div>
+  <div class="register_form px-4" [formGroup]="bodyPicForm" *ngIf="isTraditional">
+    <ngx-slick-carousel class="carousel joining_carousel" #slickModal="slick-carousel" [config]="slideConfig">
+      <div ngxSlickItem>
+        <div class="">
+          <div class="from-group">
+            <div class="body_label">
+              <label class="body_number">1</label>
+              <div class="input_titls">
+                <label>{{'BODY.upper-chest' | translate}}</label>
+                <p class="">{{'BODY.upper-chest-dis' | translate}}</p>
+              </div>
+            </div>
+            <input formControlName="upperChest" class="form-control">
+          </div>
+          <img src="../../../../../assets/icons/body/upper_chest_img.svg" class="body_img">
+        </div>
+      </div>
+      <div ngxSlickItem>
+        <div class="">
+          <div class="from-group">
+            <div class="body_label">
+              <label class="body_number">2</label>
+              <div class="input_titls">
+                <label>{{'BODY.lower-chest' | translate}}</label>
+                <p class="">{{'BODY.lower-chest-dis' | translate}}</p>
+              </div>
+            </div>
+            <input formControlName="lowerChest" class="form-control">
+          </div>
+          <img src="../../../../../assets/icons/body/lower_chest_img.svg" class="body_img">
+        </div>
+      </div>
+      <div ngxSlickItem>
+        <div class="">
+          <div class="from-group">
+            <div class="body_label">
+              <label class="body_number">3</label>
+              <div class="input_titls">
+                <label>{{'BODY.hips' | translate}}</label>
+                <p class="">{{'BODY.hips-dis' | translate}}</p>
+              </div>
+            </div>
+            <input formControlName="hips" class="form-control">
+          </div>
+          <img src="../../../../../assets/icons/body/hips_img.svg" class="body_img">
+        </div>
+      </div>
+      <div ngxSlickItem>
+        <div class="">
+          <div class="from-group">
+            <div class="body_label">
+              <label class="body_number">4</label>
+              <div class="input_titls">
+                <label>{{'BODY.abs' | translate}}</label>
+                <p class="">{{'BODY.abs-dis' | translate}}</p>
+              </div>
+            </div>
+            <input formControlName="abs" class="form-control">
+          </div>
+          <img src="../../../../../assets/icons/body/abs_img.svg" class="body_img">
+        </div>
+      </div>
+      <div ngxSlickItem>
+        <div class="">
+          <div class="from-group">
+            <div class="body_label">
+              <label class="body_number">5</label>
+              <div class="input_titls">
+                <label>{{'BODY.quadriceps' | translate}}</label>
+                <p class="">{{'BODY.quadriceps-dis' | translate}}</p>
+              </div>
+            </div>
+            <input formControlName="quadriceps" class="form-control">
+          </div>
+          <img src="../../../../../assets/icons/body/quadriceps_img.svg" class="body_img">
+        </div>
+      </div>
+      <div ngxSlickItem>
+        <div class="">
+          <div class="from-group">
+            <div class="body_label">
+              <label class="body_number">6</label>
+              <div class="input_titls">
+                <label>{{'BODY.hamstrings' | translate}}</label>
+                <p class="">{{'BODY.hamstrings-dis' | translate}}</p>
+              </div>
+            </div>
+            <input formControlName="hamstrings" class="form-control">
+          </div>
+          <img src="../../../../../assets/icons/body/hamstrings_img.svg" class="body_img">
+        </div>
+      </div>
+      <div ngxSlickItem>
+        <div class="">
+          <div class="from-group">
+            <div class="body_label">
+              <label class="body_number">7</label>
+              <div class="input_titls">
+                <label>{{'BODY.calves' | translate}}</label>
+                <p class="">{{'BODY.calves-dis' | translate}}</p>
+              </div>
+            </div>
+            <input formControlName="calves" class="form-control">
+          </div>
+          <img src="../../../../../assets/icons/body/calves_img.svg" class="body_img">
+        </div>
+      </div>
+      <div ngxSlickItem>
+        <div class="">
+          <div class="from-group">
+            <div class="body_label">
+              <label class="body_number">8</label>
+              <div class="input_titls">
+                <label>{{'BODY.biceps' | translate}}</label>
+                <p class="">{{'BODY.biceps-dis' | translate}}</p>
+              </div>
+            </div>
+            <input formControlName="biceps" class="form-control">
+          </div>
+          <img src="../../../../../assets/icons/body/biceps_img.svg" class="body_img">
+        </div>
+      </div>
+    </ngx-slick-carousel>
+    <div class="register_slick_button">
+      <button mat-icon-button (click)="next()" [disabled]="
+      caurselPos == 0 ? bodyPicForm.get('upperChest')?.invalid :
+      caurselPos == 1 ? bodyPicForm.get('lowerChest')?.invalid :
+      caurselPos == 2 ? bodyPicForm.get('hips')?.invalid :
+      caurselPos == 3 ? bodyPicForm.get('abs')?.invalid :
+      caurselPos == 4 ? bodyPicForm.get('quadriceps')?.invalid :
+      caurselPos == 5 ? bodyPicForm.get('hamstrings')?.invalid :
+      caurselPos == 6 ? bodyPicForm.get('calves')?.invalid : false
+      " *ngIf="caurselPos != 7">
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+      <span></span>
+      <button mat-icon-button (click)="prev()" *ngIf="caurselPos != 0">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </div>
+  </div>
+</section>

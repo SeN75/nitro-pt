@@ -5,6 +5,7 @@ import { CategoryTypeDialogComponent } from '../view/dashboard/categories/catego
 import { PackageDialogComponent } from '../view/dashboard/packages/package-dialog/package-dialog.component';
 import { WorkoutDialogComponent } from '../view/dashboard/worksout/workout-dialog/workout-dialog.component';
 import { WorkoutTypeDialogComponent } from '../view/dashboard/worksout/workout-type-dialog/workout-type-dialog.component';
+import { TipsComponent } from '../view/registration/joinig-form/body-pic-form/tips/tips.component';
 import { DialogComponent } from './../view/components/dialog/dialog.component';
 
 @Injectable({
@@ -80,6 +81,18 @@ export class DialogService {
       maxWidth: "750px",
       width: 'auto',
       data: { state: state, cate: cate }
+    });
+    dialogRef.afterClosed().subscribe(res => console.log("dialog closed"));
+  }
+  openTipsDialog() {
+    const dialogRef = this.dialog.open(TipsComponent, {
+      height: 'auto',
+      minWidth: '450px',
+      maxWidth: "750px",
+      minHeight: '60vh',
+      id: "picDialog",
+      direction: "rtl",
+      width: 'auto',
     });
     dialogRef.afterClosed().subscribe(res => console.log("dialog closed"));
   }

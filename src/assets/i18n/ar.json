@@ -6,7 +6,8 @@
         "search": "بحث",
         "upload": "رفع",
         "upload-file": "رفع الملف",
-        "file": " ملف"
+        "file": " ملف",
+        "exposition": "للتوضيح"
     },
     "SUBSCRIBERS": {
         "subscribers": "المشتركين",
@@ -178,7 +179,10 @@
       "condition-2": "تجنب وضع المراهم على اليدين والقدمين قبل الفحص ",
       "condition-3": "تجنب الملابس الثقيله والاكسسوارات",
       "condition-4": "لا ينصح عمل القياس للحوامل او اثناء الدوره الشهريه ",
-      "please-attach-a-copy-of-the-examination": "الرجاء ارفاق صورة من الفحص"
+      "please-attach-a-copy-of-the-examination": "الرجاء ارفاق صورة من الفحص",
+      "body-take-pic": "تعليمات لاخذ صور الجسم",
+      "body-take-pic-tipe1": "يرجى عند التصوير اختيار مكان و موقع مناسب واضاءة مناسبة",
+      "body-take-pic-tipe2": "ويفضل عدم تغير مكان التصوير عند كل تحديث مع اخذ صوره واضحة"
 
     },
     "TERMS": {
@@ -230,7 +234,14 @@
         "sign-up": "تسجيل",
         "other": "اخرى",
         "yes": "نعم",
-        "no":"لا"
+        "no":"لا",
+        "bank-name": "اسم البنك",
+        "bank-info": "معلومات الحساب البنكي",
+        "IBAN": " الايبان",
+        "account-holder-name": "اسم صاحب الحساب",
+        "receipt-pic": "صوره الايصال",
+        "send":"ارسال",
+        "return": "عودة"
     },
     "VALIDATION": {
       "email": {

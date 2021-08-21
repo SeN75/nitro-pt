@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SlickCarouselComponent } from 'ngx-slick-carousel';
+import { DialogService } from 'src/app/_services/dialog.service';
 
 @Component({
   selector: 'joining-body-pic-form',
@@ -41,7 +42,8 @@ export class BodyPicFormComponent implements OnInit {
 
   }
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public dialgoSrv: DialogService
   ) {
     this.bodyPicForm = this.formBuilder.group({
       abs: ['', Validators.required],
