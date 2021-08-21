@@ -121,9 +121,10 @@
     </div>
 
   </div>
+  <!--  routerLink="/register/join_program" -->
   <div class="d-flex justity-content-center mt-5 mb-3">
     <button mat-raised-button color="primary" class="btn-lg m-auto" (click)="_signup()"
-      routerLink="/register/join_program">{{'FORM.sign-up' |
+      [disabled]="registerForm.invalid">{{'FORM.sign-up' |
       translate}}</button>
   </div>
   <div class="d-flex justity-content-center ">

@@ -31,8 +31,8 @@
     </div>
   </div>
   <div class="d-flex justity-content-center mt-5 mb-3">
-    <button mat-raised-button color="primary" class="btn-lg m-auto mt-2"
-      [disabled]="loginFormControl.invalid">{{'FORM.login' | translate}}</button>
+    <button mat-raised-button color="primary" class="btn-lg m-auto mt-2" [disabled]="loginFormControl.invalid"
+      (click)="_login()">{{'FORM.login' | translate}}</button>
   </div>
   <div class="mx-5 my-2">
     {{'FORM.dont-have-account' | translate}}

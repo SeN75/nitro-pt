@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Counrties } from 'src/app/_common/counties';
 import { ConfirmPasswordValidator } from './../../../_helpers/confirm-password.validator';
+import { IdentityService } from 'src/app/_services/identity/identity.service';
+import { LoggerService } from 'src/app/_services/logger.service';
 
 @Component({
   selector: 'app-signup',
@@ -12,7 +14,11 @@ export class SignupComponent implements OnInit {
   registerForm: FormGroup;
   hidePassword = true;
   countriesCode = Counrties;
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private identitySrv: IdentityService,
+    private logger: LoggerService
+  ) {
     this.registerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       fatherName: ['', Validators.required],
@@ -35,7 +41,22 @@ export class SignupComponent implements OnInit {
   }
 
   _signup() {
-    console.log(this.registerForm)
+    let data = {
+      "username": this.registerForm.get("userName")?.value,
+      "email": this.registerForm.get("email")?.value,
+      "phone_number": this.registerForm.get('counterCode')?.value + this.registerForm.get('phoneNumber')?.value,
+      "password": this.registerForm.get('password')?.value,
+      "re_password": this.registerForm.get('password')?.value,
+      "role": "member",
+      "first_name": this.registerForm.get('firstName')?.value,
+      "first_name_ar": this.registerForm.get('firstName')?.value,
+      "middle_name": this.registerForm.get('fatherName')?.value,
+      "middle_name_ar": this.registerForm.get('fatherName')?.value,
+      "last_name": this.registerForm.get('familyName')?.value,
+      "last_name_ar": this.registerForm.get('familyName')?.value
+    }
+    this.logger.log('sign up: ', data)
+    this.identitySrv.postCreateUser(data);
   }
 
 }
