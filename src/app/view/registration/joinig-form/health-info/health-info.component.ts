@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LanguageService } from 'src/app/_services/language.service';
 import { LoggerService } from 'src/app/_services/logger.service';
@@ -9,7 +9,12 @@ import { LoggerService } from 'src/app/_services/logger.service';
   styleUrls: ['./health-info.component.scss']
 })
 export class HealthInfoComponent implements OnInit {
+  @Output() healthInfo: any = new EventEmitter<any>();
   healthInfoForm: FormGroup;
+  value = {
+    valid: false,
+    data: {}
+  }
   constructor(
     private formBuilder: FormBuilder,
     private logger: LoggerService,
@@ -29,6 +34,13 @@ export class HealthInfoComponent implements OnInit {
       allergen: ['no', Validators.required],
       unlike: ['no', Validators.required],
       operations: ['no', Validators.required],
+    })
+    this.healthInfoForm.valueChanges.subscribe(() => {
+      console.log("change2")
+      this.value.data = this.healthInfoForm.value;
+      this.value.valid = this.healthInfoForm.valid;
+      this.healthInfo.emit(this.value)
+      this.logger.log('form value2: ', this.value)
     })
   }
 

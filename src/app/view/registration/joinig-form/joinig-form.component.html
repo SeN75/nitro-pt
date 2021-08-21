@@ -3,14 +3,15 @@
 <div class="register_form">
 
   <ngx-slick-carousel class="carousel joining_carousel" #slickModal="slick-carousel" [config]="slideConfig">
-    <joining-personal-info ngxSlickItem></joining-personal-info>
-    <joining-health-info ngxSlickItem></joining-health-info>
-    <joining-measuring-method ngxSlickItem></joining-measuring-method>
-    <joining-body-pic-form ngxSlickItem></joining-body-pic-form>
-    <joining-back-info ngxSlickItem></joining-back-info>
+    <joining-personal-info (personalInfo)="output($event)" ngxSlickItem></joining-personal-info>
+    <joining-health-info (healthInfo)="output($event)" ngxSlickItem></joining-health-info>
+    <joining-measuring-method (measuringInfo)=output($event) ngxSlickItem></joining-measuring-method>
+    <joining-body-pic-form (bodyPic)="output($event)" ngxSlickItem></joining-body-pic-form>
+    <joining-back-info (bankInfo)="output($event)" ngxSlickItem></joining-back-info>
   </ngx-slick-carousel>
   <div class="register_slick_button">
-    <button mat-button (click)="next()" *ngIf="caurselPos != 4">{{'FORM.next' | translate}}</button>
+    <button mat-button (click)="next()" *ngIf="caurselPos != 4" [disabled]="!isFormValid">{{'FORM.next' |
+      translate}}</button>
     <span></span>
     <button mat-button (click)="prev()" *ngIf="caurselPos != 0">{{'FORM.back' | translate}}</button>
   </div>

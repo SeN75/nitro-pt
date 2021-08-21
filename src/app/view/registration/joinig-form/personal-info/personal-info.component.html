@@ -57,7 +57,8 @@
       <label>{{'PERSONAL-DATA.city' | translate}}</label>
       <div class="col-12">
         <select formControlName="city" class="form-control">
-          <option *ngFor="let city of cities;" [value]="city">{{lang.dir == 'rtl' ? city.name_ar : city.name_en}}
+          <option *ngFor="let city of cities;" [value]="city.city_id">{{lang.dir == 'rtl' ? city.name_ar :
+            city.name_en}}
           </option>
         </select>
       </div>

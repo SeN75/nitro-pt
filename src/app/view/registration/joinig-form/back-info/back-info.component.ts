@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -8,12 +8,21 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class BackInfoComponent implements OnInit {
   bankInfoForm: FormGroup;
+  value = {
+    data: {},
+    valid: false
+  }
+  @Output() bankInfo: any = new EventEmitter<any>();
   constructor(private formBuilder: FormBuilder) {
     this.bankInfoForm = this.formBuilder.group({
       bankName: ['', Validators.required],
       accountHolder: ['', Validators.required],
       iban: ['', Validators.required],
       recipt: ['',]
+    })
+    this.bankInfoForm.valueChanges.subscribe(() => {
+      this.value.valid = this.bankInfoForm.valid;
+      this.value.data = this.bankInfoForm.value;
     })
   }
 

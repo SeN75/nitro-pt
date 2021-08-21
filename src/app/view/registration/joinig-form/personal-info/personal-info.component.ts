@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { LanguageService } from 'src/app/_services/language.service';
@@ -11,13 +11,17 @@ import { cities } from './../../../../_common/cities';
   styleUrls: ['./personal-info.component.scss']
 })
 export class PersonalInfoComponent implements OnInit {
-  @Output() personalInfo: EventListener | any;
+  @Output() personalInfo: any = new EventEmitter<any>();
   cities = cities;
   personalInfoForm: FormGroup;
   birthDateDay: FormControl = new FormControl({ value: '', disabled: true }, Validators.required);
   birthDateMonth: FormControl = new FormControl('', Validators.required);
   birthDateYear: FormControl = new FormControl('', Validators.required);
   numberDaysInMonth: any = 0;
+  value = {
+    valid: false,
+    data: {}
+  }
   constructor(
     private formBuilder: FormBuilder,
     private logger: LoggerService,
@@ -30,6 +34,7 @@ export class PersonalInfoComponent implements OnInit {
       gender: ['male', Validators.required],
       city: ['', Validators.required]
     })
+    this.personalInfoForm.valueChanges.subscribe(() => { this.isValid() })
   }
 
   ngOnInit(): void {
@@ -65,5 +70,13 @@ export class PersonalInfoComponent implements OnInit {
       listYears.push(index);
     }
     return listYears;
+  }
+
+  isValid() {
+    console.log("change")
+    this.value.valid = this.personalInfoForm.valid;
+    this.value.data = this.personalInfoForm.value;
+    this.personalInfo.emit(this.value);
+    this.logger.log('form value: ', this.value)
   }
 }

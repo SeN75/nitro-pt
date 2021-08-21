@@ -5,12 +5,14 @@
       <label class="select_way ">{{'BODY.choose-a-measurement-method' | translate}}</label>
     </div>
     <div class="col-6 col-md-4">
-      <button mat-stroked-button class="w-100" [class.selected]="isTraditional" (click)="isTraditional = true">
+      <button mat-stroked-button class="w-100" [class.selected]="isTraditional"
+        (click)="isTraditional = true; measuringInfo.emit({valid: false})">
         {{'BODY.traditional' | translate}}
       </button>
     </div>
     <div class="col-6 col-md-4">
-      <button mat-stroked-button class="w-100" [class.selected]="!isTraditional" (click)="isTraditional = false">
+      <button mat-stroked-button class="w-100" [class.selected]="!isTraditional"
+        (click)="isTraditional = false; measuringInfo.emit({valid: true})">
         {{'BODY.in-body' | translate}}
       </button>
     </div>

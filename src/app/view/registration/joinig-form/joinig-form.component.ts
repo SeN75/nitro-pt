@@ -11,8 +11,7 @@ export class JoinigFormComponent implements OnInit {
     name_ar: "محمد",
     name: "mehmed"
   }
-  arr = [1, 2, 3, 4, 5]
-  arr2 = [1, 2, 3, 4]
+
   slideConfig = {
     "slidesToShow": 1,
     "slidesToScroll": 1,
@@ -39,12 +38,15 @@ export class JoinigFormComponent implements OnInit {
       },
     ]
   };
+  isFormValid = false;
   caurselPos = 0;
   @ViewChild('slickModal')
   slickModal!: SlickCarouselComponent;
 
   next() {
     this.caurselPos++;
+    if (this.caurselPos != 3)
+      this.isFormValid = false;
     this.slickModal.slickNext();
   }
 
@@ -71,5 +73,14 @@ export class JoinigFormComponent implements OnInit {
 
   beforeChange(e: any) {
     console.log('beforeChange');
+  }
+  output(event: any) {
+    console.log(event)
+    this.isFormValid = event.valid;
+    if (this.caurselPos == 0) { }
+    else if (this.caurselPos == 1) { }
+    else if (this.caurselPos == 2) { }
+    else if (this.caurselPos == 3) { }
+    else if (this.caurselPos == 4) { }
   }
 }

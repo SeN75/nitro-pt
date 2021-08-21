@@ -25,7 +25,7 @@
   </div>
   <div class="row justify-content-center">
     <div class="col text-center mt-4">
-      <button mat-raised-button color="primary">{{'FORM.send'| translate}}</button>
+      <button mat-raised-button color="primary" [disabled]="bankInfoForm.invalid">{{'FORM.send'| translate}}</button>
     </div>
   </div>
 </section>

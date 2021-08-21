@@ -14,19 +14,20 @@
         </button>
       </div>
       <div class="col-4">
-        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('workNature')?.value == ''"
+        <button class="w-100" mat-stroked-button
+          [class.selected]=" healthInfoForm.get('workNature')?.value != 'field' && healthInfoForm.get('workNature')?.value != 'office'"
           (click)="healthInfoForm.get('workNature')?.setValue('')">{{'FORM.other' | translate}}
         </button>
       </div>
       <div class="col-12 mt-3">
         <input class="form-control" type="text" formControlName="workNature"
-          *ngIf="healthInfoForm.get('workNature')?.value == ''">
+          *ngIf=" healthInfoForm.get('workNature')?.value != 'field' && healthInfoForm.get('workNature')?.value != 'office'">
       </div>
     </div>
     <div class="row form-group justify-content-between">
       <label class="col-12">{{'SUBSCRIBERS.are-there-health-problems' | translate}}</label>
       <div class="col-5 col-md-4">
-        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('healthProblems')?.value == ''"
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('healthProblems')?.value != 'no' "
           (click)="healthInfoForm.get('healthProblems')?.setValue('')">
           {{'FORM.yes' | translate}}
         </button>
@@ -37,7 +38,7 @@
           {{'FORM.no' | translate}}
         </button>
       </div>
-      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('healthProblems')?.value == ''">
+      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('healthProblems')?.value != 'no'">
         <label class="col-12">{{'SUBSCRIBERS.what-is-the-health-problem' | translate}}</label>
         <input class="form-control" type="text" formControlName="healthProblems">
       </div>
@@ -45,7 +46,7 @@
     <div class="row form-group justify-content-between">
       <label class="col-12">{{'SUBSCRIBERS.do-you-use-supplements' | translate}}</label>
       <div class="col-5 col-md-4">
-        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('supplements')?.value == ''"
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('supplements')?.value != 'no'"
           (click)="healthInfoForm.get('supplements')?.setValue('')">
           {{'FORM.yes' | translate}}
         </button>
@@ -56,7 +57,7 @@
           {{'FORM.no' | translate}}
         </button>
       </div>
-      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('supplements')?.value == ''">
+      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('supplements')?.value != 'no'">
         <label class="col-12">{{'SUBSCRIBERS.what-are-the-supplements' | translate}}</label>
         <input class="form-control" type="text" formControlName="supplements">
       </div>
@@ -86,7 +87,7 @@
     <div class="row form-group justify-content-between">
       <label class="col-12">{{'SUBSCRIBERS.do-you-have-a-current-diet-program' | translate}}</label>
       <div class="col-5 col-md-4">
-        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('ditePlan')?.value == ''"
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('ditePlan')?.value != 'no'"
           (click)="healthInfoForm.get('ditePlan')?.setValue('')">
           {{'FORM.yes' | translate}}
         </button>
@@ -97,7 +98,7 @@
           {{'FORM.no' | translate}}
         </button>
       </div>
-      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('ditePlan')?.value == ''">
+      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('ditePlan')?.value != 'no'">
         <label class="col-12">{{'SUBSCRIBERS.please-write-the-program' | translate}}</label>
         <textarea class="form-control" type="text" formControlName="ditePlan" rows="4"></textarea>
       </div>
@@ -111,7 +112,7 @@
     <div class="row form-group justify-content-between">
       <label class="col-12">{{'SUBSCRIBERS.do-you-have-an-allergy-to-a-certain-food' | translate}}</label>
       <div class="col-5 col-md-4">
-        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('allergen')?.value == ''"
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('allergen')?.value != 'no'"
           (click)="healthInfoForm.get('allergen')?.setValue('')">
           {{'FORM.yes' | translate}}
         </button>
@@ -122,7 +123,7 @@
           {{'FORM.no' | translate}}
         </button>
       </div>
-      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('allergen')?.value == ''">
+      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('allergen')?.value != 'no'">
         <label class="col-12">{{'SUBSCRIBERS.list-the-allergens' | translate}}</label>
         <textarea class="form-control" type="text" formControlName="allergen"></textarea>
       </div>
@@ -130,7 +131,7 @@
     <div class="row form-group justify-content-between">
       <label class="col-12">{{'SUBSCRIBERS.do-you-have-a-food-you-dont-like' | translate}}</label>
       <div class="col-5 col-md-4">
-        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('unlike')?.value == ''"
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('unlike')?.value != 'no'"
           (click)="healthInfoForm.get('unlike')?.setValue('')">
           {{'FORM.yes' | translate}}
         </button>
@@ -141,7 +142,7 @@
           {{'FORM.no' | translate}}
         </button>
       </div>
-      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('unlike')?.value == ''">
+      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('unlike')?.value != 'no'">
         <label class="col-12">{{'SUBSCRIBERS.please-mention-the-food-you-dont-like' | translate}}</label>
         <textarea class="form-control" type="text" formControlName="unlike"></textarea>
       </div>
@@ -149,7 +150,7 @@
     <div class="row form-group justify-content-between">
       <label class="col-12">{{'SUBSCRIBERS.have-you-had-surgery-recently' | translate}}</label>
       <div class="col-5 col-md-4">
-        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('operations')?.value == ''"
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('operations')?.value != 'no'"
           (click)="healthInfoForm.get('operations')?.setValue('')">
           {{'FORM.yes' | translate}}
         </button>
@@ -160,7 +161,7 @@
           {{'FORM.no' | translate}}
         </button>
       </div>
-      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('operations')?.value == ''">
+      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('operations')?.value != 'no'">
         <label class="col-12">{{'SUBSCRIBERS.please-indicate-the-location-and-type-of-the-operation' |
           translate}}</label>
         <textarea class="form-control" type="text" formControlName="operations"></textarea>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SlickCarouselComponent } from 'ngx-slick-carousel';
 
@@ -8,7 +8,7 @@ import { SlickCarouselComponent } from 'ngx-slick-carousel';
   styleUrls: ['./measuring-method.component.scss']
 })
 export class MeasuringMethodComponent implements OnInit {
-
+  @Output() measuringInfo: any = new EventEmitter<any>();
   bodyPicForm: FormGroup;
   slideConfig = {
     "slidesToShow": 1,
@@ -30,7 +30,11 @@ export class MeasuringMethodComponent implements OnInit {
   caurselPos = 0;
   @ViewChild('slickModal')
   slickModal!: SlickCarouselComponent;
-  isTraditional = false;
+  isTraditional = true;
+  value: any = {
+    valid: false,
+    data: {}
+  }
   next() {
     this.caurselPos++;
     this.slickModal.slickNext();
@@ -53,6 +57,11 @@ export class MeasuringMethodComponent implements OnInit {
       lowerChest: ['', Validators.required],
       upperChest: ['', Validators.required],
       quadriceps: ['', Validators.required],
+    })
+    this.bodyPicForm.valueChanges.subscribe(() => {
+      this.value.valid = this.bodyPicForm.valid;
+      this.value.data = this.bodyPicForm.value;
+      this.measuringInfo.emit(this.value)
     })
   }
   ngOnInit(): void {
