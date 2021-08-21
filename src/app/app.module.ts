@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
@@ -34,6 +34,9 @@ import { RegistrationModule } from './view/registration/registration.module';
 import { ComponentsModule } from './view/components/components.module';
 import { InfoItemComponent } from './view/components/info-item/info-item.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NaitroInterceptor } from './_helpers/interceptors';
+import { AuhtGuardGuard } from './_helpers/auth-guard.guard';
 
 @NgModule({
   declarations: [
@@ -60,6 +63,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     MatRippleModule,
     MatFormFieldModule,
+    MatSnackBarModule,
     MatInputModule,
     TranslateModule,
     ComponentsModule,
@@ -76,7 +80,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: NaitroInterceptor,
+      multi: true
+    },
+    AuhtGuardGuard
+  ],
   exports: [],
   entryComponents: [DialogComponent],
   bootstrap: [AppComponent]
