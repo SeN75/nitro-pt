@@ -3,6 +3,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { API } from '../../_helpers/api.config';
 import { TranslateService } from '@ngx-translate/core';
 import { LoggerService } from '../logger.service';
+import { ToastService } from '../toast.service';
+import { Router } from '@angular/router';
 const Identity = API + "auth/";
 @Injectable({
   providedIn: 'root'
@@ -12,6 +14,8 @@ export class IdentityService {
   constructor(
     private httpClient: HttpClient,
     private translateSrv: TranslateService,
+    private toastSrv: ToastService,
+    private router: Router,
     private logger: LoggerService) {
 
   }
@@ -48,7 +52,7 @@ export class IdentityService {
   private _userActivation(data: any) {
     return this.httpClient.post(Identity + "users/activation/", data);
   }
-  private _refreshToken(data: any) {
+  public _refreshToken(data: any) {
     return this.httpClient.post(Identity + "login/refresh", data);
   }
   private _changeCurrentUserPassword(data: any) {
@@ -120,8 +124,12 @@ export class IdentityService {
   public postCreateUser(userData: any) {
     this._postCreateUser(userData).subscribe((success: any) => {
       this.logger.log("post Create User :", success)
+      this.translateSrv.get('SUCCESS.create-user-verify').subscribe(msg => this.toastSrv.success(msg))
+      this.router.navigateByUrl('/register/login')
     }, (error: HttpErrorResponse) => {
       this.logger.error("post Create User  error: ", error)
+      this.translateSrv.get('ERROR.create-user').subscribe(msg => this.toastSrv.error(msg))
+
     })
   }
   public login(userData: any) {

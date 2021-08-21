@@ -253,5 +253,11 @@
       "login": "you should login first",
       "phone-number": "The mobile number must be nine digits long"
 
+  },
+  "SUCCESS" : {
+    "create-user-verify" :"User created, check mail to activate account"
+  },
+  "ERROR": {
+    "create-user": "An error occurred while creating a new subscriber"
   }
 }

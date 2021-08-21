@@ -254,7 +254,14 @@ mat-panel-title,
 .newly {
   color: #1d4980;
 }
-
+.success-message {
+  color: white;
+  background-color: #4bb543;
+}
+.error-message {
+  color: white;
+  background-color: #cc3300;
+}
 select.form-control {
   width: 100%;
   display: flex;
