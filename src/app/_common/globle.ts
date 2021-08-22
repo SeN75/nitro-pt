@@ -40,10 +40,29 @@ export const categoriesWithcompounds = [
 export const measuring_units = ['gram', 'cup']
 
 export const packages = [
-  { title: 'باقة التضخيم', month: 6, price: 2000, accountNumber: "000000000", haveAttach: false, showOnWebsite: false, theme: 3, haveButton: false },
-  { title: 'باقة الصيف', month: 6, price: 2000, accountNumber: "000000000", haveAttach: false, showOnWebsite: false, theme: 1, haveButton: false, },
-  { title: 'باقة الطلاب', month: 6, price: 2000, accountNumber: "000000000", haveAttach: false, showOnWebsite: false, theme: 2, haveButton: false },
-  { title: 'باقة التضخيم', month: 6, price: 2000, accountNumber: "000000000", haveAttach: false, showOnWebsite: false, theme: 3, haveButton: false },
+
+  {
+    "name": "student package",
+    "name_ar": "باقة الطلاب",
+    "description": "student package",
+    "description_ar": "باقة الطلاب",
+    "period": 10,
+    "price": "1440.00",
+    "iban_id": "5e4b3655-9de3-4085-be5e-6de910fa9e1d",
+    "attach_required": true,
+    "attachments_ids": [4, 2]
+  },
+  {
+    "name": "student package",
+    "name_ar": "باقة التضخيم",
+    "description": "student package",
+    "description_ar": "باقة التضخيم",
+    "period": 10,
+    "price": "1440.00",
+    "iban_id": "5e4b3655-9de3-4085-be5e-6de910fa9e1d",
+    "attach_required": true,
+    "attachments_ids": [4, 2]
+  }
 ]
 
 export const workout = [

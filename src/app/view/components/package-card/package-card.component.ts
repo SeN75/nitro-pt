@@ -16,7 +16,7 @@ export class PackageCardComponent implements OnInit {
   }
 
   @Input() package_title: string = "";
-  @Input() package_price: number = 0;
+  @Input() package_price: string = "0";
   @Input() package_months: number = 0;
   @Input() theme_number: number = 0;
   @Input() with_button: boolean = false;

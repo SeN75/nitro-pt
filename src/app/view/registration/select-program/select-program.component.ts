@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { packages } from 'src/app/_common/globle';
 import { SlickCarouselComponent } from 'ngx-slick-carousel';
+import { LanguageService } from 'src/app/_services/language.service';
 
 @Component({
   selector: 'app-select-program',
@@ -59,7 +60,7 @@ export class SelectProgramComponent implements OnInit {
     this.slickModal.slickPrev();
 
   }
-  constructor() { }
+  constructor(public lang: LanguageService) { }
 
   ngOnInit(): void {
   }

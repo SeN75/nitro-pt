@@ -9,7 +9,7 @@ const packUrl = API + "fin/package/";
   providedIn: 'root'
 })
 export class PackagesService {
-
+  packages: any = [];
   constructor(
     private httpClient: HttpClient,
     private translateSrv: TranslateService,
@@ -17,10 +17,10 @@ export class PackagesService {
   ) { }
 
   private _getPackagesList() {
-    return this.httpClient.get(packUrl + "list")
+    return this.httpClient.get(packUrl + "list/")
   }
   private _createPackage(data: any) {
-    return this.httpClient.post(packUrl + "create", data);
+    return this.httpClient.post(packUrl + "create/", data + "/");
   }
   private _getPackageById(id: string) {
     return this.httpClient.get(packUrl + "id/" + id);
@@ -35,6 +35,7 @@ export class PackagesService {
 
   public getPackagesList() {
     this._getPackagesList().subscribe((success: any) => {
+      this.packages = success;
       this.logger.log("get packages List:", success)
     }, (error: HttpErrorResponse) => {
       this.logger.error("get packages List error: ", error)

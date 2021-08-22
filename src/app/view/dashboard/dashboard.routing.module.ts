@@ -16,6 +16,7 @@ import { ExerciseScheduleComponent } from './worksout/exercise-schedule/exercise
 import { CategoriesTableComponent } from './categories/categories-table/categories-table.component';
 import { SubscriberInfoComponent } from './subscribers/subscriber-info/subscriber-info.component';
 import { OrderInfoComponent } from './orders/order-info/order-info.component';
+import { AuhtGuardGuard } from 'src/app/_helpers/auth-guard.guard';
 
 const children: Routes = [
   { component: BaseComponent, path: 'base' },
@@ -36,8 +37,8 @@ const children: Routes = [
 
 ]
 const routes: Routes = [
-  { component: DashboardComponent, path: 'dashboard', children: children },
-  { component: DashboardComponent, path: '', children: children }
+  { component: DashboardComponent, path: 'dashboard', children: children, canActivate: [AuhtGuardGuard] },
+  { component: DashboardComponent, path: '', children: children, canActivate: [AuhtGuardGuard] }
 
 ];
 

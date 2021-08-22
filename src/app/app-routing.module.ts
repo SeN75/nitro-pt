@@ -6,9 +6,9 @@ import { RegistrationRouting } from './view/registration/registration.routing';
 import { AuhtGuardGuard } from './_helpers/auth-guard.guard';
 
 const routes: Routes = [
-  { component: DashboardComponent, path: '' },
+  { component: DashboardComponent, path: '', canActivate: [AuhtGuardGuard] },
   { redirectTo: '', path: 'home', pathMatch: "full" },
-  { component: RegistrationComponent, path: 'register', children: RegistrationRouting, canActivate: [AuhtGuardGuard] },
+  { component: RegistrationComponent, path: 'register', children: RegistrationRouting },
 
 ];
 

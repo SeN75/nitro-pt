@@ -21,10 +21,10 @@ export class IdentityService {
   }
 
   private _getStaff() {
-    return this.httpClient.get(Identity + "staff");
+    return this.httpClient.get(Identity + "staff/");
   }
   private _getAllCoaches() {
-    return this.httpClient.get(Identity + "coach")
+    return this.httpClient.get(Identity + "coach/")
   }
   private _getUserProfileByJWT() {
     return this.httpClient.get(Identity + "users/me/")
@@ -47,32 +47,32 @@ export class IdentityService {
     formData.append('username', userData.userName);
     formData.append('password', userData.password);
 
-    return this.httpClient.post(Identity + 'users/', formData);
+    return this.httpClient.post(Identity + 'user/login/', formData);
   }
   private _userActivation(data: any) {
     return this.httpClient.post(Identity + "users/activation/", data);
   }
   public _refreshToken(data: any) {
-    return this.httpClient.post(Identity + "login/refresh", data);
+    return this.httpClient.post(Identity + "user/login/refresh/", data);
   }
   private _changeCurrentUserPassword(data: any) {
     return this.httpClient.post(Identity + "users/set_password/", data)
   }
 
   private _resetPassword(data: any) {
-    return this.httpClient.post(Identity + "users/reset_password", data);
+    return this.httpClient.post(Identity + "users/reset_password/", data);
   }
   private _resetPasswordConfirm(data: any) {
     return this.httpClient.post(Identity + "users/reset_password_confirm/", data);
   }
   private _logoutAll() {
-    return this.httpClient.post(Identity + "users/logout_all", {});
+    return this.httpClient.post(Identity + "user/logout_all/", {});
   }
   private _logout(data: any) {
-    return this.httpClient.post(Identity + "users/logout", data);
+    return this.httpClient.post(Identity + "user/logout/", data);
   }
   private _deleteProfileById(id: string) {
-    return this.httpClient.delete(Identity + "users/profiles/" + id)
+    return this.httpClient.delete(Identity + "user/profiles/" + id + "/")
   }
 
 

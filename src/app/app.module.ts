@@ -68,6 +68,7 @@ import { AuhtGuardGuard } from './_helpers/auth-guard.guard';
     TranslateModule,
     ComponentsModule,
     FormsModule,
+
     ReactiveFormsModule,
     TranslateModule.forRoot({ // this is for translate
       loader: {
