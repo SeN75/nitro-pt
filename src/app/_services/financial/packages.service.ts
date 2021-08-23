@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LoggerService } from '../logger.service';
+import { ToastService } from '../toast.service';
 import { API } from './../../_helpers/api.config';
 const packUrl = API + "fin/package/";
 
@@ -13,20 +14,23 @@ export class PackagesService {
   constructor(
     private httpClient: HttpClient,
     private translateSrv: TranslateService,
-    private logger: LoggerService
+    private logger: LoggerService,
+    private toaterSrv: ToastService
   ) { }
-
   private _getPackagesList() {
-    return this.httpClient.get(packUrl + "list/")
+    return this.httpClient.get(packUrl + "list")
   }
   private _createPackage(data: any) {
-    return this.httpClient.post(packUrl + "create/", data + "/");
+    return this.httpClient.post(packUrl + "create", data);
   }
   private _getPackageById(id: string) {
     return this.httpClient.get(packUrl + "id/" + id);
   }
   private _getPackageByCoachId(id: string) {
     return this.httpClient.get(packUrl + "owner/id/" + id);
+  }
+  private _updatePackageById(data: any, id: string) {
+    return this.httpClient.patch(packUrl + "id/" + id, data);
   }
   private _deletePackageById(id: string) {
     return this.httpClient.delete(packUrl + "accounts/id/" + id);
@@ -44,8 +48,12 @@ export class PackagesService {
 
   public createPackage(data: any) {
     this._createPackage(data).subscribe((success: any) => {
+      this.translateSrv.get('SUCCESS.PACKAGES.new').subscribe(msg => this.toaterSrv.success(msg))
+      this.getPackagesList()
       this.logger.log("create Package:", success)
     }, (error: HttpErrorResponse) => {
+      this.translateSrv.get('ERROR.PACKAGES.new').subscribe(msg => this.toaterSrv.error(msg))
+
       this.logger.error("create Package error: ", error)
     })
   }
@@ -61,6 +69,17 @@ export class PackagesService {
       this.logger.log("get package By coache Id:", success)
     }, (error: HttpErrorResponse) => {
       this.logger.error("get package By coache Id error: ", error)
+    })
+  }
+  public updatePackageById(data: any, id: string) {
+    this._updatePackageById(data, id).subscribe((success: any) => {
+      this.translateSrv.get('SUCCESS.PACKAGES.update').subscribe(msg => this.toaterSrv.success(msg))
+      this.getPackagesList()
+      this.logger.log("update Package:", success)
+    }, (error: HttpErrorResponse) => {
+      this.translateSrv.get('ERROR.PACKAGES.update').subscribe(msg => this.toaterSrv.error(msg))
+
+      this.logger.error("update Package error: ", error)
     })
   }
   public deletePackageById(id: string) {

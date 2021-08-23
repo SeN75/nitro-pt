@@ -25,10 +25,10 @@ export class PackageDialogComponent implements OnInit {
       description_ar: ['', Validators.required],
       period: ['', Validators.required],
       price: ['', Validators.required],
-      iban_id: [''],
+      iban_id: ['5e4b3655-9de3-4085-be5e-6de910fa9e1d'],
       discountAmount: [''],
       attach_required: [false],
-      attachments_ids: [''],
+      attachments_ids: [[1]],
       showInWebsite: [false]
     })
   }
@@ -53,8 +53,13 @@ export class PackageDialogComponent implements OnInit {
     this.dialogRef.close();
   }
   action() {
+    let data: any = this.packForm.value;
+    delete data.discountAmount;
+    delete data.showInWebsite;
     if (this.data.state == 'edit') {
       this.logger.log('edit pack: ', this.packForm.value);
+      this.logger.log('edit pack: ', this.data.package);
+      this.packSrv.updatePackageById(this.packForm.value, this.data.package.external_id)
       this.onNoClick();
     }
     else {

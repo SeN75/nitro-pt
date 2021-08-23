@@ -3,49 +3,49 @@
   <div class="row">
     <div class="col-12 col-sm-6">
       <div class="form-group  w-100"
-        [class.has_error]="registerFormControl.controls.firstName.invalid && registerFormControl.controls.firstName.touched">
+        [class.has_error]="registerFormControl.controls.first_name_ar.invalid && registerFormControl.controls.first_name_ar.touched">
         <label> {{'FORM.name' | translate}}</label>
-        <input class="form-control" placeholder="{{'FORM.name' | translate}}" formControlName="firstName">
+        <input class="form-control" placeholder="{{'FORM.name' | translate}}" formControlName="first_name_ar">
         <div class="hint">
           {{(
-          registerFormControl.controls.firstName.errors&&registerFormControl.controls.firstName.touched ?
-          registerFormControl.controls.firstName.errors.required ? 'VALIDATION.required':
-          '' : '')
+          registerFormControl.controls.first_name_ar.errors&&registerFormControl.controls.first_name_ar.touched ?
+          registerFormControl.controls.first_name_ar.errors.required ? 'VALIDATION.required':
+          registerFormControl.controls.first_name_ar.errors.pattern ? 'VALIDATION.ar' :'' : '')
           | translate }}
         </div>
       </div>
       <div class="form-group  w-100"
-        [class.has_error]="registerFormControl.controls.fatherName.invalid && registerFormControl.controls.fatherName.touched">
+        [class.has_error]="registerFormControl.controls.middle_name_ar.invalid && registerFormControl.controls.middle_name_ar.touched">
         <label> {{'FORM.father-name' | translate}}</label>
-        <input class="form-control" placeholder="{{'FORM.father-name' | translate}}" formControlName="fatherName">
+        <input class="form-control" placeholder="{{'FORM.father-name' | translate}}" formControlName="middle_name_ar">
         <div class="hint">
           {{(
-          registerFormControl.controls.fatherName.errors&&registerFormControl.controls.fatherName.touched ?
-          registerFormControl.controls.fatherName.errors.required ? 'VALIDATION.required':
-          '' : '')
+          registerFormControl.controls.middle_name_ar.errors&&registerFormControl.controls.middle_name_ar.touched ?
+          registerFormControl.controls.middle_name_ar.errors.required ? 'VALIDATION.required':
+          registerFormControl.controls.middle_name_ar.errors.pattern ? 'VALIDATION.ar' :'' : '')
           | translate }}
         </div>
       </div>
       <div class="form-group  w-100"
-        [class.has_error]="registerFormControl.controls.familyName.invalid && registerFormControl.controls.familyName.touched">
+        [class.has_error]="registerFormControl.controls.last_name_ar.invalid && registerFormControl.controls.last_name_ar.touched">
         <label> {{'FORM.family-name' | translate}}</label>
-        <input class="form-control" placeholder="{{'FORM.family-name' | translate}}" formControlName="familyName">
+        <input class="form-control" placeholder="{{'FORM.family-name' | translate}}" formControlName="last_name_ar">
         <div class="hint">
           {{(
-          registerFormControl.controls.familyName.errors&&registerFormControl.controls.familyName.touched ?
-          registerFormControl.controls.familyName.errors.required ? 'VALIDATION.required':
-          '' : '')
+          registerFormControl.controls.last_name_ar.errors&&registerFormControl.controls.last_name_ar.touched ?
+          registerFormControl.controls.last_name_ar.errors.required ? 'VALIDATION.required':
+          registerFormControl.controls.last_name_ar.errors.pattern ? 'VALIDATION.ar' :'' : '')
           | translate }}
         </div>
       </div>
       <div class="form-group  w-100"
-        [class.has_error]="registerFormControl.controls.userName.invalid && registerFormControl.controls.userName.touched">
+        [class.has_error]="registerFormControl.controls.username.invalid && registerFormControl.controls.username.touched">
         <label> {{'FORM.user-name' | translate}}</label>
-        <input class="form-control" placeholder="{{'FORM.user-name' | translate}}" formControlName="userName">
+        <input class="form-control" placeholder="{{'FORM.user-name' | translate}}" formControlName="username">
         <div class="hint">
           {{(
-          registerFormControl.controls.userName.errors&&registerFormControl.controls.userName.touched ?
-          registerFormControl.controls.userName.errors.required ? 'VALIDATION.required':
+          registerFormControl.controls.username.errors&&registerFormControl.controls.username.touched ?
+          registerFormControl.controls.username.errors.required ? 'VALIDATION.required':
           '' : '')
           | translate }}
         </div>
@@ -66,10 +66,10 @@
       </div>
       <div class="row justify-content-between align-items-end">
         <div class="form-group col-7 col-sm-8"
-          [class.has_error]="registerFormControl.controls.phoneNumber.invalid && registerFormControl.controls.phoneNumber.touched">
+          [class.has_error]="registerFormControl.controls.phone_number.invalid && registerFormControl.controls.phone_number.touched">
           <label for="input">{{'FORM.phone-mobile' | translate}}</label>
           <input name="input" type="tel" maxlength="9" class="form-control" placeholder="5XX-XXX-XX"
-            formControlName="phoneNumber">
+            formControlName="phone_number">
 
         </div>
         <div class="form-group col-5 col-sm-4">
@@ -79,8 +79,8 @@
         </div>
         <div class="hint">
           {{(
-          registerFormControl.controls.phoneNumber.errors&&registerFormControl.controls.phoneNumber.touched ?
-          registerFormControl.controls.phoneNumber.errors.required ? 'VALIDATION.required':
+          registerFormControl.controls.phone_number.errors&&registerFormControl.controls.phone_number.touched ?
+          registerFormControl.controls.phone_number.errors.required ? 'VALIDATION.required':
           '' : '')
           | translate }}
         </div>
@@ -97,23 +97,24 @@
           {{(
           registerFormControl.controls.password.errors&&registerFormControl.controls.password.touched ?
           registerFormControl.controls.password.errors.required ? 'VALIDATION.password.required':
-          '' : '')
+          registerFormControl.controls.password.errors.minlength ? 'VALIDATION.password.minlength':
+          registerFormControl.controls.password.errors.pattern ? 'VALIDATION.password.pattern': '' : '')
           | translate }}
         </div>
       </div>
       <div class="form-group password w-100"
-        [class.has_error]="registerFormControl.controls.confirmPassword.invalid && registerFormControl.controls.confirmPassword.touched">
+        [class.has_error]="registerFormControl.controls.re_password.invalid && registerFormControl.controls.re_password.touched">
         <label> {{'FORM.confirm-password' | translate}}</label>
         <input class="form-control" [type]="hidePassword ? 'password': 'text'" placeholder="*************"
-          formControlName="confirmPassword">
+          formControlName="re_password">
         <button mat-icon-button (click)="hidePassword = !hidePassword">
           <mat-icon>{{ hidePassword? 'visibility': 'visibility_off'}}</mat-icon>
         </button>
         <div class="hint">
           {{(
-          registerFormControl.controls.confirmPassword.errors&&registerFormControl.controls.confirmPassword.touched ?
-          registerFormControl.controls.confirmPassword.errors.required ? 'VALIDATION.password.required':
-          registerFormControl.controls.confirmPassword.errors.confirmPasswordValidator == true ?
+          registerFormControl.controls.re_password.errors&&registerFormControl.controls.re_password.touched ?
+          registerFormControl.controls.re_password.errors.required ? 'VALIDATION.password.required':
+          registerFormControl.controls.re_password.errors.confirmPasswordValidator == true ?
           'VALIDATION.password.not-match' : '': '')
           | translate }}
         </div>

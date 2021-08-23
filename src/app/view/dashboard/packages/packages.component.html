@@ -16,7 +16,7 @@
     </span>
   </header>
   <div class="row body scroll">
-    <package-card class="col col-lg-4 col-md-6 mt-3" *ngFor="let pack of packages; index as i "
+    <package-card class="col col-lg-4 col-md-6 mt-3" *ngFor="let pack of packSrv.packages; index as i "
       [package_title]="lang.selected == 'ar'? pack.name_ar: pack.name" [package_months]="pack.period"
       [package_price]="pack.price" [theme_number]="((i%3)+1)" [with_button]="false" [pack]="pack">
     </package-card>

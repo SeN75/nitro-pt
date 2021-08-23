@@ -17,7 +17,9 @@ export class IdentityService {
     private toastSrv: ToastService,
     private router: Router,
     private logger: LoggerService) {
-
+    // this.logout(localStorage.getItem('refreshToken'));
+    // this.logoutAll();
+    this.getUserProfileByJWT()
   }
 
   private _getStaff() {
@@ -69,7 +71,7 @@ export class IdentityService {
     return this.httpClient.post(Identity + "user/logout_all/", {});
   }
   private _logout(data: any) {
-    return this.httpClient.post(Identity + "user/logout/", data);
+    return this.httpClient.post(Identity + "user/logout/", { refresh: data });
   }
   private _deleteProfileById(id: string) {
     return this.httpClient.delete(Identity + "user/profiles/" + id + "/")
@@ -133,8 +135,12 @@ export class IdentityService {
     })
   }
   public login(userData: any) {
+    this.logger.log("login:", userData)
     this._login(userData).subscribe((success: any) => {
       this.logger.log("login:", success)
+      localStorage.setItem('refreshToken', success.refresh)
+      localStorage.setItem('authToken', success.access)
+      this.router.navigate(['/'])
     }, (error: HttpErrorResponse) => {
       this.logger.error("login error: ", error)
     })
@@ -183,9 +189,11 @@ export class IdentityService {
   }
   public logout(data: any) {
     this._logout(data).subscribe((success: any) => {
-      this.logger.log("logout All:", success)
+      localStorage.removeItem('refreshToken');
+      localStorage.removeItem('authToken');
+      this.logger.log("logout :", success)
     }, (error: HttpErrorResponse) => {
-      this.logger.error("logout All error: ", error)
+      this.logger.error("logout  error: ", error)
     })
   }
   public deleteProfileById(id: string) {

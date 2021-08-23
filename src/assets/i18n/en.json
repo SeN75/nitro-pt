@@ -247,20 +247,32 @@
       },
       "password": {
           "required": "password is required",
-          "min-length": "password must be at least 6 characters"
+          "minlength": "password must be at least 8 characters",
+          "not-match": "Password and confirm password do not match"
+
       },
       "required": "Please fill in the required fields",
       "account-create": "the account is created, please check your email to verify",
       "request-sent": "request sent",
       "error": "an error occurred",
       "login": "you should login first",
-      "phone-number": "The mobile number must be nine digits long"
+      "phone-number": "The mobile number must be nine digits long",
+      "ar": "You must use Arabic letters"
 
   },
   "SUCCESS" : {
-    "create-user-verify" :"User created, check mail to activate account"
+    "create-user-verify" :"User created, check mail to activate account",
+    "PACKAGES": {
+      "update": "The package has been updated successfully",
+      "new": "Package created successfully"
+
+    }
   },
   "ERROR": {
-    "create-user": "An error occurred while creating a new subscriber"
+    "create-user": "An error occurred while creating a new subscriber",
+    "PACKAGES": {
+      "update": "An error occurred while updating the package",
+      "new": "An error occurred while creating a package"
+    }
   }
 }

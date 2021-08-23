@@ -14,7 +14,7 @@ export class NaitroInterceptor implements HttpInterceptor {
     if (localStorage.getItem('authToken')) {
       req = req.clone({
         setHeaders: {
-          Authorization: `Bearer ${localStorage.getItem('authToken')}`
+          Authorization: `JWT ${localStorage.getItem('authToken')}`
         }
       });
       return next.handle(req);

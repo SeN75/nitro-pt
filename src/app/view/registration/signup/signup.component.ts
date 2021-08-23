@@ -20,18 +20,19 @@ export class SignupComponent implements OnInit {
     private logger: LoggerService
   ) {
     this.registerForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      fatherName: ['', Validators.required],
-      familyName: ['', Validators.required],
-      userName: ['', Validators.required],
+      first_name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
+      middle_name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
+      last_name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
+      username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       counterCode: ['966', Validators.required],
-      phoneNumber: ['', Validators.required],
-      password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
+      phone_number: ['', [Validators.required, Validators.minLength(9)]],
+      // Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}")
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      re_password: ['', Validators.required],
     },
       {
-        validator: ConfirmPasswordValidator('password', 'confirmPassword')
+        validator: ConfirmPasswordValidator('password', 're_password')
       }
     )
 
@@ -41,20 +42,13 @@ export class SignupComponent implements OnInit {
   }
 
   _signup() {
-    let data = {
-      "username": this.registerForm.get("userName")?.value,
-      "email": this.registerForm.get("email")?.value,
-      "phone_number": this.registerForm.get('counterCode')?.value + this.registerForm.get('phoneNumber')?.value,
-      "password": this.registerForm.get('password')?.value,
-      "re_password": this.registerForm.get('password')?.value,
-      "role": "member",
-      "first_name": this.registerForm.get('firstName')?.value,
-      "first_name_ar": this.registerForm.get('firstName')?.value,
-      "middle_name": this.registerForm.get('fatherName')?.value,
-      "middle_name_ar": this.registerForm.get('fatherName')?.value,
-      "last_name": this.registerForm.get('familyName')?.value,
-      "last_name_ar": this.registerForm.get('familyName')?.value
-    }
+    let data: any = this.registerForm.value;
+    data.phone_number = "+" + data.counterCode + data.phone_number;
+    delete data.counterCode;
+    data.role = "member";
+    data.first_name = data.username;
+    data.middle_name = data.username;
+    data.last_name = data.username;
     this.logger.log('sign up: ', data)
     this.identitySrv.postCreateUser(data);
   }
