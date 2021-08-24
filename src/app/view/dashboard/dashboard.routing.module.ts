@@ -28,7 +28,7 @@ const children: Routes = [
   { component: CategoriesTableComponent, path: 'categories/compounds' },
   { component: PackagesComponent, path: 'packages' },
   { component: WorksoutComponent, path: 'worksout' },
-  { component: ExerciseScheduleComponent, path: 'worksout/exercise' },
+  { component: ExerciseScheduleComponent, path: 'worksout/:id/exercise' },
   { component: SettingsComponent, path: 'account-settings' },
   { component: ShalabiComponent, path: 'shalabi' },
   { component: DietPlanComponent, path: 'dietplan' },

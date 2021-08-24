@@ -1,42 +1,43 @@
 <section class="content">
-    <header class="page-header">
-        <h1 class="title">
-            {{(lang.dir == 'rtl'?'WORKSOUT.exercise-table': '') | translate}} {{workout.type}}{{(lang.dir ==
-            'ltr'?'WORKSOUT.exercise-table': '') | translate}}
-        </h1>
-        <span>
+  <header class="page-header">
+    <h1 class="title">
+      {{(lang.dir == 'rtl'?'WORKSOUT.exercise-table': '') | translate}} {{ lang.selected =='ar'?
+      exerciseCategorSrv.exerciseCategory.name_ar: exerciseCategorSrv.exerciseCategory.name}}{{(lang.dir ==
+      'ltr'?'WORKSOUT.exercise-table': '') | translate}}
+    </h1>
+    <span>
 
-            <button class="mx-2" mat-raised-button color="primary"
-                (click)="dialogSrv.openWorkoutDialog()">{{'WORKSOUT.execrise-add' |
-                translate}}</button>
-        </span>
-    </header>
-    <div class="body">
-        <table datatable [dtOptions]="dtOptions" class="table-theme-1 hover">
-            <thead class="text-center">
-                <tr>
-                    <th>#</th>
-                    <th>{{'WORKSOUT.name' | translate}}</th>
-                    <th>{{'WORKSOUT.link' | translate}}</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody class="text-center">
-                <tr *ngFor="let workout of workout.exercises; let i = index">
-                    <td>{{i + 1 }}</td>
-                    <td>{{workout.name}}</td>
-                    <td>{{workout.link}}</td>
-                    <td class="text-end">
-                        <span>
-                            <button mat-icon-button (click)="dialogSrv.openWorkoutDialog('edit', workout)">
-                                <mat-icon>edit</mat-icon>
-                            </button>
+      <button class="mx-2" mat-raised-button color="primary"
+        (click)="dialogSrv.openWorkoutDialog('add', {category: categoryId})">{{'WORKSOUT.execrise-add' |
+        translate}}</button>
+    </span>
+  </header>
+  <div class="body">
+    <table datatable [dtOptions]="dtOptions" class="table-theme-1 hover">
+      <thead class="text-center">
+        <tr>
+          <th>#</th>
+          <th>{{'WORKSOUT.name' | translate}}</th>
+          <th>{{'WORKSOUT.link' | translate}}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let exercise of exerciseSrv.exerciseSchedule; let i = index">
+          <td>{{i + 1 }}</td>
+          <td>{{exercise.name}}</td>
+          <td>{{exercise.link}}</td>
+          <td class="text-end">
+            <span>
+              <button mat-icon-button (click)="dialogSrv.openWorkoutDialog('edit', exercise)">
+                <mat-icon>edit</mat-icon>
+              </button>
 
 
-                        </span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>

@@ -151,6 +151,18 @@ sidemenu
   outline: none !important;
   box-shadow: none !important;
 }
+.attach_button {
+  justify-content: space-between;
+  display: flex;
+  align-items: flex-end;
+}
+.attach_button .form-group {
+  width: 100%;
+}
+.form-control:disabled,
+.form-control[readonly] {
+  background-color: #e2e9ff !important;
+}
 .register_form {
   min-height: 65%;
   width: 95%;
@@ -390,6 +402,7 @@ button.selected {
   display: block;
   transform: scale(0.75);
 }
+
 @media screen and (max-width: 578px) {
   .register_card {
     background: #fff;

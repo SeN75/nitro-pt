@@ -12,7 +12,8 @@ const gymUrl = API + "gym/exercise/";
 })
 export class ExercisesService {
   workout: any;
-  exerciseSchedule: any;
+  exerciseSchedule: any[] = [];
+
   constructor(
     private router: Router,
     private httpClient: HttpClient,
@@ -38,13 +39,16 @@ export class ExercisesService {
     formData.append('name_ar', data.name_ar);
     formData.append('category', data.category);
     formData.append('media_link', data.media_link);
-
+    // formData.append('media_link', data.media_link, `file-${filename}.jpg`);
     return this.httpClient.post(gymUrl + "items/create", formData);
   }
   private _updateExercisesById(data: any, id: string) {
     const formData = new FormData();
-    formData.append('media_link', data.media_link);
+
+    formData.append("media_link", data.media_link, data.media_link.name);
     formData.append('category', data.category);
+    formData.append('name', data.name);
+    formData.append('name_ar', data.name_ar);
 
     return this.httpClient.patch(gymUrl + "items/id/" + id, formData);
   }
@@ -54,6 +58,7 @@ export class ExercisesService {
 
   public getExerciseList() {
     this._getExerciseList().subscribe((success: any) => {
+      this.exerciseSchedule = success;
       this.logger.log("get Exercise List:", success)
     }, (error: HttpErrorResponse) => {
       this.logger.error("get Exercise List error: ", error)
@@ -94,5 +99,9 @@ export class ExercisesService {
     }, (error: HttpErrorResponse) => {
       this.logger.error("delete exercises By Id error: ", error)
     })
+  }
+
+  public getExerciseListOnSameCategory(id: string) {
+    this.exerciseSchedule = this.exerciseSchedule.filter(ex => ex.category == id)
   }
 }

@@ -122,11 +122,13 @@
         "table": "worksout table",
         "worksout": "worksout",
         "type": "type of workout",
+        "type_ar": "arbic type of workout",
         "number": "number of worksout",
         "add": "add workout type",
         "edit": "edit type name workout",
         "exercise-table": "table",
         "name": "workout name",
+        "name_ar": "arabic workout name",
         "link": "workout link",
         "execrise-add":"add workout",
         "execrise-edit":"edit workout"
@@ -265,7 +267,11 @@
     "PACKAGES": {
       "update": "The package has been updated successfully",
       "new": "Package created successfully"
-
+    },
+    "WORKOUT": {
+      "new-category": "A new exercise type has been added",
+      "update-category": "Exercise type updated successfully",
+      "delete-category": "Exercise type deleted successfully"
     }
   },
   "ERROR": {
@@ -273,6 +279,11 @@
     "PACKAGES": {
       "update": "An error occurred while updating the package",
       "new": "An error occurred while creating a package"
+    },
+    "WORKOUT": {
+      "new-category": "An error occurred while creating a new exercise type",
+      "update-category": "An error occurred while updating an exercise type",
+      "delete-category": "An error occurred while deleting an exercise type"
     }
   }
 }
