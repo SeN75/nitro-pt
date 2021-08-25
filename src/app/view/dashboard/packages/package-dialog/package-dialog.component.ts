@@ -10,7 +10,7 @@ import { LoggerService } from 'src/app/_services/logger.service';
   styleUrls: ['./package-dialog.component.scss']
 })
 export class PackageDialogComponent implements OnInit {
-  packForm: FormGroup;
+  packForm: FormGroup | any;
 
   constructor(
     public dialogRef: MatDialogRef<PackageDialogComponent>,
@@ -20,9 +20,9 @@ export class PackageDialogComponent implements OnInit {
     private packSrv: PackagesService) {
     this.packForm = this.formBuilder.group({
       name: ['', Validators.required],
-      name_ar: ['', Validators.required],
+      name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
       description: ['', Validators.required],
-      description_ar: ['', Validators.required],
+      description_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
       period: ['', Validators.required],
       price: ['', Validators.required],
       iban_id: ['5e4b3655-9de3-4085-be5e-6de910fa9e1d'],
@@ -51,6 +51,9 @@ export class PackageDialogComponent implements OnInit {
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+  delete() {
+    this.packSrv.deletePackageById(this.data.package.id)
   }
   action() {
     let data: any = this.packForm.value;

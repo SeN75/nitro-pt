@@ -13,6 +13,7 @@ import { LoggerService } from 'src/app/_services/logger.service';
 export class PackagesComponent implements OnInit {
   packages = packages;
   pack: any = []
+  search: any;
   constructor(
     public lang: LanguageService,
     public dialogSrv: DialogService,

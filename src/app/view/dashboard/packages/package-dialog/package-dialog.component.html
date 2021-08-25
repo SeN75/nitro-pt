@@ -1,33 +1,64 @@
 <h1 mat-dialog-title class="dialog-title"> {{'PACKAGES.'+ (data.state == 'edit' ? 'edit' : 'add') | translate}}</h1>
 <div mat-dialog-content [formGroup]="packForm">
   <div class="row align-items-center">
-    <div class="form-group col-6">
-      <label for="input">{{'PACKAGES.pack-name' | translate}}</label>
+    <div class="form-group col-6" [class.has_error]="packForm.get('name')?.invalid && packForm.get('name')?.touched ">
+      <label for="input">{{'PACKAGES.pack-name' | translate}}*</label>
       <input name="input" formControlName="name" class="form-control">
+      <div class="hint" *ngIf="packForm.get('name')?.invalid && packForm.get('name')?.touched ">
+        <span *ngIf="packForm.get('name').errors.required">{{'VALIDATION.required' | translate}}</span>
+      </div>
     </div>
-    <div class="form-group col-6">
-      <label for="input">{{'PACKAGES.pack-name-ar' | translate}}</label>
+    <div class="form-group col-6"
+      [class.has_error]="packForm.get('name_ar')?.invalid && packForm.get('name_ar')?.touched ">
+      <label for="input">{{'PACKAGES.pack-name-ar' | translate}}*</label>
       <input name="input" formControlName="name_ar" class="form-control">
+      <div class="hint" *ngIf="packForm.get('name_ar')?.invalid && packForm.get('name_ar')?.touched ">
+        <span *ngIf="packForm.get('name_ar').errors.required">{{'VALIDATION.required' | translate}}</span>
+        <span *ngIf="packForm.get('name_ar').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+
+      </div>
     </div>
-    <div class="form-group col-6">
-      <label for="input">{{'PACKAGES.pack-description' | translate}}</label>
+    <div class="form-group col-6"
+      [class.has_error]="packForm.get('description')?.invalid && packForm.get('description')?.touched ">
+      <label for="input">{{'PACKAGES.pack-description' | translate}}*</label>
       <input name="input" formControlName="description" class="form-control">
+      <div class="hint" *ngIf="packForm.get('description')?.invalid && packForm.get('description')?.touched ">
+        <span *ngIf="packForm.get('description').errors.required">{{'VALIDATION.required' | translate}}</span>
+      </div>
     </div>
-    <div class="form-group col-6">
+    <div class="form-group col-6"
+      [class.has_error]="packForm.get('description')?.invalid && packForm.get('description')?.touched ">
       <label for="input">{{'PACKAGES.pack-description-ar' | translate}}</label>
       <input name="input" formControlName="description_ar" class="form-control">
+      <div class="hint" *ngIf="packForm.get('description')?.invalid && packForm.get('description')?.touched ">
+        <span *ngIf="packForm.get('description').errors.required">{{'VALIDATION.required' | translate}}</span>
+        <span *ngIf="packForm.get('description').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+
+      </div>
     </div>
-    <div class="form-group col-12 col-md-6">
-      <label for="input">{{'PACKAGES.pack-duration' | translate}}</label>
+    <div class="form-group col-12 col-md-6"
+      [class.has_error]="packForm.get('period')?.invalid && packForm.get('period')?.touched ">
+      <label for="input">{{'PACKAGES.pack-duration' | translate}}*</label>
       <input name="input" formControlName="period" class="form-control">
+      <div class="hint" *ngIf="packForm.get('period')?.invalid && packForm.get('period')?.touched ">
+        <span *ngIf="packForm.get('period').errors.required">{{'VALIDATION.required' | translate}}</span>
+      </div>
     </div>
-    <div class="form-group col-12 col-md-6">
-      <label for="input">{{'PACKAGES.pack-value' | translate}}</label>
+    <div class="form-group col-12 col-md-6"
+      [class.has_error]="packForm.get('price')?.invalid && packForm.get('price')?.touched ">
+      <label for="input">{{'PACKAGES.pack-value' | translate}}*</label>
       <input name="input" formControlName="price" class="form-control">
+      <div class="hint" *ngIf="packForm.get('price')?.invalid && packForm.get('price')?.touched ">
+        <span *ngIf="packForm.get('price').errors.required">{{'VALIDATION.required' | translate}}</span>
+      </div>
     </div>
-    <div class="form-group col-12 col-md-6">
-      <label for="input">{{'PACKAGES.account-number' | translate}}</label>
+    <div class="form-group col-12 col-md-6"
+      [class.has_error]="packForm.get('iban_id')?.invalid && packForm.get('iban_id')?.touched ">
+      <label for="input">{{'PACKAGES.account-number' | translate}}*</label>
       <input name="input" formControlName="iban_id" class="form-control">
+      <div class="hint" *ngIf="packForm.get('iban_id')?.invalid && packForm.get('iban_id')?.touched ">
+        <span *ngIf="packForm.get('iban_id').errors.required">{{'VALIDATION.required' | translate}}</span>
+      </div>
     </div>
     <div class="form-group col-12 col-md-6">
       <label for="input">{{'PACKAGES.discount-amount' | translate}}</label>
@@ -52,6 +83,10 @@
     <button mat-raised-button color="primary" (click)="action()"> {{'FORM.'+ (data.state == 'edit' ? 'edit' : 'add')
       | translate}}
     </button>
-    <button mat-stroked-button color="primary" (click)="onNoClick()"> {{'FORM.cancel' | translate}} </button>
+    <button *ngIf="data.state != 'edit'" mat-stroked-button color="primary" (click)="onNoClick()"> {{'FORM.cancel'
+      |
+      translate}} </button>
+    <button *ngIf="data.state == 'edit'" mat-stroked-button color="warn" (click)="delete()"> {{'FORM.remove' |
+      translate}} </button>
   </div>
 </div>
