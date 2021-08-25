@@ -37,7 +37,6 @@ export class CategoriesDialogComponent implements OnInit {
       category: ['',],
       unit: ['', Validators.required],
     })
-    this.foodUnitsSrv.getFoodUnitsList();
   }
 
   get cate() { return this.cateForm }
@@ -49,27 +48,30 @@ export class CategoriesDialogComponent implements OnInit {
       this.cateForm.get('carb').setValue(this.data.cate.carb);
       this.cateForm.get('protien').setValue(this.data.cate.protien);
       this.cateForm.get('calories').setValue(this.data.cate.calories);
+      this.cateForm.get('unit').setValue(this.foodUnitsSrv.units.filter((u: any) => {
+        return u.name_ar == this.data.cate.unit
+      })[0].id)
+
+      this.changeUnit()
     }
+
   }
-  changeUnit(setValueToUnit?: string) {
-    if (setValueToUnit)
-      this.cateForm.get('unit').setValue(this.foodUnitsSrv.units.filter((u: any) => u.name_ar == setValueToUnit)[0].id);
-    else
-      this.unitt = this.foodUnitsSrv.units.filter(u => u.id == this.cateForm.get('unit').value)[0]
+  changeUnit() {
+    this.unitt = this.foodUnitsSrv.units.filter(u => u.id == this.cateForm.get('unit').value)[0]
   }
   action() {
     let data: any = this.cateForm.value;
     data.category = this.data.cate.categoryid;
 
-    if (this.data.state != 'edit') {
-      this.foodItemSrv.createFoodItem(data)
-      this.onNoClick();
-    }
-    else {
-      this.foodItemSrv.updateFoodItemById(data, this.data.cate.id)
-      this.onNoClick();
-    }
-    this.logger.log('value: ', this.cateForm.value)
+    // if (this.data.state != 'edit') {
+    //   this.foodItemSrv.createFoodItem(data)
+    //   this.onNoClick();
+    // }
+    // else {
+    //   this.foodItemSrv.updateFoodItemById(data, this.data.cate.id)
+    //   this.onNoClick();
+    // }
+    this.logger.log('value: ', this.cateForm)
 
   }
   onNoClick(): void {
