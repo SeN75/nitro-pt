@@ -34,6 +34,7 @@ import { CategoriesDialogComponent } from './categories/categories-dialog/catego
 import { RouterModule } from '@angular/router';
 import { SubscriberInfoComponent } from './subscribers/subscriber-info/subscriber-info.component';
 import { OrderInfoComponent } from './orders/order-info/order-info.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { OrderInfoComponent } from './orders/order-info/order-info.component';
     ReactiveFormsModule,
     DataTablesModule,
     BrowserModule,
+    Ng2SearchPipeModule
   ],
   exports: [],
   entryComponents: [
@@ -84,6 +86,9 @@ import { OrderInfoComponent } from './orders/order-info/order-info.component';
     WorkoutDialogComponent,
     CategoryTypeDialogComponent,
     CategoriesDialogComponent
+  ],
+  providers: [
+
   ]
 })
 

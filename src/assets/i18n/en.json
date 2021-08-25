@@ -82,15 +82,17 @@
         "add": "add new category type",
         "edit-type":"edit category type",
         "new-type": "new category type",
+        "name-type-ar": "name type in Arabic",
         "name": "name",
         "number": "total",
         "new-cate": "new category",
         "type": "category type",
+        "type-ar": "category type in Arabic",
         "calc":"calculation method",
         "per": "per",
         "calories": "calories",
         "protein": "protein",
-        "carp":"carp",
+        "carb":"carp",
         "fat": "fat",
         "measuring-unit": {
             "": "",
@@ -272,6 +274,14 @@
       "new-category": "A new exercise type has been added",
       "update-category": "Exercise type updated successfully",
       "delete-category": "Exercise type deleted successfully"
+    },
+    "CATEGORY": {
+      "new-cate": "A new category has been added",
+      "update-cate": "Category has been updated successfully",
+      "delete-cate": "Category has been deleted successfully",
+      "new-item": "A new Item has been added",
+      "update-item": "Item has been updated successfully",
+      "delete-item": "Item has been deleted successfully"
     }
   },
   "ERROR": {
@@ -284,6 +294,14 @@
       "new-category": "An error occurred while creating a new exercise type",
       "update-category": "An error occurred while updating an exercise type",
       "delete-category": "An error occurred while deleting an exercise type"
+    },
+    "CATEGORY": {
+      "new-cate": "An error occurred while adding a new category",
+      "update-cate": "An error occurred while updating the category",
+      "delete-cate": "An error occurred while deleting the category",
+      "new-item": "An error occurred while adding a new item",
+      "update-item": "An error occurred while updating the item",
+      "delete-item": "An error occurred while deleting the item"
     }
   }
 }

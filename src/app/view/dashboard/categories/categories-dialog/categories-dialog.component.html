@@ -1,54 +1,67 @@
 <h1 mat-dialog-title class="dialog-title text-center"> {{'CATEGORIES.'+ (data.state == 'edit' ? 'edit-type' : 'add') |
-    translate}}</h1>
-<div mat-dialog-content class="row" [formGroup]="cateForm">
-    <div class="form-group col-12">
-        <label for="input">{{'CATEGORIES.type' | translate}}</label>
-        <input name="input" formControlName="categoryType" class="form-control">
+  translate}}</h1>
+<div mat-dialog-content [formGroup]="cateForm">
+  <div class="row">
+    <div class="form-group col-6" [class.has_error]="cateForm.get('name')?.invalid && cateForm.get('name')?.touched ">
+      <label for="input">{{'CATEGORIES.name-type' | translate}}</label>
+      <input name="input" formControlName="name" class="form-control">
+      <div class="hint" *ngIf="cateForm.get('name')?.invalid && cateForm.get('name')?.touched ">
+        <span *ngIf="cateForm.get('name').errors.required">{{'VALIDATION.required' | translate}}</span>
+      </div>
+    </div>
+    <div class="form-group col-6"
+      [class.has_error]="cateForm.get('name_ar')?.invalid && cateForm.get('name_ar')?.touched ">
+      <label for="input">{{'CATEGORIES.name-type-ar' | translate}}</label>
+      <input name="input" formControlName="name_ar" class="form-control">
+      <div class="hint" *ngIf="cateForm.get('name_ar')?.invalid && cateForm.get('name_ar')?.touched ">
+        <span *ngIf="cateForm.get('name_ar').errors.required">{{'VALIDATION.required' | translate}}</span>
+        <span *ngIf="cateForm.get('name_ar').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+
+      </div>
     </div>
     <div class="form-group col-12">
-        <label for="input">{{'CATEGORIES.name' | translate}}</label>
-        <input name="input" formControlName="categoryName" class="form-control">
-    </div>
-    <div class="form-group col-12">
-        <label for="input">{{'CATEGORIES.calc' | translate}}</label>
-        <select formControlName="calculationMethod" class="form-control">
-            <option *ngFor="let unit of units" [id]="unit">
-                {{'CATEGORIES.measuring-unit.'+ unit | translate}}
-            </option>
-        </select>
+      <label for="input">{{'CATEGORIES.calc' | translate}}</label>
+      <select formControlName="unit" class="form-control" (change)="changeUnit()">
+        <option *ngFor="let u of foodUnitsSrv.units" [value]="u.id">
+          {{lang.selected =='ar'? u.name_ar: u.name}}
+        </option>
+      </select>
     </div>
     <div class="col-12">
-        <div class="row">
-            <div class="form-group col">
-                <label for="input">{{'CATEGORIES.calories' | translate}} \ {{
-                    ('MEASURING.'+ calculationMethod) | translate}}</label>
-                <input name="input" formControlName="calories" class="form-control">
-            </div>
-            <div class="form-group col">
-                <label for="input">{{'CATEGORIES.fat' | translate}} \ {{
-                    ('MEASURING.'+ calculationMethod )| translate}}</label>
-                <input name="input" formControlName="fat" class="form-control">
-            </div>
-            <div class="form-group col">
-                <label for="input">{{'CATEGORIES.carp' | translate}} \ {{
-                    ('MEASURING.'+calculationMethod) | translate}}</label>
-                <input name="input" formControlName="carp" class="form-control">
-            </div>
-            <div class="form-group col">
-                <label for="input">{{'CATEGORIES.protein' | translate}} \
-                    {{('MEASURING.'+ calculationMethod) | translate}}</label>
-                <input name="input" formControlName="protein" class="form-control">
-            </div>
+      <div class="row">
+        <div class="form-group col">
+          <label for="input">{{'CATEGORIES.calories' | translate}} \ {{lang.selected == 'ar'? unitt.name_ar:
+            unitt.name}}</label>
+          <input name="input" formControlName="calories" class="form-control">
         </div>
+        <div class="form-group col">
+          <label for="input">{{'CATEGORIES.fat' | translate}} \ {{lang.selected == 'ar'? unitt.name_ar:
+            unitt.name}}</label>
+          <input name="input" formControlName="fat" class="form-control">
+        </div>
+        <div class="form-group col">
+          <label for="input">{{'CATEGORIES.carb' | translate}} \ {{lang.selected == 'ar'? unitt.name_ar:
+            unitt.name}}</label>
+          <input name="input" formControlName="carb" class="form-control">
+        </div>
+        <div class="form-group col">
+          <label for="input">{{'CATEGORIES.protein' | translate}} \
+            {{lang.selected == 'ar'? unitt.name_ar:
+            unitt.name}}</label>
+          <input name="input" formControlName="protien" class="form-control">
+        </div>
+      </div>
     </div>
-    <div class="button-group mt-3">
-        <button mat-raised-button color="primary" (click)="action()"> {{'FORM.'+ (data.state == 'edit' ? 'edit' : 'add')
-            | translate}}
-        </button>
-        <button *ngIf="data.state != 'edit'" mat-stroked-button color="primary" (click)="onNoClick()"> {{'FORM.cancel'
-            |
-            translate}} </button>
-        <button *ngIf="data.state == 'edit'" mat-stroked-button color="warn" (click)="onNoClick()"> {{'FORM.remove' |
-            translate}} </button>
-    </div>
+  </div>
+  <div class="button-group mt-3">
+    <button mat-raised-button color="primary" [disabled]="" (click)="action()"> {{'FORM.'+ (data.state == 'edit' ?
+      'edit' : 'add')
+      | translate}}
+    </button>
+    <button *ngIf="data.state != 'edit'" mat-stroked-button color="primary" (click)="onNoClick()"> {{'FORM.cancel'
+      |
+      translate}} </button>
+    <button *ngIf="data.state == 'edit'" mat-stroked-button color="warn" (click)="onNoClick()"> {{'FORM.remove' |
+      translate}} </button>
+  </div>
 </div>

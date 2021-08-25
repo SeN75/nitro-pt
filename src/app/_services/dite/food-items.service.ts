@@ -4,18 +4,20 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { API } from 'src/app/_helpers/api.config';
 import { LoggerService } from '../logger.service';
+import { ToastService } from '../toast.service';
 const foodUrl = API + "diet/food/items/"
 
 @Injectable({
   providedIn: 'root'
 })
 export class FoodItemsService {
-
+  foodItems: any[] = [];
   constructor(
     private router: Router,
     private httpClient: HttpClient,
     private translateSrv: TranslateService,
-    private logger: LoggerService
+    private logger: LoggerService,
+    private toasterSrv: ToastService
   ) { }
   private _getFoodItemList() {
     return this.httpClient.get(foodUrl + "list")
@@ -33,8 +35,14 @@ export class FoodItemsService {
   }
   private _updateFoodItemById(data: any, id: string) {
     const formData = new FormData();
-    formData.append('media_link', data.media_link);
+    formData.append('name', data.name);
+    formData.append('name_ar', data.name_ar);
+    formData.append('protien', data.protien);
+    formData.append('carb', data.carb);
+    formData.append('fat', data.fat);
+    formData.append('calories', data.calories);
     formData.append('category', data.category);
+    formData.append('unit', data.unit);
 
     return this.httpClient.patch(foodUrl + "id/" + id, formData);
   }
@@ -44,6 +52,7 @@ export class FoodItemsService {
 
   public getFoodItemList() {
     this._getFoodItemList().subscribe((success: any) => {
+      this.foodItems = success;
       this.logger.log("get food item List:", success)
     }, (error: HttpErrorResponse) => {
       this.logger.error("get food item List error: ", error)
@@ -66,23 +75,35 @@ export class FoodItemsService {
 
   public createFoodItem(data: any) {
     this._createFoodItem(data).subscribe((success: any) => {
+      this.translateSrv.get('SUCCESS.CATEGORY.new-item').subscribe(msg => this.toasterSrv.success(msg))
+      this.getFoodItemList()
       this.logger.log("create food items:", success)
     }, (error: HttpErrorResponse) => {
+      this.translateSrv.get('ERROR.CATEGORY.new-item').subscribe(msg => this.toasterSrv.error(msg))
       this.logger.error("create food items error: ", error)
     })
   }
   public updateFoodItemById(data: any, id: string) {
     this._updateFoodItemById(data, id).subscribe((success: any) => {
+      this.translateSrv.get('SUCCESS.CATEGORY.update-item').subscribe(msg => this.toasterSrv.success(msg))
+      this.getFoodItemList()
       this.logger.log("update food item By Id:", success)
     }, (error: HttpErrorResponse) => {
+      this.translateSrv.get('ERROR.CATEGORY.update-item').subscribe(msg => this.toasterSrv.error(msg))
       this.logger.error("update food item By Id error: ", error)
     })
   }
   public deleteFoodItemById(id: string) {
     this._deleteFoodItemById(id).subscribe((success: any) => {
+      this.translateSrv.get('SUCCESS.CATEGORY.delete-item').subscribe(msg => this.toasterSrv.success(msg))
+      this.getFoodItemList()
       this.logger.log("delete Food Item By Id:", success)
     }, (error: HttpErrorResponse) => {
+      this.translateSrv.get('ERROR.CATEGORY.delete-item').subscribe(msg => this.toasterSrv.error(msg))
       this.logger.error("delete Food Item By Id error: ", error)
     })
+  }
+  public getItemsWithSameCategory(category: string) {
+    return this.foodItems.filter(item => item.category === category)
   }
 }

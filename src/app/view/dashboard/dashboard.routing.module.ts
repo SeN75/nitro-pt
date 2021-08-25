@@ -25,7 +25,7 @@ const children: Routes = [
   { component: OrdersComponent, path: 'orders' },
   { component: OrderInfoComponent, path: 'orders/:id/detail' },
   { component: CategoriesComponent, path: 'categories' },
-  { component: CategoriesTableComponent, path: 'categories/compounds' },
+  { component: CategoriesTableComponent, path: 'categories/:id/compounds' },
   { component: PackagesComponent, path: 'packages' },
   { component: WorksoutComponent, path: 'worksout' },
   { component: ExerciseScheduleComponent, path: 'worksout/:id/exercise' },

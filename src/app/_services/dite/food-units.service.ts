@@ -4,13 +4,13 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { API } from 'src/app/_helpers/api.config';
 import { LoggerService } from '../logger.service';
-const foodUrl = API + "diet/food/items/"
+const foodUrl = API + "diet/food/units/"
 
 @Injectable({
   providedIn: 'root'
 })
 export class FoodUnitsService {
-
+  units: any[] = [];
   constructor(
     private router: Router,
     private httpClient: HttpClient,
@@ -37,6 +37,7 @@ export class FoodUnitsService {
 
   public getFoodUnitsList() {
     this._getFoodUnitsList().subscribe((success: any) => {
+      this.units = success;
       this.logger.log("get food units List:", success)
     }, (error: HttpErrorResponse) => {
       this.logger.error("get food units List error: ", error)

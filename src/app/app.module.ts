@@ -49,7 +49,7 @@ import { AuhtGuardGuard } from './_helpers/auth-guard.guard';
 
     /* Alsaggaf Components */
     BaseComponent,
-    DialogComponent
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,7 +89,8 @@ import { AuhtGuardGuard } from './_helpers/auth-guard.guard';
     },
     AuhtGuardGuard
   ],
-  exports: [],
+  exports: [
+  ],
   entryComponents: [DialogComponent],
   bootstrap: [AppComponent]
 })
