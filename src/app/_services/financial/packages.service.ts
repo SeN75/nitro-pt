@@ -33,7 +33,7 @@ export class PackagesService {
     return this.httpClient.patch(packUrl + "id/" + id, data);
   }
   private _deletePackageById(id: string) {
-    return this.httpClient.delete(packUrl + "accounts/id/" + id);
+    return this.httpClient.delete(packUrl + "id/" + id);
   }
 
 
@@ -84,8 +84,12 @@ export class PackagesService {
   }
   public deletePackageById(id: string) {
     this._deletePackageById(id).subscribe((success: any) => {
+      this.translateSrv.get('SUCCESS.PACKAGES.delete').subscribe(msg => this.toaterSrv.success(msg))
+      this.getPackagesList()
       this.logger.log("delete Package By Id:", success)
     }, (error: HttpErrorResponse) => {
+      this.translateSrv.get('ERROR.PACKAGES.delete').subscribe(msg => this.toaterSrv.error(msg))
+
       this.logger.error("delete Package By Id error: ", error)
     })
   }

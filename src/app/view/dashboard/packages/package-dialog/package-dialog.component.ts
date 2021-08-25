@@ -53,7 +53,8 @@ export class PackageDialogComponent implements OnInit {
     this.dialogRef.close();
   }
   delete() {
-    this.packSrv.deletePackageById(this.data.package.id)
+    this.packSrv.deletePackageById(this.data.package.external_id)
+    this.onNoClick();
   }
   action() {
     let data: any = this.packForm.value;
