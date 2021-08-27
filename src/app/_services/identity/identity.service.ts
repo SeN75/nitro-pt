@@ -61,6 +61,9 @@ export class IdentityService {
   public _refreshToken(data: any) {
     return this.httpClient.post(Identity + "user/login/refresh/", data);
   }
+  public _verifyToken(data: any) {
+    return this.httpClient.post(Identity + "user/verify_token/", data);
+  }
   private _changeCurrentUserPassword(data: any) {
     return this.httpClient.post(Identity + "users/set_password/", data)
   }
@@ -175,6 +178,13 @@ export class IdentityService {
       this.logger.log("refresh Token:", success)
     }, (error: HttpErrorResponse) => {
       this.logger.error("refresh Token error: ", error)
+    })
+  }
+  public verifyToken(data: any) {
+    this._verifyToken(data).subscribe((success: any) => {
+      this.logger.log("verify Token:", success)
+    }, (error: HttpErrorResponse) => {
+      this.logger.error("verify Token error: ", error)
     })
   }
   public changeCurrentUserPassword(data: any) {

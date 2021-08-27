@@ -15,6 +15,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatRippleModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -68,7 +69,7 @@ import { AuhtGuardGuard } from './_helpers/auth-guard.guard';
     TranslateModule,
     ComponentsModule,
     FormsModule,
-
+    MatDatepickerModule,
     ReactiveFormsModule,
     TranslateModule.forRoot({ // this is for translate
       loader: {

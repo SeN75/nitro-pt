@@ -1,9 +1,11 @@
+import { DatePipe } from '@angular/common';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LoggerService } from '../logger.service';
 import { ToastService } from '../toast.service';
 import { API } from './../../_helpers/api.config';
+import { OffersService } from './offers.service';
 const packUrl = API + "fin/package/";
 
 @Injectable({
@@ -15,7 +17,10 @@ export class PackagesService {
     private httpClient: HttpClient,
     private translateSrv: TranslateService,
     private logger: LoggerService,
-    private toaterSrv: ToastService
+    private offerSrv: OffersService,
+    private toaterSrv: ToastService,
+    private datePipe: DatePipe,
+
   ) { }
   private _getPackagesList() {
     return this.httpClient.get(packUrl + "list")
@@ -46,9 +51,15 @@ export class PackagesService {
     })
   }
 
-  public createPackage(data: any) {
+  public createPackage(data: any, offer?: any) {
     this._createPackage(data).subscribe((success: any) => {
       this.translateSrv.get('SUCCESS.PACKAGES.new').subscribe(msg => this.toaterSrv.success(msg))
+      if (offer) {
+        offer.package_id = success.external_id;
+        offer.start_date = this.datePipe.transform(offer.start_date, 'yyyy-MM-dd');
+        offer.end_date = this.datePipe.transform(offer.end_date, 'yyyy-MM-dd');
+        this.offerSrv.createOffer(offer)
+      }
       this.getPackagesList()
       this.logger.log("create Package:", success)
     }, (error: HttpErrorResponse) => {

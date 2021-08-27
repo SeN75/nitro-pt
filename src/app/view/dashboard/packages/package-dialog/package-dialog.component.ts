@@ -1,7 +1,10 @@
+import { DatePipe } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { BankAccountsService } from 'src/app/_services/financial/bank-accounts.service';
 import { PackagesService } from 'src/app/_services/financial/packages.service';
+import { LanguageService } from 'src/app/_services/language.service';
 import { LoggerService } from 'src/app/_services/logger.service';
 
 @Component({
@@ -11,12 +14,19 @@ import { LoggerService } from 'src/app/_services/logger.service';
 })
 export class PackageDialogComponent implements OnInit {
   packForm: FormGroup | any;
-
+  offerForm: FormGroup | any;
+  withOffer = false;
+  toDayDate = new Date();
+  minDate = new Date();
+  maxDate = new Date();
   constructor(
     public dialogRef: MatDialogRef<PackageDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
     private logger: LoggerService,
+    public lang: LanguageService,
+    public bankSrv: BankAccountsService,
+    private datePipe: DatePipe,
     private packSrv: PackagesService) {
     this.packForm = this.formBuilder.group({
       name: ['', Validators.required],
@@ -25,12 +35,22 @@ export class PackageDialogComponent implements OnInit {
       description_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
       period: ['', Validators.required],
       price: ['', Validators.required],
-      iban_id: ['5e4b3655-9de3-4085-be5e-6de910fa9e1d'],
+      iban_id: ['', Validators.required],
       discountAmount: [''],
       attach_required: [false],
       attachments_ids: [[1]],
       showInWebsite: [false]
     })
+
+    this.offerForm = this.formBuilder.group({
+      start_date: ['', Validators.required],
+      end_date: ['', Validators.required],
+      offer_value: ['', Validators.required],
+      package_id: [''],
+      type: [''],
+    })
+    this.minDate.setDate(this.toDayDate.getDate() - 1)
+    this.logger.log('minDate: ', this.minDate)
   }
 
   ngOnInit(): void {
@@ -68,7 +88,7 @@ export class PackageDialogComponent implements OnInit {
     }
     else {
       this.logger.log('add pack: ', this.packForm.value);
-      this.packSrv.createPackage(this.packForm.value)
+      this.packSrv.createPackage(this.packForm.value, (this.offerForm.valid ? this.offerForm.value : undefined))
       this.onNoClick();
 
     }

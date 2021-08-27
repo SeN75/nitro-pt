@@ -13,7 +13,7 @@ import { DietPlanViewDetailsComponent } from './diet-plan/diet-plan-view-details
 import { DietPlanEditDetailsComponent } from './diet-plan/diet-plan-edit-details/diet-plan-edit-details.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatRippleModule } from '@angular/material/core';
+import { DateAdapter, MatNativeDateModule, MatRippleModule, MAT_DATE_FORMATS } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -38,6 +38,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ResetPasswordComponent } from './settings/reset-password/reset-password.component';
 import { BankAccountDialogComponent } from './settings/bank-account-dialog/bank-account-dialog.component';
 import { UserDialogComponent } from './settings/user-dialog/user-dialog.component';
+import { MatDatepickerIntl, MatDatepickerModule } from '@angular/material/datepicker';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -83,7 +85,9 @@ import { UserDialogComponent } from './settings/user-dialog/user-dialog.componen
     ReactiveFormsModule,
     DataTablesModule,
     BrowserModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [],
   entryComponents: [
@@ -94,7 +98,8 @@ import { UserDialogComponent } from './settings/user-dialog/user-dialog.componen
     CategoriesDialogComponent
   ],
   providers: [
-
+    MatDatepickerModule,
+    DatePipe
   ]
 })
 
