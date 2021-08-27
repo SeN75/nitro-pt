@@ -26,7 +26,7 @@
           <td>{{lang.selected == 'ar'?workout.name_ar: workout.name}}</td>
           <td>
             <!-- {{workout.exercises.length}} -->
-            0
+            {{exerciseSrv.getExerciseListOnSameCategory(workout.id).length}}
           </td>
           <td class="text-end">
             <span>

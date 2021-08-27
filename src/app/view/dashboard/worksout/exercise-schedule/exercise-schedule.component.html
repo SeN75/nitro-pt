@@ -23,10 +23,11 @@
         </tr>
       </thead>
       <tbody class="text-center">
-        <tr *ngFor="let exercise of exerciseSrv.exerciseSchedule; let i = index">
+        <tr *ngFor="let exercise of exerciseSrv.getExerciseListOnSameCategory(categoryId); let i = index">
           <td>{{i + 1 }}</td>
           <td>{{exercise.name}}</td>
-          <td>{{exercise.link}}</td>
+          <!-- <td>{{exercise.media_link}}</td> -->
+          <td>0</td>
           <td class="text-end">
             <span>
               <button mat-icon-button (click)="dialogSrv.openWorkoutDialog('edit', exercise)">

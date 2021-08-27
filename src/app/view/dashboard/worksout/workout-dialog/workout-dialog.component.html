@@ -27,7 +27,7 @@
       <div class="form-group "
         [class.has_error]="exerciseForm.get('media_link')?.invalid && exerciseForm.get('media_link')?.touched ">
         <label for="input">{{'WORKSOUT.link' | translate}}</label>
-        <input name="input" disabled class="form-control">
+        <input name="input" class="form-control" formControlName="media_link">
         <div class="hint" *ngIf="exerciseForm.get('media_link')?.invalid && exerciseForm.get('media_link')?.touched ">
           <span></span>
           <span></span>
@@ -46,7 +46,7 @@
     <button *ngIf="data.state != 'edit'" mat-stroked-button color="primary" (click)="onNoClick()"> {{'FORM.cancel'
       |
       translate}} </button>
-    <button *ngIf="data.state == 'edit'" mat-stroked-button color="warn" (click)="onNoClick()"> {{'FORM.remove' |
+    <button *ngIf="data.state == 'edit'" mat-stroked-button color="warn" (click)="delete()"> {{'FORM.remove' |
       translate}} </button>
   </div>
 </div>

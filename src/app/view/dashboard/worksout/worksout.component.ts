@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { workout } from 'src/app/_common/globle';
+import { ExercisesService } from 'src/app/_services/gym/exercises.service';
 import { LanguageService } from 'src/app/_services/language.service';
 import { LoggerService } from 'src/app/_services/logger.service';
 import { DialogService } from './../../../_services/dialog.service';
@@ -17,6 +18,7 @@ export class WorksoutComponent implements OnInit {
   constructor(
     public dialogSrv: DialogService,
     public workoutSrv: ExercisesCategoriesService,
+    public exerciseSrv: ExercisesService,
     private router: Router,
     public lang: LanguageService,
     private logger: LoggerService

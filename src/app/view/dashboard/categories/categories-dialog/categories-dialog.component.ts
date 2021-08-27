@@ -63,14 +63,14 @@ export class CategoriesDialogComponent implements OnInit {
     let data: any = this.cateForm.value;
     data.category = this.data.cate.categoryid;
 
-    // if (this.data.state != 'edit') {
-    //   this.foodItemSrv.createFoodItem(data)
-    //   this.onNoClick();
-    // }
-    // else {
-    //   this.foodItemSrv.updateFoodItemById(data, this.data.cate.id)
-    //   this.onNoClick();
-    // }
+    if (this.data.state != 'edit') {
+      this.foodItemSrv.createFoodItem(data)
+      this.onNoClick();
+    }
+    else {
+      this.foodItemSrv.updateFoodItemById(data, this.data.cate.id)
+      this.onNoClick();
+    }
     this.logger.log('value: ', this.cateForm)
 
   }

@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup } from '@angular/forms';
 import { LoggerService } from 'src/app/_services/logger.service';
 import { ExercisesCategoriesService } from './../../../../_services/gym/exercises-categories.service';
+import { ExercisesService } from 'src/app/_services/gym/exercises.service';
 
 @Component({
   selector: 'app-workout-type-dialog',
@@ -17,6 +18,7 @@ export class WorkoutTypeDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
     private logger: LoggerService,
+    public exerciseSrv: ExercisesService,
     private exerciseCatgroySrv: ExercisesCategoriesService) {
     this.exerciseCategroyForm = this.formBuilder.group({
       name: ['', Validators.required],
