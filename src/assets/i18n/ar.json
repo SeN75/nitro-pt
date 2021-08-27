@@ -306,7 +306,10 @@
     "WORKOUT": {
       "new-category": "تم اضافة نوع تمرين جديد",
       "update-category": "تم تحديث نوع تمرين بنجاح",
-      "delete-category": "تم حذف نوع تمرين بنجاح"
+      "delete-category": "تم حذف نوع تمرين بنجاح",
+      "new-exercise": "تم اضافة تمرين جديد",
+      "update-exercise": "تم تحديث تمرين بنجاح",
+      "delete-exercise": "تم حذف تمرين بنجاح"
     },
     "CATEGORY": {
       "new-cate": "تم اضافة صنف جديد",
@@ -336,7 +339,10 @@
     "WORKOUT": {
       "new-category": "حدث خطأ اثناء انشاء نوع تمرين جديد",
       "update-category": "حدث خطأ اثناء تحديث نوع تمرين ",
-      "delete-category": "حدث خطأ اثناء حذف نوع تمرين "
+      "delete-category": "حدث خطأ اثناء حذف نوع تمرين ",
+      "new-exercise": "حدث خطأ اثناء انشاء تمرين جديد",
+      "update-exercise": "حدث خطأ اثناء تحديث تمرين ",
+      "delete-exercise": "حدث خطأ اثناء حذف تمرين "
     },
     "CATEGORY": {
       "new-cate": "حدث خطأ اثناء اضافة صنف جديد",

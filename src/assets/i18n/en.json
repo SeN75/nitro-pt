@@ -296,7 +296,10 @@
     "WORKOUT": {
       "new-category": "A new exercise type has been added",
       "update-category": "Exercise type updated successfully",
-      "delete-category": "Exercise type deleted successfully"
+      "delete-category": "Exercise type deleted successfully",
+      "new-exercise": "A new exercise has been added",
+      "update-exercise": "Exercise updated successfully",
+      "delete-exercise": "Exercise deleted successfully"
     },
     "CATEGORY": {
       "new-cate": "A new category has been added",
@@ -325,7 +328,10 @@
     "WORKOUT": {
       "new-category": "An error occurred while creating a new exercise type",
       "update-category": "An error occurred while updating an exercise type",
-      "delete-category": "An error occurred while deleting an exercise type"
+      "delete-category": "An error occurred while deleting an exercise type",
+      "new-exercise": "An error occurred while creating a new exercise",
+      "update-exercise": "An error occurred while updating an exercise",
+      "delete-exercise": "An error occurred while deleting an exercise"
     },
     "CATEGORY": {
       "new-cate": "An error occurred while adding a new category",
