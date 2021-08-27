@@ -3,6 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { CategoriesDialogComponent } from '../view/dashboard/categories/categories-dialog/categories-dialog.component';
 import { CategoryTypeDialogComponent } from '../view/dashboard/categories/category-type-dialog/category-type-dialog.component';
 import { PackageDialogComponent } from '../view/dashboard/packages/package-dialog/package-dialog.component';
+import { BankAccountDialogComponent } from '../view/dashboard/settings/bank-account-dialog/bank-account-dialog.component';
+import { ResetPasswordComponent } from '../view/dashboard/settings/reset-password/reset-password.component';
+import { UserDialogComponent } from '../view/dashboard/settings/user-dialog/user-dialog.component';
 import { WorkoutDialogComponent } from '../view/dashboard/worksout/workout-dialog/workout-dialog.component';
 import { WorkoutTypeDialogComponent } from '../view/dashboard/worksout/workout-type-dialog/workout-type-dialog.component';
 import { TipsComponent } from '../view/registration/joinig-form/body-pic-form/tips/tips.component';
@@ -93,6 +96,35 @@ export class DialogService {
       id: "picDialog",
       direction: "rtl",
       width: 'auto',
+    });
+    dialogRef.afterClosed().subscribe(res => console.log("dialog closed"));
+  }
+  openResetpasswordDialog() {
+    const dialogRef = this.dialog.open(ResetPasswordComponent, {
+      height: 'auto',
+      minWidth: '450px',
+      maxWidth: "650px",
+      width: 'auto',
+    });
+    dialogRef.afterClosed().subscribe(res => console.log("dialog closed"));
+  }
+  openUserDialog(path?: string, state?: string, user?: any) {
+    const dialogRef = this.dialog.open(UserDialogComponent, {
+      height: 'auto',
+      minWidth: '450px',
+      maxWidth: "750px",
+      width: 'auto',
+      data: { state: state, user: user, path: path }
+    });
+    dialogRef.afterClosed().subscribe(res => console.log("dialog closed"));
+  }
+  openBankAccountDialog(state?: string, account?: any) {
+    const dialogRef = this.dialog.open(BankAccountDialogComponent, {
+      height: 'auto',
+      minWidth: '450px',
+      maxWidth: "750px",
+      width: 'auto',
+      data: { state: state, account: account }
     });
     dialogRef.afterClosed().subscribe(res => console.log("dialog closed"));
   }

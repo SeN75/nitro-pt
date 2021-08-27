@@ -35,6 +35,9 @@ import { RouterModule } from '@angular/router';
 import { SubscriberInfoComponent } from './subscribers/subscriber-info/subscriber-info.component';
 import { OrderInfoComponent } from './orders/order-info/order-info.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ResetPasswordComponent } from './settings/reset-password/reset-password.component';
+import { BankAccountDialogComponent } from './settings/bank-account-dialog/bank-account-dialog.component';
+import { UserDialogComponent } from './settings/user-dialog/user-dialog.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     CategoriesTableComponent,
     CategoriesDialogComponent,
     SubscriberInfoComponent,
-    OrderInfoComponent
+    OrderInfoComponent,
+    ResetPasswordComponent,
+    BankAccountDialogComponent,
+    UserDialogComponent
   ],
   imports: [
     BrowserModule,

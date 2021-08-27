@@ -10,7 +10,9 @@ const Identity = API + "auth/";
   providedIn: 'root'
 })
 export class IdentityService {
-
+  userData: any;
+  coaches: any;
+  staffs: any;
   constructor(
     private httpClient: HttpClient,
     private translateSrv: TranslateService,
@@ -20,13 +22,15 @@ export class IdentityService {
     // this.logout(localStorage.getItem('refreshToken'));
     // this.logoutAll();
     this.getUserProfileByJWT()
+    this.getAllCoaches()
+    this.getStaff()
   }
 
   private _getStaff() {
-    return this.httpClient.get(Identity + "staff/");
+    return this.httpClient.get(Identity + "staff");
   }
   private _getAllCoaches() {
-    return this.httpClient.get(Identity + "coach/")
+    return this.httpClient.get(Identity + "coach")
   }
   private _getUserProfileByJWT() {
     return this.httpClient.get(Identity + "users/me/")
@@ -83,6 +87,8 @@ export class IdentityService {
 
   public getStaff() {
     this._getStaff().subscribe((success: any) => {
+      this.staffs = success;
+
       this.logger.log("get staff:", success)
     }, (error: HttpErrorResponse) => {
       this.logger.error("get staff error: ", error)
@@ -90,6 +96,7 @@ export class IdentityService {
   }
   public getAllCoaches() {
     this._getAllCoaches().subscribe((success: any) => {
+      this.coaches = success;
       this.logger.log("get all coaches:", success)
     }, (error: HttpErrorResponse) => {
       this.logger.error("get all coaches error: ", error)
@@ -97,6 +104,7 @@ export class IdentityService {
   }
   public getUserProfileByJWT() {
     this._getUserProfileByJWT().subscribe((success: any) => {
+      this.userData = success;
       this.logger.log("get userProfile by JWT:", success)
     }, (error: HttpErrorResponse) => {
       this.logger.error("get userProfile by JWT error: ", error)
@@ -111,6 +119,10 @@ export class IdentityService {
   }
   public updateDataUserDataById(userData: any, id: string) {
     this._updateDataUserDataById(userData, id).subscribe((success: any) => {
+      if (userData.role == 'staff')
+        this.getStaff()
+      if (userData.role == 'coach')
+        this.getAllCoaches()
       this.logger.log("update Data User Data ById:", success)
     }, (error: HttpErrorResponse) => {
       this.logger.error("update Data User Data ById error: ", error)
@@ -125,9 +137,15 @@ export class IdentityService {
   }
   public postCreateUser(userData: any) {
     this._postCreateUser(userData).subscribe((success: any) => {
+
       this.logger.log("post Create User :", success)
       this.translateSrv.get('SUCCESS.create-user-verify').subscribe(msg => this.toastSrv.success(msg))
-      this.router.navigateByUrl('/register/login')
+      if (userData.role == 'staff')
+        this.getStaff()
+      if (userData.role == 'coach')
+        this.getAllCoaches()
+      else
+        this.router.navigateByUrl('/register/login')
     }, (error: HttpErrorResponse) => {
       this.logger.error("post Create User  error: ", error)
       this.translateSrv.get('ERROR.create-user').subscribe(msg => this.toastSrv.error(msg))
@@ -161,8 +179,10 @@ export class IdentityService {
   }
   public changeCurrentUserPassword(data: any) {
     this._changeCurrentUserPassword(data).subscribe((success: any) => {
+      this.translateSrv.get('SUCCESS.REGISTRATION.change-password').subscribe(msg => this.toastSrv.success(msg))
       this.logger.log("refresh Token:", success)
     }, (error: HttpErrorResponse) => {
+      this.translateSrv.get('ERROR.REGISTRATION.change-password').subscribe(msg => this.toastSrv.error(msg))
       this.logger.error("refresh Token error: ", error)
     })
   }

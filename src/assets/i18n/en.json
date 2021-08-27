@@ -7,7 +7,23 @@
         "upload": "upload",
         "upload-file": "upload file",
         "file": "file",
-        "exposition": "exposition"
+        "exposition": "exposition",
+        "name": "name",
+        "email": "email",
+        "phone-number": "phone number",
+        "managing-the-trainers": "Managing the trainers",
+        "managing-bank-accounts": "Managing bank accounts",
+        "affiliate-accounts-management": "Affiliate accounts management",
+        "new-bank-account": "new bank account",
+        "new-affiliate-account": "new affiliate account",
+        "new-trainer": "new trainer",
+        "iban": "iban",
+        "edit-staff": "update staff",
+        "edit-coach": "update coach information",
+        "add-staff": "add staff",
+        "add-coach": "add coach",
+        "bank": "bank"
+
     },
     "SUBSCRIBERS": {
         "subscribers": "subscribers",
@@ -218,6 +234,10 @@
         "back": "back",
         "next": "next",
         "reset-password": "reset password",
+        "current-password": " current password",
+        "re-new-password": " re-new password",
+        "new-password": " new password",
+        "change-password": "change password",
         "phone-mobile": "phone number",
         "password": "password",
         "confirm-password": "confirm password",
@@ -283,6 +303,15 @@
       "new-item": "A new Item has been added",
       "update-item": "Item has been updated successfully",
       "delete-item": "Item has been deleted successfully"
+    },
+    "REGISTRATION": {
+      "change-password": "Password changed successfully"
+    },
+    "SETTINGS": {
+      "new-bankaccount": " A new bank account has been added",
+      "update-bankaccount": "Bank account has been updated successfully",
+      "delete-bankaccount": "Bank account has been deleted successfully"
+
     }
   },
   "ERROR": {
@@ -304,6 +333,15 @@
       "new-item": "An error occurred while adding a new item",
       "update-item": "An error occurred while updating the item",
       "delete-item": "An error occurred while deleting the item"
+    },
+    "REGISTRATION": {
+      "change-password": "An error occurred while changing the password"
+    },
+    "SETTINGS": {
+      "new-bankaccount": "An error occurred while adding new bank account",
+      "update-bankaccount": "An error occurred while updating the bank account ",
+      "delete-bankaccount": "An error occurred while deleting the bank account"
+
     }
   }
 }

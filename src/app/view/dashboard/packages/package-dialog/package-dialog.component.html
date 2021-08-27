@@ -52,17 +52,13 @@
         <span *ngIf="packForm.get('price').errors.required">{{'VALIDATION.required' | translate}}</span>
       </div>
     </div>
-    <div class="form-group col-12 col-md-6"
+    <div class="form-group col-12"
       [class.has_error]="packForm.get('iban_id')?.invalid && packForm.get('iban_id')?.touched ">
       <label for="input">{{'PACKAGES.account-number' | translate}}*</label>
       <input name="input" formControlName="iban_id" class="form-control">
       <div class="hint" *ngIf="packForm.get('iban_id')?.invalid && packForm.get('iban_id')?.touched ">
         <span *ngIf="packForm.get('iban_id').errors.required">{{'VALIDATION.required' | translate}}</span>
       </div>
-    </div>
-    <div class="form-group col-12 col-md-6">
-      <label for="input">{{'PACKAGES.discount-amount' | translate}}</label>
-      <input name="input" formControlName="discountAmount" class="form-control">
     </div>
     <div class="col-12 col-md-6">
       <mat-checkbox formControlName='attach_required'>
@@ -77,6 +73,16 @@
       <mat-checkbox formControlName='showInWebsite'>
         {{'PACKAGES.show-in-website' | translate}}
       </mat-checkbox>
+    </div>
+  </div>
+  <div class="offcer">
+    <div class="offcer_title">
+      <mat-checkbox>
+      </mat-checkbox>
+      <span class="section-title">خصومات</span>
+    </div>
+    <div class="row">
+
     </div>
   </div>
   <div class="button-group">

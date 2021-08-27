@@ -7,7 +7,23 @@
         "upload": "رفع",
         "upload-file": "رفع الملف",
         "file": " ملف",
-        "exposition": "للتوضيح"
+        "exposition": "للتوضيح",
+        "name": "الاسم",
+        "email": "الايميل",
+        "phone-number": "رقم الجوال",
+        "managing-the-trainers": "ادارة المدربين",
+        "managing-bank-accounts": "ادارة الحسابات البنكية",
+        "affiliate-accounts-management": "ادارة حسابات الافراد التابعين",
+        "new-bank-account": "حساب بنكي جديد",
+        "new-affiliate-account": "تابع جديد",
+        "new-trainer": "مدرب جديد",
+        "iban": "الايبان",
+        "edit-staff": "تحديث تابع",
+        "edit-coach": "تحديث بيانات المدرب",
+        "add-staff": "اضافة تابع",
+        "add-coach": "اضافة مدرب",
+        "bank": "البنك"
+
     },
     "SUBSCRIBERS": {
         "subscribers": "المشتركين",
@@ -225,6 +241,10 @@
         "back": "السابق",
         "next": "التالي",
         "reset-password": "استعادة كلمة المرور",
+        "current-password": " كلمة المرور الحالية",
+        "re-new-password": " تاكيد كلمة المرور الجديده",
+        "new-password": " كلمة المرور الجديده",
+        "change-password": "تغير كلمة المرور",
         "phone-mobile": "رقم الجوال",
         "password": "كلمة المرور",
         "confirm-password": "تكرار كلمة المرور",
@@ -288,6 +308,15 @@
       "new-item": "تم اضافة صنف جديد",
       "update-item": " تم تحديث عنصر بنجاح",
       "delete-item": "تم حذف عنصر بنجاح"
+    },
+    "REGISTRATION": {
+      "change-password": "تم تغيير كلمة المرور بنجاح"
+    },
+    "SETTINGS": {
+      "new-bankaccount": " تم اضافة حساب بنكي جديد بنجاح",
+      "update-bankaccount": "تم تحديث حساب بنكي بنجاح",
+      "delete-bankaccount": "تم حذف حساب بنكي بنجاح"
+
     }
   },
   "ERROR": {
@@ -309,6 +338,15 @@
       "new-item": "حدث خطأ اثناء اضافة عنصر جديد",
       "update-item": " حدث خطأ اثناء تحديث العنصر",
       "delete-item": "حدث خطأ اثناء حذف عنصر"
+    },
+    "REGISTRATION": {
+      "change-password": "حدث خطأ اثناء تغيير كلمة المرور"
+    },
+    "SETTINGS": {
+      "new-bankaccount": "حدث خطأ اثناء اضافة حساب بنكي جديد",
+      "update-bankaccount": "حدث خطأ اثناء تحديث حساب بنكي ",
+      "delete-bankaccount": "حدث خطأ اثناء حذف حساب بنكي "
+
     }
   }
 }

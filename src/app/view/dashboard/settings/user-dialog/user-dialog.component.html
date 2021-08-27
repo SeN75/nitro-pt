@@ -1,0 +1,201 @@
+<h1 mat-dialog-title class="dialog-title" *ngIf="data.path == 'staff'"> {{'SETTINGS.'+ (data.state == 'edit' ?
+  'edit-staff' : 'add-staff') |
+  translate}} </h1>
+<h1 mat-dialog-title class="dialog-title" *ngIf="data.path == 'coach'"> {{'SETTINGS.'+ (data.state == 'edit' ?
+  'edit-coach' : 'add-coach') |
+  translate}}</h1>
+
+
+<div class="row" [formGroup]="userDataForm">
+  <div class="col-12 col-sm-6">
+    <div class="form-group  w-100"
+      [class.has_error]="userDataForm.controls.first_name_ar.invalid && userDataForm.controls.first_name_ar.touched">
+      <label> {{'FORM.name' | translate}}</label>
+      <input class="form-control" placeholder="{{'FORM.name' | translate}}" formControlName="first_name_ar">
+      <div class="hint">
+        {{(
+        userDataForm.controls.first_name_ar.errors&&userDataForm.controls.first_name_ar.touched ?
+        userDataForm.controls.first_name_ar.errors.required ? 'VALIDATION.required':
+        userDataForm.controls.first_name_ar.errors.pattern ? 'VALIDATION.ar' :'' : '')
+        | translate }}
+      </div>
+    </div>
+    <div class="form-group  w-100"
+      [class.has_error]="userDataForm.controls.middle_name_ar.invalid && userDataForm.controls.middle_name_ar.touched">
+      <label> {{'FORM.father-name' | translate}}</label>
+      <input class="form-control" placeholder="{{'FORM.father-name' | translate}}" formControlName="middle_name_ar">
+      <div class="hint">
+        {{(
+        userDataForm.controls.middle_name_ar.errors&&userDataForm.controls.middle_name_ar.touched ?
+        userDataForm.controls.middle_name_ar.errors.required ? 'VALIDATION.required':
+        userDataForm.controls.middle_name_ar.errors.pattern ? 'VALIDATION.ar' :'' : '')
+        | translate }}
+      </div>
+    </div>
+    <div class="form-group  w-100"
+      [class.has_error]="userDataForm.controls.last_name_ar.invalid && userDataForm.controls.last_name_ar.touched">
+      <label> {{'FORM.family-name' | translate}}</label>
+      <input class="form-control" placeholder="{{'FORM.family-name' | translate}}" formControlName="last_name_ar">
+      <div class="hint">
+        {{(
+        userDataForm.controls.last_name_ar.errors&&userDataForm.controls.last_name_ar.touched ?
+        userDataForm.controls.last_name_ar.errors.required ? 'VALIDATION.required':
+        userDataForm.controls.last_name_ar.errors.pattern ? 'VALIDATION.ar' :'' : '')
+        | translate }}
+      </div>
+    </div>
+    <div class="form-group  w-100" *ngIf="data.state != 'edit'"
+      [class.has_error]="userDataForm.controls.username.invalid && userDataForm.controls.username.touched">
+      <label> {{'FORM.user-name' | translate}}</label>
+      <input class="form-control" placeholder="{{'FORM.user-name' | translate}}" formControlName="username">
+      <div class="hint">
+        {{(
+        userDataForm.controls.username.errors&&userDataForm.controls.username.touched ?
+        userDataForm.controls.username.errors.required ? 'VALIDATION.required':
+        '' : '')
+        | translate }}
+      </div>
+    </div>
+
+
+    <div class="form-group password w-100" *ngIf="data.state != 'edit'"
+      [class.has_error]="userDataForm.controls.password.invalid && userDataForm.controls.password.touched">
+      <label> {{'FORM.password' | translate}}</label>
+      <input class="form-control" [type]="hidePassword ? 'password': 'text'" placeholder="*************"
+        formControlName="password">
+      <button mat-icon-button (click)="hidePassword = !hidePassword">
+        <mat-icon>{{ hidePassword? 'visibility': 'visibility_off'}}</mat-icon>
+      </button>
+      <div class="hint">
+        {{(
+        userDataForm.controls.password.errors&&userDataForm.controls.password.touched ?
+        userDataForm.controls.password.errors.required ? 'VALIDATION.password.required':
+        userDataForm.controls.password.errors.minlength ? 'VALIDATION.password.minlength':
+        userDataForm.controls.password.errors.pattern ? 'VALIDATION.password.pattern': '' : '')
+        | translate }}
+      </div>
+    </div>
+    <div class="form-group password w-100" *ngIf="data.state != 'edit'"
+      [class.has_error]="userDataForm.controls.re_password.invalid && userDataForm.controls.re_password.touched">
+      <label> {{'FORM.confirm-password' | translate}}</label>
+      <input class="form-control" [type]="hidePassword ? 'password': 'text'" placeholder="*************"
+        formControlName="re_password">
+      <button mat-icon-button (click)="hidePassword = !hidePassword">
+        <mat-icon>{{ hidePassword? 'visibility': 'visibility_off'}}</mat-icon>
+      </button>
+      <div class="hint">
+        {{(
+        userDataForm.controls.re_password.errors&&userDataForm.controls.re_password.touched ?
+        userDataForm.controls.re_password.errors.required ? 'VALIDATION.password.required':
+        userDataForm.controls.re_password.errors.confirmPasswordValidator == true ?
+        'VALIDATION.password.not-match' : '': '')
+        | translate }}
+      </div>
+    </div>
+    <div class="row justify-content-between align-items-end" *ngIf="data.state == 'edit'">
+      <div class="form-group col-7 col-sm-8"
+        [class.has_error]="userDataForm.controls.phone_number.invalid && userDataForm.controls.phone_number.touched">
+        <label for="input">{{'FORM.phone-mobile' | translate}}</label>
+        <input name="input" type="tel" maxlength="9" class="form-control" placeholder="5XX-XXX-XX"
+          formControlName="phone_number">
+
+      </div>
+      <div class="form-group col-5 col-sm-4">
+        <select class="form-control" placeholder="+966" formControlName="counterCode">
+          <option *ngFor="let code of countriesCode" [value]="code.phone_code">+ {{code.phone_code}}</option>
+        </select>
+      </div>
+      <div class="hint">
+        {{(
+        userDataForm.controls.phone_number.errors&&userDataForm.controls.phone_number.touched ?
+        userDataForm.controls.phone_number.errors.required ? 'VALIDATION.required':
+        '' : '')
+        | translate }}
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-sm-6">
+    <div class="form-group  w-100"
+      [class.has_error]="userDataForm.controls.first_name.invalid && userDataForm.controls.first_name.touched">
+      <label> {{'FORM.name' | translate}}</label>
+      <input class="form-control" placeholder="{{'FORM.name' | translate}}" formControlName="first_name">
+      <div class="hint">
+        {{(
+        userDataForm.controls.first_name.errors&&userDataForm.controls.first_name.touched ?
+        userDataForm.controls.first_name.errors.required ? 'VALIDATION.required':
+        '' : '')
+        | translate }}
+      </div>
+    </div>
+    <div class="form-group  w-100"
+      [class.has_error]="userDataForm.controls.middle_name.invalid && userDataForm.controls.middle_name.touched">
+      <label> {{'FORM.father-name' | translate}}</label>
+      <input class="form-control" placeholder="{{'FORM.father-name' | translate}}" formControlName="middle_name">
+      <div class="hint">
+        {{(
+        userDataForm.controls.middle_name.errors&&userDataForm.controls.middle_name.touched ?
+        userDataForm.controls.middle_name.errors.required ? 'VALIDATION.required':
+        '': '')
+        | translate }}
+      </div>
+    </div>
+    <div class="form-group  w-100"
+      [class.has_error]="userDataForm.controls.last_name.invalid && userDataForm.controls.last_name.touched">
+      <label> {{'FORM.family-name' | translate}}</label>
+      <input class="form-control" placeholder="{{'FORM.family-name' | translate}}" formControlName="last_name">
+      <div class="hint">
+        {{(
+        userDataForm.controls.last_name.errors&&userDataForm.controls.last_name.touched ?
+        userDataForm.controls.last_name.errors.required ? 'VALIDATION.required':
+        '': '')
+        | translate }}
+      </div>
+    </div>
+    <div class="form-group  w-100"
+      [class.has_error]="userDataForm.controls.email.invalid && userDataForm.controls.email.touched">
+      <label> {{'FORM.email' | translate}}</label>
+      <input class="form-control" placeholder="email@example.com" formControlName="email">
+      <div class="hint">
+        {{(
+        userDataForm.controls.email.errors&&userDataForm.controls.email.touched ?
+        userDataForm.controls.email.errors.required ? 'VALIDATION.email.required':
+        'VALIDATION.email.': '')
+        | translate }}
+      </div>
+    </div>
+    <div class="row justify-content-between align-items-end" *ngIf="data.state != 'edit'">
+      <div class="form-group col-7 col-sm-8"
+        [class.has_error]="userDataForm.controls.phone_number.invalid && userDataForm.controls.phone_number.touched">
+        <label for="input">{{'FORM.phone-mobile' | translate}}</label>
+        <input name="input" type="tel" maxlength="9" class="form-control" placeholder="5XX-XXX-XX"
+          formControlName="phone_number">
+
+      </div>
+      <div class="form-group col-5 col-sm-4">
+        <select class="form-control" placeholder="+966" formControlName="counterCode">
+          <option *ngFor="let code of countriesCode" [value]="code.phone_code">+ {{code.phone_code}}</option>
+        </select>
+      </div>
+      <div class="hint">
+        {{(
+        userDataForm.controls.phone_number.errors&&userDataForm.controls.phone_number.touched ?
+        userDataForm.controls.phone_number.errors.required ? 'VALIDATION.required':
+        '' : '')
+        | translate }}
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="button-group mt-3">
+  <button mat-raised-button color="primary" [disabled]="userDataForm.invalid" (click)="action()"> {{'FORM.'+ (data.state
+    == 'edit' ?
+    'edit' : 'add')
+    | translate}}
+  </button>
+  <button *ngIf="data.state != 'edit'" mat-stroked-button color="primary" (click)="onNoClick()"> {{'FORM.cancel'
+    |
+    translate}} </button>
+  <button *ngIf="data.state == 'edit'" mat-stroked-button color="warn" (click)="onNoClick()"> {{'FORM.remove' |
+    translate}} </button>
+</div>
