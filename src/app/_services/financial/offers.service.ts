@@ -15,8 +15,8 @@ export class OffersService {
     private logger: LoggerService
   ) { }
 
-  private _getOfferByPackageId(id: string) {
-    return this.httpClient.get(offersUrl)
+  public _getOfferByPackageId(id: string) {
+    return this.httpClient.get(offersUrl + id + '/')
   }
   private _updateOfferByPackageId(data: any, id: string) {
     return this.httpClient.patch(offersUrl, data)

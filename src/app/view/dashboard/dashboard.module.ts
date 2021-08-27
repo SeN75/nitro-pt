@@ -40,6 +40,8 @@ import { BankAccountDialogComponent } from './settings/bank-account-dialog/bank-
 import { UserDialogComponent } from './settings/user-dialog/user-dialog.component';
 import { MatDatepickerIntl, MatDatepickerModule } from '@angular/material/datepicker';
 import { DatePipe } from '@angular/common';
+import { FileUploadModule } from 'ng2-file-upload';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -87,7 +89,9 @@ import { DatePipe } from '@angular/common';
     BrowserModule,
     Ng2SearchPipeModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    FileUploadModule,
+    MatSelectModule
   ],
   exports: [],
   entryComponents: [

@@ -13,6 +13,7 @@ const packUrl = API + "fin/package/";
 })
 export class PackagesService {
   packages: any = [];
+  attachmentList: any = [];
   constructor(
     private httpClient: HttpClient,
     private translateSrv: TranslateService,
@@ -21,12 +22,17 @@ export class PackagesService {
     private toaterSrv: ToastService,
     private datePipe: DatePipe,
 
-  ) { }
+  ) {
+    this.getAllAttachmentList();
+  }
   private _getPackagesList() {
     return this.httpClient.get(packUrl + "list")
   }
   private _createPackage(data: any) {
     return this.httpClient.post(packUrl + "create", data);
+  }
+  private _getAllAttachmentList() {
+    return this.httpClient.get(API + 'fin/attachments/list');
   }
   private _getPackageById(id: string) {
     return this.httpClient.get(packUrl + "id/" + id);
@@ -48,6 +54,14 @@ export class PackagesService {
       this.logger.log("get packages List:", success)
     }, (error: HttpErrorResponse) => {
       this.logger.error("get packages List error: ", error)
+    })
+  }
+  public getAllAttachmentList() {
+    this._getAllAttachmentList().subscribe((success: any) => {
+      this.attachmentList = success;
+      this.logger.log("get attach List:", success)
+    }, (error: HttpErrorResponse) => {
+      this.logger.error("get attach List error: ", error)
     })
   }
 

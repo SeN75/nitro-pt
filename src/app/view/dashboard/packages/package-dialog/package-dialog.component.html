@@ -72,7 +72,19 @@
     </div>
     <div class="form-group col-12 col-md-6">
       <label for="input">{{'PACKAGES.attach-name' | translate}}</label>
-      <input name="input" formControlName="discountAmount" class="form-control">
+      <mat-select formControlName="attachments_ids" multiple class="form-control">
+        <mat-option *ngFor="let attach of packSrv.attachmentList" [value]="attach.id" color="primary">{{lang.selected ==
+          'ar'?
+          attach.name_ar: attach.name}}</mat-option>
+      </mat-select>
+      <!-- </select> -->
+      <!-- <mat-form-field class="form-group">
+        <mat-label>{{'PACKAGES.attach-name' | translate}}</mat-label>
+        <mat-select formControlName="attachments_ids" multiple class="form-control">
+          <mat-option *ngFor="let attach of packSrv.attachmentList" [value]="attach.id">{{lang.selected == 'ar'?
+            attach.name_ar: attach.name}}</mat-option>
+        </mat-select>
+      </mat-form-field> -->
     </div>
     <div class="col-12 col-md-6">
       <mat-checkbox formControlName='showInWebsite'>
