@@ -3,7 +3,7 @@
 .category-card {
   width: 100%;
   background-color: white;
-  border: solid 1px var(--gray-blue);
+  border: solid 1px #eff1f8;
   max-width: 425px;
   border-radius: 0.25em;
   padding: 10px 20px;
@@ -17,36 +17,36 @@
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 0.8rem;
-  //   border-bottom: 1px solid var(--gray-blue);
+  //   border-bottom: 1px solid #eff1f8;
 }
 
 .category-header .title {
-  color: var(--primray);
+  color: #1d4980;
   font-weight: bolder;
   font-size: 25px;
 }
 
 .organic-compound {
   text-align: center;
-  border-top: 1px solid var(--gray-blue);
+  border-top: 1px solid #eff1f8;
   padding-top: 20px;
 }
 
 .organic-compound .title {
   text-align: center;
-  color: var(--primray);
+  color: #1d4980;
 }
 .organic-compound .compound-header {
   margin-top: 10px;
-  background-color: var(--gray-blue);
+  background-color: #eff1f8;
   padding: 0 5px;
   border-radius: 0.25em;
-  color: var(--black);
+  color: #1e1e1e;
   text-align: center;
 }
 
 .organic-compound .compound-body {
-  color: var(--primray);
+  color: #1d4980;
   padding: 0 5px 20px;
   text-align: center;
 }

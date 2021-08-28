@@ -16,7 +16,7 @@ export class OffersService {
   ) { }
 
   public _getOfferByPackageId(id: string) {
-    return this.httpClient.get(offersUrl + id + '/')
+    return this.httpClient.get(offersUrl + id + '')
   }
   private _updateOfferByPackageId(data: any, id: string) {
     return this.httpClient.patch(offersUrl, data)

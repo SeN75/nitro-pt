@@ -67,7 +67,7 @@ export class PackageDialogComponent implements OnInit {
       this.packForm.get('iban_id')?.setValue(this.data.package.bank_account_id);
       this.packForm.get('attach_required')?.setValue(this.data.package.attach_required);
       this.packForm.get('showInWebsite')?.setValue(this.data.package.showOnWebsite);
-      // this.offerSrv.getOfferByPackageId(this.data.package.external_id)
+      this.offerSrv.getOfferByPackageId(this.data.package.external_id)
       if (this.packForm.get('attach_required').value == true) {
         let ids = []
         this.logger.log("attach: ", this.packForm.get('attachments_ids').value)
