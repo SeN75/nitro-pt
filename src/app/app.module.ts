@@ -38,6 +38,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NaitroInterceptor } from './_helpers/interceptors';
 import { AuhtGuardGuard } from './_helpers/auth-guard.guard';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,10 @@ import { AuhtGuardGuard } from './_helpers/auth-guard.guard';
       provide: HTTP_INTERCEPTORS,
       useClass: NaitroInterceptor,
       multi: true
+    },
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
     },
     AuhtGuardGuard
   ],
