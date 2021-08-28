@@ -29,7 +29,7 @@ export class DialogService {
   openPackageDialog(state?: string, pack?: any) {
     const dialogRef = this.dialog.open(PackageDialogComponent, {
       height: 'auto',
-      minWidth: '450px',
+      minWidth: '300px',
       maxWidth: "750px",
       width: 'auto',
       data: { state: state, package: pack }
@@ -40,7 +40,7 @@ export class DialogService {
   openWorkoutTypeDialog(state?: string, workout?: any) {
     const dialogRef = this.dialog.open(WorkoutTypeDialogComponent, {
       height: 'auto',
-      minWidth: '450px',
+      minWidth: '300px',
       maxWidth: "750px",
       width: 'auto',
       data: { state: state, workout: workout }
@@ -50,7 +50,7 @@ export class DialogService {
   openWorkoutDialog(state?: string, workout?: any) {
     const dialogRef = this.dialog.open(WorkoutDialogComponent, {
       height: 'auto',
-      minWidth: '450px',
+      minWidth: '300px',
       maxWidth: "750px",
       width: 'auto',
       data: { state: state, workout: workout }
@@ -60,7 +60,7 @@ export class DialogService {
   openCategoryTypeDialog(state?: string, cate?: any) {
     const dialogRef = this.dialog.open(CategoryTypeDialogComponent, {
       height: 'auto',
-      minWidth: '450px',
+      minWidth: '300px',
       maxWidth: "750px",
       width: 'auto',
       data: { state: state, cate: cate }
@@ -70,7 +70,7 @@ export class DialogService {
   openCategoryDialog(state?: string, cate?: any) {
     const dialogRef = this.dialog.open(CategoriesDialogComponent, {
       height: 'auto',
-      minWidth: '450px',
+      minWidth: '300px',
       maxWidth: "750px",
       width: 'auto',
       data: { state: state, cate: cate }
@@ -80,7 +80,7 @@ export class DialogService {
   openSubscribersDialog(state?: string, cate?: any) {
     const dialogRef = this.dialog.open(CategoriesDialogComponent, {
       height: 'auto',
-      minWidth: '450px',
+      minWidth: '300px',
       maxWidth: "750px",
       width: 'auto',
       data: { state: state, cate: cate }
@@ -90,7 +90,7 @@ export class DialogService {
   openTipsDialog() {
     const dialogRef = this.dialog.open(TipsComponent, {
       height: 'auto',
-      minWidth: '450px',
+      minWidth: '300px',
       maxWidth: "750px",
       minHeight: '60vh',
       id: "picDialog",
@@ -102,7 +102,7 @@ export class DialogService {
   openResetpasswordDialog() {
     const dialogRef = this.dialog.open(ResetPasswordComponent, {
       height: 'auto',
-      minWidth: '450px',
+      minWidth: '300px',
       maxWidth: "650px",
       width: 'auto',
     });
@@ -111,7 +111,7 @@ export class DialogService {
   openUserDialog(path?: string, state?: string, user?: any) {
     const dialogRef = this.dialog.open(UserDialogComponent, {
       height: 'auto',
-      minWidth: '450px',
+      minWidth: '300px',
       maxWidth: "750px",
       width: 'auto',
       data: { state: state, user: user, path: path }
@@ -121,7 +121,7 @@ export class DialogService {
   openBankAccountDialog(state?: string, account?: any) {
     const dialogRef = this.dialog.open(BankAccountDialogComponent, {
       height: 'auto',
-      minWidth: '450px',
+      minWidth: '300px',
       maxWidth: "750px",
       width: 'auto',
       data: { state: state, account: account }
