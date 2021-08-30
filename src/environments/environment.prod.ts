@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: "https://dev.nitropt.com/api/"
+  apiUrl: "https://dev.nitropt.com/demoapi/api/"
 };
