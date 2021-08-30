@@ -161,7 +161,7 @@ export class IdentityService {
       this.logger.log("login:", success)
       localStorage.setItem('refreshToken', success.refresh)
       localStorage.setItem('authToken', success.access)
-      this.router.navigate(['/'])
+      this.router.navigate(['/dashboard/account-settings'])
     }, (error: HttpErrorResponse) => {
       this.logger.error("login error: ", error)
     })
