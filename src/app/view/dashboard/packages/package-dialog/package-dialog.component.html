@@ -41,7 +41,7 @@
       <label for="input">{{'PACKAGES.pack-duration' | translate}}*</label>
       <select formControlName="period" class="form-control">
         <option [value]="dur" *ngFor="let dur of durations">
-          {{ ( dur < 12 ? 'DURATIONS.month' : dur==12 ? "DURATIONS.year" : '' )| translate}} {{dur < 12? dur: '' }}
+          {{ ( dur < 12 ? 'DURATIONS.month' : dur==12 ? 'DURATIONS.year' : '' )| translate}} {{dur < 12? dur: '' }}
             </option>
       </select>
       <!-- <input name="input" formControlName="period" class="form-control"> -->

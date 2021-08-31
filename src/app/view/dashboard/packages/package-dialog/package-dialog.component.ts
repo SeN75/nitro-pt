@@ -41,7 +41,7 @@ export class PackageDialogComponent implements OnInit {
       iban_id: ['', Validators.required],
       discountAmount: [''],
       attach_required: [false],
-      attachments_ids: [''],
+      attachments_ids: [[]],
       showInWebsite: [false]
     })
 
