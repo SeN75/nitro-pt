@@ -41,111 +41,106 @@
       <label for="input">{{'PACKAGES.pack-duration' | translate}}*</label>
       <select formControlName="period" class="form-control">
         <option [value]="dur" *ngFor="let dur of durations">
-          {{
-          (
-          dur < 12 ? 'DURATIONS.month' +' ' + dur :
-          dur == 12 ? "DURATIONS.year" : ''
-
-          )
-          | translate
-          }}
-        </option>
+          {{ ( dur < 12 ? 'DURATIONS.month' : dur==12 ? "DURATIONS.year" : '' )| translate}} {{dur < 12? dur: '' }}
+            </option>
       </select>
       <!-- <input name="input" formControlName="period" class="form-control"> -->
       <div class="hint" *ngIf="packForm.get(' period')?.invalid && packForm.get('period')?.touched ">
         <span *ngIf=" packForm.get('period').errors.required">{{'VALIDATION.required' | translate}}</span>
-    </div>
-  </div>
-  <div class="form-group col-12 col-md-6"
-    [class.has_error]="packForm.get('price')?.invalid && packForm.get('price')?.touched ">
-    <label for="input">{{'PACKAGES.pack-value' | translate}}*</label>
-    <input name="input" formControlName="price" class="form-control" placeholder="1000 {{'PACKAGES.sr | translate'}}">
-    <div class="hint" *ngIf="packForm.get('price')?.invalid && packForm.get('price')?.touched ">
-      <span *ngIf="packForm.get('price').errors.required">{{'VALIDATION.required' | translate}}</span>
-    </div>
-  </div>
-
-  <div class="form-group col-12"
-    [class.has_error]="packForm.get('iban_id')?.invalid && packForm.get('iban_id')?.touched ">
-    <label for="input">{{'PACKAGES.account-number'| translate}}*</label>
-    <select formControlName="iban_id" class="form-control">
-      <option *ngFor="let u of bankSrv.banksAccounts; index as i" [value]="u.external_id">
-        {{lang.selected == 'ar'? u.bank_name_ar:
-        u.bank_name}} - {{u.iban}} </option>
-      <div class="hint" *ngIf="packForm.get('iban_id')?.invalid && packForm.get('iban_id')?.touched ">
-        <span *ngIf="packForm.get('iban_id')?.errors.required">{{'VALIDATION.required' | translate}}</span>
       </div>
-    </select>
-  </div>
-  <div class="col-12 col-md-6">
-    <mat-checkbox formControlName='attach_required'>
-      {{'PACKAGES.upload-attach' | translate}}
-    </mat-checkbox>
-  </div>
-  <div class="form-group col-12 col-md-6">
-    <label for="input">{{'PACKAGES.attach-name' | translate}}</label>
-    <mat-select formControlName="attachments_ids" multiple class="form-control">
-      <mat-option *ngFor="let attach of packSrv.attachmentList" [value]="attach.id" color="primary">{{lang.selected ==
-        'ar'?
-        attach.name_ar: attach.name}}</mat-option>
-    </mat-select>
-    <!-- </select> -->
-    <!-- <mat-form-field class="form-group">
+    </div>
+    <div class="form-group col-12 col-md-6"
+      [class.has_error]="packForm.get('price')?.invalid && packForm.get('price')?.touched ">
+      <label for="input">{{'PACKAGES.pack-value' | translate}}*</label>
+      <input name="input" formControlName="price" class="form-control" placeholder="1000 {{'PACKAGES.sr' | translate}}">
+      <div class="hint" *ngIf="packForm.get('price')?.invalid && packForm.get('price')?.touched ">
+        <span *ngIf="packForm.get('price').errors.required">{{'VALIDATION.required' | translate}}</span>
+      </div>
+    </div>
+
+    <div class="form-group col-12"
+      [class.has_error]="packForm.get('iban_id')?.invalid && packForm.get('iban_id')?.touched ">
+      <label for="input">{{'PACKAGES.account-number'| translate}}*</label>
+      <select formControlName="iban_id" class="form-control">
+        <option *ngFor="let u of bankSrv.banksAccounts; index as i" [value]="u.external_id">
+          {{lang.selected == 'ar'? u.bank_name_ar:
+          u.bank_name}} - {{u.iban}} </option>
+        <div class="hint" *ngIf="packForm.get('iban_id')?.invalid && packForm.get('iban_id')?.touched ">
+          <span *ngIf="packForm.get('iban_id')?.errors.required">{{'VALIDATION.required' | translate}}</span>
+        </div>
+      </select>
+    </div>
+
+    <hr class="my-4">
+
+    <div class="col-12 col-md-6">
+      <mat-checkbox formControlName='attach_required'>
+        {{'PACKAGES.upload-attach' | translate}}
+      </mat-checkbox>
+    </div>
+    <div class="form-group col-12 col-md-6">
+      <label for="input">{{'PACKAGES.attach-name' | translate}}</label>
+      <mat-select formControlName="attachments_ids" multiple class="form-control">
+        <mat-option *ngFor="let attach of packSrv.attachmentList" [value]="attach.id" color="primary">{{lang.selected ==
+          'ar'?
+          attach.name_ar: attach.name}}</mat-option>
+      </mat-select>
+      <!-- </select> -->
+      <!-- <mat-form-field class="form-group">
         <mat-label>{{'PACKAGES.attach-name' | translate}}</mat-label>
         <mat-select formControlName="attachments_ids" multiple class="form-control">
           <mat-option *ngFor="let attach of packSrv.attachmentList" [value]="attach.id">{{lang.selected == 'ar'?
             attach.name_ar: attach.name}}</mat-option>
         </mat-select>
       </mat-form-field> -->
-  </div>
-
-  <hr class="my-4">
-  <div class="col-12 col-md-6">
-    <mat-checkbox formControlName='showInWebsite'>
-      {{'PACKAGES.show-in-website' | translate}}
-    </mat-checkbox>
-  </div>
-</div>
-<div class="offcer mt-5">
-  <div class="offcer_title ">
-    <mat-checkbox [(ngModel)]="withOffer">
-    </mat-checkbox>
-    <span class="section-title">{{'OFFER.title' | translate}}</span>
-  </div>
-  <div class="row" [formGroup]="offerForm" *ngIf="withOffer">
-    <div class="form-group col-6">
-      <label>{{'OFFER.start-date' | translate}}</label>
-      <input class="form-control" formControlName="start_date" [min]="minDate" [matDatepicker]="start_date"
-        (click)="start_date.open(); offerForm.get('end_date').setValue('')">
-      <mat-datepicker touchUi #start_date></mat-datepicker>
-    </div>
-    <div class="form-group col-6">
-      <label>{{'OFFER.end-date' | translate}}</label>
-      <input class="form-control" formControlName="end_date" [min]="offerForm.get('start_date').value"
-        [matDatepicker]="end_date" (click)="end_date.open()">
-      <mat-datepicker touchUi #end_date></mat-datepicker>
-    </div>
-    <div class="form-group col-6">
-      <label>{{'OFFER.value' | translate}}</label>
-      <input class="form-control" formControlName="offer_value">
-    </div>
-    <div class="form-group col-6">
-      <label>{{'OFFER.type' | translate}}</label>
-      <input class="form-control" formControlName="type">
     </div>
 
+    <div class="col-12 col-md-6">
+      <mat-checkbox formControlName='showInWebsite'>
+        {{'PACKAGES.show-in-website' | translate}}
+      </mat-checkbox>
+    </div>
   </div>
-</div>
-<div class="button-group">
-  <button mat-raised-button color="primary" [disabled]="packForm.invalid ||(withOffer && offerForm.invalid)"
-    (click)="action()"> {{'FORM.'+ (data.state
-    == 'edit' ? 'edit' : 'add')
-    | translate}}
-  </button>
-  <button *ngIf="data.state != 'edit'" mat-stroked-button color="primary" (click)="onNoClick()"> {{'FORM.cancel'
-    |
-    translate}} </button>
-  <button *ngIf="data.state == 'edit'" mat-stroked-button color="warn" (click)="delete()"> {{'FORM.remove' |
-    translate}} </button>
-</div>
+  <div class="offcer mt-5">
+    <div class="offcer_title ">
+      <mat-checkbox [(ngModel)]="withOffer">
+      </mat-checkbox>
+      <span class="section-title">{{'OFFER.title' | translate}}</span>
+    </div>
+    <div class="row" [formGroup]="offerForm" *ngIf="withOffer">
+      <div class="form-group col-6">
+        <label>{{'OFFER.start-date' | translate}}</label>
+        <input class="form-control" formControlName="start_date" [min]="minDate" [matDatepicker]="start_date"
+          (click)="start_date.open(); offerForm.get('end_date').setValue('')">
+        <mat-datepicker touchUi #start_date></mat-datepicker>
+      </div>
+      <div class="form-group col-6">
+        <label>{{'OFFER.end-date' | translate}}</label>
+        <input class="form-control" formControlName="end_date" [min]="offerForm.get('start_date').value"
+          [matDatepicker]="end_date" (click)="end_date.open()">
+        <mat-datepicker touchUi #end_date></mat-datepicker>
+      </div>
+      <div class="form-group col-6">
+        <label>{{'OFFER.value' | translate}}</label>
+        <input class="form-control" formControlName="offer_value">
+      </div>
+      <div class="form-group col-6">
+        <label>{{'OFFER.type' | translate}}</label>
+        <input class="form-control" formControlName="type">
+      </div>
+
+    </div>
+  </div>
+  <div class="button-group">
+    <button mat-raised-button color="primary" [disabled]="packForm.invalid ||(withOffer && offerForm.invalid)"
+      (click)="action()"> {{'FORM.'+ (data.state
+      == 'edit' ? 'edit' : 'add')
+      | translate}}
+    </button>
+    <button *ngIf="data.state != 'edit'" mat-stroked-button color="primary" (click)="onNoClick()"> {{'FORM.cancel'
+      |
+      translate}} </button>
+    <button *ngIf="data.state == 'edit'" mat-stroked-button color="warn" (click)="delete()"> {{'FORM.remove' |
+      translate}} </button>
+  </div>
 </div>
