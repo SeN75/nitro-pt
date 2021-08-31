@@ -11,6 +11,7 @@ import { WorkoutTypeDialogComponent } from '../view/dashboard/worksout/workout-t
 import { TipsComponent } from '../view/registration/joinig-form/body-pic-form/tips/tips.component';
 import { DialogComponent } from './../view/components/dialog/dialog.component';
 import { IdentityService } from './identity/identity.service';
+import { InactiveDialogComponent } from './../view/dashboard/inactive-dialog/inactive-dialog.component';
 
 @Injectable({
   providedIn: 'root'
@@ -130,7 +131,7 @@ export class DialogService {
     dialogRef.afterClosed().subscribe(res => console.log("dialog closed"));
   }
   inactiveDialog() {
-    const dialogRef = this.dialog.open(BankAccountDialogComponent, {
+    const dialogRef = this.dialog.open(InactiveDialogComponent, {
       height: 'auto',
       width: 'auto',
     });
