@@ -39,6 +39,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NaitroInterceptor } from './_helpers/interceptors';
 import { AuhtGuardGuard } from './_helpers/auth-guard.guard';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
       provide: LocationStrategy,
       useClass: HashLocationStrategy
     },
-    AuhtGuardGuard
+    AuhtGuardGuard,
+    CookieService
   ],
   exports: [
   ],

@@ -107,8 +107,11 @@
     "per": "per",
     "calories": "calories",
     "protein": "protein",
+    "protein-per-gram": "The number of grams of protein",
     "carb": "carp",
+    "carb-per-gram": "The number of grams of carp",
     "fat": "fat",
+    "fat-per-gram": "The number of grams of fat",
     "measuring-unit": {
       "": "",
       "unit": "measuring unit",
@@ -133,7 +136,8 @@
     "attach-name": "attach name",
     "show-in-website": "show in webite",
     "choose-package": "To get started please choose a package",
-    "hello": "hello"
+    "hello": "hello",
+    "sr": "sr"
   },
   "OFFER": {
     "title": "offer",
@@ -285,6 +289,14 @@
     "login": "you should login first",
     "phone-number": "The mobile number must be nine digits long",
     "ar": "You must use Arabic letters"
+  },
+  "DURATIONS": {
+    "1": "شهر",
+    "2": "شهرين",
+    "12": "سنه",
+    "years": "سنين",
+    "year": "سنه",
+    "month": "شهر"
   },
   "SUCCESS": {
     "create-user-verify": "User created, check mail to activate account",

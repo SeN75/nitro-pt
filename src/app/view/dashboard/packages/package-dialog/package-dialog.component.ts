@@ -20,6 +20,7 @@ export class PackageDialogComponent implements OnInit {
   toDayDate = new Date();
   minDate = new Date();
   maxDate = new Date();
+  durations = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
   constructor(
     public dialogRef: MatDialogRef<PackageDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,

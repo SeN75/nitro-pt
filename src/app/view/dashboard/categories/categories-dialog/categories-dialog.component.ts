@@ -74,6 +74,9 @@ export class CategoriesDialogComponent implements OnInit {
     this.logger.log('value: ', this.cateForm)
 
   }
+  delete() {
+    this.foodItemSrv.deleteFoodItemById(this.data.cate.id)
+  }
   onNoClick(): void {
     this.dialogRef.close();
   }

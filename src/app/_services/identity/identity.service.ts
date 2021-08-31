@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { LoggerService } from '../logger.service';
 import { ToastService } from '../toast.service';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 const Identity = API + "auth/";
 @Injectable({
   providedIn: 'root'
@@ -13,17 +14,22 @@ export class IdentityService {
   userData: any;
   coaches: any;
   staffs: any;
+  toDayDate = new Date();
+  newDayDate = new Date();
   constructor(
     private httpClient: HttpClient,
     private translateSrv: TranslateService,
     private toastSrv: ToastService,
     private router: Router,
+    private cookieSrv: CookieService,
     private logger: LoggerService) {
     // this.logout(localStorage.getItem('refreshToken'));
     // this.logoutAll();
     this.getUserProfileByJWT()
     this.getAllCoaches()
     this.getStaff()
+
+    this.newDayDate.setDate(this.toDayDate.getDate() + 1);
   }
 
   private _getStaff() {
@@ -161,8 +167,10 @@ export class IdentityService {
       this.logger.log("login:", success)
       localStorage.setItem('refreshToken', success.refresh)
       localStorage.setItem('authToken', success.access)
+      this.cookieSrv.set('loggedin', this.toDayDate.getTime() + "", this.newDayDate)
       this.router.navigate(['/dashboard/account-settings'])
     }, (error: HttpErrorResponse) => {
+      this.translateSrv.get('ERROR.').subscribe(msg => this.toastSrv.error(msg));
       this.logger.error("login error: ", error)
     })
   }
