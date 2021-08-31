@@ -22,7 +22,9 @@
     "edit-coach": "update coach information",
     "add-staff": "add staff",
     "add-coach": "add coach",
-    "bank": "bank"
+    "bank": "bank",
+    "warning": "warning",
+    "inactive-msg": "You have been inactive for 2 minutes, please log in again"
   },
   "SUBSCRIBERS": {
     "subscribers": "subscribers",
@@ -270,7 +272,8 @@
     "account-holder-name": "Account Holder's Name",
     "receipt-pic": "Image receipt",
     "send": "send",
-    "return": "back"
+    "return": "back",
+    "ok" : "ok"
   },
   "VALIDATION": {
     "email": {

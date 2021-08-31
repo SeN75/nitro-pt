@@ -22,7 +22,9 @@
         "edit-coach": "تحديث بيانات المدرب",
         "add-staff": "اضافة تابع",
         "add-coach": "اضافة مدرب",
-        "bank": "البنك"
+        "bank": "البنك",
+        "warning": "تبيه",
+        "inactive-msg": "انت غير نشتط لمده دقيقتين، رجاء سجل دخولك من جديد"
 
     },
     "SUBSCRIBERS": {
@@ -279,7 +281,8 @@
         "account-holder-name": "اسم صاحب الحساب",
         "receipt-pic": "صوره الايصال",
         "send":"ارسال",
-        "return": "عودة"
+        "return": "عودة",
+        "ok": "تم"
     },
     "VALIDATION": {
       "email": {

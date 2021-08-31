@@ -10,13 +10,14 @@ import { WorkoutDialogComponent } from '../view/dashboard/worksout/workout-dialo
 import { WorkoutTypeDialogComponent } from '../view/dashboard/worksout/workout-type-dialog/workout-type-dialog.component';
 import { TipsComponent } from '../view/registration/joinig-form/body-pic-form/tips/tips.component';
 import { DialogComponent } from './../view/components/dialog/dialog.component';
+import { IdentityService } from './identity/identity.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DialogService {
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private identitySrv: IdentityService) { }
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogComponent, {
@@ -127,5 +128,15 @@ export class DialogService {
       data: { state: state, account: account }
     });
     dialogRef.afterClosed().subscribe(res => console.log("dialog closed"));
+  }
+  inactiveDialog() {
+    const dialogRef = this.dialog.open(BankAccountDialogComponent, {
+      height: 'auto',
+      width: 'auto',
+    });
+    dialogRef.afterClosed().subscribe(res =>
+
+      this.identitySrv.logout()
+    );
   }
 }

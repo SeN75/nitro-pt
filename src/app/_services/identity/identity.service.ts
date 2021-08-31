@@ -225,8 +225,9 @@ export class IdentityService {
       this.logger.error("logout All error: ", error)
     })
   }
-  public logout(data: any) {
-    this._logout(data).subscribe((success: any) => {
+  public logout() {
+    let refresh = localStorage.getItem('refreshToken');
+    this._logout({ refresh: refresh }).subscribe((success: any) => {
       localStorage.removeItem('refreshToken');
       localStorage.removeItem('authToken');
       this.logger.log("logout :", success)

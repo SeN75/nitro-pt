@@ -42,6 +42,7 @@ import { MatDatepickerIntl, MatDatepickerModule } from '@angular/material/datepi
 import { DatePipe } from '@angular/common';
 import { FileUploadModule } from 'ng2-file-upload';
 import { MatSelectModule } from '@angular/material/select';
+import { InactiveDialogComponent } from './inactive-dialog/inactive-dialog.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { MatSelectModule } from '@angular/material/select';
     OrderInfoComponent,
     ResetPasswordComponent,
     BankAccountDialogComponent,
-    UserDialogComponent
+    UserDialogComponent,
+    InactiveDialogComponent
   ],
   imports: [
     BrowserModule,
