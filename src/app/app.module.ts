@@ -32,6 +32,7 @@ import { InfoItemComponent } from './view/components/info-item/info-item.compone
 import { DashboardMoudle } from './view/dashboard/dashboard.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './view/landing-page/navbar/navbar.component';
+import { FooterComponent } from './view/landing-page/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { NavbarComponent } from './view/landing-page/navbar/navbar.component';
     CategoryCardComponent,
     BaseComponent,
     DialogComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

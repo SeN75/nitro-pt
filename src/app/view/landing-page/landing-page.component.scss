@@ -6,15 +6,85 @@
     background-size: cover;
     height: 100vh;
 }
-.hero-img{
-  position: absolute;
-  background: url(../../../assets/images/bodybuilder.png) no-repeat 0px 0px;
-  height: 750px;
-  width: 900px;
-  background-size: cover;
-  display: block;
-  content: '';
-  z-index: 5;
-  bottom:0px;
-  left: 0px;
+
+.hero-img {
+    position: relative;
+    background: url(../../../assets/images/bodybuilder.png) no-repeat 0px 0px;
+    height: 615px;
+    width: 550px;
+    background-size: contain;
+    display: block;
+    content: '';
+    z-index: 5;
+}
+
+.slogan {
+    margin-top: 100px;
+}
+
+.slogan h1 {
+    color: white;
+    text-align: center;
+}
+
+#place_bottom {
+    position: absolute;
+    bottom: 0;
+}
+
+.about-section {
+    background: #F9FAFF;
+}
+
+.section_title {
+    color: #ADABAC;
+    text-align: center;
+    font-weight: 100;
+    font-size: 26px;
+}
+
+.section_subtitle {
+    color: #1D4980;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 28px;
+}
+
+.section_subtitle::after {
+    content: '';
+    display: block;
+    border-bottom: 1px solid #1D4980;
+    width: 250px;
+    margin: 20px auto;
+}
+
+.section_content {}
+
+.service_item {
+    text-align: center;
+    box-shadow: -5px 5px 20px #9CA6D129;
+    border-radius: 25px;
+    background: white;
+    padding: 25px;
+    margin: 20px auto;
+    position: relative;
+    height: 280px;
+    width: 320px;
+}
+
+.service_image {
+    margin-top: 50px;
+}
+
+.service_image img {
+    width: 70px;
+}
+
+.service_title {
+    position: relative;
+    top: 40px;
+    text-align: center;
+    color: #1D4980;
+    font-size: 24px;
+    font-weight: bold;
 }
