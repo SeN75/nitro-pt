@@ -10,8 +10,8 @@
   }
   .side-menu {
     border-radius: 0;
-    border-top-left-radius: 18px;
-    border-bottom-left-radius: 18px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
   }
   .main .items {
     border-radius: 0;
@@ -67,5 +67,8 @@
     direction: rtl;
     padding: 0;
     padding-right: 15px;
+  }
+  .nav_bar {
+    direction: ltr;
   }
 }

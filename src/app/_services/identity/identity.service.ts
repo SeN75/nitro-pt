@@ -25,9 +25,11 @@ export class IdentityService {
     private logger: LoggerService) {
     // this.logout(localStorage.getItem('refreshToken'));
     // this.logoutAll();
-    this.getUserProfileByJWT()
-    this.getAllCoaches()
-    this.getStaff()
+    if (localStorage.getItem('refreshToken')) {
+      this.getUserProfileByJWT()
+      this.getAllCoaches()
+      this.getStaff()
+    }
 
     this.newDayDate.setDate(this.toDayDate.getDate() + 1);
   }
@@ -164,11 +166,11 @@ export class IdentityService {
   public login(userData: any) {
     this.logger.log("login:", userData)
     this._login(userData).subscribe((success: any) => {
-      this.logger.log("login:", success)
       localStorage.setItem('refreshToken', success.refresh)
       localStorage.setItem('authToken', success.access)
       this.cookieSrv.set('loggedin', this.toDayDate.getTime() + "", this.newDayDate)
       this.router.navigate(['/dashboard/account-settings'])
+      this.logger.log("login:", success)
     }, (error: HttpErrorResponse) => {
       this.translateSrv.get('ERROR.').subscribe(msg => this.toastSrv.error(msg));
       this.logger.error("login error: ", error)

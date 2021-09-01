@@ -8,9 +8,12 @@ sidemenu
   top: 0;
   height: 100%;
   border-radius: 0;
-  border-top-right-radius: 18px;
-  border-bottom-right-radius: 18px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
   overflow: auto;
+}
+.side-menu-close .side-menu {
+  width: 50px;
 }
 .nitro-logo {
   width: 90px;
@@ -18,19 +21,35 @@ sidemenu
   display: block;
   margin: 30px auto 0;
 }
+.side-menu-close .nitro-logo {
+  margin: 30px 10px 0 0;
+  width: 35px;
+}
 .main {
   background-color: #f9faff;
   height: 100%;
   position: relative;
 }
-
+.nav_bar {
+  display: flex;
+  padding: 5px 20px;
+  justify-content: space-between;
+  height: 60px;
+}
+.nav_bar .nitro-logo {
+  width: 40px;
+  display: none;
+  margin: 0;
+}
 .logo-underline {
   width: 95px;
   height: 0.15px;
   background-color: rgb(224, 224, 224);
   margin: 10px auto 0;
 }
-
+.side-menu-close .logo-underline {
+  width: 30px;
+}
 .menu {
   display: flex;
   align-items: flex-start;
@@ -52,6 +71,9 @@ sidemenu
   margin: 0 20px;
   font-size: 14px;
 }
+.side-menu-close .side-menu .menu .items span {
+  display: none !important;
+}
 .main .items .icon {
   width: 20px;
   height: auto;
@@ -68,7 +90,9 @@ sidemenu
   margin-left: auto;
   background-color: #f9faff;
 }
-
+.side-menu-close .dashboard {
+  width: calc(100% - 60px);
+}
 /*
 sidemenu
 */
@@ -422,5 +446,38 @@ button.selected {
         padding: 10px !important;
       }
     }
+  }
+  .nav_bar {
+    background-color: #1d4980;
+    color: white;
+  }
+  .nav_bar .nitro-logo {
+    display: block;
+  }
+  .nav_bar button {
+    color: white;
+  }
+  .content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .side-menu-close .side-menu {
+    display: block;
+  }
+  .side-menu {
+    display: none;
+  }
+  .dashboard {
+    width: 100%;
+  }
+  .side-menu-close .side-menu {
+    width: 200px;
+  }
+  .side-menu-close .nitro-logo {
+    margin: 30px auto 0;
+    width: 90px;
+  }
+  .side-menu-close .side-menu .menu .items span {
+    display: inline-block !important;
   }
 }

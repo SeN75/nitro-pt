@@ -3,6 +3,7 @@ import { categories, sideMenu } from './../../_common/globle';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { DialogService } from 'src/app/_services/dialog.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,9 +15,12 @@ export class DashboardComponent implements OnInit {
   activeLink = '';
   userActivity: any;
   userInactive: Subject<any> = new Subject();
-  constructor(private router: Router, private dialogSrv: DialogService) {
-    this.setTimeout();
-    this.userInactive.subscribe(() => this.dialogSrv.inactiveDialog());
+  isSideMenu = false;
+  constructor(
+    private router: Router,
+    private dialogSrv: DialogService,
+    private cookiesSrv: CookieService) {
+
   }
 
 
@@ -25,10 +29,18 @@ export class DashboardComponent implements OnInit {
   }
 
   @HostListener('window:mousemove') refreshUserState() {
-    clearTimeout(this.userActivity);
-    this.setTimeout();
+    if (localStorage.getItem('refreshToken') && this.cookiesSrv.get('loggedin')) {
+      clearTimeout(this.userActivity);
+      this.setTimeout();
+    }
   }
   ngOnInit(): void {
+
+    this.setTimeout();
+    this.userInactive.subscribe(() => {
+      if (localStorage.getItem('refreshToken'))
+        this.dialogSrv.inactiveDialog()
+    });
     this.activeLink = (this.router.url).split('/dashboard/')[1];
     console.log(this.activeLink)
   }

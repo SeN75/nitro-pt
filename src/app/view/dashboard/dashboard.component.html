@@ -1,13 +1,27 @@
 <!-- Alsaggaf -->
-<section class="main">
+<section class="main" [class.side-menu-close]="isSideMenu">
+  <div class="nav_bar">
+    <button mat-icon-button (click)="isSideMenu = !isSideMenu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span></span>
+    <img class="nitro-logo" src="../../../assets/images/Logo.svg">
+    <span></span>
+    <span></span>
+
+  </div>
   <div class="side-menu">
     <img class="nitro-logo" src="../../../assets/images/Logo.svg">
     <div class="logo-underline"></div>
 
     <!-- [routerLinkActive]="i != 0 ? 'active' : ''" -->
     <nav class="menu">
+      <a class="items">
+        <img class="icon" src="../../../assets/icons/customer.svg">
+        <span>{{ 'SETTINGS.nitro' | translate}}</span>
+      </a>
       <a *ngFor="let item of sideMenu; index as i" (click)="activeLink = (item.name).split('.')[1]"
-        [routerLink]="i != 0 ? item.path : ''" class="items" [routerLinkActive]="i != 0 ? 'active' : ''">
+        [routerLink]="item.path" class="items" routerLinkActive="active">
         <img class="icon"
           src="../../../assets/icons/{{activeLink == (item.name).split('.')[1]?item.activeImg:item.img}}">
         <span>{{ item.name | translate}}</span>

@@ -1,5 +1,4 @@
 export const sideMenu = [
-  { name: "SETTINGS.nitro", img: "customer.svg", activeImg: "customer_active.svg", path: "..." },
   { name: "SUBSCRIBERS.subscribers", img: "customer.svg", activeImg: "customer_active.svg", path: "/dashboard/subscribers" },
   { name: "ORDERS.orders", img: "orders.svg", activeImg: "orders_active.svg", path: "/dashboard/orders" },
   { name: "CATEGORIES.categories", img: "protein.svg", activeImg: "protein_active.svg", path: "/dashboard/categories" },

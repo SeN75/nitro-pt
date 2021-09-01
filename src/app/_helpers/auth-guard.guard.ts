@@ -21,9 +21,10 @@ export class AuhtGuardGuard implements CanActivate {
 
     // this.logger.log("d")
     // return true;
-    console.log(this.cookieSrv.get('loggedin'))
-    if (this.cookieSrv.get('loggedin') && token) {
-      this.identitySrv._refreshToken({ refresh: token }).subscribe((auth: any) => {
+    // console.log(this.cookieSrv.get('loggedin'))
+    // console.log(localStorage.getItem('refreshToken'))
+    if (!this.cookieSrv.get('loggedin') && localStorage.getItem('refreshToken')) {
+      this.identitySrv._refreshToken({ refresh: localStorage.getItem('refreshToken') }).subscribe((auth: any) => {
         if (auth) {
           this.logger.log('auth', auth)
           localStorage.setItem('refreshToken', auth.refresh + "")
@@ -44,11 +45,11 @@ export class AuhtGuardGuard implements CanActivate {
       })
       return true
     } else {
-      localStorage.clear()
-      localStorage.removeItem('refreshToken')
-      localStorage.removeItem('authToken')
-      this.router.navigateByUrl("/register/login")
-      return false
+      // localStorage.clear()
+      // localStorage.removeItem('refreshToken')
+      // localStorage.removeItem('authToken')
+      // this.router.navigateByUrl("/register/login")
+      return true
     }
   }
 }
