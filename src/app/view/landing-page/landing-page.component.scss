@@ -89,15 +89,26 @@
     font-weight: bold;
 }
 
-.about_us{
-  box-shadow: -5px 5px 20px #9CA6D129;
-  background: white;
-  width: 70%;
-  margin: 0 auto;
-  display: block;
+.about_us {
+    box-shadow: -5px 5px 20px #9CA6D129;
+    border-radius: 25px;
+    background: white;
+    width: 55%;
+    margin: 0 auto;
+    display: block;
+    z-index: 1;
+    position: relative;
 }
-.about_image{
-  width: 30vw;
-  position: absolute;
-  right: 0;
+
+.about_image {
+    width: 30vw;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
+
+.about_us_ul {}
+
+.about_us_ul li {
+    list-style-image: radial-gradient(circle, #444, #444);
 }
