@@ -37,7 +37,7 @@ sidemenu
   height: 60px;
 }
 .nav_bar .nitro-logo {
-  width: 40px;
+  width: 90px;
   display: none;
   margin: 0;
 }
@@ -463,18 +463,19 @@ button.selected {
   }
   .side-menu-close .side-menu {
     display: block;
+    z-index: 1000;
   }
   .side-menu {
     display: none;
   }
   .dashboard {
-    width: 100%;
+    width: 100% !important;
   }
   .side-menu-close .side-menu {
     width: 200px;
   }
   .side-menu-close .nitro-logo {
-    margin: 30px auto 0;
+    margin: 0 auto !important;
     width: 90px;
   }
   .side-menu-close .side-menu .menu .items span {

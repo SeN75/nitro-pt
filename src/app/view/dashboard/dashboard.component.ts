@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
   setTimeout() {
     this.userActivity = setTimeout(() => this.userInactive.next(undefined), 120000);
   }
-
+  @HostListener('window:keyup')
   @HostListener('window:mousemove') refreshUserState() {
     if (localStorage.getItem('refreshToken') && this.cookiesSrv.get('loggedin')) {
       clearTimeout(this.userActivity);
@@ -35,7 +35,6 @@ export class DashboardComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-
     this.setTimeout();
     this.userInactive.subscribe(() => {
       if (localStorage.getItem('refreshToken'))

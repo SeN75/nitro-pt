@@ -44,11 +44,15 @@ export class AuhtGuardGuard implements CanActivate {
         this.router.navigateByUrl("/register/login")
       })
       return true
-    } else {
-      // localStorage.clear()
-      // localStorage.removeItem('refreshToken')
-      // localStorage.removeItem('authToken')
-      // this.router.navigateByUrl("/register/login")
+    }
+    else if (!localStorage.getItem('refreshToken')) {
+      localStorage.clear()
+      localStorage.removeItem('refreshToken')
+      localStorage.removeItem('authToken')
+      this.router.navigateByUrl("/register/login")
+      return false
+    }
+    else {
       return true
     }
   }
