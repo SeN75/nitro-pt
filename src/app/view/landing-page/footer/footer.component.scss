@@ -4,20 +4,25 @@ footer {
 
 .footer_link {
     color: white;
-    width: 80%;
+    width: 100%;
     display: block;
     text-decoration: none;
     text-align: left;
     margin: 0 auto;
 }
 
-.w-lg-50{
-  width: 50%;
+.social_icon {
+    width: 16px;
+    margin-right: 10px;
+}
+
+.w-lg-50 {
+    width: 53%;
 }
 
 $breakpoint-mobile: 768px;
 @media (max-width: $breakpoint-mobile) {
-.w-sm-100{
-width: 100%;
-}
+    .w-sm-100 {
+        width: 85%;
+    }
 }

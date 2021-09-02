@@ -47,6 +47,7 @@
     text-align: center;
     font-weight: 100;
     font-size: 26px;
+    padding-top: 5rem;
 }
 
 .section_subtitle {
@@ -54,6 +55,7 @@
     text-align: center;
     font-weight: bolder;
     font-size: 28px;
+    padding-bottom: 5rem;
 }
 
 .section_subtitle::after {
@@ -64,7 +66,31 @@
     margin: 20px auto;
 }
 
-.section_content {}
+.services-section {
+    padding-top: 10rem;
+}
+
+.packages-section {
+    padding-top: 5rem;
+}
+
+.identity_element {
+    position: absolute;
+}
+
+.dot_element {
+    position: relative;
+    right: -30px;
+    top: 45px;
+}
+
+.element_right {
+    right: 50px;
+}
+
+.element_left {
+    left: 20px;
+}
 
 .service_item {
     text-align: center;
@@ -76,6 +102,13 @@
     position: relative;
     height: 280px;
     width: 320px;
+    transition: 0.4s;
+}
+
+.service_item:hover {
+    transform: scale(1.04);
+    transition: 0.4s;
+    box-shadow: -7px 7px 30px #9CA6D129;
 }
 
 .service_image {
@@ -100,7 +133,7 @@
     border-radius: 25px;
     background: white;
     width: 67%;
-    margin: 0 auto;
+    margin: 5rem auto;
     display: block;
     z-index: 1;
     position: relative;
@@ -143,4 +176,71 @@
     color: #1D4980;
     font-size: 18px;
     margin-top: 10px;
+}
+
+$breakpoint-mobile: 768px;
+@media (max-width: $breakpoint-mobile) {
+    .bg-section {
+        position: relative;
+        height: 70vh;
+    }
+    .hero-img {
+        width: 250px;
+        height: 38vh;
+        position: absolute;
+        bottom: 0px;
+        z-index: 0px;
+    }
+    .position-absolute-mobile {
+        position: absolute!important;
+    }
+    .slogan {
+        margin-top: 0px;
+    }
+    .slogan h1 {
+        position: absolute;
+        bottom: 38vh;
+        width: 100vw;
+        left: 0rem;
+    }
+    .slogan img {
+        width: 90vw;
+        display: block;
+        margin: 0 auto;
+        position: absolute;
+        top: 1;
+        top: -55vh;
+        z-index: 4px;
+    }
+    #place_bottom {
+        position: relative;
+    }
+    .about_us {
+        padding: 5px;
+        width: 95%;
+    }
+    .about_us_ul li {
+        font-size: 16px;
+    }
+    .dot_element {
+        position: relative;
+        right: -20px;
+        top: 33px;
+    }
+    .element_right {
+        right: 0px;
+    }
+    .about_image {
+        width: 98vw;
+        display: block;
+        margin: 0 auto;
+        right: 1vw;
+    }
+    .element_left {
+        left: 0px;
+    }
+    .dot_element,
+    .dots_element {
+        width: 30%;
+    }
 }
