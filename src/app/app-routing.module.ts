@@ -4,11 +4,14 @@ import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { RegistrationComponent } from './view/registration/registration.component';
 import { RegistrationRouting } from './view/registration/registration.routing';
 import { AuhtGuardGuard } from './_helpers/auth-guard.guard';
+import { LandingPageComponent } from './view/landing-page/landing-page.component';
 
 const routes: Routes = [
   { component: DashboardComponent, path: '', canActivate: [AuhtGuardGuard] },
   { redirectTo: '', path: 'home', pathMatch: "full" },
   { component: RegistrationComponent, path: 'register', children: RegistrationRouting },
+  { component: LandingPageComponent, path: 'landing' }
+
 
 ];
 

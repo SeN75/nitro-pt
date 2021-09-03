@@ -40,6 +40,8 @@ import { NaitroInterceptor } from './_helpers/interceptors';
 import { AuhtGuardGuard } from './_helpers/auth-guard.guard';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { CookieService } from 'ngx-cookie-service';
+import { NavbarComponent } from './view/landing-page/navbar/navbar.component';
+import { FooterComponent } from './view/landing-page/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { CookieService } from 'ngx-cookie-service';
     /* Alsaggaf Components */
     BaseComponent,
     DialogComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
