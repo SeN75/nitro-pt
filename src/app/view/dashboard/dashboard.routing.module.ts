@@ -15,32 +15,31 @@ import { WorksoutComponent } from './worksout/worksout.component';
 import { LandingPageComponent } from '../landing-page/landing-page.component';
 
 const children: Routes = [
-    { component: BaseComponent, path: 'base' },
-    { component: SubscribersComponent, path: 'subscribers' },
-    { component: OrdersComponent, path: 'orders' },
-    { component: CategoriesComponent, path: 'categories' },
-    { component: PackagesComponent, path: 'packages' },
-    { component: WorksoutComponent, path: 'worksout' },
-    { component: SettingsComponent, path: 'settings' },
-    { component: ShalabiComponent, path: 'shalabi' },
-    { component: DietPlanComponent, path: 'diet' },
-    { component: DietPlanViewDetailsComponent, path: 'diet/:id/view' },
-    { component: DietPlanEditDetailsComponent, path: 'diet/:id/edit' },
+  { component: BaseComponent, path: 'base' },
+  { component: SubscribersComponent, path: 'subscribers' },
+  { component: OrdersComponent, path: 'orders' },
+  { component: CategoriesComponent, path: 'categories' },
+  { component: PackagesComponent, path: 'packages' },
+  { component: WorksoutComponent, path: 'worksout' },
+  { component: SettingsComponent, path: 'settings' },
+  { component: ShalabiComponent, path: 'shalabi' },
+  { component: DietPlanComponent, path: 'diet' },
+  { component: DietPlanViewDetailsComponent, path: 'diet/:id/view' },
+  { component: DietPlanEditDetailsComponent, path: 'diet/:id/edit' },
 
 ]
 const routes: Routes = [
-    { component: DashboardComponent, path: 'dashboard', children: children },
-    { component: DashboardComponent, path: '', children: children },
-    { component: LandingPageComponent, path: 'landing' }
+  { component: DashboardComponent, path: 'dashboard', children: children },
+  { component: DashboardComponent, path: '', children: children },
 
 ];
 
 
 @NgModule({
-    imports: [
-        RouterModule,
-        RouterModule.forChild(routes)
-    ]
+  imports: [
+    RouterModule,
+    RouterModule.forChild(routes)
+  ]
 })
 
 
