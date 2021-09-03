@@ -49,7 +49,7 @@ export class AuhtGuardGuard implements CanActivate {
       localStorage.clear()
       localStorage.removeItem('refreshToken')
       localStorage.removeItem('authToken')
-      this.router.navigateByUrl("/register/login")
+      this.router.navigateByUrl("/landing")
       return false
     }
     else {
