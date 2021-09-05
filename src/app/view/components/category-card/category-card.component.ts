@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DialogService } from './../../../_services/dialog.service';
 
 @Component({
   selector: 'category-card',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CategoryCardComponent implements OnInit {
   @Input() category: any;
-  constructor() { }
+  constructor(public dialogSrv: DialogService) { }
 
   ngOnInit(): void {
   }

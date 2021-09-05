@@ -1,3 +1,78 @@
+/*
+sidemenu
+*/
+.side-menu {
+  position: fixed;
+  width: 200px;
+  background-color: var(--primray);
+  top: 0;
+  height: 100%;
+  border-radius: 0;
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+  overflow: auto;
+}
+.nitro-logo {
+  width: 90px;
+  height: auto;
+  display: block;
+  margin: 30px auto 0;
+}
+.main {
+  background-color: #f9faff;
+  height: 100%;
+  position: relative;
+}
+
+.logo-underline {
+  width: 95px;
+  height: 0.15px;
+  background-color: rgb(224, 224, 224);
+  margin: 10px auto 0;
+}
+
+.menu {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.main .items {
+  width: 100%;
+  padding: 10px;
+  color: white;
+  margin: 15px 0;
+  text-decoration: none;
+  border-radius: 0;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.main .items span {
+  text-transform: capitalize;
+  margin: 0 20px;
+  font-size: 14px;
+}
+.main .items .icon {
+  width: 20px;
+  height: auto;
+}
+.main .items.active {
+  color: var(--primray);
+  background-color: white;
+  text-decoration: none;
+}
+
+.dashboard {
+  padding: 0 20px;
+  width: calc(100% - 200px);
+  margin-left: auto;
+  background-color: #f9faff;
+}
+
+/*
+sidemenu
+*/
+
 .label {
   text-transform: capitalize;
   font-size: 12px;
@@ -16,8 +91,9 @@
 .dialog-title {
   color: var(--primray) !important;
   font-weight: bolder;
-  font-size: larger;
-  text-align: right;
+  text-transform: uppercase;
+  font-size: 26px;
+  text-align: left;
 }
 
 /* dialog */
@@ -31,16 +107,92 @@
 .form-group .form-control {
   background-color: var(--white);
   border: 1px solid var(--gray-blue);
+  color: var(--primray);
   height: 52px;
+  text-align: left;
+  outline: none !important;
+}
+.form-control:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .button-group {
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
+
   justify-content: center;
 }
 .button-group button {
   margin: 0 5px;
 }
 /*  fromgroup   */
+
+.content {
+  padding: 80px 20px 60px;
+}
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.page-header-card {
+  background-color: #fff !important;
+  border: 1px solid var(--gray-blue);
+  padding-top: 1.34375em;
+  border-radius: 5px;
+}
+.title {
+  color: #1d4980;
+  text-transform: capitalize;
+}
+
+.body {
+  margin-top: 65px;
+  height: 75vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+/* width */
+.scroll::-webkit-scrollbar {
+  width: 0.7em;
+}
+.scroll::-webkit-scrollbar:hover {
+  width: 30px !important;
+}
+
+/* Track */
+.scroll::-webkit-scrollbar-track {
+  background: var(--gray-blue);
+}
+
+/* Handle */
+.scroll::-webkit-scrollbar-thumb {
+  background: var(--gray);
+}
+
+/* Handle on hover */
+.scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--gray);
+}
+
+.nitro-card {
+  background-color: var(--white);
+  border: 1px solid var(--gray-blue);
+  box-shadow: 2px ​1px 5px 2px var(--gray-blue);
+  padding: 1.5em 0.8em;
+}
+
+/* */
+mat-expansion-panel {
+  box-shadow: 0px 3px 3px -2px rgb(29 73 128 / 20%),
+    0px 2px 2px 0px rgb(29 73 128 / 14%), 0px 1px 5px 0px rgb(29 73 128 / 12%) !important;
+}
+
+mat-panel-title {
+  color: #1d4980 !important;
+  font-size: 1.2em;
+}

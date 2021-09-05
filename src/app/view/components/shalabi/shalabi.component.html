@@ -1,13 +1,16 @@
 <div class="container">
     <div class="row">
         <div class="col-4">
-            <app-package-card [package_title]="'باقة الصيف'" [package_months]=6 [package_price]=2000 [theme_number]=1 [with_button]=false></app-package-card>
+            <package-card [package_title]="'باقة الصيف'" [package_months]=6 [package_price]=2000 [theme_number]=1
+                [with_button]=false></package-card>
         </div>
         <div class="col-4">
-            <app-package-card [package_title]="'باقة الطلاب'" [package_months]=6 [package_price]=2000 [theme_number]=2 [with_button]=true></app-package-card>
+            <package-card [package_title]="'باقة الطلاب'" [package_months]=6 [package_price]=2000 [theme_number]=2
+                [with_button]=true></package-card>
         </div>
         <div class="col-4">
-            <app-package-card [package_title]="'باقة التضخيم'" [package_months]=6 [package_price]=4000 [theme_number]=3 [with_button]=false></app-package-card>
+            <package-card [package_title]="'باقة التضخيم'" [package_months]=6 [package_price]=4000 [theme_number]=3
+                [with_button]=false></package-card>
         </div>
     </div>
     <!-- Table -->
@@ -41,7 +44,7 @@
         }
         
         .table-theme-1 tr:hover~.table-theme-1 td {
-            background-color: red!important;
+            background-color: red !important;
         }
         
         .table-theme-1 td {
@@ -58,8 +61,8 @@
         }
         
         .table-theme-1 th {
-            margin-bottom: 10px!important;
-            margin-top: 10px!important;
+            margin-bottom: 10px !important;
+            margin-top: 10px !important;
         }
         
         .table-theme-2 {
@@ -161,16 +164,20 @@
 
     <div class="row">
         <div class="col-3">
-            <app-info-item [info_item_img]="'./assets/icons/profile/call.svg'" [info_item_title]="'الإسم'" [info_item_value]="'محمد شلبي'"></app-info-item>
+            <info-item [info_item_img]="'./assets/icons/profile/call.svg'" [info_item_title]="'الإسم'"
+                [info_item_value]="'محمد شلبي'"></info-item>
         </div>
         <div class="col-3">
-            <app-info-item [info_item_img]="'./assets/icons/profile/gender.svg'" [info_item_title]="'الإسم'" [info_item_value]="'محمد شلبي'"></app-info-item>
+            <info-item [info_item_img]="'./assets/icons/profile/gender.svg'" [info_item_title]="'الإسم'"
+                [info_item_value]="'محمد شلبي'"></info-item>
         </div>
         <div class="col-3">
-            <app-info-item [info_item_img]="'./assets/icons/profile/health_issues_icon.svg'" [info_item_title]="'الإسم'" [info_item_value]="'محمد شلبي'"></app-info-item>
+            <info-item [info_item_img]="'./assets/icons/profile/health_issues_icon.svg'" [info_item_title]="'الإسم'"
+                [info_item_value]="'محمد شلبي'"></info-item>
         </div>
         <div class="col-3">
-            <app-info-item [info_item_img]="'./assets/icons/profile/height-limit_icon.svg'" [info_item_title]="'الإسم'" [info_item_value]="'محمد شلبي'"></app-info-item>
+            <info-item [info_item_img]="'./assets/icons/profile/height-limit_icon.svg'" [info_item_title]="'الإسم'"
+                [info_item_value]="'محمد شلبي'"></info-item>
         </div>
     </div>
 </div>

@@ -13,24 +13,31 @@ import { SettingsComponent } from './settings/settings.component';
 import { SubscribersComponent } from './subscribers/subscribers.component';
 import { WorksoutComponent } from './worksout/worksout.component';
 import { LandingPageComponent } from '../landing-page/landing-page.component';
+import { ExerciseScheduleComponent } from './worksout/exercise-schedule/exercise-schedule.component';
+import { CategoriesTableComponent } from './categories/categories-table/categories-table.component';
+import { SubscriberInfoComponent } from './subscribers/subscriber-info/subscriber-info.component';
+import { OrderInfoComponent } from './orders/order-info/order-info.component';
 
 const children: Routes = [
   { component: BaseComponent, path: 'base' },
   { component: SubscribersComponent, path: 'subscribers' },
+  { component: SubscriberInfoComponent, path: 'subscribers/client-details' },
   { component: OrdersComponent, path: 'orders' },
+  { component: OrderInfoComponent, path: 'orders/:id/detail' },
   { component: CategoriesComponent, path: 'categories' },
+  { component: CategoriesTableComponent, path: 'categories/compounds' },
   { component: PackagesComponent, path: 'packages' },
   { component: WorksoutComponent, path: 'worksout' },
+  { component: ExerciseScheduleComponent, path: 'worksout/exercise' },
   { component: SettingsComponent, path: 'settings' },
   { component: ShalabiComponent, path: 'shalabi' },
   { component: DietPlanComponent, path: 'diet' },
   { component: DietPlanViewDetailsComponent, path: 'diet/:id/view' },
   { component: DietPlanEditDetailsComponent, path: 'diet/:id/edit' },
-
 ]
 const routes: Routes = [
   { component: DashboardComponent, path: 'dashboard', children: children },
-  { component: DashboardComponent, path: '', children: children },
+  { component: LandingPageComponent, path: '', children: children }
 
 ];
 

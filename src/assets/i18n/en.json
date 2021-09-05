@@ -2,32 +2,112 @@
     "SETTINGS": {
         "": "",
         "nitro": "nitro",
-        "account-settings": "account settings"
+        "account-settings": "account settings",
+        "search": "search"
     },
     "SUBSCRIBERS": {
-        "subscribers": "subscribers"
+        "subscribers": "subscribers",
+        "table": "Subscribers Schedule ",
+        "name": "Subscriber's name",
+        "start-date": "Subscription start date",
+        "end-date": "Subscription end date",
+        "amount-paid": "Subscription amount",
+        "subscription-number": "Subscription number",
+        "status": "status",
+        "info": "subscriber information",
+        "joint-sports-health": "joint sports health",
+        "work-type": "work type",
+        "health-problem": "health problem ",
+        "use-of-supplements": "use of supplements",
+        "goal-of-programe": "goal of programe",
+        "sleeping-hours": "sleeping hours",
+        "bed-time": "bed time",
+        "wakeup-time": "wakeup time",
+        "number-of-meals": "number of meals can eat",
+        "current-program": "current programe",
+        "non-preferred-food": "non preferred food",
+        "allergenic-food": "allergenic food",
+        "recent-operations": "Operations recently conducted"
+    },
+    "PERSONAL-DATA": {
+        "personal-data": "personal data",
+        "name": "name",
+        "contact-number": "contact number",
+        "birthday": "birthday",
+        "social-status": "social status",
+        "gender": "gender",
+        "height": "height",
+        "wight": "wight",
+        "city": "city"
     },
     "ORDERS": {
-        "orders": "orders"
+        "orders": "orders",
+        "new-table": "new order",
+        "complete-table": "complete order",
+        "no": "order no",
+        "name": "customer name",
+        "type": "order type",
+        "status": "order status",
+        "date": "order date",
+        "info": "order information"
     },
     "CATEGORIES": {
         "categories": "categories",
+        "table": "categories table",
+        "add": "add new category type",
+        "new-type": "new category type",
+        "name": "name",
+        "number": "total",
+        "new-cate": "new category",
+        "type": "category type",
+        "calc":"calculation method",
+        "per": "per",
         "calories": "calories",
         "protein": "protein",
         "carp":"carp",
         "fat": "fat",
         "measuring-unit": {
-            "": "measuring unit",
+            "": "",
+            "unit": "measuring unit",
             "gram": "gram",
             "cup": "cup"
         }
     },
     "PACKAGES": {
-        "packages": "packages"
+        "packages": "packages",
+        "new-pack": "new package",
+        "add": "Add new package",
+        "edit": "update package information",
+        "pack-name": "package name",
+        "pack-duration": "package duration",
+        "pack-value": "package value",
+        "account-number": "account number",
+        "discount-amount": "discount amount",
+        "upload-attach": "upload attach",
+        "attach-name": "attach name",
+        "show-in-website": "show in webite"
     },
     "WORKSOUT": {
-        "worksout": "worksout"
+        "table": "worksout table",
+        "worksout": "worksout",
+        "type": "type of workout",
+        "number": "number of worksout",
+        "add": "add workout type",
+        "edit": "edit type name workout",
+        "exercise-table": "table",
+        "name": "workout name",
+        "link": "workout link",
+        "execrise-add":"add workout",
+        "execrise-edit":"edit workout"
+
     },"DIETPLAN":{
       "dietplan":"Diet Plans"
+    },
+    "FORM": {
+        "add": "add",
+        "edit":"edit",
+        "cancel": "cancel",
+        "remove": "remove",
+        "back": "back"
     }
 }

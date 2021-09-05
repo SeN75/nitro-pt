@@ -1,1 +1,43 @@
-<p>worksout works!</p>
+<section class="content">
+    <header class="page-header">
+        <h1 class="title">
+            {{'WORKSOUT.table' | translate}}
+        </h1>
+        <span>
+
+            <button class="mx-2" mat-raised-button color="primary"
+                (click)="dialogSrv.openWorkoutTypeDialog()">{{'WORKSOUT.add' |
+                translate}}</button>
+        </span>
+    </header>
+    <div class="body">
+        <table datatable [dtOptions]="dtOptions" class="table-theme-1 hover">
+            <thead class="text-center">
+                <tr>
+                    <th>#</th>
+                    <th>{{'WORKSOUT.type' | translate}}</th>
+                    <th>{{'WORKSOUT.number' | translate}}</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                <tr *ngFor="let workout of workouts; let i = index">
+                    <td>{{i + 1 }}</td>
+                    <td>{{workout.type}}</td>
+                    <td>{{workout.exercises.length}}</td>
+                    <td class="text-end">
+                        <span>
+                            <button mat-icon-button (click)="dialogSrv.openWorkoutTypeDialog('edit', workout)">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-icon-button (click)="showExercise(workout)">
+                                <mat-icon>arrow_back_ios</mat-icon>
+                            </button>
+
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

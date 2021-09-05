@@ -1,0 +1,42 @@
+.rtl-active {
+  text-align: right;
+  direction: rtl;
+  .dashboard {
+    margin: unset;
+    margin-right: auto;
+  }
+  .side-menu {
+    border-radius: 0;
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
+  }
+  .main .items {
+    border-radius: 0;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  .mat-form-field,
+  mat-form-field {
+    text-align: right;
+    direction: ltr;
+  }
+  .dialog-title,
+  .form-group .form-control,
+  .row {
+    text-align: right;
+  }
+  .button-group,
+  .row {
+    direction: rtl;
+  }
+  .mat-checkbox-inner-container {
+    margin: unset;
+    margin-left: 8px;
+  }
+  .text-end {
+    text-align: left !important;
+  }
+  .text-start {
+    text-align: right !important;
+  }
+}

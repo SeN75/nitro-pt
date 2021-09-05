@@ -12,10 +12,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatRippleModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { DashboardRoutingMoudle } from './view/dashboard/dashboard.routing.module';
 import { CategoryCardComponent } from './view/components/category-card/category-card.component';
 import { BaseComponent } from './view/components/base/base.component';
 import { DialogComponent } from './view/components/dialog/dialog.component';
@@ -26,10 +28,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 }
 
 import { DataTablesModule } from "angular-datatables";
-import { PackageCardComponent } from './view/components/package-card/package-card.component';
 import { ShalabiComponent } from './view/components/shalabi/shalabi.component';
-import { InfoItemComponent } from './view/components/info-item/info-item.component';
 import { DashboardMoudle } from './view/dashboard/dashboard.module';
+import { ComponentsModule } from './view/components/components.module';
+import { InfoItemComponent } from './view/components/info-item/info-item.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './view/landing-page/navbar/navbar.component';
 import { FooterComponent } from './view/landing-page/footer/footer.component';
@@ -41,12 +43,9 @@ import { FooterComponent } from './view/landing-page/footer/footer.component';
     LandingPageComponent,
     RegistrationComponent,
     /* Shalabi Components */
-    PackageCardComponent,
     ShalabiComponent,
-    InfoItemComponent,
 
     /* Alsaggaf Components */
-    CategoryCardComponent,
     BaseComponent,
     DialogComponent,
     NavbarComponent,
@@ -61,7 +60,13 @@ import { FooterComponent } from './view/landing-page/footer/footer.component';
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
+    MatRippleModule,
+    MatFormFieldModule,
+    MatInputModule,
     TranslateModule,
+    ComponentsModule,
+    FormsModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({ // this is for translate
       loader: {
         provide: TranslateLoader,
@@ -74,6 +79,7 @@ import { FooterComponent } from './view/landing-page/footer/footer.component';
     ReactiveFormsModule
   ],
   providers: [],
+  exports: [],
   entryComponents: [DialogComponent],
   bootstrap: [AppComponent]
 })

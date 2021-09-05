@@ -2,32 +2,120 @@
     "SETTINGS": {
         "": "",
         "nitro": "نيترو",
-        "account-settings": "اعدادات الحساب"
+        "account-settings": "اعدادات الحساب",
+        "search": "بحث"
     },
     "SUBSCRIBERS": {
-        "subscribers": "المشتركين"
+        "subscribers": "المشتركين",
+        "table": "جدول المشتركين ",
+        "name": "اسم  المشترك",
+        "start-date": "تاريخ بداية الاشتراك",
+        "end-date": "تاريخ نهاية الاشتراك",
+        "amount-paid": "المبلغ الاشتراك",
+        "subscription-number": "رقم الاشتراك",
+        "status": "الحاله",
+        "info": "معلومات المشترك",
+        "joint-sports-health": "معلومات المشترك الرياضية الصحية",
+        "work-type": "طبيعة العمل",
+        "health-problem": "مشاكل صحية ",
+        "use-of-supplements": "استعمال المكملات",
+        "goal-of-programe": "الهدف من البرنامح",
+        "sleeping-hours": "ساعات النوم",
+        "bed-time": "وقت النوم",
+        "wakeup-time": "وقت الاستيقاظ",
+        "number-of-meals": "عدد الوجبات الممكن اكلها",
+        "current-program": "البرنامج الحالي",
+        "non-preferred-food": "طعام غير مفضل",
+        "allergenic-food": "مسببات حساسية",
+        "recent-operations": "عمليات اجريت ماخرا"
+    },
+    "PERSONAL-DATA": {
+        "personal-data": "بيانات الشخصية",
+        "name": "الاسم",
+        "contact-number": "رقم التواصل",
+        "birthday": "تاريخ الميلاد",
+        "social-status": "الحالة الاجتماعية",
+        "gender": "الجنس",
+        "height": "الطول",
+        "wight": "الوزن",
+        "city": "المدينة"
     },
     "ORDERS": {
-        "orders": "الطلبات"
+        "orders": "الطلبات",
+        "new-table": "الطلبات الجديده",
+        "complete-table": "الطلبات المنتهية",
+        "no": "رقم الطلب",
+        "name": "اسم  المشترك",
+        "type": "نوع الطلب",
+        "status": "حالة الطلب",
+        "date": "تاريخ الطلب",
+        "info": "معلومات الطلب"
     },
     "CATEGORIES": {
         "categories": "الاصناف",
+        "table": "جدول الاصناف",
+        "add": "اضافة نوع صنف جديد",
+        "edit-type":"تعديل نوع صنف",
+        "new-type": "نوع صنف جديد",
+        "name-type": "اسم نوع صنف",
+        "type": "نوع الصنف",
+        "name":"اسم الصنف",
+        "calc":"طريقة الاحتساب",
+        "per": "لكل",
+        "new-cate": "صنف جديد",
+        "number": "الاجمالي",
         "calories": "السعرات الحرارية",
         "protein": "البروتين",
         "carp":"الكارب",
         "fat": "الدهون",
         "measuring-unit": {
-            "": "وحده قياس",
+            "": "",
+            "unit": "وحده قياس",
             "gram": "جرام",
             "cup": "كوب"
         }
     },
+    "MEASURING": {
+        "": "",
+        "unit": "وحده قياس",
+        "gram": "جرام",
+        "cup": "كوب"
+    },
     "PACKAGES": {
-        "packages": "الباقات"
+        "packages": "الباقات",
+        "new-pack": "باقة جديدة",
+        "add": "اضافة باقة جديدة",
+        "edit": "تحديث بيانات الباقة",
+        "pack-name": "اسم الباقة",
+        "pack-duration": "مدة الباقة",
+        "pack-value": "قيمه الباقة",
+        "account-number": "رقم الحساب",
+        "discount-amount": "قيمه الخصم",
+        "upload-attach": "ارفاق مرفق",
+        "attach-name": "اسم المرفق",
+        "show-in-website": "عرض على الموقع"
     },
     "WORKSOUT": {
-        "worksout": "التمارين الرياضية"
-    },"DIETPLAN":{
+        "table": "جدول التمارين الرياضية",
+        "worksout": "التمارين الرياضية",
+        "type": "نوع التمرين",
+        "number": "عدد التمارين",
+        "add": "اضافة نوع تمرين ",
+        "edit": "تعديل اسم نوع تمرين",
+        "exercise-table": "جدول",
+        "name": "اسم التمرين",
+        "link": "رابط التمرين",
+        "execrise-add":"اضافة تمرين",
+        "execrise-edit":"تعديل تمرين"
+    },
+    "DIETPLAN":{
       "dietplan":"البرامج الغذائية"
+    },
+    "FORM": {
+        "add": "اضافة",
+        "edit":"تعديل",
+        "cancel": "الالغاء",
+        "remove": "حذف",
+        "back": "السابق"
     }
 }

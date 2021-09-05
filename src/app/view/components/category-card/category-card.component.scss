@@ -16,6 +16,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-end;
+  margin-bottom: 0.8rem;
   //   border-bottom: 1px solid var(--gray-blue);
 }
 
@@ -41,9 +42,11 @@
   padding: 0 5px;
   border-radius: 0.25em;
   color: var(--black);
+  text-align: center;
 }
 
 .organic-compound .compound-body {
   color: var(--primray);
   padding: 0 5px 20px;
+  text-align: center;
 }
