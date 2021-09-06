@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { workout } from 'src/app/_common/globle';
+import { ExercisesService } from 'src/app/_services/gym/exercises.service';
 import { LanguageService } from 'src/app/_services/language.service';
-import { WorkoutService } from 'src/app/_services/workout.service';
+import { LoggerService } from 'src/app/_services/logger.service';
 import { DialogService } from './../../../_services/dialog.service';
+import { ExercisesCategoriesService } from './../../../_services/gym/exercises-categories.service';
 
 @Component({
   selector: 'app-worksout',
@@ -15,26 +17,27 @@ export class WorksoutComponent implements OnInit {
   workouts = workout;
   constructor(
     public dialogSrv: DialogService,
-    private workoutSrv: WorkoutService,
+    public workoutSrv: ExercisesCategoriesService,
+    public exerciseSrv: ExercisesService,
     private router: Router,
-  ) { }
+    public lang: LanguageService,
+    private logger: LoggerService
+  ) {
+
+    this.workoutSrv.getExerciseCategoriesList()
+  }
 
   ngOnInit(): void {
     this.dtOptions = {
       // ajax: 'data/data.json',
-      columns: [{
-        title: 'ID',
-        data: 'id'
-      }, {
-        title: 'First name',
-        data: 'firstName'
-      }],
+      columns: [],
     };
   }
 
   showExercise(exercise: any) {
     this.workoutSrv.workout = exercise;
-    this.router.navigateByUrl('worksout/exercise')
+    this.router.navigateByUrl(`/worksout/${exercise.id}/exercise`);
+    this.logger.log("e: ", exercise)
   }
 }
 

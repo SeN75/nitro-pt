@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
@@ -15,6 +15,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatRippleModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -30,9 +31,15 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 import { DataTablesModule } from "angular-datatables";
 import { ShalabiComponent } from './view/components/shalabi/shalabi.component';
 import { DashboardMoudle } from './view/dashboard/dashboard.module';
+import { RegistrationModule } from './view/registration/registration.module';
 import { ComponentsModule } from './view/components/components.module';
 import { InfoItemComponent } from './view/components/info-item/info-item.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NaitroInterceptor } from './_helpers/interceptors';
+import { AuhtGuardGuard } from './_helpers/auth-guard.guard';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { CookieService } from 'ngx-cookie-service';
 import { NavbarComponent } from './view/landing-page/navbar/navbar.component';
 import { FooterComponent } from './view/landing-page/footer/footer.component';
 
@@ -57,15 +64,18 @@ import { FooterComponent } from './view/landing-page/footer/footer.component';
     BrowserAnimationsModule,
     HttpClientModule,
     DashboardMoudle,
+    RegistrationModule,
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
     MatRippleModule,
     MatFormFieldModule,
+    MatSnackBarModule,
     MatInputModule,
     TranslateModule,
     ComponentsModule,
     FormsModule,
+    MatDatepickerModule,
     ReactiveFormsModule,
     TranslateModule.forRoot({ // this is for translate
       loader: {
@@ -78,8 +88,21 @@ import { FooterComponent } from './view/landing-page/footer/footer.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
-  exports: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: NaitroInterceptor,
+      multi: true
+    },
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    },
+    AuhtGuardGuard,
+    CookieService
+  ],
+  exports: [
+  ],
   entryComponents: [DialogComponent],
   bootstrap: [AppComponent]
 })

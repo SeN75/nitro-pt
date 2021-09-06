@@ -1,0 +1,72 @@
+<header class="text-center title mb-1 h4 ">{{'TERMS.join-request' | translate}}</header>
+<h3 class="text-center section-title  h3">{{'TERMS.hi' | translate}} {{clientInfo.name_ar}}</h3>
+<div class="register_form mt-5 d-none d-sm-block">
+  <div class="row ">
+    <div class="h5 section-title text-center mb-5">
+      {{'TERMS.joining-terms' | translate}}
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="term" *ngFor=" let i of arr; let j = index">
+        <label class="term_label">
+          <span class="term_number">{{j + 1}}</span>
+          <img class="term_icon" src="../../../../assets/icons/registraion/{{j+1}}.svg">
+        </label>
+        <p class="term_description">{{'TERMS.'+(j+1) | translate}}</p>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="term" *ngFor=" let i of arr2; let j = index">
+        <label class="term_label">
+          <span class="term_number">{{j + 6}}</span>
+          <img class="term_icon" src="../../../../assets/icons/registraion/{{j + 6 == 9? 5: j + 6}}.svg">
+        </label>
+        <p class="term_description">{{'TERMS.'+(j + 6) | translate}}</p>
+      </div>
+    </div>
+  </div>
+  <mat-checkbox>{{'TERMS.agree' | translate}}</mat-checkbox>
+  <div class=" my-3">
+    <button mat-raised-button color="primary" routerLink="/register/joining_form">{{'FORM.sign-up' |
+      translate}}</button>
+  </div>
+
+</div>
+<div class="d-block d-sm-none " dir="ltr">
+  <ngx-slick-carousel class="carousel terms_carousel" #slickModal="slick-carousel" [config]="slideConfig"
+    (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+    (beforeChange)="beforeChange($event)">
+    <div ngxSlickItem class="p-1">
+      <div class="term_card">
+        <div class="h5 section-title text-center mb-5">
+          {{'TERMS.joining-terms' | translate}}
+        </div>
+        <div class="term" *ngFor=" let i of arr; let j = index">
+          <label class="term_label">
+            <span class="term_number">{{j + 1}}</span>
+            <img class="term_icon" src="../../../../assets/icons/registraion/{{j+1}}.svg">
+          </label>
+          <p class="term_description">{{'TERMS.'+(j+1) | translate}}</p>
+        </div>
+      </div>
+    </div>
+    <div ngxSlickItem class="p-1">
+      <div class="term_card">
+        <div class="h5 section-title text-center mb-5">
+          {{'TERMS.joining-terms' | translate}}
+        </div>
+        <div class="term" *ngFor=" let i of arr2; let j = index">
+          <label class="term_label">
+            <span class="term_number">{{j + 6}}</span>
+            <img class="term_icon" src="../../../../assets/icons/registraion/{{j + 6 == 9? 5: j + 6}}.svg">
+          </label>
+          <p class="term_description">{{'TERMS.'+(j + 6) | translate}}</p>
+        </div>
+        <mat-checkbox>{{'TERMS.agree' | translate}}</mat-checkbox>
+        <div class="d-flex justify-content-center my-3">
+          <button mat-raised-button color="primary" routerLink="/register/joining_form">{{'FORM.sign-up' |
+            translate}}</button>
+        </div>
+      </div>
+    </div>
+  </ngx-slick-carousel>
+</div>

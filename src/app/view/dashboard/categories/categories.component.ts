@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { categoriesWithcompounds } from 'src/app/_common/globle';
 import { DialogService } from './../../../_services/dialog.service';
 import { Router } from '@angular/router';
-import { CategoriesService } from './../../../_services/categories.service';
+import { FoodCategoriesService } from '../../../_services/dite/food-categories.service';
+import { LanguageService } from 'src/app/_services/language.service';
+import { LoggerService } from 'src/app/_services/logger.service';
+import { FoodItemsService } from 'src/app/_services/dite/food-items.service';
 
 @Component({
   selector: 'app-categories',
@@ -13,23 +16,27 @@ export class CategoriesComponent implements OnInit {
   categories = categoriesWithcompounds;
   dtOptions: DataTables.Settings = {};
 
-  constructor(public dialogSrv: DialogService, private categorySrv: CategoriesService, private router: Router) { }
+  constructor(
+    public dialogSrv: DialogService,
+    public categorySrv: FoodCategoriesService,
+    public categoryItemSrv: FoodItemsService,
+    private router: Router,
+    public lang: LanguageService,
+
+    private logger: LoggerService) {
+    this.categorySrv.getFoodCategoriesList()
+    this.categoryItemSrv.getFoodItemList()
+  }
 
   ngOnInit(): void {
     this.dtOptions = {
       // ajax: 'data/data.json',
-      columns: [{
-        title: 'ID',
-        data: 'id'
-      }, {
-        title: 'First name',
-        data: 'firstName'
-      }],
+      columns: [
+      ],
     };
   }
   showCompunds(cat: any) {
-    this.categorySrv.categories = cat;
-    console.log(this.categorySrv.categories)
-    this.router.navigateByUrl('/categories/compounds');
+    this.categorySrv.category = cat;
+    this.router.navigateByUrl(`/categories/${cat.id}/compounds`);
   }
 }

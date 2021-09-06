@@ -1,0 +1,21 @@
+.header_table,
+.body_table {
+  margin-top: 20px;
+}
+.header_table div {
+  background-color: #f9fafb;
+  color: #313438;
+  border: #e2e2e3 solid 1px;
+  padding: 0.8em 1em;
+}
+.body_table div {
+  background-color: #fff;
+  color: #1d4980;
+  border: #e2e2e3 solid 1px;
+  text-align: center;
+  padding: 0.8em 1em;
+}
+
+.body {
+  height: auto;
+}

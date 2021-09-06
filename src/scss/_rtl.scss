@@ -5,10 +5,13 @@
     margin: unset;
     margin-right: auto;
   }
+  ngx-material-timepicker {
+    direction: ltr;
+  }
   .side-menu {
     border-radius: 0;
-    border-top-left-radius: 18px;
-    border-bottom-left-radius: 18px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
   }
   .main .items {
     border-radius: 0;
@@ -38,5 +41,34 @@
   }
   .text-start {
     text-align: right !important;
+  }
+  .body_img {
+    margin-right: 30px !important;
+    margin-left: unset !important;
+  }
+  select.form-control {
+    padding: 0.375rem 0.75rem 0.375rem 1.75rem;
+
+    background: url("../assets/images/Group.svg") no-repeat left 0.75rem
+      center/8px 10px white;
+  }
+  .form-group.password button {
+    right: unset;
+    left: 24px;
+  }
+  .register_slick_button {
+    direction: rtl;
+  }
+  .body_label,
+  .offcer_title {
+    direction: rtl;
+  }
+  ol {
+    direction: rtl;
+    padding: 0;
+    padding-right: 15px;
+  }
+  .nav_bar {
+    direction: ltr;
   }
 }

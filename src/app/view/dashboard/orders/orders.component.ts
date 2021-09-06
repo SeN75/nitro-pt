@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { newOrders } from 'src/app/_common/globle';
 import { DialogService } from 'src/app/_services/dialog.service';
-import { WorkoutService } from 'src/app/_services/workout.service';
+import { ExercisesService } from 'src/app/_services/gym/exercises.service';
 import { completedOrders } from './../../../_common/globle';
 import { OrdersService } from './../../../_services/orders.service';
 

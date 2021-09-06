@@ -1,22 +1,37 @@
-.info_item {}
+.info_item {
+}
 
 .info_img {
-    position: relative;
-    height: 100%;
+  position: relative;
+  height: 100%;
 }
 
 .info_img img {
-    width: 24px;
-    position: absolute;
-    bottom: 11px;
+  width: 24px;
+  position: absolute;
+  bottom: 11px;
 }
 
 .info_title {
-    font: normal normal normal 14px/30px Helvetica;
-    color: #ADABAC;
+  font: normal normal normal 14px/30px Helvetica;
+  color: #adabac;
 }
 
 .info_value {
-    font: normal normal bold 23px/52px Helvetica;
-    color: #1D4980;
+  font: normal normal bold 23px/52px Helvetica;
+  color: #1d4980;
+}
+
+/*status*/
+.active {
+  color: #4bb543;
+}
+.need-update {
+  color: #ffcc00;
+}
+.expired {
+  color: #cc3300;
+}
+.newly {
+  color: #1d4980;
 }

@@ -31,6 +31,17 @@ export class OrderInfoComponent implements OnInit {
       allergenicFood: "الفستق و اللوز",
       recentOperations: "استئصال الزائده",
 
+    },
+    bodyMeasurements: {
+      upperChest: 0,
+      lowerChest: 0,
+      hips: 0,
+      abs: 0,
+      quadriceps: 0,
+      hamstrings: 0,
+      calves: 0,
+      biceps: 0,
+      weight: 85
     }
   }
   constructor() { }

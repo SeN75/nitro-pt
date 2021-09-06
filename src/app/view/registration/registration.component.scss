@@ -1,0 +1,44 @@
+.register_wrapper {
+  display: flex;
+  height: 100%;
+  overflow-x: hidden;
+}
+.register_img {
+  flex: 1;
+  height: 100%;
+  background-image: url("../../../assets/images/registration/Mask Group 216.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.register_section {
+  flex: 3.2;
+  background: #eff2f5;
+  padding: 0 0;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.register_logo {
+  display: block;
+  margin: auto;
+  width: 80%;
+  max-width: 423px;
+  height: auto;
+  margin-top: 20px;
+}
+
+.register_form {
+  min-height: 65%;
+  width: 80%;
+  max-width: 423px;
+  margin: auto;
+}
+
+@media screen and (max-width: 577px) {
+  .register_img {
+    display: none;
+  }
+}

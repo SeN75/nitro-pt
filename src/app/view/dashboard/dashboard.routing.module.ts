@@ -17,6 +17,7 @@ import { ExerciseScheduleComponent } from './worksout/exercise-schedule/exercise
 import { CategoriesTableComponent } from './categories/categories-table/categories-table.component';
 import { SubscriberInfoComponent } from './subscribers/subscriber-info/subscriber-info.component';
 import { OrderInfoComponent } from './orders/order-info/order-info.component';
+import { AuhtGuardGuard } from 'src/app/_helpers/auth-guard.guard';
 
 const children: Routes = [
   { component: BaseComponent, path: 'base' },
@@ -25,19 +26,19 @@ const children: Routes = [
   { component: OrdersComponent, path: 'orders' },
   { component: OrderInfoComponent, path: 'orders/:id/detail' },
   { component: CategoriesComponent, path: 'categories' },
-  { component: CategoriesTableComponent, path: 'categories/compounds' },
+  { component: CategoriesTableComponent, path: 'categories/:id/compounds' },
   { component: PackagesComponent, path: 'packages' },
   { component: WorksoutComponent, path: 'worksout' },
-  { component: ExerciseScheduleComponent, path: 'worksout/exercise' },
-  { component: SettingsComponent, path: 'settings' },
+  { component: ExerciseScheduleComponent, path: 'worksout/:id/exercise' },
+  { component: SettingsComponent, path: 'account-settings' },
   { component: ShalabiComponent, path: 'shalabi' },
-  { component: DietPlanComponent, path: 'diet' },
+  { component: DietPlanComponent, path: 'dietplan' },
   { component: DietPlanViewDetailsComponent, path: 'diet/:id/view' },
   { component: DietPlanEditDetailsComponent, path: 'diet/:id/edit' },
 ]
 const routes: Routes = [
-  { component: DashboardComponent, path: 'dashboard', children: children },
-  { component: LandingPageComponent, path: '', children: children }
+  { component: DashboardComponent, path: 'dashboard', children: children, canActivate: [AuhtGuardGuard] },
+  { component: DashboardComponent, path: '', children: children, canActivate: [AuhtGuardGuard] }
 
 ];
 

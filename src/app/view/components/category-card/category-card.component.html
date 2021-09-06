@@ -1,34 +1,142 @@
 <section class="category-card">
-    <div class="text-end">
-        <button mat-icon-button (click)="dialogSrv.openCategoryDialog('edit', category)">
-            <mat-icon>more_horiz</mat-icon>
-        </button>
-    </div>
-    <header class="category-header">
-        <span class="title">{{category.title}}</span>
-        <span class="measruing-unit">
-            <label class="label">{{ 'CATEGORIES.measuring-unit.unit' | translate}}</label>
-            <p class="detail">{{ 'CATEGORIES.measuring-unit.' + category.type | translate}}</p>
-        </span>
-    </header>
-
-    <div class="category-body">
-        <div class="organic-compound" *ngFor="let compound of category.compounds">
-            <div class="title">{{ 'CATEGORIES.' + compound.title | translate}}</div>
-            <div class="container">
-                <div class="row compound-header">
-                    <div class="col">1 {{ 'CATEGORIES.measuring-unit.' + category.type | translate}} </div>
-                    <div class="col">100 {{ 'CATEGORIES.measuring-unit.' + category.type | translate}}</div>
-                    <div class="col">150 {{ 'CATEGORIES.measuring-unit.' + category.type | translate}}</div>
-                    <div class="col">250 {{ 'CATEGORIES.measuring-unit.' + category.type | translate}}</div>
-                </div>
-                <div class="row compound-body">
-                    <div class="col">{{category.unit}}</div>
-                    <div class="col">{{category.unit * 100}}</div>
-                    <div class="col">{{category.unit * 150}}</div>
-                    <div class="col">{{category.unit * 250}}</div>
-                </div>
-            </div>
+  <div class="text-end">
+    <button mat-icon-button (click)="dialogSrv.openCategoryDialog('edit', category)">
+      <mat-icon>more_horiz</mat-icon>
+    </button>
+  </div>
+  <header class="category-header">
+    <span class="title">{{ lang.selected == 'ar'?category.name_ar : category.name}}</span>
+    <span class="measruing-unit">
+      <label class="label">{{ 'CATEGORIES.measuring-unit.unit' | translate}}</label>
+      <p class="detail">{{ category.unit }}</p>
+    </span>
+  </header>
+  <div class="category-body" *ngIf="category.unit != 'جرام'">
+    <div class="organic-compound">
+      <div class="title">{{ 'CATEGORIES.calories' | translate}}</div>
+      <div class="container">
+        <div class="row compound-header justify-content-center">
+          <div class="col">{{ category.unit }} / {{ 'CATEGORIES.calories' | translate}} </div>
         </div>
+        <div class="row compound-body justify-content-center">
+          <div class="col">{{category.calories}}</div>
+        </div>
+      </div>
     </div>
+    <div class="organic-compound">
+      <div class="title">{{ 'CATEGORIES.protein' | translate}}</div>
+      <div class="container">
+        <div class="row compound-header justify-content-center">
+          <div class="col">{{ category.unit }} / {{ 'CATEGORIES.protein-per-gram' | translate}} </div>
+        </div>
+        <div class="row compound-body justify-content-center">
+          <div class="col">{{category.protien}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="organic-compound">
+      <div class="title">{{ 'CATEGORIES.carb' | translate}}</div>
+      <div class="container">
+        <div class="row compound-header justify-content-center">
+          <div class="col">{{ category.unit }} / {{ 'CATEGORIES.carb-per-gram' | translate}} </div>
+        </div>
+        <div class="row compound-body justify-content-center">
+          <div class="col">{{category.carb}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="organic-compound">
+      <div class="title">{{ 'CATEGORIES.fat' | translate}}</div>
+      <div class="container">
+        <div class="row compound-header justify-content-center">
+          <div class="col">{{ category.unit }} / {{ 'CATEGORIES.fat-per-gram' | translate}} </div>
+        </div>
+        <div class="row compound-body justify-content-center">
+          <div class="col">{{category.fat}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="organic-compound">
+      <div class="title">{{ 'CATEGORIES.fat' | translate}}</div>
+      <div class="container">
+        <div class="row compound-header justify-content-center">
+          <div class="col">{{ category.unit }} / {{ 'CATEGORIES.fat' | translate}} </div>
+        </div>
+        <div class="row compound-body justify-content-center">
+          <div class="col">{{category.fat}}</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="category-body" *ngIf="category.unit == 'جرام'">
+    <div class="organic-compound">
+      <div class="title">{{ 'CATEGORIES.calories' | translate}}</div>
+      <div class="container">
+        <div class="row compound-header">
+          <div class="col">1 {{ category.unit }} </div>
+          <div class="col">100 {{ category.unit }}</div>
+          <div class="col">150 {{ category.unit }}</div>
+          <div class="col">250 {{ category.unit }}</div>
+        </div>
+        <div class="row compound-body">
+          <div class="col">{{category.calories}}</div>
+          <div class="col">{{(category.calories * 100) | number:'1.2-2'}}</div>
+          <div class="col">{{(category.calories * 150) | number:'1.2-2'}}</div>
+          <div class="col">{{(category.calories * 250) | number:'1.2-2'}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="organic-compound">
+      <div class="title">{{ 'CATEGORIES.carb' | translate}}</div>
+      <div class="container">
+        <div class="row compound-header">
+          <div class="col">1 {{ category.unit }} </div>
+          <div class="col">100 {{ category.unit }}</div>
+          <div class="col">150 {{ category.unit }}</div>
+          <div class="col">250 {{ category.unit }}</div>
+        </div>
+        <div class="row compound-body">
+          <div class="col">{{category.carb}}</div>
+          <div class="col">{{(category.carb * 100) | number:'1.2-2'}}</div>
+          <div class="col">{{(category.carb * 150) | number:'1.2-2'}}</div>
+          <div class="col">{{(category.carb * 250) | number:'1.2-2'}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="organic-compound">
+      <div class="title">{{ 'CATEGORIES.protein' | translate}}</div>
+      <div class="container">
+        <div class="row compound-header">
+          <div class="col">1 {{ category.unit }} </div>
+          <div class="col">100 {{ category.unit }}</div>
+          <div class="col">150 {{ category.unit }}</div>
+          <div class="col">250 {{ category.unit }}</div>
+        </div>
+        <div class="row compound-body">
+          <div class="col">{{category.protien}}</div>
+          <div class="col">{{(category.protien * 100) | number:'1.2-2'}}</div>
+          <div class="col">{{(category.protien * 150) | number:'1.2-2'}}</div>
+          <div class="col">{{(category.protien * 250) | number:'1.2-2'}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="organic-compound">
+      <div class="title">{{ 'CATEGORIES.fat' | translate}}</div>
+      <div class="container">
+        <div class="row compound-header">
+          <div class="col">1 {{ category.unit }} </div>
+          <div class="col">100 {{ category.unit }}</div>
+          <div class="col">150 {{ category.unit }}</div>
+          <div class="col">250 {{ category.unit }}</div>
+        </div>
+        <div class="row compound-body">
+          <div class="col">{{category.fat}}</div>
+          <div class="col">{{(category.fat * 100) | number:'1.2-2'}}</div>
+          <div class="col">{{(category.fat * 150) | number:'1.2-2'}}</div>
+          <div class="col">{{(category.fat * 250) | number:'1.2-2'}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

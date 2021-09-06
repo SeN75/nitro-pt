@@ -1,18 +1,35 @@
 <h1 mat-dialog-title class="dialog-title text-center"> {{'CATEGORIES.'+ (data.state == 'edit' ? 'edit-type' : 'add') |
-    translate}}</h1>
-<div mat-dialog-content class="row">
-    <div class="form-group col-12">
-        <label for="input">{{'CATEGORIES.name-type' | translate}}</label>
-        <input name="input" [formControl]="cateType" class="form-control">
+  translate}}</h1>
+<div mat-dialog-content>
+  <div class="row" [formGroup]="categoryForm">
+    <div class="form-group col-6"
+      [class.has_error]="categoryForm.get('name')?.invalid && categoryForm.get('name')?.touched ">
+      <label for="input">{{'CATEGORIES.name-type' | translate}}</label>
+      <input name="input" formControlName="name" class="form-control">
+      <div class="hint" *ngIf="categoryForm.get('name')?.invalid && categoryForm.get('name')?.touched ">
+        <span *ngIf="categoryForm.get('name').errors.required">{{'VALIDATION.required' | translate}}</span>
+      </div>
     </div>
-    <div class="button-group mt-3">
-        <button mat-raised-button color="primary" (click)="action()"> {{'FORM.'+ (data.state == 'edit' ? 'edit' : 'add')
-            | translate}}
-        </button>
-        <button *ngIf="data.state != 'edit'" mat-stroked-button color="primary" (click)="onNoClick()"> {{'FORM.cancel'
-            |
-            translate}} </button>
-        <button *ngIf="data.state == 'edit'" mat-stroked-button color="warn" (click)="onNoClick()"> {{'FORM.remove' |
-            translate}} </button>
+    <div class="form-group col-6"
+      [class.has_error]="categoryForm.get('name_ar')?.invalid && categoryForm.get('name_ar')?.touched ">
+      <label for="input">{{'CATEGORIES.name-type-ar' | translate}}</label>
+      <input name="input" formControlName="name_ar" class="form-control">
+      <div class="hint" *ngIf="categoryForm.get('name_ar')?.invalid && categoryForm.get('name_ar')?.touched ">
+        <span *ngIf="categoryForm.get('name_ar').errors.required">{{'VALIDATION.required' | translate}}</span>
+        <span *ngIf="categoryForm.get('name_ar').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+
+      </div>
     </div>
+  </div>
+  <div class="button-group mt-3">
+    <button mat-raised-button color="primary" (click)="action()" [disabled]="categoryForm.invalid"> {{'FORM.'+
+      (data.state == 'edit' ? 'edit' : 'add')
+      | translate}}
+    </button>
+    <button *ngIf="data.state != 'edit'" mat-stroked-button color="primary" (click)="onNoClick()"> {{'FORM.cancel'
+      |
+      translate}} </button>
+    <button *ngIf="data.state == 'edit'" mat-stroked-button color="warn" (click)="delete()"> {{'FORM.remove' |
+      translate}} </button>
+  </div>
 </div>

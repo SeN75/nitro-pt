@@ -13,7 +13,7 @@ import { DietPlanViewDetailsComponent } from './diet-plan/diet-plan-view-details
 import { DietPlanEditDetailsComponent } from './diet-plan/diet-plan-edit-details/diet-plan-edit-details.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatRippleModule } from '@angular/material/core';
+import { DateAdapter, MatNativeDateModule, MatRippleModule, MAT_DATE_FORMATS } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -34,6 +34,15 @@ import { CategoriesDialogComponent } from './categories/categories-dialog/catego
 import { RouterModule } from '@angular/router';
 import { SubscriberInfoComponent } from './subscribers/subscriber-info/subscriber-info.component';
 import { OrderInfoComponent } from './orders/order-info/order-info.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ResetPasswordComponent } from './settings/reset-password/reset-password.component';
+import { BankAccountDialogComponent } from './settings/bank-account-dialog/bank-account-dialog.component';
+import { UserDialogComponent } from './settings/user-dialog/user-dialog.component';
+import { MatDatepickerIntl, MatDatepickerModule } from '@angular/material/datepicker';
+import { DatePipe } from '@angular/common';
+import { FileUploadModule } from 'ng2-file-upload';
+import { MatSelectModule } from '@angular/material/select';
+import { InactiveDialogComponent } from './inactive-dialog/inactive-dialog.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +64,11 @@ import { OrderInfoComponent } from './orders/order-info/order-info.component';
     CategoriesTableComponent,
     CategoriesDialogComponent,
     SubscriberInfoComponent,
-    OrderInfoComponent
+    OrderInfoComponent,
+    ResetPasswordComponent,
+    BankAccountDialogComponent,
+    UserDialogComponent,
+    InactiveDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -76,6 +89,11 @@ import { OrderInfoComponent } from './orders/order-info/order-info.component';
     ReactiveFormsModule,
     DataTablesModule,
     BrowserModule,
+    Ng2SearchPipeModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    FileUploadModule,
+    MatSelectModule
   ],
   exports: [],
   entryComponents: [
@@ -84,6 +102,10 @@ import { OrderInfoComponent } from './orders/order-info/order-info.component';
     WorkoutDialogComponent,
     CategoryTypeDialogComponent,
     CategoriesDialogComponent
+  ],
+  providers: [
+    MatDatepickerModule,
+    DatePipe
   ]
 })
 
