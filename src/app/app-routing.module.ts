@@ -7,7 +7,7 @@ import { AuhtGuardGuard } from './_helpers/auth-guard.guard';
 import { LandingPageComponent } from './view/landing-page/landing-page.component';
 
 const routes: Routes = [
-  { component: DashboardComponent, path: '', canActivate: [AuhtGuardGuard] },
+  { component: DashboardComponent, path: 'dashboard', canActivate: [AuhtGuardGuard] },
   { redirectTo: 'landing', path: '', pathMatch: "full" },
   { component: RegistrationComponent, path: 'register', children: RegistrationRouting },
   { component: LandingPageComponent, path: 'landing' }
