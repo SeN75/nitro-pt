@@ -1,5 +1,5 @@
 <section class="bg-section">
-    <app-navbar></app-navbar>
+    <app-navbar [isLoggedin]=rt></app-navbar>
     <div class="container">
         <div class="row  position-absolute-mobile" id="place_bottom">
             <div class="col-lg-6 col-12 position-absolute-mobile">
@@ -7,7 +7,12 @@
             </div>
             <div class="col-lg-6 col-12 slogan position-absolute-mobile">
                 <img src="../../../assets/images/slogan.svg" alt="">
-                <h1>أهلاً محمد</h1>
+                <div *ngIf="rt">
+                    <h1>أهلاً محمد</h1>
+                </div>
+                <div *ngIf="!rt">
+                    <h1>انضم الآن</h1>
+                </div>
             </div>
         </div>
     </div>
@@ -76,7 +81,20 @@
         <img class="dot_element" src="../../../assets/images/dot_image.svg" alt="">
         <img class="dots_element" src="../../../assets/images/dots_image.svg" alt="">
     </div>
-    <div class="section_content">الفئات</div>
+    <div class="section_content pb-5">
+        <div class="container">
+            <div class="row">
+                <package-card class="col-12 col-lg-4 col-md-6 mt-3" [package_title]="'باقة الضخامة'" [package_months]="3" [package_price]="'120'" [theme_number]="1" [with_button]="true">
+                </package-card>
+
+                <package-card class="col-12 col-lg-4 col-md-6 mt-3" [package_title]="'باقة التنشيف'" [package_months]="3" [package_price]="'120'" [theme_number]="2" [with_button]="true">
+                </package-card>
+
+                <package-card class="col-12 col-lg-4 col-md-6 mt-3" [package_title]="'باقة اللياقة'" [package_months]="3" [package_price]="'120'" [theme_number]="3" [with_button]="true">
+                </package-card>
+            </div>
+        </div>
+    </div>
 </section>
 
 <app-footer></app-footer>

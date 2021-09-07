@@ -12,6 +12,7 @@ import { PackagesComponent } from './packages/packages.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SubscribersComponent } from './subscribers/subscribers.component';
 import { WorksoutComponent } from './worksout/worksout.component';
+import { LandingPageComponent } from '../landing-page/landing-page.component';
 import { ExerciseScheduleComponent } from './worksout/exercise-schedule/exercise-schedule.component';
 import { CategoriesTableComponent } from './categories/categories-table/categories-table.component';
 import { SubscriberInfoComponent } from './subscribers/subscriber-info/subscriber-info.component';
@@ -34,7 +35,6 @@ const children: Routes = [
   { component: DietPlanComponent, path: 'dietplan' },
   { component: DietPlanViewDetailsComponent, path: 'diet/:id/view' },
   { component: DietPlanEditDetailsComponent, path: 'diet/:id/edit' },
-
 ]
 const routes: Routes = [
   { component: DashboardComponent, path: 'dashboard', children: children, canActivate: [AuhtGuardGuard] },
