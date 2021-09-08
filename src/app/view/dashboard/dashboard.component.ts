@@ -44,6 +44,7 @@ export class DashboardComponent implements OnInit {
   _refreshState() {
     if (localStorage.getItem('refreshToken') && this.cookiesSrv.get('loggedin')) {
       clearTimeout(this.userActivity);
+      console.log('d')
       this.setTimeout();
     }
   }

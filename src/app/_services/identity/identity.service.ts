@@ -34,10 +34,12 @@ export class IdentityService {
     private logger: LoggerService) {
     // this.logout(localStorage.getItem('refreshToken'));
     // this.logoutAll();
-    if (localStorage.getItem('refreshToken')) {
-      this.getUserProfileByJWT()
-      this.getAllCoaches()
-      this.getStaff()
+    if (localStorage.getItem('refreshToken') && cookieSrv.get('loggedin')) {
+      setTimeout(() => {
+        this.getUserProfileByJWT()
+        this.getAllCoaches()
+        this.getStaff()
+      }, 600)
     }
 
     this.newDayDate.setDate(this.toDayDate.getDate() + 1);
