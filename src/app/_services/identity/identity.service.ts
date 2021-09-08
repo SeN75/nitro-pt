@@ -11,7 +11,16 @@ const Identity = API + "auth/";
   providedIn: 'root'
 })
 export class IdentityService {
-  userData: any;
+  userData: any = {
+    first_name: '',
+    first_name_ar: '',
+    middle_name: '',
+    middle_name_ar: '',
+    last_name: '',
+    last_name_ar: '',
+    email: '',
+    phone_number: '',
+  };
   coaches: any;
   staffs: any;
   toDayDate = new Date();

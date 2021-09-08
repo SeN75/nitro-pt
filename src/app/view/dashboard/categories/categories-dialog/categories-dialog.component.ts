@@ -28,7 +28,7 @@ export class CategoriesDialogComponent implements OnInit {
     public foodUnitsSrv: FoodUnitsService,
     private foodItemSrv: FoodItemsService) {
     this.cateForm = this.formBuilder.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required, Validators.pattern("[A-Za-z]")]],
       name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
       fat: ['', Validators.required],
       protien: ['', Validators.required],

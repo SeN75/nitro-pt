@@ -15,7 +15,7 @@ export class CategoryTypeDialogComponent implements OnInit {
     private categorySrv: FoodCategoriesService,
     private formBuilder: FormBuilder) {
     this.categoryForm = this.formBuilder.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required, Validators.pattern("[A-Za-z]")]],
       name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
     })
   }

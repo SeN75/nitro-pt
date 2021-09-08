@@ -32,19 +32,26 @@ export class PackageDialogComponent implements OnInit {
     private datePipe: DatePipe,
     public packSrv: PackagesService) {
     this.packForm = this.formBuilder.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required, Validators.pattern("[A-Za-z]")]],
       name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
-      description: ['', Validators.required],
+      description: ['', [Validators.required, Validators.pattern("[A-Za-z]")]],
       description_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
       period: ['', Validators.required],
       price: ['', Validators.required],
       iban_id: ['', Validators.required],
       discountAmount: [''],
       attach_required: [false],
-      attachments_ids: [[]],
+      attachments_ids: [{ value: [], disabled: true }],
       showInWebsite: [false]
     })
+    this.packForm.get("attach_required")?.valueChanges.subscribe((value: boolean) => {
+      this.logger.log('value:', value)
+      if (value)
+        this.packForm.get('attachments_ids')?.enable()
+      else
+        this.packForm.get('attachments_ids')?.disable()
 
+    })
     this.offerForm = this.formBuilder.group({
       start_date: ['', Validators.required],
       end_date: ['', Validators.required],
@@ -69,15 +76,15 @@ export class PackageDialogComponent implements OnInit {
       this.packForm.get('attach_required')?.setValue(this.data.package.attach_required);
       this.packForm.get('showInWebsite')?.setValue(this.data.package.showOnWebsite);
       this.offerSrv.getOfferByPackageId(this.data.package.external_id)
-      if (this.packForm.get('attach_required').value == true) {
+      if (this.packForm.get('attach_required')?.value == true) {
         let ids = []
-        this.logger.log("attach: ", this.packForm.get('attachments_ids').value)
+        this.logger.log("attach: ", this.packForm.get('attachments_ids')?.value)
         this.logger.log("attach: ", this.data.package.attachments_ids)
         for (let i = 0; i < this.data.package.required_attachments.length; i++)
           ids.push(this.data.package.required_attachments[i].id)
         this.logger.log("ids: ", ids)
 
-        this.packForm.get('attachments_ids').setValue(ids)
+        this.packForm.get('attachments_ids')?.setValue(ids)
       }
 
     }

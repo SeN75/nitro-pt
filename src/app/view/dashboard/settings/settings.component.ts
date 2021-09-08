@@ -11,6 +11,7 @@ import { LanguageService } from 'src/app/_services/language.service';
 })
 export class SettingsComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
+  coachOptions: DataTables.Settings = {};
 
   constructor(
     public identitySrv: IdentityService,
@@ -19,11 +20,17 @@ export class SettingsComponent implements OnInit {
     public lang: LanguageService) { }
 
   ngOnInit(): void {
-    this.dtOptions = {
+    this.coachOptions = {
       // ajax: 'data/data.json',
       columns: [
+        { title: "name", data: "coa.first_name_ar" },
+        { title: "email", data: "coa.email" },
+        { title: "phone-number", data: "coa.phone_number" },
       ],
     };
+    this.dtOptions = {
+      columns: []
+    }
   }
 
 }

@@ -291,15 +291,16 @@
     "error": "an error occurred",
     "login": "you should login first",
     "phone-number": "The mobile number must be nine digits long",
-    "ar": "You must use Arabic letters"
+    "ar": "You must use Arabic letters",
+    "en": "You must use English letters"
   },
   "DURATIONS": {
-    "1": "شهر",
-    "2": "شهرين",
-    "12": "سنه",
-    "years": "سنين",
-    "year": "سنه",
-    "month": "شهر"
+    "1": "month",
+    "2": "two month",
+    "12": "year",
+    "years": "years",
+    "year": "year",
+    "month": "month"
   },
   "SUCCESS": {
     "create-user-verify": "User created, check mail to activate account",
