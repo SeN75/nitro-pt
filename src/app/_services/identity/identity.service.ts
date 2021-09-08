@@ -39,7 +39,7 @@ export class IdentityService {
         this.getUserProfileByJWT()
         this.getAllCoaches()
         this.getStaff()
-      }, 600)
+      }, 1500)
     }
 
     this.newDayDate.setDate(this.toDayDate.getDate() + 1);
