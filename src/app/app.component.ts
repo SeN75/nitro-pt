@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { LanguageService } from './_services/language.service';
 
 @Component({
@@ -8,7 +9,11 @@ import { LanguageService } from './_services/language.service';
 })
 export class AppComponent {
   title = 'nitro-pt';
-  constructor(private lang: LanguageService) {
-
+  constructor(private lang: LanguageService, private cookieSrv: CookieService) {
+    if (!cookieSrv.get('loggedin') && localStorage.getItem('refreshToken')) {
+      cookieSrv.delete('loggedin')
+      localStorage.removeItem('refreshToken')
+      localStorage.removeItem('authToken')
+    }
   }
 }
