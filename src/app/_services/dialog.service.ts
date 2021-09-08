@@ -12,13 +12,15 @@ import { TipsComponent } from '../view/registration/joinig-form/body-pic-form/ti
 import { DialogComponent } from './../view/components/dialog/dialog.component';
 import { IdentityService } from './identity/identity.service';
 import { InactiveDialogComponent } from './../view/dashboard/inactive-dialog/inactive-dialog.component';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DialogService {
 
-  constructor(private dialog: MatDialog, private identitySrv: IdentityService) { }
+  constructor(private dialog: MatDialog, private identitySrv: IdentityService, private cookieSrv: CookieService, private router: Router) { }
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogComponent, {
@@ -135,9 +137,13 @@ export class DialogService {
       height: 'auto',
       width: 'auto',
     });
-    dialogRef.afterClosed().subscribe(res =>
-
-      this.identitySrv.logout()
+    dialogRef.afterClosed().subscribe(res => {
+      localStorage.removeItem('refreshToken');
+      localStorage.removeItem('authToken');
+      this.cookieSrv.delete('loggedin')
+      this.router.navigateByUrl('/register/login')
+    }
+      // this.identitySrv.logout()
     );
   }
 }

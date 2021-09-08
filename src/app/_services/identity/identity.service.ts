@@ -241,6 +241,8 @@ export class IdentityService {
     this._logout({ refresh: refresh }).subscribe((success: any) => {
       localStorage.removeItem('refreshToken');
       localStorage.removeItem('authToken');
+      this.cookieSrv.delete('loggedin')
+      this.router.navigateByUrl('/register/login')
       this.logger.log("logout :", success)
     }, (error: HttpErrorResponse) => {
       this.logger.error("logout  error: ", error)

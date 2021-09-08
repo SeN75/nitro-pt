@@ -25,14 +25,13 @@ export class DashboardComponent implements OnInit {
 
 
   setTimeout() {
-    this.userActivity = setTimeout(() => this.userInactive.next(undefined), 120000);
+    this.userActivity = setTimeout(() => this.userInactive.next(undefined), 180000);
   }
-  @HostListener('window:keyup')
+  @HostListener('window:keyup') refreshUserStateKeyUp() {
+    this._refreshState();
+  }
   @HostListener('window:mousemove') refreshUserState() {
-    if (localStorage.getItem('refreshToken') && this.cookiesSrv.get('loggedin')) {
-      clearTimeout(this.userActivity);
-      this.setTimeout();
-    }
+    this._refreshState()
   }
   ngOnInit(): void {
     this.setTimeout();
@@ -41,7 +40,11 @@ export class DashboardComponent implements OnInit {
         this.dialogSrv.inactiveDialog()
     });
     this.activeLink = (this.router.url).split('/dashboard/')[1];
-    console.log(this.activeLink)
   }
-
+  _refreshState() {
+    if (localStorage.getItem('refreshToken') && this.cookiesSrv.get('loggedin')) {
+      clearTimeout(this.userActivity);
+      this.setTimeout();
+    }
+  }
 }
