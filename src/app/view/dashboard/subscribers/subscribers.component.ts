@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { subscribers } from 'src/app/_common/globle';
 import { DialogService } from 'src/app/_services/dialog.service';
-import { SubscribersService } from 'src/app/_services/subscribers.service';
+import { SubscribersService } from 'src/app/_services/subscriptions/subscribers.service';
 import { Router } from '@angular/router';
 
 @Component({

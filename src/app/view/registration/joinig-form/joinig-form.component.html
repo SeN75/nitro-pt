@@ -10,7 +10,8 @@
     <joining-back-info (bankInfo)="output($event)" ngxSlickItem></joining-back-info>
   </ngx-slick-carousel>
   <div class="register_slick_button">
-    <button mat-button (click)="next()" *ngIf="caurselPos != 4" [disabled]="!isFormValid">{{'FORM.next' |
+    <!-- [disabled]="!isFormValid" -->
+    <button mat-button (click)="next()" *ngIf="caurselPos != 4">{{'FORM.next' |
       translate}}</button>
     <span></span>
     <button mat-button (click)="prev()" *ngIf="caurselPos != 0">{{'FORM.back' | translate}}</button>

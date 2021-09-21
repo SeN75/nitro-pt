@@ -30,7 +30,7 @@ export class MeasuringMethodComponent implements OnInit {
   caurselPos = 0;
   @ViewChild('slickModal')
   slickModal!: SlickCarouselComponent;
-  isTraditional = true;
+  isTraditional = false;
   value: any = {
     valid: false,
     data: {}

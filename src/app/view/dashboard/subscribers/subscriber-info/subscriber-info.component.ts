@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatAccordion } from '@angular/material/expansion';
-import { SubscribersService } from 'src/app/_services/subscribers.service';
+import { SubscribersService } from 'src/app/_services/subscriptions/subscribers.service';
 
 @Component({
   selector: 'app-subscriber-info',

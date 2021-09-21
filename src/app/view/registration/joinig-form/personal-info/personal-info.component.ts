@@ -28,7 +28,7 @@ export class PersonalInfoComponent implements OnInit {
     public lang: LanguageService) {
     this.personalInfoForm = this.formBuilder.group({
       birthDate: ['', Validators.required],
-      socialStatus: ['', Validators.required],
+      social_status: ['', Validators.required],
       height: ['', Validators.required],
       weight: ['', Validators.required],
       gender: ['male', Validators.required],

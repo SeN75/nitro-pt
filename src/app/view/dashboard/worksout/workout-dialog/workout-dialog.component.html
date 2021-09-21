@@ -1,6 +1,6 @@
 <h1 mat-dialog-title class="dialog-title text-center"> {{'WORKSOUT.execrise-'+ (data.state == 'edit' ? 'edit' : 'add') |
-  translate}} {{lang.selected =='ar'?exerciseCategorySrv.exerciseCategory.name_ar
-  :exerciseCategorySrv.exerciseCategory.name }}</h1>
+  translate}} {{exerciseCategorySrv.exerciseCategory ? lang.selected =='ar'?exerciseCategorySrv.exerciseCategory.name_ar
+  :exerciseCategorySrv.exerciseCategory.name: '' }}</h1>
 <div mat-dialog-content [formGroup]="exerciseForm">
   <div class="row">
     <div class="form-group col-6"
