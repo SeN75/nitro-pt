@@ -14,6 +14,7 @@ import { BodyPicInfoComponent } from './info-items/body-pic-info/body-pic-info.c
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ArchivingInfoComponent } from './info-items/archiving-info/archiving-info.component';
 import { RouterModule } from '@angular/router';
+import { UplodeFileComponent } from './uplode-file/uplode-file.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RouterModule } from '@angular/router';
     SportsHealthSuberInfoComponent,
     BodyMeasurementsComponent,
     BodyPicInfoComponent,
-    ArchivingInfoComponent
+    ArchivingInfoComponent,
+    UplodeFileComponent
   ],
   imports: [
     BrowserModule,

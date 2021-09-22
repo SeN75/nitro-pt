@@ -42,6 +42,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { CookieService } from 'ngx-cookie-service';
 import { NavbarComponent } from './view/landing-page/navbar/navbar.component';
 import { FooterComponent } from './view/landing-page/footer/footer.component';
+import { DropzoneDirective } from './_directive/dropzone.directive';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { FooterComponent } from './view/landing-page/footer/footer.component';
     BaseComponent,
     DialogComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    DropzoneDirective
   ],
   imports: [
     BrowserModule,
