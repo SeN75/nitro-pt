@@ -281,8 +281,11 @@
         "account-holder-name": "اسم صاحب الحساب",
         "receipt-pic": "صوره الايصال",
         "send":"ارسال",
+        "resend": "اعاده ارسال",
         "return": "عودة",
-        "ok": "تم"
+        "ok": "تم",
+        "otp-code": "رمز التحقق",
+        "enter-otp": "ادخل رمز التحقق"
     },
     "VALIDATION": {
       "email": {

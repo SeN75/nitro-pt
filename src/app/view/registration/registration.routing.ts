@@ -7,6 +7,7 @@ import { SelectProgramComponent } from './select-program/select-program.componen
 import { TermsAndConditionComponent } from './terms-and-condition/terms-and-condition.component';
 import { JoinigFormComponent } from './joinig-form/joinig-form.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { OtpComponent } from './otp/otp.component';
 
 export const RegistrationRouting: Routes = [
   { component: ResetPasswordComponent, path: 'reset_password' },
@@ -17,6 +18,7 @@ export const RegistrationRouting: Routes = [
   { component: SelectProgramComponent, path: 'join_program' },
   { component: TermsAndConditionComponent, path: 'terms_and_condition' },
   { component: JoinigFormComponent, path: 'joining_form' },
+  { component: OtpComponent, path: 'otp_verify' },
 
 ]
 

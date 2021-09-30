@@ -167,7 +167,7 @@ export class IdentityService {
       if (userData.role == 'coach')
         this.getAllCoaches()
       else
-        this.router.navigateByUrl('/register/login')
+        this.router.navigateByUrl('/register/otp_verify')
     }, (error: HttpErrorResponse) => {
       this.logger.error("post Create User  error: ", error)
       this.translateSrv.get('ERROR.create-user').subscribe(msg => this.toastSrv.error(msg))
@@ -256,5 +256,24 @@ export class IdentityService {
     }, (error: HttpErrorResponse) => {
       this.logger.error("logout All error: ", error)
     })
+  }
+  public loginWithGetUserProfile(userData: any) {
+    this.logger.log("login:", userData)
+    this._login(userData).subscribe((success: any) => {
+      localStorage.setItem('refreshToken', success.refresh)
+      localStorage.setItem('authToken', success.access)
+      this._getUserProfileByJWT().subscribe((userProfile: any) => {
+
+      }, (error: any) => [
+
+      ])
+      this.cookieSrv.set('loggedin', this.toDayDate.getTime() + "", this.newDayDate)
+      this.router.navigate(['/dashboard/account-settings'])
+      this.logger.log("login:", success)
+    }, (error: HttpErrorResponse) => {
+      this.translateSrv.get('ERROR.').subscribe(msg => this.toastSrv.error(msg));
+      this.logger.error("login error: ", error)
+    })
+
   }
 }

@@ -32,7 +32,7 @@ const children: Routes = [
   { component: ExerciseScheduleComponent, path: 'worksout/:id/exercise' },
   { component: SettingsComponent, path: 'account-settings' },
   { component: ShalabiComponent, path: 'shalabi' },
-  { component: DietPlanComponent, path: 'dietplan' },
+  { component: DietPlanComponent, path: 'diet' },
   { component: DietPlanViewDetailsComponent, path: 'diet/:id/view' },
   { component: DietPlanEditDetailsComponent, path: 'diet/:id/edit' },
 ]

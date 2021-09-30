@@ -273,7 +273,10 @@
     "receipt-pic": "Image receipt",
     "send": "send",
     "return": "back",
-    "ok" : "ok"
+    "ok" : "ok",
+    "otp-code": "otp code",
+    "resend": "resend",
+    "enter-otp": "Enter otp code."
   },
   "VALIDATION": {
     "email": {

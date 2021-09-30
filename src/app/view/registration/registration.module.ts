@@ -27,6 +27,7 @@ import { BodyPicFormComponent } from './joinig-form/body-pic-form/body-pic-form.
 import { BackInfoComponent } from './joinig-form/back-info/back-info.component';
 import { TipsComponent } from './joinig-form/body-pic-form/tips/tips.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { OtpComponent } from './otp/otp.component';
 
 
 @NgModule({
@@ -48,7 +49,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     NgxMaterialTimepickerModule
 
   ],
-  declarations: [ResetPasswordComponent, LoginComponent, SignupComponent, SelectProgramComponent, TermsAndConditionComponent, JoinigFormComponent, PersonalInfoComponent, HealthInfoComponent, MeasuringMethodComponent, BodyPicFormComponent, BackInfoComponent, TipsComponent, ChangePasswordComponent],
+  declarations: [ResetPasswordComponent, LoginComponent, SignupComponent, SelectProgramComponent, TermsAndConditionComponent, JoinigFormComponent, PersonalInfoComponent, HealthInfoComponent, MeasuringMethodComponent, BodyPicFormComponent, BackInfoComponent, TipsComponent, ChangePasswordComponent, OtpComponent],
   exports: [ResetPasswordComponent, MatFormFieldModule],
   providers: []
 })

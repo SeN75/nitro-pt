@@ -1,0 +1,27 @@
+<h4 class="text-center section-title  h4">{{'FORM.otp-code' | translate}}</h4>
+<div class="register_form">
+  <div class="row otp_codes" [formGroup]=otpForm>
+    <div class="form-group col-2" *ngFor="let input of formInput;  index as i">
+      <input #formRow type="text" formControlName="{{input}}" class="form-control text-center" maxlength="1"
+        (keyup)="keyUpEvent($event, i)" placeholder="X">
+    </div>
+  </div>
+  <div class="row justify-content-center">
+
+    <div class="text-center mt-4">
+      <button mat-raised-button [disabled]="otpForm.invalid" class="px-5" color="primary">
+        {{'FORM.send' | translate}}
+      </button>
+    </div>
+    <div class="count_down">
+      {{minutes | number:'2.0-0'}}:{{seconds | number:'2.0-0'}}
+    </div>
+
+    <div class="text-center ">
+      <button mat-button [disabled]="seconds != 0 || minutes != 0">
+        {{'FORM.resend' | translate}}
+      </button>
+    </div>
+  </div>
+
+</div>
