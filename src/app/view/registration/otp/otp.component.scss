@@ -3,7 +3,9 @@
   position: relative;
   padding: 0 1em;
 }
-
+.otp_codes {
+  direction: ltr !important;
+}
 .count_down {
   color: #aeaeae;
   font-size: 1.6em;

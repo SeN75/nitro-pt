@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChildren, Input } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { LoggerService } from 'src/app/_services/logger.service';
 
 @Component({
   selector: 'app-otp',
@@ -13,7 +14,9 @@ export class OtpComponent implements OnInit {
   minutes = 0;
   otpForm: FormGroup;
   @ViewChildren('formRow') rows: any;
-  constructor() {
+  constructor(
+    private logger: LoggerService
+  ) {
     this.otpForm = this.toFormGroup(this.formInput)
     this.countDown()
   }
@@ -55,6 +58,15 @@ export class OtpComponent implements OnInit {
           clearInterval()
         }
       }, 1000)
+    }
+  }
+
+
+  submit() {
+    if (this.otpForm.valid) {
+      let code = '';
+      this.formInput.forEach(e => code += this.otpForm.get(e)?.value)
+      this.logger.log('otp: ', code)
     }
   }
 }

@@ -9,7 +9,7 @@
   <div class="row justify-content-center">
 
     <div class="text-center mt-4">
-      <button mat-raised-button [disabled]="otpForm.invalid" class="px-5" color="primary">
+      <button mat-raised-button [disabled]="otpForm.invalid" class="px-5" color="primary" (click)="submit()">
         {{'FORM.send' | translate}}
       </button>
     </div>
