@@ -18,6 +18,7 @@ import { CategoriesTableComponent } from './categories/categories-table/categori
 import { SubscriberInfoComponent } from './subscribers/subscriber-info/subscriber-info.component';
 import { OrderInfoComponent } from './orders/order-info/order-info.component';
 import { AuhtGuardGuard } from 'src/app/_helpers/auth-guard.guard';
+import { DietPlanEditDettails2Component } from './diet-plan/diet-plan-edit-dettails2/diet-plan-edit-dettails2.component';
 
 const children: Routes = [
   { component: BaseComponent, path: 'base' },
@@ -34,7 +35,7 @@ const children: Routes = [
   { component: ShalabiComponent, path: 'shalabi' },
   { component: DietPlanComponent, path: 'diet' },
   { component: DietPlanViewDetailsComponent, path: 'diet/:id/view' },
-  { component: DietPlanEditDetailsComponent, path: 'diet/:id/edit' },
+  { component: DietPlanEditDettails2Component, path: 'diet/:id/edit' },
 ]
 const routes: Routes = [
   { component: DashboardComponent, path: 'dashboard', children: children, canActivate: [AuhtGuardGuard] },

@@ -1,1 +1,116 @@
-<p>diet-plan-view-details works!</p>
+<section class="content">
+  <header class="page-header">
+    <h1 class="title">
+      {{'DIETPLAN.summary' | translate}} {{programName}}
+    </h1>
+    <span style="align-items: inherit; display: flex;" routerLink="../..">
+      <button mat-button>
+        {{'FORM.back' | translate}}
+        <mat-icon color="primary" class="mx-2">arrow_back</mat-icon>
+      </button>
+    </span>
+  </header>
+
+  <div class="body scroll">
+    <table datatable [dtOptions]="dtOptions" class="table-theme-1 hover">
+      <thead>
+        <th>#</th>
+        <th>{{'FORM.name' | translate}}</th>
+        <th>{{'DIETPLAN.number-of-meals' | translate}}</th>
+        <th>{{'DIETPLAN.total-calories' | translate}}</th>
+        <th>{{'DIETPLAN.notes' | translate}}</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let program of dietplanArr; let i = index">
+          <tr class="row_space">
+            <td colspan="7"></td>
+          </tr>
+          <tr (click)="(selectedPro == i+'' ? selectedPro = '': selectedPro = i+'')">
+            <td>{{i+1}}</td>
+            <td>{{program.name}}</td>
+            <td>{{program.meals.length}}</td>
+            <td>{{program.total_calories}}</td>
+            <td>{{program.note}} </td>
+            <td class="text-end">
+              <button mat-icon-button routerLink='../edit' (click)="$event.stopPropagation()">
+                <mat-icon>
+                  edit
+                </mat-icon>
+              </button>
+              <button mat-icon-button>
+                <mat-icon>
+                  {{selectedPro == i+'' ? 'expand_less' :'expand_more'}}
+                </mat-icon>
+              </button>
+            </td>
+          </tr>
+          <ng-container *ngIf="program.meals.length  != 0 && selectedPro == i+''">
+            <tr>
+              <td colspan="7" class="p-0">
+                <table class="table-theme-2 hover w-100">
+                  <thead>
+                    <th>#</th>
+                    <th>{{'DIETPLAN.meal-name' | translate}}</th>
+                    <th>{{'CATEGORIES.number-of' | translate}}</th>
+                    <th>{{'DIETPLAN.total-calories' | translate}}</th>
+                    <th colspan="2"></th>
+                  </thead>
+                  <tbody>
+                    <ng-container *ngFor="let meal of program.meals; let j = index">
+                      <tr class="row_space">
+                        <td colspan="5"></td>
+                      </tr>
+                      <tr (click)="(selectedMeal == j+'' ? selectedMeal = '': selectedMeal = j+'')">
+                        <td>{{j + 1}}</td>
+                        <td>{{meal.name}}</td>
+                        <td>{{meal.items.length}}</td>
+                        <td>{{meal.calories}}</td>
+                        <td class="text-end">
+                          <button mat-icon-button>
+                            <mat-icon>
+                              {{selectedMeal == j+'' ? 'expand_less' :'expand_more'}}
+                            </mat-icon>
+                          </button>
+                        </td>
+                      </tr>
+
+                      <tr *ngIf="meal.items.length  != 0 && selectedMeal == j+''">
+                        <td colspan="5" class="p-0">
+                          <table class="table-theme-2 hover w-100">
+                            <thead>
+                              <th>#</th>
+                              <th>{{'CATEGORIES.name' | translate}}</th>
+                              <th>{{'CATEGORIES.type' | translate}}</th>
+                              <th>{{'CATEGORIES.weight' | translate}}</th>
+                              <th colspan="3"></th>
+                            </thead>
+                            <tbody>
+                              <ng-container *ngFor="let item of meal.items; let k =index">
+                                <tr>
+                                  <td>{{k+1}}</td>
+                                  <td>{{item.name}}</td>
+                                  <td>{{item.type}}</td>
+                                  <td>{{item.weight}}</td>
+                                  <td></td>
+                                </tr>
+                              </ng-container>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </ng-container>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+
+          </ng-container>
+
+        </ng-container>
+      </tbody>
+
+
+    </table>
+  </div>
+</section>

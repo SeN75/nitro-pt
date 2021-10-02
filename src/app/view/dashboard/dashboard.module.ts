@@ -43,6 +43,9 @@ import { DatePipe } from '@angular/common';
 import { FileUploadModule } from 'ng2-file-upload';
 import { MatSelectModule } from '@angular/material/select';
 import { InactiveDialogComponent } from './inactive-dialog/inactive-dialog.component';
+import { DietplanTempDialogComponent } from './diet-plan/dietplan-temp-dialog/dietplan-temp-dialog.component';
+import { DietPlanEditDettails2Component } from './diet-plan/diet-plan-edit-dettails2/diet-plan-edit-dettails2.component';
+import { DietplanEditDialogComponent } from './diet-plan/dietplan-edit-dialog/dietplan-edit-dialog.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +71,10 @@ import { InactiveDialogComponent } from './inactive-dialog/inactive-dialog.compo
     ResetPasswordComponent,
     BankAccountDialogComponent,
     UserDialogComponent,
-    InactiveDialogComponent
+    InactiveDialogComponent,
+    DietplanTempDialogComponent,
+    DietPlanEditDettails2Component,
+    DietplanEditDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -101,7 +107,8 @@ import { InactiveDialogComponent } from './inactive-dialog/inactive-dialog.compo
     WorkoutTypeDialogComponent,
     WorkoutDialogComponent,
     CategoryTypeDialogComponent,
-    CategoriesDialogComponent
+    CategoriesDialogComponent,
+    DietplanTempDialogComponent
   ],
   providers: [
     MatDatepickerModule,

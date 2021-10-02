@@ -12,100 +12,103 @@ import { DietplanCategory } from 'src/app/models/DietplanCategory';
 })
 
 export class DietPlanEditDetailsComponent implements OnInit {
-  calories: number|any;
-  protein: number|any;
-  carbs: number|any;
-  fat: number|any;
+  calories: number | any;
+  protein: number | any;
+  carbs: number | any;
+  fat: number | any;
 
+  programName: string = '';
 
-  public table_name : String|any;
-  public calories_count: number|any;
-  public protein_count: number|any;
-  public carbs_count: number|any;
-  public fat_count: number|any;
-  public tables : DietplanTable[] = [];
-  public meals : DietplanMeal[] = [];
-  public categories : DietplanCategory[] = [];
+  public table_name: String | any;
+  public calories_count: number | any;
+  public protein_count: number | any;
+  public carbs_count: number | any;
+  public fat_count: number | any;
+  public tables: DietplanTable[] = [];
+  public meals: DietplanMeal[] = [];
+  public categories: DietplanCategory[] = [];
 
-      /* When input is empty, it will
-       not create a new division */
-       public addTable() {
-        if (this.table_name == '' && this.calories_count == 0 && this.protein_count == 0 && this.fat_count == 0) {
-        }
-        else {
-          var table : DietplanTable = {
-            table_name: this.table_name,
-            calories_count: this.calories_count,
-            protein_count: this.protein_count,
-            carbs_count: this.carbs_count,
-            fat_count: this.fat_count,
-            meals : [],
-          };
-
-          this.tables.push(table);
-
-          console.log(table)
-          console.log('Added to Array Successfully')
-        }
+  /* When input is empty, it will
+   not create a new division */
+  public addTable() {
+    if (this.table_name == '' && this.calories_count == 0 && this.protein_count == 0 && this.fat_count == 0) {
     }
+    else {
+      var table: DietplanTable = {
+        table_name: this.table_name,
+        calories_count: this.calories_count,
+        protein_count: this.protein_count,
+        carbs_count: this.carbs_count,
+        fat_count: this.fat_count,
+        meals: [],
+      };
 
-    public meal_name: String = '';
-    public meal_categories_count: number = 0;
-    public meal_calories_count: number = 0;
-    //public meal_categories: DietplanCategory[] = [];
+      this.tables.push(table);
 
-    public meal : DietplanMeal = {
-      meal_name:this.meal_name,
-      meal_categories:[],
-      meal_calories_count:this.meal_calories_count,
-      meal_categories_count:this.meal_categories_count
-    };
-
-    public category_item = {
-      category_name : '',
-      category_count : 0,
-      category_calories : 0,
-      category_protein: 0,
-      category_carbs: 0,
-      category_fat: 0,
-      category_protein_gram: 0,
-      category_carbs_gram: 0,
-      category_fat_gram: 0
+      console.log(table)
+      console.log('Added to Array Successfully')
     }
+  }
 
-    public addMeal() {
-      if(this.meal_name == ''){
-        
-      }
-      else{
-        this.meal.meal_name=this.meal_name
-        this.meals.push(this.meal)
-        console.log(this.meals)
-        //this.meal_categories_count+1;
-        //this.meal.meal_categories.push(this.category_item)
-      }
-      }
-      
-    
+  public meal_name: String = '';
+  public meal_categories_count: number = 0;
+  public meal_calories_count: number = 0;
+  //public meal_categories: DietplanCategory[] = [];
 
-      public addCategory() {
-        if(this.meal_name == ''){
-          
-        }
-        else{
-          this.meal.meal_name=this.meal_name
-          this.meals.push(this.meal)
-          console.log(this.meals)
-          //this.meal_categories_count+1;
-          //this.meal.meal_categories.push(this.category_item)
-        }
-        }
+  public meal: DietplanMeal = {
+    meal_name: this.meal_name,
+    meal_categories: [],
+    meal_calories_count: this.meal_calories_count,
+    meal_categories_count: this.meal_categories_count
+  };
 
-  constructor(private dietplan_service: DietPlanService) {
-    this.calories = dietplan_service.dietPlanOjbect.calories;
-    this.protein = dietplan_service.dietPlanOjbect.protein;
-    this.carbs = dietplan_service.dietPlanOjbect.carbs;
-    this.fat = dietplan_service.dietPlanOjbect.fat;
+  public category_item = {
+    category_name: '',
+    category_count: 0,
+    category_calories: 0,
+    category_protein: 0,
+    category_carbs: 0,
+    category_fat: 0,
+    category_protein_gram: 0,
+    category_carbs_gram: 0,
+    category_fat_gram: 0
+  }
+
+  public addMeal() {
+    if (this.meal_name == '') {
+
+    }
+    else {
+      this.meal.meal_name = this.meal_name
+      this.meals.push(this.meal)
+      console.log(this.meals)
+      //this.meal_categories_count+1;
+      //this.meal.meal_categories.push(this.category_item)
+    }
+  }
+
+
+
+  public addCategory() {
+    if (this.meal_name == '') {
+
+    }
+    else {
+      this.meal.meal_name = this.meal_name
+      this.meals.push(this.meal)
+      console.log(this.meals)
+      //this.meal_categories_count+1;
+      //this.meal.meal_categories.push(this.category_item)
+    }
+  }
+
+  constructor(private dietplanSrv: DietPlanService) {
+    this.calories = dietplanSrv.dietPlanOjbect.calories;
+    this.protein = dietplanSrv.dietPlanOjbect.protein;
+    this.carbs = dietplanSrv.dietPlanOjbect.carbs;
+    this.fat = dietplanSrv.dietPlanOjbect.fat;
+    this.programName = this.dietplanSrv.selectProgram.name
+
   }
   cate_selected = -1;
   cate_checked = false;

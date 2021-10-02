@@ -1,0 +1,59 @@
+<h1 mat-dialog-title class="dialog-title ">
+  {{'DIETPLAN.'+ (data.state == 'table' ? 'edit-table' : 'edit-meal') |translate}}
+</h1>
+
+
+<div mat-dialog-content [formGroup]="tableForm" *ngIf="data.state == 'table'">
+
+  <div class="row">
+    <div class="form-group col-12" [class.has_error]="tableForm.get('name')?.invalid && tableForm.get('name')?.dirty ">
+      <label for="input">{{'DIETPLAN.table-name' | translate}}*</label>
+      <input name="input" formControlName="name" class="form-control">
+      <div class="hint" *ngIf="tableForm.get('name')?.invalid && tableForm.get('name')?.dirty ">
+        <span *ngIf="tableForm.get('name').errors.required">{{'VALIDATION.required' | translate}}</span>
+        <!-- <span *ngIf="tableForm.get('name').errors.pattern">{{'VALIDATION.en' | translate}}</span> -->
+
+      </div>
+    </div>
+    <div class="form-group col-12" [class.has_error]="tableForm.get('note')?.invalid && tableForm.get('note')?.dirty ">
+      <label for="input">{{'DIETPLAN.notes' | translate}}*</label>
+      <textarea name="input" formControlName="note" class="form-control" rows="4"></textarea>
+      <div class="hint" *ngIf="tableForm.get('note')?.invalid && tableForm.get('note')?.dirty ">
+        <span *ngIf="tableForm.get('note').errors.required">{{'VALIDATION.required' | translate}}</span>
+        <!-- <span *ngIf="tableForm.get('note').errors.pattern">{{'VALIDATION.en' | translate}}</span> -->
+
+      </div>
+    </div>
+  </div>
+  <div class="button-group mt-3">
+    <button mat-raised-button color="primary" [disabled]="tableForm.invalid" (click)="action()"> {{'FORM.edit' |
+      translate}}
+    </button>
+
+    <button mat-stroked-button color="warn" (click)="delete()"> {{'FORM.remove' |
+      translate}} </button>
+  </div>
+</div>
+<div mat-dialog-content [formGroup]="mealForm" *ngIf="data.state == 'meal'">
+
+  <div class="row">
+    <div class="form-group col-12" [class.has_error]="mealForm.get('name')?.invalid && mealForm.get('name')?.dirty ">
+      <label for="input">{{'DIETPLAN.meal-name' | translate}}*</label>
+      <input name="input" formControlName="name" class="form-control">
+      <div class="hint" *ngIf="mealForm.get('name')?.invalid && mealForm.get('name')?.dirty ">
+        <span *ngIf="mealForm.get('name').errors.required">{{'VALIDATION.required' | translate}}</span>
+        <!-- <span *ngIf="mealForm.get('name').errors.pattern">{{'VALIDATION.en' | translate}}</span> -->
+
+      </div>
+    </div>
+
+  </div>
+  <div class="button-group mt-3">
+    <button mat-raised-button color="primary" [disabled]="mealForm.invalid" (click)="action()"> {{'FORM.edit' |
+      translate}}
+    </button>
+
+    <button mat-stroked-button color="warn" (click)="delete()"> {{'FORM.remove' |
+      translate}} </button>
+  </div>
+</div>

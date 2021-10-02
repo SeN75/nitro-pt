@@ -24,17 +24,16 @@
         </tr>
       </thead>
       <tbody class="text-center">
-        <tr *ngFor="let cat of dietPlanArr; let i = index">
+        <tr *ngFor="let program of dietPlanArr; let i = index">
           <td>{{i + 1 }}</td>
-          <td>{{cat.name}}</td>
-          <td>{{cat.calories}}</td>
-          <td>{{cat.protein}}</td>
-          <td>{{cat.carp}}</td>
-          <td>{{cat.fat}}</td>
+          <td>{{program.name}}</td>
+          <td>{{program.calories}}</td>
+          <td>{{program.protein}}</td>
+          <td>{{program.carp}}</td>
+          <td>{{program.fat}}</td>
           <td class="text-end">
             <span>
-
-              <button mat-icon-button routerLink="{{i+'/view'}}">
+              <button mat-icon-button routerLink="{{i+'/view'}}" (click)="dietplanSrv.selectProgram  = program">
                 <mat-icon>arrow_back_ios</mat-icon>
               </button>
             </span>

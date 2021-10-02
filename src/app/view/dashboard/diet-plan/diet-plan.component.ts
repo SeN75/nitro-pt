@@ -20,11 +20,11 @@ export class DietPlanComponent implements OnInit {
 
   ]
   constructor(
-    private dietplan_service: DietPlanService,
+    public dietplanSrv: DietPlanService,
     public dialogSrv: DialogService,
 
   ) {
-    this.dietplan = dietplan_service.dietPlanOjbect.calories;
+    this.dietplan = dietplanSrv.dietPlanOjbect.calories;
     this.dtOptions = {
       pageLength: 10,
       searching: false,

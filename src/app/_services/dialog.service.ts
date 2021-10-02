@@ -14,6 +14,8 @@ import { IdentityService } from './identity/identity.service';
 import { InactiveDialogComponent } from './../view/dashboard/inactive-dialog/inactive-dialog.component';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { DietplanTempDialogComponent } from '../view/dashboard/diet-plan/dietplan-temp-dialog/dietplan-temp-dialog.component';
+import { DietplanEditDialogComponent } from '../view/dashboard/diet-plan/dietplan-edit-dialog/dietplan-edit-dialog.component';
 
 @Injectable({
   providedIn: 'root'
@@ -145,5 +147,25 @@ export class DialogService {
     }
       // this.identitySrv.logout()
     );
+  }
+  openDietplanTempDialog(state?: string, dietplan?: any) {
+    const dialogRef = this.dialog.open(DietplanTempDialogComponent, {
+      height: 'auto',
+      minWidth: '300px',
+      maxWidth: "750px",
+      width: 'auto',
+      data: { state: state, dietplan: dietplan }
+    });
+    dialogRef.afterClosed().subscribe(res => console.log("dialog closed"));
+  }
+  openDietplanEditDialog(state?: string, data?: any) {
+    const dialogRef = this.dialog.open(DietplanEditDialogComponent, {
+      height: 'auto',
+      minWidth: '300px',
+      maxWidth: "750px",
+      width: 'auto',
+      data: { state: state, data: data }
+    });
+    dialogRef.afterClosed().subscribe(res => console.log("dialog closed"));
   }
 }

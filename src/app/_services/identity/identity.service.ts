@@ -103,6 +103,10 @@ export class IdentityService {
     return this.httpClient.delete(Identity + "user/profiles/" + id + "/")
   }
 
+  private _verifyOTP() {
+    return this.httpClient.get(Identity + "otp_verify")
+  }
+
 
 
 

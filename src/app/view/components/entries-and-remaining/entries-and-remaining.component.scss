@@ -1,0 +1,35 @@
+.entries_and_remaining_table {
+  width: 100%;
+}
+
+.entries_and_remaining_table tr td {
+  background: #fff;
+  color: #1d4980;
+  text-align: center;
+  border-top: 1px solid #f1f1f3;
+  padding: 8px 10px;
+  font: normal normal normal 14px/30px Helvetica;
+}
+.entries_and_remaining_table tr:first-child td {
+  border: none;
+}
+
+.entries_and_remaining_table tr td.label {
+  background: #1d4980;
+  color: #fff;
+  text-align: center;
+}
+
+.entries_and_remaining_table tr.header td {
+  background-color: #f5f6fa;
+  color: #1d4980;
+}
+
+.space_column {
+  padding: 0 20px;
+}
+
+.no_column {
+  opacity: 0;
+  border: transparent !important;
+}

@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ArchivingInfoComponent } from './info-items/archiving-info/archiving-info.component';
 import { RouterModule } from '@angular/router';
 import { UplodeFileComponent } from './uplode-file/uplode-file.component';
+import { EntriesAndRemainingComponent } from './entries-and-remaining/entries-and-remaining.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { UplodeFileComponent } from './uplode-file/uplode-file.component';
     BodyMeasurementsComponent,
     BodyPicInfoComponent,
     ArchivingInfoComponent,
-    UplodeFileComponent
+    UplodeFileComponent,
+    EntriesAndRemainingComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ import { UplodeFileComponent } from './uplode-file/uplode-file.component';
     SportsHealthSuberInfoComponent,
     BodyMeasurementsComponent,
     BodyPicInfoComponent,
-    ArchivingInfoComponent
+    ArchivingInfoComponent,
+    EntriesAndRemainingComponent
   ]
 })
 export class ComponentsModule { }

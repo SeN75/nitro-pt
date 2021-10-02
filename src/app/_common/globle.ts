@@ -3,7 +3,7 @@ export const sideMenu = [
   { name: "ORDERS.orders", img: "orders.svg", activeImg: "orders_active.svg", path: "/dashboard/orders" },
   { name: "CATEGORIES.categories", img: "protein.svg", activeImg: "protein_active.svg", path: "/dashboard/categories" },
   { name: "PACKAGES.packages", img: "subscription.svg", activeImg: "subscription_active.svg", path: "/dashboard/packages" },
-  { name: "DIETPLAN.dietplan", img: "Color.svg", activeImg: "colorires_active.svg", path: "/dashboard/dietplan" },
+  { name: "DIETPLAN.dietplan", img: "Color.svg", activeImg: "colorires_active.svg", path: "/dashboard/diet" },
   { name: "WORKSOUT.worksout", img: "workout.svg", activeImg: "workout_active.svg", path: "/dashboard/worksout" },
   { name: "SETTINGS.account-settings", img: "settings.svg", activeImg: "settings_active.svg", path: "/dashboard/account-settings" },
 ]
