@@ -44,6 +44,10 @@ import { NavbarComponent } from './view/landing-page/navbar/navbar.component';
 import { FooterComponent } from './view/landing-page/footer/footer.component';
 import { DropzoneDirective } from './_directive/dropzone.directive';
 import { ProfileComponent } from './view/landing-page/profile/profile.component';
+import { PackageInfoTableComponent } from './view/landing-page/profile/package-info-table/package-info-table.component';
+import { CurrentOrderTableComponent } from './view/landing-page/profile/current-order-table/current-order-table.component';
+import { CloseOrderTableComponent } from './view/landing-page/profile/close-order-table/close-order-table.component';
+import { DietplanSectionComponent } from './view/landing-page/profile/dietplan-section/dietplan-section.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +64,11 @@ import { ProfileComponent } from './view/landing-page/profile/profile.component'
     NavbarComponent,
     FooterComponent,
     DropzoneDirective,
-    ProfileComponent
+    ProfileComponent,
+    PackageInfoTableComponent,
+    CurrentOrderTableComponent,
+    CloseOrderTableComponent,
+    DietplanSectionComponent
   ],
   imports: [
     BrowserModule,

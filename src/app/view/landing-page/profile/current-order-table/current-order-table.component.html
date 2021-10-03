@@ -1,0 +1,35 @@
+<section class="content pt-0">
+  <header class="page-header">
+    <h1 class="title">
+      {{'ORDERS.current' | translate}}
+    </h1>
+  </header>
+  <div class="body scroll">
+    <table class="table-theme-1 hover">
+      <thead>
+        <th>{{'ORDERS.no' | translate}}</th>
+        <th>{{'ORDERS.type' | translate}}</th>
+        <th>{{'ORDERS.status' | translate}}</th>
+        <th>{{'FORM.notes' | translate}}</th>
+      </thead>
+      <tbody>
+        <tr class="no_data" *ngIf="order.length == 0">
+          <td colspan="4">
+            {{'ORDERS.no-data' | translate}}
+          </td>
+        </tr>
+        <ng-container *ngFor="let info of order">
+          <tr class="row_space">
+            <td colspan="4"></td>
+          </tr>
+          <tr>
+            <td>{{info.order_no}}</td>
+            <td>{{info.type}} </td>
+            <td>{{info.status}}</td>
+            <td>{{info.notes}}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</section>

@@ -86,12 +86,15 @@
     "orders": "orders",
     "new-table": "new order",
     "complete-table": "complete order",
+    "current": "current order",
+    "close": "close order",
     "no": "order no",
     "name": "customer name",
     "type": "order type",
     "status": "order status",
     "date": "order date",
-    "info": "order information"
+    "info": "order information",
+    "no-data": "There is no orders"
   },
   "CATEGORIES": {
     "categories": "categories",
@@ -140,6 +143,8 @@
     "attach-name": "attach name",
     "show-in-website": "show in webite",
     "choose-package": "To get started please choose a package",
+    "info": "package information",
+    "no-data": " There is no data for package yet.",
     "hello": "hello",
     "sr": "SR"
   },
@@ -189,6 +194,7 @@
     "edit-table": "edit table",
     "number-of-meals": "number of meals",
     "dietplan": "Diet Plans",
+    "dietplan_": "Diet Plan",
     "add": "add a diet program",
     "no-plan": "there is no diet"
   },
@@ -300,7 +306,12 @@
     "ok" : "ok",
     "otp-code": "otp code",
     "resend": "resend",
-    "enter-otp": "Enter otp code."
+    "enter-otp": "Enter otp code.",
+    "notes": "notes",
+    "download": "download",
+    "update-profile": "update profile",
+    "new-subscription": "new subscription"
+
   },
   "VALIDATION": {
     "email": {

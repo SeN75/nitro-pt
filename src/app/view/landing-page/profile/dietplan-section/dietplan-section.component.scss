@@ -1,0 +1,35 @@
+.pdf_container {
+  width: 354px;
+  height: 221px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 30px;
+}
+.pdf_wraper {
+  background-color: white;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+.pdf_wraper .pdf_file {
+  background-color: #f9faff;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.pdf_wraper div .pdf_img {
+  width: 40px;
+  height: 53px;
+  margin: auto;
+  display: block;
+}
+.pdf_wraper div .pdf_filename {
+  font-size: 1em;
+  color: #1d4980;
+}
