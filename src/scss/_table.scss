@@ -102,3 +102,31 @@ a.table_row_link {
   width: 250px;
   border: 1px solid #929292 !important;
 }
+
+.header_table,
+.body_table {
+  margin-top: 20px;
+}
+div.header_table {
+  background-color: #f9fafb;
+  color: #313438;
+  border: #e2e2e3 solid 1px;
+  padding: 0.8em 1em;
+}
+div.body_table {
+  background-color: #fff;
+  color: #1d4980;
+  border: #e2e2e3 solid 1px;
+  text-align: center;
+  padding: 0.8em 1em;
+}
+div.body_table:nth-child(1),
+div.body_table:nth-child(2),
+div.header_table:nth-child(1),
+div.header_table:nth-child(2) {
+  border-left: none;
+  border-right: #e2e2e3 solid 1px;
+}
+.body {
+  height: auto;
+}

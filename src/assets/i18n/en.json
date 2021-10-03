@@ -329,6 +329,9 @@
     "year": "year",
     "month": "month"
   },
+  "LANDINGPAGE": {
+    "home": "home"
+  },
   "SUCCESS": {
     "create-user-verify": "User created, check mail to activate account",
     "PACKAGES": {

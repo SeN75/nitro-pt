@@ -72,4 +72,11 @@
   .nav_bar {
     direction: ltr;
   }
+  div.body_table:nth-child(1),
+  div.body_table:nth-child(2),
+  div.header_table:nth-child(1),
+  div.header_table:nth-child(2) {
+    border-right: none;
+    border-left: #e2e2e3 solid 1px;
+  }
 }

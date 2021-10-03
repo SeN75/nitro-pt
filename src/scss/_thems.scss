@@ -58,3 +58,7 @@ $nitro-theme: mat-light-theme(
   )
 );
 @include angular-material-theme($nitro-theme);
+
+.bg-second {
+  background-color: var(--gray-blue) !important;
+}

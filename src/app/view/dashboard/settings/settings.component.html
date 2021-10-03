@@ -11,19 +11,34 @@
           translate}}</button>
       </span>
     </header>
-    <div class="row header_table">
-      <div class="col-4">{{'SETTINGS.name' | translate}}</div>
-      <div class="col-4">{{'SETTINGS.email' | translate}}</div>
-      <div class="col-4">{{'SETTINGS.phone-number' | translate}}</div>
-    </div>
-    <div class="row body_table">
-      <div class="col-4">
-        {{ lang.selected == 'ar'? identitySrv.userData.first_name_ar : identitySrv.userData.first_name }}
-        {{ lang.selected == 'ar'? identitySrv.userData.middle_name_ar : identitySrv.userData.middle_name }}
-        {{ lang.selected == 'ar'? identitySrv.userData.last_name_ar : identitySrv.userData.last_name }}
+
+    <div class="row g-0">
+      <div class="col-md-4">
+        <div class="header_table">
+          {{'SETTINGS.name' | translate}}
+        </div>
+        <div class="body_table">
+          {{ lang.selected == 'ar'? identitySrv.userData.first_name_ar : identitySrv.userData.first_name }}
+          {{ lang.selected == 'ar'? identitySrv.userData.middle_name_ar : identitySrv.userData.middle_name }}
+          {{ lang.selected == 'ar'? identitySrv.userData.last_name_ar : identitySrv.userData.last_name }}
+        </div>
       </div>
-      <div class="col-4">{{identitySrv.userData.email}}</div>
-      <div class="col-4">{{identitySrv.userData.phone_number}}</div>
+      <div class="col-md-4">
+        <div class="header_table">
+          {{'SETTINGS.email' | translate}}
+        </div>
+        <div class="body_table">
+          {{identitySrv.userData.email}}
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="header_table">
+          {{'SETTINGS.phone-number' | translate}}
+        </div>
+        <div class="body_table">
+          {{identitySrv.userData.phone_number}}
+        </div>
+      </div>
     </div>
 
   </div>

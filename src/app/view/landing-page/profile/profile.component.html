@@ -1,0 +1,43 @@
+<section class="profile">
+  <app-navbar [isProfile]="true"></app-navbar>
+
+  <div class="content">
+    <header class="page-header">
+      <h1 class="title">
+        {{'PERSONAL-DATA.personal-data' | translate}}
+      </h1>
+    </header>
+
+    <div class="row g-0">
+      <div class="col-md-4">
+        <div class="header_table">
+          {{'SETTINGS.name' | translate}}
+        </div>
+        <div class="body_table">
+          {{ lang.selected == 'ar'? identitySrv.userData.first_name_ar : identitySrv.userData.first_name }}
+          {{ lang.selected == 'ar'? identitySrv.userData.middle_name_ar : identitySrv.userData.middle_name }}
+          {{ lang.selected == 'ar'? identitySrv.userData.last_name_ar : identitySrv.userData.last_name }}
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="header_table">
+          {{'SETTINGS.email' | translate}}
+        </div>
+        <div class="body_table">
+          {{identitySrv.userData.email}}
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="header_table">
+          {{'SETTINGS.phone-number' | translate}}
+        </div>
+        <div class="body_table">
+          {{identitySrv.userData.phone_number}}
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</section>

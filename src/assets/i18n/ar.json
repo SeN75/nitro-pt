@@ -343,6 +343,9 @@
     "year": "سنه",
     "month": "شهر"
   },
+  "LANDINGPAGE": {
+    "home": "الرئيسية"
+  },
   "SUCCESS" : {
     "create-user-verify" :"تم انشاء مستخدم، تحقق من البريد لتنشيط الحساب",
     "PACKAGES": {

@@ -12,14 +12,14 @@ const Identity = API + "auth/";
 })
 export class IdentityService {
   userData: any = {
-    first_name: '',
-    first_name_ar: '',
+    first_name: 'not data',
+    first_name_ar: 'لايوجد',
     middle_name: '',
     middle_name_ar: '',
     last_name: '',
     last_name_ar: '',
-    email: '',
-    phone_number: '',
+    email: 'لايوجد',
+    phone_number: 'لايوجد',
   };
   coaches: any;
   staffs: any;

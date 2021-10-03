@@ -43,6 +43,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { NavbarComponent } from './view/landing-page/navbar/navbar.component';
 import { FooterComponent } from './view/landing-page/footer/footer.component';
 import { DropzoneDirective } from './_directive/dropzone.directive';
+import { ProfileComponent } from './view/landing-page/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { DropzoneDirective } from './_directive/dropzone.directive';
     DialogComponent,
     NavbarComponent,
     FooterComponent,
-    DropzoneDirective
+    DropzoneDirective,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
