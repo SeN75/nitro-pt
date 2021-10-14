@@ -12,6 +12,14 @@ const subApi = API + "sub/"
   providedIn: 'root'
 })
 export class SubscriptionsService {
+  subscrioptionList: any = [];
+  requestListl: any = [];
+  genderList: any[] = [];
+  soucialStatueList: any[] = [];
+
+  subscriper: any;
+  request: any;
+
 
   constructor(
     private httpClient: HttpClient,
@@ -225,6 +233,56 @@ export class SubscriptionsService {
     }, (error: HttpErrorResponse) => {
       this.logger.log('create approve or denay request error: ', error)
       this.translateSrv.get('ERRORS.SUBSCRIOPTION.approve').subscribe(msg => this.toastSrv.error(msg))
+    })
+  }
+
+  public briefSubscriptionsLis() {
+    this._briefSubscriptionsList().subscribe((success: any) => {
+      this.logger.log('briefSubscriptionsLis: ', success)
+      this.subscrioptionList = success;
+    }, (error: HttpErrorResponse) => {
+      this.logger.error('briefSubscriptionsLis: ', error)
+    })
+  }
+  public briefRequestsList() {
+    this._briefRequestsList().subscribe((success: any) => {
+      this.logger.log('briefRequestsList: ', success)
+      this.requestListl = success;
+    }, (error: HttpErrorResponse) => {
+      this.logger.error('briefRequestsList: ', error)
+    })
+  }
+
+  public getRequestDetailsById(id: string) {
+    this._getRequestDetailsById(id).subscribe((success: any) => {
+      this.logger.log('getRequestDetailsById: ', success)
+      this.request = success;
+    }, (error: HttpErrorResponse) => {
+      this.logger.error('getRequestDetailsById: ', error)
+    })
+  }
+  public getSubscriptionDetailsById(id: string) {
+    this._getSubscriptionDetailsById(id).subscribe((success: any) => {
+      this.logger.log('getSubscriptionDetailsById: ', success)
+      this.subscriper = success;
+    }, (error: HttpErrorResponse) => {
+      this.logger.error('getSubscriptionDetailsById: ', error)
+    })
+  }
+  public getGenderList() {
+    this._getGenderList().subscribe((success: any) => {
+      this.logger.log('getGenderList: ', success)
+      this.genderList = success;
+    }, (error: HttpErrorResponse) => {
+      this.logger.error('getGenderList: ', error)
+    })
+  }
+  public getSocialStatusList() {
+    this._getSocialStatusList().subscribe((success: any) => {
+      this.logger.log('getSocialStatusList: ', success)
+      this.soucialStatueList = success;
+    }, (error: HttpErrorResponse) => {
+      this.logger.error('getSocialStatusList: ', error)
     })
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatAccordion } from '@angular/material/expansion';
 import { SubscribersService } from 'src/app/_services/subscriptions/subscribers.service';
+import { SubscriptionsService } from 'src/app/_services/subscriptions/subscriptions.service';
 
 @Component({
   selector: 'app-subscriber-info',
@@ -102,14 +103,14 @@ export class SubscriberInfoComponent implements OnInit {
       }
     ]
   }
-  constructor(private subscribersSrv: SubscribersService) { }
+  constructor(private subscribersSrv: SubscriptionsService) { }
   @ViewChild(MatAccordion, { static: false })
   accordion!: MatAccordion;
 
   ngOnInit(): void {
 
-    if (this.subscribersSrv.subscribersInfo) {
-      this.info = this.subscribersSrv.subscribersInfo;
+    if (this.subscribersSrv.subscriper) {
+      this.info = this.subscribersSrv.subscriper;
 
     }
   }

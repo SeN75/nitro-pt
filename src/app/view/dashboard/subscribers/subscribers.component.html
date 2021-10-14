@@ -11,7 +11,7 @@
     </span>
   </header>
   <div class="body">
-    <table datatable [dtOptions]="dtOptions" class="table-theme-1 hover">
+    <table class="table-theme-1 hover">
       <thead class="text-center">
         <tr>
           <th>#</th>
@@ -25,13 +25,27 @@
         </tr>
       </thead>
       <tbody class="text-center">
-        <tr *ngFor="let sub of subscribers; let i = index">
+        <tr *ngFor="let sub of subscribersSrv.subscrioptionList.subscriptions; let i = index">
           <td>{{i + 1 }}</td>
-          <td>{{sub.personalData.name }}</td>
-          <td>{{sub.subStartDate | date }}</td>
-          <td>{{sub.subEndDate | date }}</td>
-          <td>{{sub.subAmount | number:'1.2-2' }}</td>
-          <td>{{sub.subNo }}</td>
+          <td>{{sub.client }}</td>
+          <td>
+            <span *ngIf="sub.start_date != 'N/A'">
+              {{sub.start_date | date }}
+            </span>
+            <span *ngIf="sub.start_date == 'N/A'">
+              {{'FORM.null' | translate}}
+            </span>
+          </td>
+          <td>
+            <span *ngIf="sub.end_date != 'N/A'">
+              {{sub.end_date | date }}
+            </span>
+            <span *ngIf="sub.end_date == 'N/A'">
+              {{'FORM.null' | translate}}
+            </span>
+          </td>
+          <td>{{sub.price | number:'1.2-2' }}</td>
+          <td>{{sub.id }}</td>
           <td class="{{sub.subStatus}}">{{'STATUS.'+sub.subStatus | translate }}</td>
           <td class="text-end">
             <span>
