@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Counrties } from 'src/app/_common/counties';
 import { ConfirmPasswordValidator } from './../../../_helpers/confirm-password.validator';
 import { IdentityService } from 'src/app/_services/identity/identity.service';
@@ -14,6 +14,8 @@ export class SignupComponent implements OnInit {
   registerForm: FormGroup;
   hidePassword = true;
   countriesCode = Counrties;
+  counterCode: FormControl = new FormControl('966');
+  phoneNumber: FormControl = new FormControl('', [Validators.required, Validators.minLength(9)])
   constructor(
     private formBuilder: FormBuilder,
     private identitySrv: IdentityService,
@@ -25,8 +27,7 @@ export class SignupComponent implements OnInit {
       last_name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      counterCode: ['966', Validators.required],
-      phone_number: ['', [Validators.required, Validators.minLength(9)]],
+      // phone_number: ['', [Validators.required, Validators.minLength(9)]],
       // Validators.pattern("(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}")
       password: ['', [Validators.required, Validators.minLength(8)]],
       re_password: ['', Validators.required],
@@ -43,14 +44,14 @@ export class SignupComponent implements OnInit {
 
   _signup() {
     let data: any = this.registerForm.value;
-    data.phone_number = "+" + data.counterCode + data.phone_number;
-    delete data.counterCode;
+    data.phone_number = "+" + this.counterCode.value + this.phoneNumber.value;
     data.role = "member";
-    data.first_name = data.username;
-    data.middle_name = data.username;
-    data.last_name = data.username;
+    data.first_name = 'dd';
+    data.middle_name = 'dd';
+    data.last_name = 'dd';
     this.logger.log('sign up: ', data)
-    this.identitySrv.postCreateUser(data);
+    this.identitySrv.postCreateUser(this.registerForm.value);
+
   }
 
 }

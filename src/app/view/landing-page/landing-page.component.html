@@ -8,7 +8,7 @@
       <div class="col-lg-6 col-12 slogan position-absolute-mobile">
         <img src="../../../assets/images/slogan.svg" alt="">
         <div *ngIf="rt">
-          <h1>أهلاً محمد</h1>
+          <h1>أهلاً {{identitySrv.userData.first_name_ar}}</h1>
         </div>
         <div *ngIf="!rt">
           <div class="row justify-content-center mt-5">

@@ -65,22 +65,21 @@
         </div>
       </div>
       <div class="row justify-content-between align-items-end">
-        <div class="form-group col-7 col-sm-8"
-          [class.has_error]="registerFormControl.controls.phone_number.invalid && registerFormControl.controls.phone_number.touched">
+        <div class="form-group col-7 col-sm-8" [class.has_error]="phoneNumber.invalid && phoneNumber.touched">
           <label for="input">{{'FORM.phone-mobile' | translate}}</label>
           <input name="input" type="tel" maxlength="9" class="form-control" placeholder="5XX-XXX-XX"
-            formControlName="phone_number">
+            [formControl]="phoneNumber">
 
         </div>
         <div class="form-group col-5 col-sm-4">
-          <select class="form-control" placeholder="+966" formControlName="counterCode">
+          <select class="form-control" placeholder="+966" [formControl]="counterCode">
             <option *ngFor="let code of countriesCode" [value]="code.phone_code">+ {{code.phone_code}}</option>
           </select>
         </div>
         <div class="hint">
           {{(
-          registerFormControl.controls.phone_number.errors&&registerFormControl.controls.phone_number.touched ?
-          registerFormControl.controls.phone_number.errors.required ? 'VALIDATION.required':
+          phoneNumber.errors&&phoneNumber.touched ?
+          phoneNumber.errors.required ? 'VALIDATION.required':
           '' : '')
           | translate }}
         </div>
@@ -125,7 +124,7 @@
   <!--  routerLink="/register/join_program" -->
   <div class="d-flex justity-content-center mt-5 mb-3">
     <button mat-raised-button color="primary" class="btn-lg m-auto" (click)="_signup()"
-      [disabled]="registerForm.invalid">{{'FORM.sign-up' |
+      [disabled]="registerForm.invalid || phoneNumber.invalid">{{'FORM.sign-up' |
       translate}}</button>
   </div>
   <div class="d-flex justity-content-center ">

@@ -26,7 +26,7 @@ export class PackagesService {
     this.getAllAttachmentList();
   }
   private _getPackagesList() {
-    return this.httpClient.get(packUrl + "list")
+    return this.httpClient.get(packUrl + "list");
   }
   private _createPackage(data: any) {
     return this.httpClient.post(packUrl + "create", data);
@@ -46,7 +46,9 @@ export class PackagesService {
   private _deletePackageById(id: string) {
     return this.httpClient.delete(packUrl + "id/" + id);
   }
-
+  private _getPackagesListForLandingpage() {
+    return this.httpClient.get(packUrl + 'landing/owner/a0e801d5-a88a-4547-af70-b60719dd67a2');
+  }
 
   public getPackagesList() {
     this._getPackagesList().subscribe((success: any) => {
@@ -91,6 +93,7 @@ export class PackagesService {
   }
   public getPackageByCoachId(id: string) {
     this._getPackageByCoachId(id).subscribe((success: any) => {
+      this.packages = success;
       this.logger.log("get package By coache Id:", success)
     }, (error: HttpErrorResponse) => {
       this.logger.error("get package By coache Id error: ", error)
@@ -116,6 +119,14 @@ export class PackagesService {
       this.translateSrv.get('ERROR.PACKAGES.delete').subscribe(msg => this.toaterSrv.error(msg))
 
       this.logger.error("delete Package By Id error: ", error)
+    })
+  }
+  public getPackagesListForLandingpage() {
+    this._getPackagesListForLandingpage().subscribe((success: any) => {
+      this.packages = success
+      this.logger.log('get Packages List For Landingpage: ', success)
+    }, (error: HttpErrorResponse) => {
+      this.logger.error('error get Packages List For Landingpage: ', error)
     })
   }
 }

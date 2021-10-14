@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChildren, Input } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { LoggerService } from 'src/app/_services/logger.service';
+import { IdentityService } from 'src/app/_services/identity/identity.service';
 
 @Component({
   selector: 'app-otp',
@@ -15,10 +16,13 @@ export class OtpComponent implements OnInit {
   otpForm: FormGroup;
   @ViewChildren('formRow') rows: any;
   constructor(
-    private logger: LoggerService
+    private logger: LoggerService,
+    private identitySrv: IdentityService
   ) {
     this.otpForm = this.toFormGroup(this.formInput)
     this.countDown()
+    this.identitySrv.getUserProfileByJWT();
+
   }
 
 
@@ -66,6 +70,7 @@ export class OtpComponent implements OnInit {
     if (this.otpForm.valid) {
       let code = '';
       this.formInput.forEach(e => code += this.otpForm.get(e)?.value)
+      this.identitySrv.verifyOTP({ otp: code, phone_number: this.identitySrv.userData.phone_number });
       this.logger.log('otp: ', code)
     }
   }

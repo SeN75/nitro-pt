@@ -32,8 +32,8 @@ export class IdentityService {
     private router: Router,
     private cookieSrv: CookieService,
     private logger: LoggerService) {
-    // this.logout(localStorage.getItem('refreshToken'));
-    // this.logoutAll();
+    //this.logout();
+    //this.logoutAll();
     if (localStorage.getItem('refreshToken') && cookieSrv.get('loggedin')) {
       setTimeout(() => {
         this.getUserProfileByJWT()
@@ -97,14 +97,14 @@ export class IdentityService {
     return this.httpClient.post(Identity + "user/logout_all/", {});
   }
   private _logout(data: any) {
-    return this.httpClient.post(Identity + "user/logout/", { refresh: data });
+    return this.httpClient.post(Identity + "user/logout", { refresh: data });
   }
   private _deleteProfileById(id: string) {
     return this.httpClient.delete(Identity + "user/profiles/" + id + "/")
   }
 
-  private _verifyOTP() {
-    return this.httpClient.get(Identity + "otp_verify")
+  private _verifyOTP(data: any) {
+    return this.httpClient.post(Identity + "otp_verify", data)
   }
 
 
@@ -161,7 +161,10 @@ export class IdentityService {
       this.logger.error("update Data User Data  error: ", error)
     })
   }
-  public postCreateUser(userData: any) {
+  public postCreateUser(userData: any, phone_number?: number, counter?: number) {
+
+
+    //delete userData.counterCode;
     this._postCreateUser(userData).subscribe((success: any) => {
 
       this.logger.log("post Create User :", success)
@@ -170,8 +173,10 @@ export class IdentityService {
         this.getStaff()
       if (userData.role == 'coach')
         this.getAllCoaches()
-      else
+      else {
+        this.userData = success;
         this.router.navigateByUrl('/register/otp_verify')
+      }
     }, (error: HttpErrorResponse) => {
       this.logger.error("post Create User  error: ", error)
       this.translateSrv.get('ERROR.create-user').subscribe(msg => this.toastSrv.error(msg))
@@ -280,4 +285,16 @@ export class IdentityService {
     })
 
   }
+  public verifyOTP(data: any) {
+    this._verifyOTP(data).subscribe((success: any) => {
+      this.logger.log('accept otp: ', success)
+      this.router.navigateByUrl("/register/joining_form")
+    }, (error: HttpErrorResponse) => {
+      this.logger.error('otp not accept:', error);
+      this.translateSrv.get('ERROR.').subscribe(msg => {
+        this.toastSrv.error(msg)
+      })
+    })
+  }
+
 }

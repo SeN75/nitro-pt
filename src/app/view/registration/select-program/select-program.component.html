@@ -1,10 +1,12 @@
-<header class="text-center title mb-5 h4 ">{{'PACKAGES.hello' | translate}} {{clientInfo.name_ar}}</header>
+<header class="text-center title mb-5 h4 ">{{'PACKAGES.hello' | translate}} {{IdentitySrv.userData.first_name_ar}}
+</header>
 <h3 class="text-center section-title  h3">{{'PACKAGES.choose-package' | translate}}</h3>
 <div class="p-5 slick_wrapper">
   <div class="slick_carousel">
     <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
       (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
-      <package-card ngxSlickItem class="col col-lg-4 col-md-6 mt-3" *ngFor="let pack of packages; index as i "
+      <package-card ngxSlickItem class="col col-lg-4 col-md-6 mt-3"
+        *ngFor="let pack of packageSrv.packages; index as i "
         [package_title]="lang.selected == 'ar'?pack.name_ar: pack.name" [package_months]="pack.period"
         [package_price]="pack.price" [theme_number]="((i%3)+1)" [with_button]="true"
         path="/register/terms_and_condition" [pack]="pack">
