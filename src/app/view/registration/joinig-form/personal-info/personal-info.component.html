@@ -23,8 +23,10 @@
       <label for="">{{'PERSONAL-DATA.social-status' | translate}} <span class="text-danger">*</span></label>
       <div class="col-12">
         <select formControlName="social_status" class="form-control ">
-          <option value="married">{{'PERSONAL-DATA.married' | translate}}</option>
-          <option value="single">{{'PERSONAL-DATA.single' | translate}}</option>
+          <!-- <option value="married">{{'PERSONAL-DATA.married' | translate}}</option>
+          <option value="single">{{'PERSONAL-DATA.single' | translate}}</option> -->
+          <!-- <option [value]="s.id" *ngFor="let s of subSrv.soucialStatueList">{{'SOCIAL-STATUS.'+s.social_status_name | translate}}</option> -->
+          <option [value]="s.id" *ngFor="let s of subSrv.soucialStatueList">{{s.social_status_name }}</option>
         </select>
       </div>
     </div>
@@ -40,18 +42,18 @@
     </div>
     <div class="row justify-content-between form-group">
       <label>{{'PERSONAL-DATA.gender' | translate}} <span class="text-danger">*</span></label>
-      <div class="col-5 col-md-4">
-        <button mat-stroked-button class="w-100" [class.selected]="personalInfoForm.get('gender')?.value == 'male'"
-          (click)="personalInfoForm.get('gender')?.setValue('male')">
-          {{'PERSONAL-DATA.male' | translate}}
+      <div class="col-5 col-md-4" *ngFor="let g of subSrv.genderList">
+        <button mat-stroked-button class="w-100" [class.selected]="personalInfoForm.get('gender')?.value == g.id"
+          (click)="personalInfoForm.get('gender')?.setValue(g.id)">
+          {{g.gender_name_ar}}
         </button>
       </div>
-      <div class=" col-5 col-md-4">
+      <!-- <div class=" col-5 col-md-4">
         <button mat-stroked-button class=" w-100" [class.selected]="personalInfoForm.get('gender')?.value == 'female'"
           (click)="personalInfoForm.get('gender')?.setValue('female')">
           {{'PERSONAL-DATA.female' | translate}}
         </button>
-      </div>
+      </div> -->
     </div>
     <div class="row form-group">
       <label>{{'PERSONAL-DATA.city' | translate}} <span class="text-danger">*</span></label>

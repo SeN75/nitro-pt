@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { BodyInfo } from 'src/app/_common/types';
 
 @Component({
   selector: 'body-measurements',
@@ -8,19 +9,20 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BodyMeasurementsComponent implements OnInit {
   @Input() changeValue: boolean = false;
   @Input() action: boolean = false;
-  @Input() info: any = {
-    upperChest: 0,
-    lowerChest: 0,
-    hips: 0,
-    abs: 0,
-    quadriceps: 0,
-    hamstrings: 0,
-    calves: 0,
-    biceps: 0
+  @Input() info: BodyInfo = {
+    chest_circumrefence: 0,
+    lower_chest: 0,
+    waist: 0,
+    belly: 0,
+    thigh: 0,
+    buttocks: 0,
+    calf: 0,
+    humerus: 0,
+    weight: 0
   }
   imagesBody = ['upper_chest_img', 'lower_chest_img', 'hips_img', 'abs_img', 'quadriceps_img', 'hamstrings_img', 'calves_img', 'biceps_img']
   labelBody = ['upper-chest', 'lower-chest', 'hips', 'abs', 'quadriceps', 'hamstrings', 'calves', 'biceps']
-  newValue: any
+  newValue!: BodyInfo
   constructor() { }
 
   ngOnInit(): void {

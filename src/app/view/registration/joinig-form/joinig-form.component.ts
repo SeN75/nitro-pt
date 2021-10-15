@@ -3,6 +3,9 @@ import { SlickCarouselComponent } from 'ngx-slick-carousel';
 import { Subscription } from 'src/app/_common/types';
 import * as imoment from 'moment-hijri';
 import { LoggerService } from 'src/app/_services/logger.service';
+import { IdentityService } from 'src/app/_services/identity/identity.service';
+import { SubscriptionsService } from 'src/app/_services/subscriptions/subscriptions.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-joinig-form',
   templateUrl: './joinig-form.component.html',
@@ -58,9 +61,19 @@ export class JoinigFormComponent implements OnInit {
 
   }
   constructor(
-    private logger: LoggerService
+    private logger: LoggerService,
+    public identitySrv: IdentityService,
+    public subSrv: SubscriptionsService,
+    private router: Router
   ) {
     this.subscription = {}
+    this.logger.log('packageId: ', this.subSrv.packageId)
+    if (this.subSrv.packageId == '')
+      this.router.navigateByUrl('/register/join_program')
+    this.subscription.package_id = this.subSrv.packageId;
+    this.logger.log('subscription: ', this.subscription)
+    this.identitySrv.getUserProfileByJWT()
+    this.logger.log('convert: ', this.replaceNumber('٠١٢٣٤٥٦٧٨٩'))
   }
 
   ngOnInit(): void {
@@ -84,40 +97,45 @@ export class JoinigFormComponent implements OnInit {
     console.log(event)
     this.isFormValid = event.valid;
     if (this.caurselPos == 0) {
-      this.subscription.birthday_Gregorian = event.data.birthDate;
-      this.subscription.birthday_Hiri = imoment(event.data.birthDate).toString();
+      this.subscription.birthday_Gregorian = imoment(event.data.birthDate).format('YYYY-MM-DD');
+      this.subscription.birthday_Hiri = this.replaceNumber(imoment(event.data.birthDate).format('iDD/iMM/iYYYY'));
       this.subscription.social_status = event.data.social_status;
       this.subscription.city = event.data.city;
       this.subscription.height = event.data.height;
       this.subscription.weight = event.data.weight;
+      this.subscription.gender = event.data.gender;
       this.logger.log('subscription 1:', this.subscription)
     }
     else if (this.caurselPos == 1) {
-      this.subscription.nature_of_daily_stress = event.data.workNature;
-      this.subscription.health_problems = event.data.healthProblems;
-      this.subscription.supplement_use = event.data.supplements;
+      this.subscription.nature_of_daily_stress = event.data.workNature == 'office' ? 'مكتبي' : event.data.workNature == 'field' ? 'ميداني' : event.data.workNature;
+      this.subscription.health_problems = event.data.healthProblems == 'no' ? 'لا' : event.data.healthProblems;
+      this.subscription.supplement_use = event.data.supplements == 'no' ? 'لا' : event.data.supplements;
       this.subscription.goal = event.data.goalProblems;
       this.subscription.sleep_hours = event.data.sleepHours;
-      this.subscription.bed_time = event.data.bedTime;
-      this.subscription.wakeup_time = event.data.weakupTime;
-      this.subscription.current_diet_program = event.data.ditePlan;
-      this.subscription.number_of_meals = event.data.numberMeals;
-      this.subscription.Allergens_food = event.data.allergen;
-      this.subscription.unfavorable_food = event.data.unlike;
-      this.subscription.surgeries_history = event.data.operations;
+      this.subscription.bed_time = event.data.bedTime.replace(" AM", '').replace(" PM", '');
+      this.subscription.wakeup_time = event.data.weakupTime.replace(" AM", '').replace(" PM", '');
+      this.subscription.current_diet_program = event.data.ditePlan == 'no' ? 'لا' : event.data.ditePlan;
+      this.subscription.number_of_meals = event.data.numberMeals == 'no' ? 'لا' : event.data.numberMeals;
+      this.subscription.Allergens_food = event.data.allergen == 'no' ? 'لا' : event.data.allergen;
+      this.subscription.unfavorable_food = event.data.unlike == 'no' ? 'لا' : event.data.unlike;
+      this.subscription.surgeries_history = event.data.operations == 'no' ? 'لا' : event.data.operations;
       this.logger.log('subscription 2:', this.subscription)
     }
     else if (this.caurselPos == 2) {
 
-      this.subscription.calf = event.data.calves
-      this.subscription.chest_circumrefence = event.data.upperChest;
-      this.subscription.lower_chest = event.data.lowerChest;
-      this.subscription.waist = event.data.hips;
-      this.subscription.humerus = event.data.biceps;
-      this.subscription.belly = event.data.abs;
-      this.subscription.thigh = event.data.quadriceps;
-      this.subscription.buttocks = event.data.hamstrings;
-      this.logger.log('subscription 3:', this.subscription)
+      this.subscription.method_measurement = event.data.method_measurement;
+      if (this.subscription.method_measurement == 2) {
+        this.subscription.calf = event.data.calves
+        this.subscription.chest_circumrefence = event.data.upperChest;
+        this.subscription.lower_chest = event.data.lowerChest;
+        this.subscription.waist = event.data.hips;
+        this.subscription.humerus = event.data.biceps;
+        this.subscription.belly = event.data.abs;
+        this.subscription.thigh = event.data.quadriceps;
+        this.subscription.buttocks = event.data.hamstrings;
+        this.logger.log('subscription 3:', this.subscription)
+      }
+
     }
     else if (this.caurselPos == 3) {
       this.subscription.front_image = event.data.front;
@@ -127,10 +145,27 @@ export class JoinigFormComponent implements OnInit {
       this.logger.log('subscription 4:', this.subscription)
     }
     else if (this.caurselPos == 4) {
-      this.subscription.payment_invoice = event.data.payment_invoice;
+      this.subscription.payment_invoice = event.data.recipt;
       this.logger.log('subscription 5:', this.subscription)
+      this.logger.log('event.send: ', event.send)
+      if (event.send)
+        this.subSrv.createNewSubscriptionRequest(this.subscription)
 
     }
+  }
+
+  replaceNumber(str: string) {
+    return str
+      .replace(/٠/g, '0')
+      .replace(/١/g, '1')
+      .replace(/٢/g, '2')
+      .replace(/٣/g, '3')
+      .replace(/٤/g, '4')
+      .replace(/٥/g, '5')
+      .replace(/٦/g, '6')
+      .replace(/٧/g, '7')
+      .replace(/٨/g, '8')
+      .replace(/٩/g, '9')
   }
 }
 // bankName: ['', Validators.required],

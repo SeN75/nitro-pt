@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { LanguageService } from 'src/app/_services/language.service';
 import { LoggerService } from 'src/app/_services/logger.service';
 import { cities } from './../../../../_common/cities';
+import { SubscriptionsService } from './../../../../_services/subscriptions/subscriptions.service';
 
 @Component({
   selector: 'joining-personal-info',
@@ -25,16 +26,19 @@ export class PersonalInfoComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private logger: LoggerService,
+    public subSrv: SubscriptionsService,
     public lang: LanguageService) {
     this.personalInfoForm = this.formBuilder.group({
       birthDate: ['', Validators.required],
-      social_status: ['', Validators.required],
+      social_status: [0, Validators.required],
       height: ['', Validators.required],
       weight: ['', Validators.required],
-      gender: ['male', Validators.required],
+      gender: [1, Validators.required],
       city: ['', Validators.required]
     })
     this.personalInfoForm.valueChanges.subscribe(() => { this.isValid() })
+    this.subSrv.getGenderList();
+    this.subSrv.getSocialStatusList();
   }
 
   ngOnInit(): void {

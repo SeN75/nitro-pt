@@ -61,10 +61,13 @@ export class MeasuringMethodComponent implements OnInit {
     this.bodyPicForm.valueChanges.subscribe(() => {
       this.value.valid = this.bodyPicForm.valid;
       this.value.data = this.bodyPicForm.value;
+      this.value.data.method_measurement = this.isTraditional ? 2 : 1
       this.measuringInfo.emit(this.value)
     })
   }
   ngOnInit(): void {
   }
-
+  output() {
+    this.measuringInfo.emit(this.value)
+  }
 }

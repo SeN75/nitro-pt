@@ -3,30 +3,32 @@
   <div class="regiser_form row justify-content-center" [formGroup]="bankInfoForm">
     <div class="form-group col-11">
       <label>{{'FORM.bank-name' | translate}}</label>
-      <input formControlName="bankName" class="form-control">
+      <input class="form-control">
     </div>
     <div class="form-group col-11">
       <label>{{'FORM.account-holder-name' | translate}}</label>
-      <input formControlName="accountHolder" class="form-control">
+      <input class="form-control">
     </div>
     <div class="form-group col-11">
       <label>{{'FORM.IBAN' | translate}}</label>
-      <input formControlName="iban" class="form-control">
+      <input class="form-control">
     </div>
   </div>
   <div class="form-group">
     <label>{{'FORM.receipt-pic' | translate}}</label>
   </div>
-  <div class="upload_file">
-    <img src="../../../../../assets/images/uploader.svg" class="uploder_img">
-    <!-- <input type="file" #file hidden (change)="selectRecipt($event)"> -->
-    <button mat-button class="upload_button">
+  <div class="upload_file" (click)="file.click()">
+    <img [src]="reciept_img" class="uploder_img">
+    <input type="file" #file hidden (change)="selectRecipt($event)"
+      accept="image/jpg, image/jpeg, image/png, application/pdf">
+    <button mat-button class="upload_button" (click)="file.click()">
       {{'SETTINGS.upload-file' | translate}}
     </button>
   </div>
   <div class="row justify-content-center mt-4">
     <div class="col text-center ">
-      <button mat-raised-button color="primary" [disabled]="bankInfoForm.invalid">{{'FORM.send'| translate}}</button>
+      <button mat-raised-button color="primary" [disabled]="bankInfoForm.invalid"
+        (click)="value.send = true; bankInfo.emit(this.value)">{{'FORM.send'| translate}}</button>
     </div>
   </div>
 </section>

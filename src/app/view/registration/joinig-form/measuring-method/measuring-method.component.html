@@ -12,7 +12,7 @@
     </div>
     <div class="col-6 col-md-4">
       <button mat-stroked-button class="w-100" [class.selected]="!isTraditional"
-        (click)="isTraditional = false; measuringInfo.emit({valid: true})">
+        (click)="isTraditional = false; measuringInfo.emit({valid: true, method_measurement: 1})">
         {{'BODY.in-body' | translate}}
       </button>
     </div>
