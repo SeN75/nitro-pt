@@ -25,6 +25,8 @@ export class IdentityService {
   staffs: any;
   toDayDate = new Date();
   newDayDate = new Date();
+
+  newUserData: any;
   constructor(
     private httpClient: HttpClient,
     private translateSrv: TranslateService,
@@ -104,7 +106,7 @@ export class IdentityService {
   }
 
   private _verifyOTP(data: any) {
-    return this.httpClient.post(Identity + "otp_verify", data)
+    return this.httpClient.post(Identity + "verify_OTP", data)
   }
 
 
@@ -174,8 +176,9 @@ export class IdentityService {
       if (userData.role == 'coach')
         this.getAllCoaches()
       else {
+        this.newUserData = success
         this.userData = success;
-        this.router.navigateByUrl('/register/otp_verify')
+        this.router.navigateByUrl('/register/otp_verify/' + success.phone_number)
       }
     }, (error: HttpErrorResponse) => {
       this.logger.error("post Create User  error: ", error)
@@ -189,8 +192,16 @@ export class IdentityService {
       localStorage.setItem('refreshToken', success.refresh)
       localStorage.setItem('authToken', success.access)
       this.cookieSrv.set('loggedin', this.toDayDate.getTime() + "", this.newDayDate)
-      this.router.navigate(['/dashboard/account-settings'])
-      this.logger.log("login:", success)
+      this._getUserProfileByJWT().subscribe((user: any) => {
+        this.userData = user;
+        this.logger.log('user data: ', user)
+        if (user.groups[0] == 1) {
+          this.router.navigate(['/dashboard/account-settings'])
+          this.logger.log("login:", success)
+        } else {
+          this.router.navigateByUrl('landing/profile')
+        }
+      })
     }, (error: HttpErrorResponse) => {
       this.translateSrv.get('ERROR.').subscribe(msg => this.toastSrv.error(msg));
       this.logger.error("login error: ", error)
@@ -288,7 +299,7 @@ export class IdentityService {
   public verifyOTP(data: any) {
     this._verifyOTP(data).subscribe((success: any) => {
       this.logger.log('accept otp: ', success)
-      this.router.navigateByUrl("/register/joining_form")
+      this.router.navigateByUrl("/register/login")
     }, (error: HttpErrorResponse) => {
       this.logger.error('otp not accept:', error);
       this.translateSrv.get('ERROR.').subscribe(msg => {

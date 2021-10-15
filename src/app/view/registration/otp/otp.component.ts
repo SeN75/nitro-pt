@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChildren, Input } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { LoggerService } from 'src/app/_services/logger.service';
 import { IdentityService } from 'src/app/_services/identity/identity.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-otp',
@@ -17,12 +18,15 @@ export class OtpComponent implements OnInit {
   @ViewChildren('formRow') rows: any;
   constructor(
     private logger: LoggerService,
+    private Router: Router,
     private identitySrv: IdentityService
   ) {
     this.otpForm = this.toFormGroup(this.formInput)
     this.countDown()
-    this.identitySrv.getUserProfileByJWT();
+    let phone_number = this.Router.url.replace('register/otp_verify/%2B', '');
 
+    // this.identitySrv.getUserProfileByJWT();
+    this.logger.log('test', phone_number.replace('/', ''))
   }
 
 
@@ -67,10 +71,11 @@ export class OtpComponent implements OnInit {
 
 
   submit() {
+    let phone_number = this.Router.url.replace('register/otp_verify/%2B', '');
     if (this.otpForm.valid) {
       let code = '';
       this.formInput.forEach(e => code += this.otpForm.get(e)?.value)
-      this.identitySrv.verifyOTP({ otp: code, phone_number: this.identitySrv.userData.phone_number });
+      this.identitySrv.verifyOTP({ otp: code, phone_number: "+" + phone_number.replace('/', '') });
       this.logger.log('otp: ', code)
     }
   }

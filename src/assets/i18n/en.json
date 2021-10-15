@@ -94,7 +94,9 @@
     "status": "order status",
     "date": "order date",
     "info": "order information",
-    "no-data": "There is no orders"
+    "no-data": "There is no orders",
+    "approval": "approval",
+    "deny": "deny"
   },
   "CATEGORIES": {
     "categories": "categories",
@@ -261,7 +263,10 @@
     "active": " Active subscription",
     "need-update": " Requires data update",
     "expired": "subscription expired ",
-    "newly": "Newly structured"
+    "newly": "Newly structured",
+    "Order": {
+      "new": "new subscription"
+    }
   },
   "FORM": {
     "add": "add",
