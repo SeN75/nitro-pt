@@ -18,7 +18,7 @@ export const RegistrationRouting: Routes = [
   { component: SelectProgramComponent, path: 'join_program' },
   { component: TermsAndConditionComponent, path: 'terms_and_condition' },
   { component: JoinigFormComponent, path: 'joining_form' },
-  { component: OtpComponent, path: 'otp_verify' },
+  { component: OtpComponent, path: 'otp_verify/:phonenumber' },
 
 ]
 
