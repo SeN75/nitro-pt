@@ -12,7 +12,7 @@ const packUrl = API + "fin/package/";
   providedIn: 'root'
 })
 export class PackagesService {
-  packages: any = [];
+  packages: any[] = [];
   attachmentList: any = [];
   constructor(
     private httpClient: HttpClient,
@@ -47,7 +47,7 @@ export class PackagesService {
     return this.httpClient.delete(packUrl + "id/" + id);
   }
   private _getPackagesListForLandingpage() {
-    return this.httpClient.get(packUrl + 'landing/owner/a0e801d5-a88a-4547-af70-b60719dd67a2');
+    return this.httpClient.get(packUrl + 'landing/owner/150a73ff-6e0d-4c8d-94a2-2aae9602147c');
   }
 
   public getPackagesList() {
@@ -123,7 +123,8 @@ export class PackagesService {
   }
   public getPackagesListForLandingpage() {
     this._getPackagesListForLandingpage().subscribe((success: any) => {
-      this.packages = success
+      this.packages = []
+      this.packages.push(success[0].package)
       this.logger.log('get Packages List For Landingpage: ', success)
     }, (error: HttpErrorResponse) => {
       this.logger.error('error get Packages List For Landingpage: ', error)

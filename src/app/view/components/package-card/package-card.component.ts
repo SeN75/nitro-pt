@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SubscriptionsService } from 'src/app/_services/subscriptions/subscriptions.service';
 import { DialogService } from './../../../_services/dialog.service';
 
 @Component({
@@ -8,7 +10,10 @@ import { DialogService } from './../../../_services/dialog.service';
 })
 export class PackageCardComponent implements OnInit {
 
-  constructor(public dialogSrv: DialogService) { }
+  constructor(
+    public dialogSrv: DialogService,
+    private router: Router,
+    private subSrv: SubscriptionsService) { }
   ngOnInit(): void {
     if (this.with_button == false) {
       this.class_button = "hide_button"
@@ -23,4 +28,10 @@ export class PackageCardComponent implements OnInit {
   @Input() class_button: string = "";
   @Input() path: string = "";
   @Input() pack: any;
+
+  selectProgram(pack: any) {
+    this.subSrv.packageId = pack.external_id
+    this.router.navigateByUrl('/register/joining_form')
+  }
+
 }

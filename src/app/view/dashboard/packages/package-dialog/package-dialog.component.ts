@@ -32,9 +32,9 @@ export class PackageDialogComponent implements OnInit {
     private datePipe: DatePipe,
     public packSrv: PackagesService) {
     this.packForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.pattern("[A-Za-z]+")]],
+      name: ['', [Validators.required, Validators.pattern("[A-Za-z ]+")]],
       name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
-      description: ['', [Validators.required, Validators.pattern("[A-Za-z]+")]],
+      description: ['', [Validators.required, Validators.pattern("[A-Za-z ]+")]],
       description_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
       period: ['', Validators.required],
       price: ['', Validators.required],
@@ -44,6 +44,7 @@ export class PackageDialogComponent implements OnInit {
       attachments_ids: [{ value: [], disabled: true }],
       showInWebsite: [false]
     })
+    this.logger.log('attach: ', this.packSrv.attachmentList)
     this.packForm.get("attach_required")?.valueChanges.subscribe((value: boolean) => {
       this.logger.log('value:', value)
       if (value)

@@ -14,7 +14,7 @@
       <p class="package_feature_value">{{package_price}} ريال</p>
     </div>
     <div class="package_join_button">
-      <a [routerLink]="path" class="{{class_button}}" routerLink="/regisetr/joing_form">انضمام</a>
+      <a [routerLink]="path" class="{{class_button}}" (click)=" selectProgram(pack)">انضمام</a>
     </div>
   </div>
 </div>
