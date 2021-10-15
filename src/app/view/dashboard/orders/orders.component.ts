@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { newOrders } from 'src/app/_common/globle';
 import { DialogService } from 'src/app/_services/dialog.service';
 import { ExercisesService } from 'src/app/_services/gym/exercises.service';
+import { SubscriptionsService } from 'src/app/_services/subscriptions/subscriptions.service';
 import { completedOrders } from './../../../_common/globle';
 import { OrdersService } from './../../../_services/orders.service';
 
@@ -19,6 +20,7 @@ export class OrdersComponent implements OnInit {
   constructor(
     public dialogSrv: DialogService,
     public orderSrv: OrdersService,
+    public subscriptionSrv: SubscriptionsService,
     private router: Router,
   ) { }
 
@@ -43,9 +45,12 @@ export class OrdersComponent implements OnInit {
         data: 'firstName'
       }],
     };
+    this.subscriptionSrv.briefRequestsList()
   }
   showOrder(order: any) {
-    this.orderSrv.currentOrder = order;
-    this.router.navigateByUrl(`orders/${order.orderNo}/detail`)
+    console.log(order)
+    let id: string = order.id.replace("#", '');
+    this.subscriptionSrv.getRequestDetailsById(id);
+    this.router.navigateByUrl(`orders/${id}/detail`)
   }
 }

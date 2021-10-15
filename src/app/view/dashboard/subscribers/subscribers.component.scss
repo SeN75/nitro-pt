@@ -1,12 +1,19 @@
 .active {
   color: #4bb543;
 }
-.need-update {
+.need-update,
+.update_required {
   color: #ffcc00;
 }
-.expired {
+.expired,
+.reject,
+.inactive {
   color: #cc3300;
 }
-.newly {
+.newly,
+.new {
   color: #1d4980;
 }
+// .unactive {
+
+// }

@@ -46,7 +46,7 @@
           </td>
           <td>{{sub.price | number:'1.2-2' }}</td>
           <td>{{sub.id }}</td>
-          <td class="{{sub.subStatus}}">{{'STATUS.'+sub.subStatus | translate }}</td>
+          <td class="{{sub.status}}">{{'STATUS.'+sub.status | translate }}</td>
           <td class="text-end">
             <span>
               <button mat-icon-button (click)="subscribersDetails(sub)">

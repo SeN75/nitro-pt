@@ -11,18 +11,23 @@
     </span>
   </header>
   <header class="nitro-card row mt-3">
-    <info-item class="col" info_item_title="{{'SUBSCRIBERS.name' | translate}}" [info_item_value]="'محمد شلبي'">
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.name' | translate}}"
+      [info_item_value]="info.personalData.name">
     </info-item>
-    <info-item class="col" info_item_title="{{'SUBSCRIBERS.start-date' | translate}}" [info_item_value]="'محمد شلبي'">
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.start-date' | translate}}"
+      info_item_value="{{info.request_info.created_date | date}}">
     </info-item>
-    <info-item class="col" info_item_title="{{'SUBSCRIBERS.end-date' | translate}}" [info_item_value]="'محمد شلبي'">
+    <info-item *ngIf="info.request_info.status != 'new'" class="col"
+      info_item_title="{{'SUBSCRIBERS.end-date' | translate}}" [info_item_value]="'محمد شلبي'">
     </info-item>
-    <info-item class="col" info_item_title="{{'SUBSCRIBERS.amount-paid' | translate}}" [info_item_value]="'محمد شلبي'">
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.amount-paid' | translate}}"
+      [info_item_value]="info.finance_info.price">
     </info-item>
     <info-item class="col" info_item_title="{{'SUBSCRIBERS.subscription-number' | translate}}"
-      [info_item_value]="'محمد شلبي'">
+      [info_item_value]="info.request_info.request_id">
     </info-item>
-    <info-item class="col" info_item_title="{{'SUBSCRIBERS.status' | translate}}" [info_item_value]="'محمد شلبي'">
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.status' | translate}}"
+      info_item_value="{{('STATUS.Order.'+info.request_info.status) | translate}}">
     </info-item>
   </header>
   <div class="body scroll">
@@ -64,10 +69,17 @@
 
         </mat-expansion-panel-header>
 
-        <body-pic-info>
+        <body-pic-info [info]="info.bodyImg">
 
         </body-pic-info>
       </mat-expansion-panel>
     </mat-accordion>
+
+    <div class="button-group " *ngIf="info.request_info.status == 'new'">
+      <button mat-raised-button color="primary" (click)="sendRequest(true)">{{'ORDERS.approval' | translate}}</button>
+      <button mat-stroked-button color="primary" (click)="sendRequest(false)">{{'ORDERS.deny' | translate}}</button>
+    </div>
   </div>
+
+
 </section>

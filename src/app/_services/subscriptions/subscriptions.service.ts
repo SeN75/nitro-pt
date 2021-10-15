@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { LoggerService } from '../logger.service';
 import { ToastService } from '../toast.service';
-import { Subscription } from 'src/app/_common/types';
+import { RequestDetails, Subscription } from 'src/app/_common/types';
 
 const subApi = API + "sub/"
 @Injectable({
@@ -13,21 +13,28 @@ const subApi = API + "sub/"
 })
 export class SubscriptionsService {
   subscrioptionList: any = [];
-  requestListl: any = [];
   genderList: any[] = [];
   soucialStatueList: any[] = [];
+  new_request: any[] = [];
+  expired_request: any = [];
 
   subscriper: any;
-  request: any;
+  request: any
 
+  requestDetails!: RequestDetails;
 
+  packageId: string = ''
   constructor(
     private httpClient: HttpClient,
     private translateSrv: TranslateService,
     private toastSrv: ToastService,
     private router: Router,
     private logger: LoggerService
-  ) { }
+  ) {
+
+    // this.getSubscriptionDetailsById("43");
+    // this.getRequestDetailsById('84')
+  }
 
   private _createNewSubscriptionRequest(data: FormData) {
     return this.httpClient.post(subApi + "new", data)
@@ -96,7 +103,7 @@ export class SubscriptionsService {
     formData.append('birthday_Gregorian', data.birthday_Gregorian + "");
     formData.append('height', data.height + "");
     formData.append('weight', data.weight + "");
-    formData.append('nature_of_daily_stressty', data.nature_of_daily_stress + "");
+    formData.append('nature_of_daily_stress', data.nature_of_daily_stress + "");
     formData.append('health_problems', data.health_problems + "");
     formData.append('supplement_use', data.supplement_use + "");
     formData.append('goal', data.goal + "");
@@ -119,11 +126,12 @@ export class SubscriptionsService {
     formData.append('gender', data.gender + "");
     formData.append('Allergens_food', data.Allergens_food + "");
     formData.append('surgeries_history', data.surgeries_history + "");
+    formData.append('method_measurement', data.method_measurement + "");
 
     this._createNewSubscriptionRequest(formData).subscribe((success: Subscription) => {
       this.logger.log('create new subscrioption request: ', success)
       this.translateSrv.get('SUCCESS.SUBSCRIOPTION.new').subscribe(msg => this.toastSrv.success(msg))
-      this.router.navigateByUrl('/')
+      this.router.navigateByUrl('/landing/profile')
     }, (error: HttpErrorResponse) => {
       this.logger.error('create new subscrioption request error: ', error)
       this.translateSrv.get('ERRORS.SUBSCRIOPTION.new').subscribe(msg => this.toastSrv.error(msg))
@@ -226,8 +234,8 @@ export class SubscriptionsService {
       this.translateSrv.get('ERRORS.SUBSCRIOPTION.update').subscribe(msg => this.toastSrv.error(msg))
     })
   }
-  public createApproveOrDenayRequest(data: Subscription) {
-    this._createApproveOrDenayRequest(data).subscribe((success: Subscription) => {
+  public createApproveOrDenayRequest(data: any) {
+    this._createApproveOrDenayRequest(data).subscribe((success: any) => {
       this.logger.log('create approve or denay request: ', success)
       this.translateSrv.get('SUCCESS.SUBSCRIOPTION.approve').subscribe(msg => this.toastSrv.success(msg))
     }, (error: HttpErrorResponse) => {
@@ -247,7 +255,10 @@ export class SubscriptionsService {
   public briefRequestsList() {
     this._briefRequestsList().subscribe((success: any) => {
       this.logger.log('briefRequestsList: ', success)
-      this.requestListl = success;
+      this.expired_request = success.expired_requests.requests;
+      this.new_request = success.new_requests.requests;
+      this.logger.log('getRequestDetailsById this.expired_request: ', this.expired_request)
+      this.logger.log('getRequestDetailsById this.new_request: ', this.new_request)
     }, (error: HttpErrorResponse) => {
       this.logger.error('briefRequestsList: ', error)
     })
@@ -257,6 +268,7 @@ export class SubscriptionsService {
     this._getRequestDetailsById(id).subscribe((success: any) => {
       this.logger.log('getRequestDetailsById: ', success)
       this.request = success;
+      this.requestDetails = success;
     }, (error: HttpErrorResponse) => {
       this.logger.error('getRequestDetailsById: ', error)
     })

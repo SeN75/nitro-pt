@@ -7,7 +7,7 @@
     </span>
   </header>
   <div class="body">
-    <table datatable [dtOptions]="dtOptions" class="table-theme-1 hover">
+    <table class="table-theme-1 hover">
       <thead class="text-center">
         <tr>
           <th>#</th>
@@ -20,13 +20,13 @@
         </tr>
       </thead>
       <tbody class="text-center">
-        <tr *ngFor="let order of newOrders; let i = index">
+        <tr *ngFor="let order of subscriptionSrv.new_request; let i = index">
           <td>{{i + 1 }}</td>
-          <td>{{order.orderNo}}</td>
-          <td>{{order.name}}</td>
-          <td>{{order.orderType}}</td>
-          <td>{{order.orderStatus}}</td>
-          <td>{{order.orderDate | date}}</td>
+          <td>{{order.id}}</td>
+          <td>{{order.client}}</td>
+          <td>{{order.type}}</td>
+          <td>{{order.status}}</td>
+          <td>{{order.created_date | date}}</td>
           <td class="text-end">
             <span>
 
@@ -48,7 +48,7 @@
     </span>
   </header>
   <div class="body">
-    <table datatable [dtOptions]="dtOptions" class="table-theme-1 hover">
+    <table class="table-theme-1 hover">
       <thead class="text-center">
         <tr>
           <th>#</th>
@@ -61,13 +61,13 @@
         </tr>
       </thead>
       <tbody class="text-center">
-        <tr *ngFor="let order of newOrders; let i = index">
+        <tr *ngFor="let order of subscriptionSrv.expired_request; let i = index">
           <td>{{i + 1 }}</td>
-          <td>{{order.orderNo}}</td>
-          <td>{{order.name}}</td>
-          <td>{{order.orderType}}</td>
-          <td>{{order.orderStatus}}</td>
-          <td>{{order.orderDate | date}}</td>
+          <td>{{order.id}}</td>
+          <td>{{order.client}}</td>
+          <td>{{order.type}}</td>
+          <td>{{order.status}}</td>
+          <td>{{order.created_date | date}}</td>
           <td class="text-end">
             <span>
 
