@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { IdentityService } from 'src/app/_services/identity/identity.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class NavbarComponent implements OnInit {
   @Input() isLoggedin: boolean = false;
   @Input() isProfile: boolean = false;
-  constructor() { }
+  constructor(public identitySrv: IdentityService) { }
 
   ngOnInit(): void {
   }

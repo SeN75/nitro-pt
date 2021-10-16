@@ -23,7 +23,8 @@
             <a class="nav-link" routerLink=".">من نحن</a>
           </li>
           <li class="nav-item" *ngIf="!isProfile">
-            <a *ngIf="isLoggedin" class="nav-link profile_button" routerLink="/landing/profile">MO234</a>
+            <a *ngIf="isLoggedin" class="nav-link profile_button"
+              [routerLink]="identitySrv.userData.groups[0] == 1 ? '/dashboard/account-settings': identitySrv.userData.groups[0] == 0? '.': '/landing/profile'">{{identitySrv.userData.display_name_ar}}</a>
             <a *ngIf="!isLoggedin" class="nav-link profile_button" routerLink="/register/login">إنضم الآن</a>
           </li>
         </ul>
@@ -34,7 +35,7 @@
             <a class="nav-link nav-link-2 " routerLink="/landing">{{'LANDINGPAGE.home' | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link profile_button" routerLink=".">MO234</a>
+            <a class="nav-link profile_button" routerLink=".">{{identitySrv.userData.display_name_ar}}</a>
           </li>
         </ul>
       </div>
