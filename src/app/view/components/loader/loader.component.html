@@ -1,0 +1,10 @@
+<div class="loader_container">
+  <div class="d-flex justify-content-center align-items-center" *ngIf="!hasError">
+    <mat-spinner class="loader"></mat-spinner>
+    <span class="title">{{title}}</span>
+  </div>
+  <div class="d-flex justify-content-center align-items-center text-danger error alert alert-danger" *ngIf="hasError">
+    <mat-icon>warning_amber</mat-icon>
+    <span class="error_message">{{errorMessage}}</span>
+  </div>
+</div>
