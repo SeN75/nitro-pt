@@ -72,11 +72,14 @@
   .nav_bar {
     direction: ltr;
   }
-  div.body_table:nth-child(1),
-  div.body_table:nth-child(2),
-  div.header_table:nth-child(1),
-  div.header_table:nth-child(2) {
-    border-right: none;
+  div.body_table,
+  div.header_table {
+    border-left: none;
+    border-right: #e2e2e3 solid 1px;
+  }
+  .last-child div.body_table,
+  .last-child div.header_table {
+    border-right: #e2e2e3 solid 1px;
     border-left: #e2e2e3 solid 1px;
   }
 }
