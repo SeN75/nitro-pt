@@ -14,6 +14,11 @@ const packUrl = API + "fin/package/";
 export class PackagesService {
   packages: any[] = [];
   attachmentList: any = [];
+
+  package: any = {
+    required_attachments: [],
+    attach_required: false
+  }
   constructor(
     private httpClient: HttpClient,
     private translateSrv: TranslateService,
@@ -86,6 +91,7 @@ export class PackagesService {
   }
   public getPackageById(id: string) {
     this._getPackageById(id).subscribe((success: any) => {
+      this.package = success;
       this.logger.log("get package By Id:", success)
     }, (error: HttpErrorResponse) => {
       this.logger.error("get package By Id error: ", error)
@@ -123,8 +129,7 @@ export class PackagesService {
   }
   public getPackagesListForLandingpage() {
     this._getPackagesListForLandingpage().subscribe((success: any) => {
-      this.packages = []
-      this.packages.push(success[0].package)
+      this.packages = success;
       this.logger.log('get Packages List For Landingpage: ', success)
     }, (error: HttpErrorResponse) => {
       this.logger.error('error get Packages List For Landingpage: ', error)

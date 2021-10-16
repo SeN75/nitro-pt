@@ -268,6 +268,11 @@
       "new": "new subscription"
     }
   },
+  "SOCIAL-STATUS": {
+    "Married": "married",
+    "Single":"single",
+    "Widowed": "widowed"
+  },
   "FORM": {
     "add": "add",
     "edit": "edit",
@@ -316,7 +321,11 @@
     "download": "download",
     "update-profile": "update profile",
     "new-subscription": "new subscription",
-    "null": "null"
+    "null": "null",
+    "Male": "male",
+    "Female": "female",
+    "other-attach": "other attachment"
+
 
 
   },
@@ -334,6 +343,7 @@
     "account-create": "the account is created, please check your email to verify",
     "request-sent": "request sent",
     "error": "an error occurred",
+    "number": "You must use only intiger number",
     "login": "you should login first",
     "phone-number": "The mobile number must be nine digits long",
     "ar": "You must use Arabic letters",

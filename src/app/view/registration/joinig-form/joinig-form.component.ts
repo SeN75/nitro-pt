@@ -6,6 +6,7 @@ import { LoggerService } from 'src/app/_services/logger.service';
 import { IdentityService } from 'src/app/_services/identity/identity.service';
 import { SubscriptionsService } from 'src/app/_services/subscriptions/subscriptions.service';
 import { Router } from '@angular/router';
+import { PackagesService } from 'src/app/_services/financial/packages.service';
 @Component({
   selector: 'app-joinig-form',
   templateUrl: './joinig-form.component.html',
@@ -64,6 +65,7 @@ export class JoinigFormComponent implements OnInit {
     private logger: LoggerService,
     public identitySrv: IdentityService,
     public subSrv: SubscriptionsService,
+    public packageSrv: PackagesService,
     private router: Router
   ) {
     this.subscription = {}
@@ -71,6 +73,7 @@ export class JoinigFormComponent implements OnInit {
     if (this.subSrv.packageId == '')
       this.router.navigateByUrl('/register/join_program')
     this.subscription.package_id = this.subSrv.packageId;
+    this.packageSrv.getPackageById(this.subscription.package_id);
     this.logger.log('subscription: ', this.subscription)
     this.identitySrv.getUserProfileByJWT()
     this.logger.log('convert: ', this.replaceNumber('٠١٢٣٤٥٦٧٨٩'))
@@ -157,6 +160,9 @@ export class JoinigFormComponent implements OnInit {
     }
     else if (this.caurselPos == 4) {
       this.subscription.payment_invoice = event.data.recipt;
+      if (this.packageSrv.package.attach_required)
+        this.subscription.other_attachment = event.data.attach
+
       this.logger.log('subscription 5:', this.subscription)
       this.logger.log('event.send: ', event.send)
       if (event.send)

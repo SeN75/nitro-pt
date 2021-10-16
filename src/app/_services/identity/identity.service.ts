@@ -20,6 +20,8 @@ export class IdentityService {
     last_name_ar: '',
     email: 'لايوجد',
     phone_number: 'لايوجد',
+    display_name_ar: 'not found',
+    groups: [0]
   };
   coaches: any;
   staffs: any;

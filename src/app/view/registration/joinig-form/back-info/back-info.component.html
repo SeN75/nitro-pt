@@ -3,15 +3,28 @@
   <div class="regiser_form row justify-content-center" [formGroup]="bankInfoForm">
     <div class="form-group col-11">
       <label>{{'FORM.bank-name' | translate}}</label>
-      <input class="form-control">
+      <input class="form-control" [formControl]="bank">
     </div>
     <div class="form-group col-11">
       <label>{{'FORM.account-holder-name' | translate}}</label>
-      <input class="form-control">
+      <input class="form-control" [formControl]="accountName">
     </div>
     <div class="form-group col-11">
       <label>{{'FORM.IBAN' | translate}}</label>
-      <input class="form-control">
+      <input class="form-control" [formControl]="iban">
+    </div>
+  </div>
+
+  <div class="form-group w-100" *ngIf="package.attach_required">
+    <label>{{'FORM.other-attach' | translate}} {{package.required_attachments.length != 0 ?
+      package.required_attachments[0].attach_name_ar : ''}}</label>
+    <div class="upload_file" (click)="attach.click()">
+      <img [src]="attach_img" class="uploder_img">
+      <button mat-button class="upload_button">
+        {{'SETTINGS.upload-file' | translate}}
+      </button>
+      <input type="file" hidden #attach (change)="selectAttatch($event)"
+        accept="image/jpg, image/jpeg, image/png, application/pdf">
     </div>
   </div>
   <div class="form-group">
@@ -25,7 +38,7 @@
       {{'SETTINGS.upload-file' | translate}}
     </button>
   </div>
-  <div class="row justify-content-center mt-4">
+  <div class="row justify-content-center mt-5">
     <div class="col text-center ">
       <button mat-raised-button color="primary" [disabled]="bankInfoForm.invalid"
         (click)="value.send = true; bankInfo.emit(this.value)">{{'FORM.send'| translate}}</button>

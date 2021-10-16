@@ -26,7 +26,8 @@
           <!-- <option value="married">{{'PERSONAL-DATA.married' | translate}}</option>
           <option value="single">{{'PERSONAL-DATA.single' | translate}}</option> -->
           <!-- <option [value]="s.id" *ngFor="let s of subSrv.soucialStatueList">{{'SOCIAL-STATUS.'+s.social_status_name | translate}}</option> -->
-          <option [value]="s.id" *ngFor="let s of subSrv.soucialStatueList">{{s.social_status_name }}</option>
+          <option [value]="s.id" *ngFor="let s of subSrv.soucialStatueList">{{'SOCIAL-STATUS.'+s.social_status_name |
+            translate}}</option>
         </select>
       </div>
     </div>
@@ -45,7 +46,7 @@
       <div class="col-5 col-md-4" *ngFor="let g of subSrv.genderList">
         <button mat-stroked-button class="w-100" [class.selected]="personalInfoForm.get('gender')?.value == g.id"
           (click)="personalInfoForm.get('gender')?.setValue(g.id)">
-          {{g.gender_name_ar}}
+          {{'FORM.'+g.gender_name | translate}}
         </button>
       </div>
       <!-- <div class=" col-5 col-md-4">

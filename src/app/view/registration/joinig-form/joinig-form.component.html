@@ -7,7 +7,7 @@
     <joining-health-info (healthInfo)="output($event)" ngxSlickItem></joining-health-info>
     <joining-measuring-method (measuringInfo)=output($event) ngxSlickItem></joining-measuring-method>
     <joining-body-pic-form (bodyPic)="output($event)" ngxSlickItem></joining-body-pic-form>
-    <joining-back-info (bankInfo)="output($event)" ngxSlickItem></joining-back-info>
+    <joining-back-info (bankInfo)="output($event)" [package]="packageSrv.package" ngxSlickItem></joining-back-info>
   </ngx-slick-carousel>
   <div class="register_slick_button">
     <!-- [disabled]="!isFormValid" -->

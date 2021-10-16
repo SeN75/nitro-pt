@@ -112,6 +112,15 @@ export class SubscriptionsService {
       formData.append('thigh', data.thigh + "");
       formData.append('calf', data.calf + "");
       formData.append('humerus', data.humerus + "");
+    } else {
+      formData.append('chest_circumrefence', "2");
+      formData.append('lower_chest', "2");
+      formData.append('waist', "2");
+      formData.append('belly', "2");
+      formData.append('buttocks', "2");
+      formData.append('thigh', "2");
+      formData.append('calf', "2");
+      formData.append('humerus', "2");
     }
     formData.append('city', data.city + "");
     formData.append('birthday_Hiri', data.birthday_Hiri + "");
