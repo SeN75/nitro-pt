@@ -274,6 +274,9 @@ export class SubscriptionsService {
       this.logger.error('briefSubscriptionsLis: ', error)
     })
   }
+  public __briefSubscriptionsLis() {
+    return this._briefSubscriptionsList().toPromise()
+  }
   public __briefRequestsList() {
     return this._briefRequestsList();
   }
@@ -308,6 +311,9 @@ export class SubscriptionsService {
     }, (error: HttpErrorResponse) => {
       this.logger.error('getSubscriptionDetailsById: ', error)
     })
+  }
+  public __getSubscriptionDetailsById(id: string) {
+    return this._getSubscriptionDetailsById(id).toPromise();
   }
   public getGenderList() {
     this._getGenderList().subscribe((success: any) => {

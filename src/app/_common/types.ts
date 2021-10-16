@@ -111,3 +111,19 @@ export interface RequestDetails {
   personal_info: PersonalDetails,
   body_info: BodyInfo
 }
+export interface SubscrioptionDetails {
+  health_info: HealthInfo,
+  finance_info: FinanceInfo,
+  subscription_info: SubscriptionInfo,
+  media: MediaInfo,
+  personal_info: PersonalDetails,
+  body_info: BodyInfo
+}
+
+export interface SubscriptionInfo {
+  date_from: string,
+  date_to: string,
+  price: number,
+  status: string,
+  subscription_id: string
+}

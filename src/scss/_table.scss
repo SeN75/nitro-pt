@@ -22,6 +22,7 @@
 
 .table-theme-1 tr {
   background-color: #ffffff;
+  border: 1px solid #e2e2e3;
   transition: 0.4s;
 }
 
@@ -97,6 +98,9 @@ a.table_row_link {
   padding: 0 !important ;
   background-color: #f9faff !important;
   height: 30px;
+}
+.row_space {
+  border: none !important;
 }
 
 .table_input td {

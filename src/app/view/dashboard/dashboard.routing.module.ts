@@ -23,7 +23,7 @@ import { DietPlanEditDettails2Component } from './diet-plan/diet-plan-edit-detta
 const children: Routes = [
   { component: BaseComponent, path: 'base' },
   { component: SubscribersComponent, path: 'subscribers' },
-  { component: SubscriberInfoComponent, path: 'subscribers/client-details' },
+  { component: SubscriberInfoComponent, path: 'subscribers/:id/client-details' },
   { component: OrdersComponent, path: 'orders' },
   { component: OrderInfoComponent, path: 'orders/:id/detail' },
   { component: CategoriesComponent, path: 'categories' },

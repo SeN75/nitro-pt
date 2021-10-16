@@ -6,9 +6,9 @@
     <span>
     </span>
   </header>
-  <loader *ngIf="isLoading" title="{{ 'ORDERS.loading' | translate}}"></loader>
+  <loader title="{{ 'ORDERS.loading' | translate}}" [hasError]='hasError' *ngIf="isLoading"></loader>
 
-  <div class="body" *ngIf="!isLoading && !hasError">
+  <div class="body scroll" *ngIf="!isLoading && !hasError">
     <table class="table-theme-1 hover">
       <thead class="text-center">
         <tr>
@@ -27,23 +27,28 @@
             {{'ORDERS.no-data' | translate}}
           </td>
         </tr>
-        <tr *ngFor="let order of newRequestList; let i = index">
-          <td>{{i + 1 }}</td>
-          <td>{{order.id}}</td>
-          <td>{{order.client}}</td>
-          <td>{{order.type}}</td>
-          <td>{{order.status}}</td>
-          <td>{{order.created_date | date}}</td>
-          <td class="text-end">
-            <span>
+        <ng-container *ngFor="let order of newRequestList; let i = index">
+          <tr class="row_space">
+            <td colspan="30"></td>
+          </tr>
+          <tr>
+            <td>{{i + 1 }}</td>
+            <td>{{order.id}}</td>
+            <td>{{order.client}}</td>
+            <td>{{order.type}}</td>
+            <td>{{order.status}}</td>
+            <td>{{order.created_date | date}}</td>
+            <td class="text-end">
+              <span>
 
-              <button mat-icon-button (click)="showOrder(order)">
-                <mat-icon>arrow_back_ios</mat-icon>
-              </button>
+                <button mat-icon-button (click)="showOrder(order)">
+                  <mat-icon>arrow_back_ios</mat-icon>
+                </button>
 
-            </span>
-          </td>
-        </tr>
+              </span>
+            </td>
+          </tr>
+        </ng-container>
       </tbody>
     </table>
   </div>
@@ -54,9 +59,9 @@
     <span>
     </span>
   </header>
-  <loader *ngIf="isLoading" title="{{ 'ORDERS.loading' | translate}}"></loader>
+  <loader [hasError]='hasError' *ngIf="isLoading" title="{{ 'ORDERS.loading' | translate}}"></loader>
 
-  <div class="body" *ngIf="!isLoading && !hasError">
+  <div class="body scroll" *ngIf="!isLoading && !hasError">
     <table class="table-theme-1 hover">
       <thead class="text-center">
 
@@ -76,23 +81,29 @@
             {{'ORDERS.no-data' | translate}}
           </td>
         </tr>
-        <tr *ngFor="let order of expiredRequest; let i = index">
-          <td>{{i + 1 }}</td>
-          <td>{{order.id}}</td>
-          <td>{{order.client}}</td>
-          <td>{{order.type}}</td>
-          <td>{{order.status}}</td>
-          <td>{{order.created_date | date}}</td>
-          <td class="text-end">
-            <span>
+        <ng-container *ngFor="let order of expiredRequest; let i = index">
+          <tr class="row_space">
+            <td colspan="30"></td>
+          </tr>
+          <tr>
+            <td>{{i + 1 }}</td>
+            <td>{{order.id}}</td>
+            <td>{{order.client}}</td>
+            <td>{{order.type}}</td>
+            <td>{{order.status}}</td>
+            <td>{{order.created_date | date}}</td>
+            <td class="text-end">
+              <span>
 
-              <button mat-icon-button (click)="showOrder(order)">
-                <mat-icon>arrow_back_ios</mat-icon>
-              </button>
+                <button mat-icon-button (click)="showOrder(order)">
+                  <mat-icon>arrow_back_ios</mat-icon>
+                </button>
 
-            </span>
-          </td>
-        </tr>
+              </span>
+            </td>
+          </tr>
+        </ng-container>
+
       </tbody>
     </table>
   </div>

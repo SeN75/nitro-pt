@@ -10,35 +10,35 @@
           <div class="label">
             {{'PROGRAM.record-date' | translate}}
           </div>
-          {{archive.recordDate | date}}
+          {{archive.subscription_info.archived_date | date}}
         </div>
       </mat-panel-title>
     </mat-expansion-panel-header>
     <h3 class="section-title">
       {{'PERSONAL-DATA.personal-data' | translate}}
     </h3>
-    <personal-data [info]="archive.personalData" class="mt-3"></personal-data>
+    <personal-data [info]="archive.personal_info" class="mt-3"></personal-data>
     <h3 class="section-title">
       {{'SUBSCRIBERS.joint-sports-health' | translate}}
     </h3>
-    <sports-health-suber-info [info]="archive.subscriber"></sports-health-suber-info>
+    <sports-health-suber-info [info]="archive.health_info"></sports-health-suber-info>
 
     <h3 class="section-title">
       {{'BODY.body-measurements-info' | translate}}
     </h3>
-    <body-measurements [info]="archive.bodyMeasurements"></body-measurements>
+    <body-measurements [info]="archive.body_info"></body-measurements>
     <h3 class="section-title">
       {{'BODY.pic' | translate}}
     </h3>
-    <body-pic-info [info]="archive.bodyPic"></body-pic-info>
+    <body-pic-info [info]="archive.media"></body-pic-info>
     <h3 class="section-title ">{{'DIETPLAN.dietplan' | translate}}</h3>
-    <div class="row justify-content-between pb-5">
+    <!-- <div class="row justify-content-between pb-5">
       <div class="col d-flex" style="align-items: center;">
         <mat-icon *ngIf="archive.ditePlan.planName == ''">whatshot</mat-icon>
         <div class="detail" *ngIf="archive.ditePlan.planName != ''"> {{archive.ditePlan.planName}}</div>
         <span class="detail" *ngIf="archive.ditePlan.planName == ''">{{'DIETPLAN.no-plan' | translate}}</span>
       </div>
-    </div>
+    </div> -->
   </mat-expansion-panel>
 </mat-accordion>
 <div class="card py-2 px-3" *ngIf="info.length == 0">

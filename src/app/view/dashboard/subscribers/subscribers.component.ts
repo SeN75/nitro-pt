@@ -11,8 +11,10 @@ import { SubscriptionsService } from 'src/app/_services/subscriptions/subscripti
   styleUrls: ['./subscribers.component.scss']
 })
 export class SubscribersComponent implements OnInit {
-  subscribers = subscribers;
   dtOptions: DataTables.Settings = {};
+  subsList: any = [];
+  isLoading = true;
+  hasError = false;
 
   constructor(
     public dialogSrv: DialogService,
@@ -20,7 +22,7 @@ export class SubscribersComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.subscribersSrv.briefSubscriptionsLis()
+    this.getData()
     this.dtOptions = {
       // ajax: 'data/data.json',
       columns: [{
@@ -30,8 +32,24 @@ export class SubscribersComponent implements OnInit {
   }
 
   subscribersDetails(sub: any) {
-    this.subscribersSrv.subscriper = sub;
-    this.router.navigateByUrl('/dashboard/subscribers/client-details')
-  }
 
+    let id: string = sub.id.replace("#", '');
+
+    this.router.navigateByUrl('/dashboard/subscribers/' + id + '/client-details')
+  }
+  getData() {
+    this.isLoading = true;
+    this.hasError = false
+    this.subscribersSrv.__briefSubscriptionsLis().then((success: any) => {
+      this.subsList = success.subscriptions;
+      console.log(this.subsList)
+      this.loaded()
+
+    }, (error) => {
+      this.hasError = true;
+    })
+  }
+  loaded() {
+    setTimeout(() => this.isLoading = false, 500)
+  }
 }

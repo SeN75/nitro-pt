@@ -65,7 +65,9 @@
     "do-you-have-a-food-you-dont-like": "do you have a food you don't like?",
     "please-mention-the-food-you-dont-like": "please mention the food you don't like",
     "have-you-had-surgery-recently": "have you had surgery recently?",
-    "please-indicate-the-location-and-type-of-the-operation": "please indicate the location and type of the operation"
+    "please-indicate-the-location-and-type-of-the-operation": "please indicate the location and type of the operation",
+    "loading-details": "...Subscriber data is being downloaded",
+    "loading": "Subscriber data is being downloaded..."
   },
   "PERSONAL-DATA": {
     "personal-data": "personal data",

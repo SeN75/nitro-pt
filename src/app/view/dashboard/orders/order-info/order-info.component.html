@@ -11,7 +11,7 @@
       </button>
     </span>
   </header>
-  <loader *ngIf="isLoading" title="{{ 'ORDERS.loading-details' | translate}}"></loader>
+  <loader [hasError]='hasError' *ngIf="isLoading" title="{{ 'ORDERS.loading-details' | translate}}"></loader>
 
   <header class="nitro-card row mt-3" *ngIf="!isLoading && !hasError">
     <info-item class="col" info_item_title="{{'SUBSCRIBERS.name' | translate}}"

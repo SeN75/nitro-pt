@@ -10,7 +10,9 @@
                 translate}}</button> -->
     </span>
   </header>
-  <div class="body">
+  <loader title="{{'SUBSCRIBERS.loading-details' | translate}}" [hasError]="hasError" *ngIf="isLoading"></loader>
+
+  <div class="body" *ngIf="!isLoading && !hasError">
     <table class="table-theme-1 hover">
       <thead class="text-center">
         <tr>
@@ -25,35 +27,45 @@
         </tr>
       </thead>
       <tbody class="text-center">
-        <tr *ngFor="let sub of subscribersSrv.subscrioptionList.subscriptions; let i = index">
-          <td>{{i + 1 }}</td>
-          <td>{{sub.client }}</td>
-          <td>
-            <span *ngIf="sub.start_date != 'N/A'">
-              {{sub.start_date | date }}
-            </span>
-            <span *ngIf="sub.start_date == 'N/A'">
-              {{'FORM.null' | translate}}
-            </span>
-          </td>
-          <td>
-            <span *ngIf="sub.end_date != 'N/A'">
-              {{sub.end_date | date }}
-            </span>
-            <span *ngIf="sub.end_date == 'N/A'">
-              {{'FORM.null' | translate}}
-            </span>
-          </td>
-          <td>{{sub.price | number:'1.2-2' }}</td>
-          <td>{{sub.id }}</td>
-          <td class="{{sub.status}}">{{'STATUS.'+sub.status | translate }}</td>
-          <td class="text-end">
-            <span>
-              <button mat-icon-button (click)="subscribersDetails(sub)">
-                <mat-icon>arrow_back_ios</mat-icon>
-              </button>
+        <ng-container *ngFor="let sub of subsList; let i = index">
+          <tr class="row_space">
+            <td colspan="30"></td>
+          </tr>
+          <tr>
+            <td>{{i + 1 }}</td>
+            <td>{{sub.client }}</td>
+            <td>
+              <span *ngIf="sub.start_date != 'N/A'">
+                {{sub.start_date | date }}
+              </span>
+              <span *ngIf="sub.start_date == 'N/A'">
+                {{'FORM.null' | translate}}
+              </span>
+            </td>
+            <td>
+              <span *ngIf="sub.end_date != 'N/A'">
+                {{sub.end_date | date }}
+              </span>
+              <span *ngIf="sub.end_date == 'N/A'">
+                {{'FORM.null' | translate}}
+              </span>
+            </td>
+            <td>{{sub.price | number:'1.2-2' }}</td>
+            <td>{{sub.id }}</td>
+            <td class="{{sub.status}}">{{'STATUS.'+sub.status | translate }}</td>
+            <td class="text-end">
+              <span>
+                <button mat-icon-button (click)="subscribersDetails(sub)">
+                  <mat-icon>arrow_back_ios</mat-icon>
+                </button>
 
-            </span>
+              </span>
+            </td>
+          </tr>
+        </ng-container>
+        <tr class="no_data" *ngIf="subsList.length == 0">
+          <td colspan="30">
+            {{'ORDERS.no-data' | translate}}
           </td>
         </tr>
       </tbody>
