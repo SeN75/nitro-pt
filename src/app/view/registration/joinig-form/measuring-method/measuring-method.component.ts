@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { SlickCarouselComponent } from 'ngx-slick-carousel';
+import { LoggerService } from 'src/app/_services/logger.service';
 
 @Component({
   selector: 'joining-measuring-method',
@@ -9,7 +10,8 @@ import { SlickCarouselComponent } from 'ngx-slick-carousel';
 })
 export class MeasuringMethodComponent implements OnInit {
   @Output() measuringInfo: any = new EventEmitter<any>();
-  bodyPicForm: FormGroup;
+  inbodyImg = '../../../../../assets/images/uploader.svg';
+  bodyPicForm: FormGroup | any;
   slideConfig = {
     "slidesToShow": 1,
     "slidesToScroll": 1,
@@ -45,29 +47,71 @@ export class MeasuringMethodComponent implements OnInit {
     this.slickModal.slickPrev();
 
   }
+
+  inbodyAttachment = new FormControl('', Validators.required);
+
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private logger: LoggerService,
   ) {
     this.bodyPicForm = this.formBuilder.group({
-      abs: ['', Validators.required],
-      biceps: ['', Validators.required],
-      calves: ['', Validators.required],
-      hamstrings: ['', Validators.required],
-      hips: ['', Validators.required],
-      lowerChest: ['', Validators.required],
-      upperChest: ['', Validators.required],
-      quadriceps: ['', Validators.required],
+      abs: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      biceps: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      calves: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      hamstrings: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      hips: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      lowerChest: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      upperChest: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      quadriceps: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
     })
     this.bodyPicForm.valueChanges.subscribe(() => {
+      this.value.data = {}
       this.value.valid = this.bodyPicForm.valid;
       this.value.data = this.bodyPicForm.value;
-      this.value.data.method_measurement = this.isTraditional ? 2 : 1
+      this.value.data.method_measurement = 2
       this.measuringInfo.emit(this.value)
+    })
+    this.inbodyAttachment.valueChanges.subscribe(() => {
+      this.value.data = {}
+      this.value.valid = this.inbodyAttachment.valid;
+      this.value.data.inbody_attachment = this.inbodyAttachment.value;
+      this.value.data.method_measurement = 1;
+      this.measuringInfo.emit(this.value)
+
     })
   }
   ngOnInit(): void {
   }
   output() {
     this.measuringInfo.emit(this.value)
+  }
+
+  selectimg(event: any) {
+    let file: File = <File>event.target.files[0];
+    const reader: FileReader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (e: any) => {
+      this.logger.log('upload in:', e.target.result)
+      this.inbodyAttachment.setValue(file);
+      this.inbodyImg = e.target.result;
+    }
+
+  }
+  _output(x: boolean) {
+    if (x) {
+      this.value.data = {}
+      this.value.valid = this.bodyPicForm.valid;
+      this.value.data = this.bodyPicForm.value;
+      this.value.data.method_measurement = 2
+      this.measuringInfo.emit(this.value)
+    }
+    else {
+      this.value.data = {}
+      this.value.valid = this.inbodyAttachment.valid;
+      this.value.data.inbody_attachment = this.inbodyAttachment.value;
+      this.value.data.method_measurement = 1;
+      this.measuringInfo.emit(this.value)
+
+    }
   }
 }

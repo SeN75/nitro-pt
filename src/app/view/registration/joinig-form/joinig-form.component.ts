@@ -97,8 +97,8 @@ export class JoinigFormComponent implements OnInit {
     console.log(event)
     this.isFormValid = event.valid;
     if (this.caurselPos == 0) {
-      this.subscription.birthday_Gregorian = imoment(event.data.birthDate).format('YYYY-MM-DD');
-      this.subscription.birthday_Hiri = this.replaceNumber(imoment(event.data.birthDate).format('iDD/iMM/iYYYY'));
+      this.subscription.birthday_Gregorian = this.replaceNumber(imoment(event.data.birthDate).format('YYYY-MM-DD'));
+      this.subscription.birthday_Hiri = this.replaceNumber(imoment(event.data.birthDate).format('iYYYY-iMM-iDD'));
       this.subscription.social_status = event.data.social_status;
       this.subscription.city = event.data.city;
       this.subscription.height = event.data.height;
@@ -108,33 +108,44 @@ export class JoinigFormComponent implements OnInit {
     }
     else if (this.caurselPos == 1) {
       this.subscription.nature_of_daily_stress = event.data.workNature == 'office' ? 'مكتبي' : event.data.workNature == 'field' ? 'ميداني' : event.data.workNature;
-      this.subscription.health_problems = event.data.healthProblems == 'no' ? 'لا' : event.data.healthProblems;
-      this.subscription.supplement_use = event.data.supplements == 'no' ? 'لا' : event.data.supplements;
+      this.subscription.health_problems = event.data.healthProblems == 'no' ? 'لايوجد' : event.data.healthProblems;
+      this.subscription.supplement_use = event.data.supplements == 'no' ? 'لايوجد' : event.data.supplements;
       this.subscription.goal = event.data.goalProblems;
       this.subscription.sleep_hours = event.data.sleepHours;
       this.subscription.bed_time = event.data.bedTime.replace(" AM", '').replace(" PM", '');
       this.subscription.wakeup_time = event.data.weakupTime.replace(" AM", '').replace(" PM", '');
-      this.subscription.current_diet_program = event.data.ditePlan == 'no' ? 'لا' : event.data.ditePlan;
-      this.subscription.number_of_meals = event.data.numberMeals == 'no' ? 'لا' : event.data.numberMeals;
-      this.subscription.Allergens_food = event.data.allergen == 'no' ? 'لا' : event.data.allergen;
-      this.subscription.unfavorable_food = event.data.unlike == 'no' ? 'لا' : event.data.unlike;
-      this.subscription.surgeries_history = event.data.operations == 'no' ? 'لا' : event.data.operations;
+      this.subscription.current_diet_program = event.data.ditePlan == 'no' ? 'لايوجد' : event.data.ditePlan;
+      this.subscription.number_of_meals = event.data.numberMeals == 'no' ? 'لايوجد' : event.data.numberMeals;
+      this.subscription.Allergens_food = event.data.allergen == 'no' ? 'لايوجد' : event.data.allergen;
+      this.subscription.unfavorable_food = event.data.unlike == 'no' ? 'لايوجد' : event.data.unlike;
+      this.subscription.surgeries_history = event.data.operations == 'no' ? 'لايوجد' : event.data.operations;
       this.logger.log('subscription 2:', this.subscription)
     }
     else if (this.caurselPos == 2) {
-
-      this.subscription.method_measurement = event.data.method_measurement;
+      let data = { ...event.data }
+      this.subscription.method_measurement = data.method_measurement;
       if (this.subscription.method_measurement == 2) {
-        this.subscription.calf = event.data.calves
-        this.subscription.chest_circumrefence = event.data.upperChest;
-        this.subscription.lower_chest = event.data.lowerChest;
-        this.subscription.waist = event.data.hips;
-        this.subscription.humerus = event.data.biceps;
-        this.subscription.belly = event.data.abs;
-        this.subscription.thigh = event.data.quadriceps;
-        this.subscription.buttocks = event.data.hamstrings;
-        this.logger.log('subscription 3:', this.subscription)
+        this.subscription.calf = data.calves
+        this.subscription.chest_circumrefence = data.upperChest;
+        this.subscription.lower_chest = data.lowerChest;
+        this.subscription.waist = data.hips;
+        this.subscription.humerus = data.biceps;
+        this.subscription.belly = data.abs;
+        this.subscription.thigh = data.quadriceps;
+        this.subscription.buttocks = data.hamstrings;
+        delete this.subscription.inbody_attachment
+      } else {
+        delete this.subscription.calf;
+        delete this.subscription.chest_circumrefence;
+        delete this.subscription.lower_chest;
+        delete this.subscription.waist;
+        delete this.subscription.humerus;
+        delete this.subscription.belly;
+        delete this.subscription.thigh;
+        delete this.subscription.buttocks;
+        this.subscription.inbody_attachment = data.inbody_attachment
       }
+      this.logger.log('subscription 3:', this.subscription)
 
     }
     else if (this.caurselPos == 3) {

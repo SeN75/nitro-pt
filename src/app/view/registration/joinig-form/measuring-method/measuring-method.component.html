@@ -6,13 +6,13 @@
     </div>
     <div class="col-6 col-md-4">
       <button mat-stroked-button class="w-100" [class.selected]="isTraditional"
-        (click)="isTraditional = true; measuringInfo.emit({valid: false})">
+        (click)="isTraditional = true;_output(true);">
         {{'BODY.traditional' | translate}}
       </button>
     </div>
     <div class="col-6 col-md-4">
       <button mat-stroked-button class="w-100" [class.selected]="!isTraditional"
-        (click)="isTraditional = false; measuringInfo.emit({valid: true, method_measurement: 1})">
+        (click)="isTraditional = false; _output(false);">
         {{'BODY.in-body' | translate}}
       </button>
     </div>
@@ -29,18 +29,21 @@
       <li class="term">{{'BODY.condition-4' | translate }}</li>
     </ol>
     <p class="term my-3">{{'BODY.please-attach-a-copy-of-the-examination' | translate}}</p>
-    <div class="upload_file">
-      <img src="../../../../../assets/images/uploader.svg" class="uploder_img">
+    <div class="upload_file" (click)="inbodyTest.click()">
+      <img [src]="inbodyImg" class="uploder_img">
       <button mat-button class="upload_button">
         {{'SETTINGS.upload-file' | translate}}
       </button>
+      <input type="file" hidden #inbodyTest (change)="selectimg($event)"
+        accept="image/jpg, image/jpeg, image/png, application/pdf">
     </div>
   </div>
   <div class="register_form px-4" [formGroup]="bodyPicForm" *ngIf="isTraditional">
     <ngx-slick-carousel class="carousel joining_carousel" #slickModal="slick-carousel" [config]="slideConfig">
       <div ngxSlickItem>
         <div class="">
-          <div class="from-group">
+          <div class="form-group"
+            [class.has_error]="bodyPicForm.get('upperChest')?.invalid && bodyPicForm.get('upperChest')?.dirty ">
             <div class="body_label">
               <label class="body_number">1</label>
               <div class="input_titls">
@@ -49,13 +52,19 @@
               </div>
             </div>
             <input formControlName="upperChest" class="form-control">
+            <div class="hint" *ngIf="bodyPicForm.get('upperChest')?.invalid && bodyPicForm.get('upperChest')?.dirty ">
+              <span *ngIf="bodyPicForm.get('upperChest').errors.required">{{'VALIDATION.required' | translate}}</span>
+              <span *ngIf="bodyPicForm.get('upperChest').errors.pattern">{{'VALIDATION.number' | translate}}</span>
+
+            </div>
           </div>
           <img src="../../../../../assets/icons/body/upper_chest_img.svg" class="body_img">
         </div>
       </div>
       <div ngxSlickItem>
         <div class="">
-          <div class="from-group">
+          <div class="form-group"
+            [class.has_error]="bodyPicForm.get('lowerChest')?.invalid && bodyPicForm.get('lowerChest')?.dirty ">
             <div class="body_label">
               <label class="body_number">2</label>
               <div class="input_titls">
@@ -64,13 +73,19 @@
               </div>
             </div>
             <input formControlName="lowerChest" class="form-control">
+            <div class="hint" *ngIf="bodyPicForm.get('lowerChest')?.invalid && bodyPicForm.get('lowerChest')?.dirty ">
+              <span *ngIf="bodyPicForm.get('lowerChest').errors.required">{{'VALIDATION.required' | translate}}</span>
+              <span *ngIf="bodyPicForm.get('lowerChest').errors.pattern">{{'VALIDATION.number' | translate}}</span>
+
+            </div>
           </div>
           <img src="../../../../../assets/icons/body/lower_chest_img.svg" class="body_img">
         </div>
       </div>
       <div ngxSlickItem>
         <div class="">
-          <div class="from-group">
+          <div class="form-group"
+            [class.has_error]="bodyPicForm.get('hips')?.invalid && bodyPicForm.get('hips')?.dirty ">
             <div class="body_label">
               <label class="body_number">3</label>
               <div class="input_titls">
@@ -79,13 +94,18 @@
               </div>
             </div>
             <input formControlName="hips" class="form-control">
+            <div class="hint" *ngIf="bodyPicForm.get('hips')?.invalid && bodyPicForm.get('hips')?.dirty ">
+              <span *ngIf="bodyPicForm.get('hips').errors.required">{{'VALIDATION.required' | translate}}</span>
+              <span *ngIf="bodyPicForm.get('hips').errors.pattern">{{'VALIDATION.number' | translate}}</span>
+
+            </div>
           </div>
           <img src="../../../../../assets/icons/body/hips_img.svg" class="body_img">
         </div>
       </div>
       <div ngxSlickItem>
         <div class="">
-          <div class="from-group">
+          <div class="form-group" [class.has_error]="bodyPicForm.get('abs')?.invalid && bodyPicForm.get('abs')?.dirty ">
             <div class="body_label">
               <label class="body_number">4</label>
               <div class="input_titls">
@@ -94,13 +114,19 @@
               </div>
             </div>
             <input formControlName="abs" class="form-control">
+            <div class="hint" *ngIf="bodyPicForm.get('abs')?.invalid && bodyPicForm.get('abs')?.dirty ">
+              <span *ngIf="bodyPicForm.get('abs').errors.required">{{'VALIDATION.required' | translate}}</span>
+              <span *ngIf="bodyPicForm.get('abs').errors.pattern">{{'VALIDATION.number' | translate}}</span>
+
+            </div>
           </div>
           <img src="../../../../../assets/icons/body/abs_img.svg" class="body_img">
         </div>
       </div>
       <div ngxSlickItem>
         <div class="">
-          <div class="from-group">
+          <div class="form-group"
+            [class.has_error]="bodyPicForm.get('quadriceps')?.invalid && bodyPicForm.get('quadriceps')?.dirty ">
             <div class="body_label">
               <label class="body_number">5</label>
               <div class="input_titls">
@@ -109,13 +135,19 @@
               </div>
             </div>
             <input formControlName="quadriceps" class="form-control">
+            <div class="hint" *ngIf="bodyPicForm.get('quadriceps')?.invalid && bodyPicForm.get('quadriceps')?.dirty ">
+              <span *ngIf="bodyPicForm.get('quadriceps').errors.required">{{'VALIDATION.required' | translate}}</span>
+              <span *ngIf="bodyPicForm.get('quadriceps').errors.pattern">{{'VALIDATION.number' | translate}}</span>
+
+            </div>
           </div>
           <img src="../../../../../assets/icons/body/quadriceps_img.svg" class="body_img">
         </div>
       </div>
       <div ngxSlickItem>
         <div class="">
-          <div class="from-group">
+          <div class="form-group"
+            [class.has_error]="bodyPicForm.get('hamstrings')?.invalid && bodyPicForm.get('hamstrings')?.dirty ">
             <div class="body_label">
               <label class="body_number">6</label>
               <div class="input_titls">
@@ -124,13 +156,19 @@
               </div>
             </div>
             <input formControlName="hamstrings" class="form-control">
+            <div class="hint" *ngIf="bodyPicForm.get('hamstrings')?.invalid && bodyPicForm.get('hamstrings')?.dirty ">
+              <span *ngIf="bodyPicForm.get('hamstrings').errors.required">{{'VALIDATION.required' | translate}}</span>
+              <span *ngIf="bodyPicForm.get('hamstrings').errors.pattern">{{'VALIDATION.number' | translate}}</span>
+
+            </div>
           </div>
           <img src="../../../../../assets/icons/body/hamstrings_img.svg" class="body_img">
         </div>
       </div>
       <div ngxSlickItem>
         <div class="">
-          <div class="from-group">
+          <div class="form-group"
+            [class.has_error]="bodyPicForm.get('calves')?.invalid && bodyPicForm.get('calves')?.dirty ">
             <div class="body_label">
               <label class="body_number">7</label>
               <div class="input_titls">
@@ -139,13 +177,19 @@
               </div>
             </div>
             <input formControlName="calves" class="form-control">
+            <div class="hint" *ngIf="bodyPicForm.get('calves')?.invalid && bodyPicForm.get('calves')?.dirty ">
+              <span *ngIf="bodyPicForm.get('calves').errors.required">{{'VALIDATION.required' | translate}}</span>
+              <span *ngIf="bodyPicForm.get('calves').errors.pattern">{{'VALIDATION.number' | translate}}</span>
+
+            </div>
           </div>
           <img src="../../../../../assets/icons/body/calves_img.svg" class="body_img">
         </div>
       </div>
       <div ngxSlickItem>
         <div class="">
-          <div class="from-group">
+          <div class="form-group"
+            [class.has_error]="bodyPicForm.get('biceps')?.invalid && bodyPicForm.get('biceps')?.dirty ">
             <div class="body_label">
               <label class="body_number">8</label>
               <div class="input_titls">
@@ -154,6 +198,11 @@
               </div>
             </div>
             <input formControlName="biceps" class="form-control">
+            <div class="hint" *ngIf="bodyPicForm.get('biceps')?.invalid && bodyPicForm.get('biceps')?.dirty ">
+              <span *ngIf="bodyPicForm.get('biceps').errors.required">{{'VALIDATION.required' | translate}}</span>
+              <span *ngIf="bodyPicForm.get('biceps').errors.pattern">{{'VALIDATION.number' | translate}}</span>
+
+            </div>
           </div>
           <img src="../../../../../assets/icons/body/biceps_img.svg" class="body_img">
         </div>

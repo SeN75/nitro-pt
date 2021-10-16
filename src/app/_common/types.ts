@@ -26,6 +26,7 @@ export interface Subscription {
   back_image?: File,
   right_image?: File,
   left_image?: File,
+  inbody_attachment?: File,
   payment_invoice?: File,
   package_id?: string,
   social_status?: number,
