@@ -16,6 +16,8 @@ import { ArchivingInfoComponent } from './info-items/archiving-info/archiving-in
 import { RouterModule } from '@angular/router';
 import { UplodeFileComponent } from './uplode-file/uplode-file.component';
 import { EntriesAndRemainingComponent } from './entries-and-remaining/entries-and-remaining.component';
+import { LoaderComponent } from './loader/loader.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { EntriesAndRemainingComponent } from './entries-and-remaining/entries-an
     BodyPicInfoComponent,
     ArchivingInfoComponent,
     UplodeFileComponent,
-    EntriesAndRemainingComponent
+    EntriesAndRemainingComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { EntriesAndRemainingComponent } from './entries-and-remaining/entries-an
     MatExpansionModule,
     ReactiveFormsModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    MatProgressSpinnerModule
 
   ],
   exports: [
@@ -50,7 +54,8 @@ import { EntriesAndRemainingComponent } from './entries-and-remaining/entries-an
     BodyMeasurementsComponent,
     BodyPicInfoComponent,
     ArchivingInfoComponent,
-    EntriesAndRemainingComponent
+    EntriesAndRemainingComponent,
+    LoaderComponent
   ]
 })
 export class ComponentsModule { }

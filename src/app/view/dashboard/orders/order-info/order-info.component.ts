@@ -3,6 +3,7 @@ import { LoggerService } from 'src/app/_services/logger.service';
 import { SubscriptionsService } from 'src/app/_services/subscriptions/subscriptions.service';
 import { RequestDetails, Subscription, HealthInfo, BodyInfo, FinanceInfo } from './../../../../_common/types';
 import { PersonalDetails } from 'src/app/_common/types';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-info',
@@ -18,6 +19,9 @@ export class OrderInfoComponent implements OnInit, AfterViewInit {
   personal_info!: PersonalDetails;
   request_info!: Subscription;
   counter = 0;
+  isLoading = false;
+  hasError = false;
+  orderId = '';
   info = {
     personalData: {
       name: "محمد شلبي",
@@ -80,13 +84,20 @@ export class OrderInfoComponent implements OnInit, AfterViewInit {
 
   constructor(
     private subscriptionSrv: SubscriptionsService,
-    private logger: LoggerService) { }
+    private logger: LoggerService,
+    private router: Router) {
+
+    this.orderId = this.router.url.replace("orders/", '').replace("/detail", '').replace('/', '')
+    if (this.orderId == '')
+      this.router.navigateByUrl('/dashboard/orders')
+    this.getOrderDetails()
+    this.logger.log('this.orderId', this.orderId)
+  }
   ngAfterViewInit(): void {
 
   }
 
   ngOnInit(): void {
-    setTimeout(() => this.checkData(), 800)
   }
   checkData() {
     this.requestDetails = this.subscriptionSrv.requestDetails;
@@ -99,7 +110,33 @@ export class OrderInfoComponent implements OnInit, AfterViewInit {
     this.info.bodyImg = this.requestDetails.media;
     this.logger.log('requestDetails', this.requestDetails)
   }
+  getOrderDetails() {
+    this.isLoading = true;
+    this.hasError = false;
 
+    this.subscriptionSrv.__getRequestDetailsById(this.orderId).subscribe((success: any) => {
+      this.logger.log('order type', success)
+      this.info.personalData = success.personal_info;
+      this.info.subscriber = success.health_info;
+      this.info.bodyMeasurements = success.body_info;
+      this.info.bodyMeasurements.weight = this.info.personalData.weight;
+      this.info.request_info = success.request_info;
+      this.info.finance_info = success.finance_info;
+      this.info.bodyImg = success.media;
+      this.loaded()
+    },
+      (error) => {
+        this.hasError = true
+        this.isLoading = false;
+        this.logger.error('order details:', error)
+      })
+  }
+  loaded() {
+    setTimeout(() => {
+      this.isLoading = false
+
+    }, 1000)
+  }
   sendRequest(isApproved: boolean) {
     this.subscriptionSrv.createApproveOrDenayRequest({ is_approved: isApproved, request_id: this.info.request_info.request_id, comment: '' })
   }

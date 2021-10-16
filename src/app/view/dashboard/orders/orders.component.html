@@ -6,7 +6,9 @@
     <span>
     </span>
   </header>
-  <div class="body">
+  <loader *ngIf="isLoading" title="{{ 'ORDERS.loading' | translate}}"></loader>
+
+  <div class="body" *ngIf="!isLoading && !hasError">
     <table class="table-theme-1 hover">
       <thead class="text-center">
         <tr>
@@ -20,7 +22,12 @@
         </tr>
       </thead>
       <tbody class="text-center">
-        <tr *ngFor="let order of subscriptionSrv.new_request; let i = index">
+        <tr class="no_data" *ngIf="newRequestList.length == 0">
+          <td colspan="30">
+            {{'ORDERS.no-data' | translate}}
+          </td>
+        </tr>
+        <tr *ngFor="let order of newRequestList; let i = index">
           <td>{{i + 1 }}</td>
           <td>{{order.id}}</td>
           <td>{{order.client}}</td>
@@ -47,9 +54,12 @@
     <span>
     </span>
   </header>
-  <div class="body">
+  <loader *ngIf="isLoading" title="{{ 'ORDERS.loading' | translate}}"></loader>
+
+  <div class="body" *ngIf="!isLoading && !hasError">
     <table class="table-theme-1 hover">
       <thead class="text-center">
+
         <tr>
           <th>#</th>
           <th>{{'ORDERS.no' | translate}}</th>
@@ -61,7 +71,12 @@
         </tr>
       </thead>
       <tbody class="text-center">
-        <tr *ngFor="let order of subscriptionSrv.expired_request; let i = index">
+        <tr class="no_data" *ngIf="expiredRequest.length == 0">
+          <td colspan="30">
+            {{'ORDERS.no-data' | translate}}
+          </td>
+        </tr>
+        <tr *ngFor="let order of expiredRequest; let i = index">
           <td>{{i + 1 }}</td>
           <td>{{order.id}}</td>
           <td>{{order.client}}</td>

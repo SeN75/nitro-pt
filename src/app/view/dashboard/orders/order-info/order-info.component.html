@@ -1,4 +1,5 @@
 <section class="content">
+
   <header class="page-header">
     <h1 class="title">
       {{'ORDERS.info' | translate}}
@@ -10,7 +11,9 @@
       </button>
     </span>
   </header>
-  <header class="nitro-card row mt-3">
+  <loader *ngIf="isLoading" title="{{ 'ORDERS.loading-details' | translate}}"></loader>
+
+  <header class="nitro-card row mt-3" *ngIf="!isLoading && !hasError">
     <info-item class="col" info_item_title="{{'SUBSCRIBERS.name' | translate}}"
       [info_item_value]="info.personalData.name">
     </info-item>
@@ -30,7 +33,7 @@
       info_item_value="{{('STATUS.Order.'+info.request_info.status) | translate}}">
     </info-item>
   </header>
-  <div class="body scroll">
+  <div class="body scroll" *ngIf="!isLoading && !hasError">
 
     <mat-accordion class="example-headers-align" multi>
       <mat-expansion-panel>

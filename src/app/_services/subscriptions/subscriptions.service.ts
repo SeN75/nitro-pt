@@ -32,7 +32,7 @@ export class SubscriptionsService {
     private logger: LoggerService
   ) {
 
-    // this.getSubscriptionDetailsById("43");
+    // this.getSubscriptionDetailsById("48");
     // this.getRequestDetailsById('84')
   }
 
@@ -73,6 +73,7 @@ export class SubscriptionsService {
     let right_image: File;
     let payment_invoice: File;
     let other_attachment: File;
+    let inbody_attachment: File;
 
     if (data.front_image) {
       front_image = data.front_image;
@@ -98,6 +99,20 @@ export class SubscriptionsService {
       other_attachment = data.other_attachment;
       formData.append('other_attachment', other_attachment)
     }
+    if (data.inbody_attachment) {
+      inbody_attachment = data.inbody_attachment;
+      formData.append('inbody_attachment', inbody_attachment)
+    }
+    if (data.method_measurement == 2) {
+      formData.append('chest_circumrefence', data.chest_circumrefence + "");
+      formData.append('lower_chest', data.lower_chest + "");
+      formData.append('waist', data.waist + "");
+      formData.append('belly', data.belly + "");
+      formData.append('buttocks', data.buttocks + "");
+      formData.append('thigh', data.thigh + "");
+      formData.append('calf', data.calf + "");
+      formData.append('humerus', data.humerus + "");
+    }
     formData.append('city', data.city + "");
     formData.append('birthday_Hiri', data.birthday_Hiri + "");
     formData.append('birthday_Gregorian', data.birthday_Gregorian + "");
@@ -113,14 +128,6 @@ export class SubscriptionsService {
     formData.append('number_of_meals', data.number_of_meals + "");
     formData.append('current_diet_program', data.current_diet_program + "");
     formData.append('unfavorable_food', data.unfavorable_food + "");
-    formData.append('chest_circumrefence', data.chest_circumrefence + "");
-    formData.append('lower_chest', data.lower_chest + "");
-    formData.append('waist', data.waist + "");
-    formData.append('belly', data.belly + "");
-    formData.append('buttocks', data.buttocks + "");
-    formData.append('thigh', data.thigh + "");
-    formData.append('calf', data.calf + "");
-    formData.append('humerus', data.humerus + "");
     formData.append('package_id', data.package_id + "");
     formData.append('social_status', data.social_status + "");
     formData.append('gender', data.gender + "");
@@ -145,6 +152,8 @@ export class SubscriptionsService {
     let right_image: File;
     let payment_invoice: File;
     let other_attachment: File;
+    let inbody_attachment: File;
+
     if (data.front_image) {
       front_image = data.front_image;
       formData.append('front_image', front_image)
@@ -168,6 +177,10 @@ export class SubscriptionsService {
     if (data.other_attachment) {
       other_attachment = data.other_attachment;
       formData.append('other_attachment', other_attachment)
+    }
+    if (data.inbody_attachment) {
+      inbody_attachment = data.inbody_attachment;
+      formData.append('inbody_attachment', inbody_attachment)
     }
     if (data.city)
       formData.append('city', data.city + "");
@@ -239,7 +252,7 @@ export class SubscriptionsService {
       this.logger.log('create approve or denay request: ', success)
       this.translateSrv.get('SUCCESS.SUBSCRIOPTION.approve').subscribe(msg => this.toastSrv.success(msg))
     }, (error: HttpErrorResponse) => {
-      this.logger.log('create approve or denay request error: ', error)
+      this.logger.error('create approve or denay request error: ', error)
       this.translateSrv.get('ERRORS.SUBSCRIOPTION.approve').subscribe(msg => this.toastSrv.error(msg))
     })
   }
@@ -251,6 +264,9 @@ export class SubscriptionsService {
     }, (error: HttpErrorResponse) => {
       this.logger.error('briefSubscriptionsLis: ', error)
     })
+  }
+  public __briefRequestsList() {
+    return this._briefRequestsList();
   }
   public briefRequestsList() {
     this._briefRequestsList().subscribe((success: any) => {
@@ -272,6 +288,9 @@ export class SubscriptionsService {
     }, (error: HttpErrorResponse) => {
       this.logger.error('getRequestDetailsById: ', error)
     })
+  }
+  public __getRequestDetailsById(id: string) {
+    return this._getRequestDetailsById(id);
   }
   public getSubscriptionDetailsById(id: string) {
     this._getSubscriptionDetailsById(id).subscribe((success: any) => {
