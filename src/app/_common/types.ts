@@ -150,3 +150,10 @@ export interface PackageAttachment {
   id: number,
 
 }
+
+
+export interface CategoryFood {
+  name: string,
+  name_ar: string,
+  id: number
+}

@@ -6,6 +6,10 @@ import { FoodCategoriesService } from '../../../_services/dite/food-categories.s
 import { LanguageService } from 'src/app/_services/language.service';
 import { LoggerService } from 'src/app/_services/logger.service';
 import { FoodItemsService } from 'src/app/_services/dite/food-items.service';
+import { CategoryFood } from 'src/app/_common/types';
+import { HttpErrorResponse } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { CategoryTypeDialogComponent } from './category-type-dialog/category-type-dialog.component';
 
 @Component({
   selector: 'app-categories',
@@ -13,8 +17,9 @@ import { FoodItemsService } from 'src/app/_services/dite/food-items.service';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
-  categories = categoriesWithcompounds;
-  dtOptions: DataTables.Settings = {};
+  categories: CategoryFood[] = [];
+  isLoading = true;
+  hasError = false;
 
   constructor(
     public dialogSrv: DialogService,
@@ -22,21 +27,51 @@ export class CategoriesComponent implements OnInit {
     public categoryItemSrv: FoodItemsService,
     private router: Router,
     public lang: LanguageService,
-
+    private dialog: MatDialog,
     private logger: LoggerService) {
-    this.categorySrv.getFoodCategoriesList()
+    // this.categorySrv.getFoodCategoriesList()
+    this.getFoodCategoriesList()
+    this.categorySrv.categories = this.categories;
     this.categoryItemSrv.getFoodItemList()
   }
 
   ngOnInit(): void {
-    this.dtOptions = {
-      // ajax: 'data/data.json',
-      columns: [
-      ],
-    };
+
   }
   showCompunds(cat: any) {
     this.categorySrv.category = cat;
     this.router.navigateByUrl(`/categories/${cat.id}/compounds`);
   }
+  getFoodCategoriesList() {
+    this.categories = []
+    this.isLoading = true
+    this.hasError = false;
+    this.categorySrv.__getFoodCategoriesList().subscribe((cate: any) => {
+      this.categories = cate;
+      this.logger.log('categories: ', this.categories)
+      this.loaded()
+    }, (error: HttpErrorResponse) => {
+      this.hasError = true;
+      this.logger.error('categories error: ', error)
+    })
+  }
+  loaded() {
+    setTimeout(() => this.isLoading = false, 500)
+  }
+  openCategoryTypeDialog(state?: string, cate?: any) {
+    const dialogRef = this.dialog.open(CategoryTypeDialogComponent, {
+      height: 'auto',
+      minWidth: '300px',
+      maxWidth: "750px",
+      width: 'auto',
+      data: { state: state, cate: cate }
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      this.isLoading = true;
+      setTimeout(() => {
+        this.getFoodCategoriesList();
+      }, 500);
+    });
+  }
+
 }

@@ -123,6 +123,7 @@
     "carb-per-gram": "The number of grams of carp",
     "fat": "fat",
     "fat-per-gram": "The number of grams of fat",
+    "loading": "Categories are being loaded...",
     "measuring-unit": {
       "": "",
       "unit": "measuring unit",

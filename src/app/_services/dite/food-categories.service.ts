@@ -5,14 +5,19 @@ import { TranslateService } from '@ngx-translate/core';
 import { API } from 'src/app/_helpers/api.config';
 import { LoggerService } from '../logger.service';
 import { ToastService } from '../toast.service';
+import { CategoryFood } from './../../_common/types';
 
 const foodUrl = API + "diet/food/categories/"
 @Injectable({
   providedIn: 'root'
 })
 export class FoodCategoriesService {
-  categories: any;
+  categories: CategoryFood[] = [];
   category: any;
+
+  isLoading = true;
+  hasError = false;
+
   constructor(
     private router: Router,
     private httpClient: HttpClient,
@@ -46,12 +51,20 @@ export class FoodCategoriesService {
   }
 
   public getFoodCategoriesList() {
+    this.isLoading = true;
+    this.hasError = false;
+
     this._getFoodCategoriesList().subscribe((success: any) => {
+      this.loaded()
       this.categories = success;
       this.logger.log("get food categories List:", success)
     }, (error: HttpErrorResponse) => {
+      this.hasError = true
       this.logger.error("get food categories List error: ", error)
     })
+  }
+  public __getFoodCategoriesList() {
+    return this._getFoodCategoriesList()
   }
   public getFoodCategoriesById(id: string) {
     this._getFoodCategoriesById(id).subscribe((success: any) => {
@@ -91,5 +104,10 @@ export class FoodCategoriesService {
 
       this.logger.error("delete Food Categories By Id error: ", error)
     })
+  }
+
+
+  loaded() {
+    setTimeout(() => this.isLoading = false, 500)
   }
 }
