@@ -15,6 +15,8 @@ export class ExercisesService {
   workout: any;
   exerciseSchedule: any[] = [];
 
+  isLoading = true;
+  hasError = false;
   constructor(
     private router: Router,
     private httpClient: HttpClient,
@@ -62,10 +64,14 @@ export class ExercisesService {
   }
 
   public getExerciseList() {
+    this.isLoading = true;
+    this.hasError = false;
     this._getExerciseList().subscribe((success: any) => {
       this.exerciseSchedule = success;
+      this.loaded()
       this.logger.log("get Exercise List:", success)
     }, (error: HttpErrorResponse) => {
+      this.hasError = true;
       this.logger.error("get Exercise List error: ", error)
     })
   }
@@ -120,5 +126,9 @@ export class ExercisesService {
     return this.exerciseSchedule.filter(ex => {
       return ex.category == id
     });
+  }
+
+  loaded() {
+    setTimeout(() => this.isLoading = false, 500)
   }
 }

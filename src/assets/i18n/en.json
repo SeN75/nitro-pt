@@ -175,7 +175,9 @@
     "name_ar": "arabic workout name",
     "link": "workout link",
     "execrise-add": "add workout",
-    "execrise-edit": "edit workout"
+    "execrise-edit": "edit workout",
+    "no-data": "no execrises",
+    "loading": "The exercises are loading..."
   },
   "DIETPLAN": {
     "table": "diteplane and exercise  table",

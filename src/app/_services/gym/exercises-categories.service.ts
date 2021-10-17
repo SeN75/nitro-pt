@@ -13,7 +13,14 @@ const gymUrl = API + "gym/exercise/categories/";
 export class ExercisesCategoriesService {
   categories: any;
   workout: any;
-  exerciseCategory: any;
+  exerciseCategory: any = {
+    name_ar: '',
+    name: ''
+  };
+
+  isLoading = true;
+  hasError = false;
+
   constructor(
     private router: Router,
     private httpClient: HttpClient,
@@ -42,10 +49,14 @@ export class ExercisesCategoriesService {
   }
 
   public getExerciseCategoriesList() {
+    this.isLoading = true;
+    this.hasError = false;
     this._getExerciseCategoriesList().subscribe((success: any) => {
       this.categories = success;
+      this.loaded()
       this.logger.log("get Exercise List:", success)
     }, (error: HttpErrorResponse) => {
+      this.hasError = false;
       this.logger.error("get Exercise List error: ", error)
     })
   }
@@ -90,5 +101,8 @@ export class ExercisesCategoriesService {
 
       this.logger.error("delete exercises By Id error: ", error)
     })
+  }
+  loaded() {
+    setTimeout(() => { this.isLoading = false }, 500)
   }
 }

@@ -22,22 +22,22 @@ export class ExerciseScheduleComponent implements OnInit {
     public lang: LanguageService,
     private logger: LoggerService,
     private router: Router) {
-    this.categoryId = this.router.url.split('/')[2];
-    this.exerciseSrv.getExerciseList();
-    this.exerciseSrv.getExerciseListOnSameCategory(this.categoryId);
-    this.exerciseCategorSrv.getExercisetCategoriesById(this.categoryId)
+    this.categoryId = this.router.url.replace('/worksout/', "").replace('exercise', '').replace('/', '');
 
+    this.getExercises()
     // this.workoutSrv.checkWorkout()
     // this.workout = this.workoutSrv.workout;
 
   }
 
   ngOnInit(): void {
-    this.dtOptions = {
-      // ajax: 'data/data.json',
-      columns: [
-      ],
-    };
-  }
 
+
+  }
+  getExercises() {
+    this.exerciseSrv.getExerciseList();
+    this.exerciseCategorSrv.getExercisetCategoriesById(this.categoryId)
+    this.logger.log('length', this.exerciseSrv.getExerciseListOnSameCategory(this.categoryId).length + "");
+
+  }
 }

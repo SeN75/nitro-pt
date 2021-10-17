@@ -10,8 +10,10 @@
         translate}}</button>
     </span>
   </header>
-  <div class="body">
-    <table datatable [dtOptions]="dtOptions" class="table-theme-1 hover">
+  <loader title="{{'WORKSOUT.loading' | translate}}" *ngIf="workoutSrv.isLoading" [hasError]="workoutSrv.hasError">
+  </loader>
+  <div class="body scroll" *ngIf="!workoutSrv.isLoading">
+    <table class="table-theme-1 hover">
       <thead class="text-center">
         <tr>
           <th>#</th>
@@ -21,23 +23,33 @@
         </tr>
       </thead>
       <tbody class="text-center">
-        <tr *ngFor="let workout of workoutSrv.categories; let i = index">
-          <td>{{i + 1 }}</td>
-          <td>{{lang.selected == 'ar'?workout.name_ar: workout.name}}</td>
-          <td>
-            <!-- {{workout.exercises.length}} -->
-            {{exerciseSrv.getExerciseListOnSameCategory(workout.id).length}}
-          </td>
-          <td class="text-end">
-            <span>
-              <button mat-icon-button (click)="dialogSrv.openWorkoutTypeDialog('edit', workout)">
-                <mat-icon>edit</mat-icon>
-              </button>
-              <button mat-icon-button (click)="showExercise(workout)">
-                <mat-icon>arrow_back_ios</mat-icon>
-              </button>
+        <ng-container *ngFor="let workout of workoutSrv.categories; let i = index">
+          <tr class="row_space">
+            <td colspan="30"></td>
+          </tr>
+          <tr>
+            <td>{{i + 1 }}</td>
+            <td>{{lang.selected == 'ar'?workout.name_ar: workout.name}}</td>
+            <td>
+              <!-- {{workout.exercises.length}} -->
+              {{exerciseSrv.getExerciseListOnSameCategory(workout.id).length}}
+            </td>
+            <td class="text-end">
+              <span>
+                <button mat-icon-button (click)="dialogSrv.openWorkoutTypeDialog('edit', workout)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button (click)="showExercise(workout)">
+                  <mat-icon>arrow_back_ios</mat-icon>
+                </button>
 
-            </span>
+              </span>
+            </td>
+          </tr>
+        </ng-container>
+        <tr class="no_data" *ngIf="workoutSrv.categories.length == 0">
+          <td colspan="30">
+            {{'WORKSOUT.no-data' | translate}}
           </td>
         </tr>
       </tbody>

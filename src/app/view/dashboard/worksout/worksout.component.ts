@@ -24,14 +24,14 @@ export class WorksoutComponent implements OnInit {
     private logger: LoggerService
   ) {
 
-    this.workoutSrv.getExerciseCategoriesList()
+    this.getExerciseList()
   }
 
   ngOnInit(): void {
-    this.dtOptions = {
-      // ajax: 'data/data.json',
-      columns: [],
-    };
+
+  }
+  getExerciseList() {
+    this.workoutSrv.getExerciseCategoriesList()
   }
 
   showExercise(exercise: any) {
