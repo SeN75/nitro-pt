@@ -127,3 +127,26 @@ export interface SubscriptionInfo {
   status: string,
   subscription_id: string
 }
+
+export interface Package {
+  account_owner_name?: string,
+  attach_required?: boolean,
+  bank_account_id: string,
+  bank_name?: string,
+  bank_name_ar?: string,
+  description: string,
+  description_ar: string,
+  external_id: string,
+  iban: string,
+  name: string,
+  name_ar: string,
+  period: number,
+  price: number,
+  required_attachments: PackageAttachment[]
+}
+export interface PackageAttachment {
+  attach_name: string,
+  attach_name_ar: string,
+  id: number,
+
+}

@@ -63,6 +63,9 @@ export class PackagesService {
       this.logger.error("get packages List error: ", error)
     })
   }
+  public __getPackagesList() {
+    return this._getPackagesList().toPromise();
+  }
   public getAllAttachmentList() {
     this._getAllAttachmentList().subscribe((success: any) => {
       this.attachmentList = success;

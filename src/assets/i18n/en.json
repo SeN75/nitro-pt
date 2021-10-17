@@ -150,7 +150,9 @@
     "info": "package information",
     "no-data": " There is no data for package yet.",
     "hello": "hello",
-    "sr": "SR"
+    "sr": "SR",
+    "loading":"Packages are being loading..."
+
   },
   "OFFER": {
     "title": "offer",
