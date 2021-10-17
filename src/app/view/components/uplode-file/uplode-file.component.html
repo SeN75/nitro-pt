@@ -1,3 +1,11 @@
-<div class="dropzone">
-  <input type="file" #fileDropRef id="fileDropRef" (change)="fileBrowserHandler($event)">
+<div class="dropzone" Dropzone (click)="file.click()" *ngIf="fileControl.invalid">
+
+  <mat-icon>file_upload</mat-icon>
+  <div>
+    {{'FORM.drop-and-drage' | translate}}
+  </div>
+  <div class="my-2">{{'FORM.or' | translate}}</div>
+  <button mat-stroked-button color="primary"> {{'FORM.select-upload' | translate}}</button>
+
+  <input hidden type="file" [formControl]="fileControl" #file (change)="fileBrowserHandler($event)">
 </div>

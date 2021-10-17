@@ -21,23 +21,7 @@
 
       </div>
     </div>
-    <input type="file" #file hidden (change)="upload($event)">
-
-    <div class="col-12 attach_button">
-      <div class="form-group "
-        [class.has_error]="exerciseForm.get('media_link')?.invalid && exerciseForm.get('media_link')?.dirty ">
-        <label for="input">{{'WORKSOUT.link' | translate}}</label>
-        <input name="input" class="form-control" formControlName="media_link">
-        <div class="hint" *ngIf="exerciseForm.get('media_link')?.invalid && exerciseForm.get('media_link')?.dirty ">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-      <button mat-icon-button (click)="file.click(); ">
-        <mat-icon>attach_file</mat-icon>
-      </button>
-    </div>
+    <uplode-file></uplode-file>
   </div>
   <div class="button-group mt-3">
     <button mat-raised-button color="primary" (click)="action()"> {{'FORM.'+ (data.state == 'edit' ? 'edit' : 'add')

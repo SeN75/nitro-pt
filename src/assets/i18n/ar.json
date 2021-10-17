@@ -345,7 +345,10 @@
         "null": "لا يوجد",
         "Male": "ذكر",
         "Female": "انثى",
-        "other-attach": "مرفقات اخرى"
+        "other-attach": "مرفقات اخرى",
+        "drop-and-drage": "اسحب و افلت الملف هنا لرفعه",
+        "or": "او",
+        "select-upload": "اضغط لرفع"
 
 
     },

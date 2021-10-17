@@ -55,7 +55,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     BodyPicInfoComponent,
     ArchivingInfoComponent,
     EntriesAndRemainingComponent,
-    LoaderComponent
+    LoaderComponent,
+    UplodeFileComponent
   ]
 })
 export class ComponentsModule { }
