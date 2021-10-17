@@ -31,7 +31,7 @@ export class CategoriesComponent implements OnInit {
     private logger: LoggerService) {
     // this.categorySrv.getFoodCategoriesList()
     this.getFoodCategoriesList()
-    this.categorySrv.categories = this.categories;
+    // this.categorySrv.categories = this.categories;
     this.categoryItemSrv.getFoodItemList()
   }
 
@@ -43,35 +43,22 @@ export class CategoriesComponent implements OnInit {
     this.router.navigateByUrl(`/categories/${cat.id}/compounds`);
   }
   getFoodCategoriesList() {
-    this.categories = []
-    this.isLoading = true
-    this.hasError = false;
-    this.categorySrv.__getFoodCategoriesList().subscribe((cate: any) => {
-      this.categories = cate;
-      this.logger.log('categories: ', this.categories)
-      this.loaded()
-    }, (error: HttpErrorResponse) => {
-      this.hasError = true;
-      this.logger.error('categories error: ', error)
-    })
+    this.categorySrv.getFoodCategoriesList()
+    // this.categories = []
+    // this.isLoading = true
+    // this.hasError = false;
+    // this.categorySrv.__getFoodCategoriesList().subscribe((cate: any) => {
+    //   this.categories = cate;
+    //   this.logger.log('categories: ', this.categories)
+    //   this.loaded()
+    // }, (error: HttpErrorResponse) => {
+    //   this.hasError = true;
+    //   this.logger.error('categories error: ', error)
+    // })
   }
   loaded() {
     setTimeout(() => this.isLoading = false, 500)
   }
-  openCategoryTypeDialog(state?: string, cate?: any) {
-    const dialogRef = this.dialog.open(CategoryTypeDialogComponent, {
-      height: 'auto',
-      minWidth: '300px',
-      maxWidth: "750px",
-      width: 'auto',
-      data: { state: state, cate: cate }
-    });
-    dialogRef.afterClosed().subscribe(res => {
-      this.isLoading = true;
-      setTimeout(() => {
-        this.getFoodCategoriesList();
-      }, 500);
-    });
-  }
+
 
 }

@@ -12,7 +12,7 @@
   </header>
   <loader title="{{'SUBSCRIBERS.loading-details' | translate}}" [hasError]="hasError" *ngIf="isLoading"></loader>
 
-  <header class="nitro-card row mt-3" *ngIf="!isLoading && !hasError">
+  <header class="nitro-card row mt-3" *ngIf="!isLoading">
     <info-item class="col" info_item_title="{{'SUBSCRIBERS.name' | translate}}"
       [info_item_value]="current_subscription.personal_info.name">
     </info-item>
@@ -34,7 +34,7 @@
       info_item_value="{{current_subscription.subscription_info.status}}">
     </info-item>
   </header>
-  <div class="body scroll" *ngIf="!isLoading && !hasError">
+  <div class="body scroll" *ngIf="!isLoading">
 
     <mat-accordion #accordion multi>
       <mat-expansion-panel>

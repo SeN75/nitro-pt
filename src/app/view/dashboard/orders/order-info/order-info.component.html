@@ -13,7 +13,7 @@
   </header>
   <loader [hasError]='hasError' *ngIf="isLoading" title="{{ 'ORDERS.loading-details' | translate}}"></loader>
 
-  <header class="nitro-card row mt-3" *ngIf="!isLoading && !hasError">
+  <header class="nitro-card row mt-3" *ngIf="!isLoading">
     <info-item class="col" info_item_title="{{'SUBSCRIBERS.name' | translate}}"
       [info_item_value]="info.personalData.name">
     </info-item>
@@ -33,7 +33,7 @@
       info_item_value="{{('STATUS.Order.'+info.request_info.status) | translate}}">
     </info-item>
   </header>
-  <div class="body scroll" *ngIf="!isLoading && !hasError">
+  <div class="body scroll" *ngIf="!isLoading">
 
     <mat-accordion class="example-headers-align" multi>
       <mat-expansion-panel>

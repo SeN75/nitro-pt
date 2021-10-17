@@ -5,13 +5,15 @@
     </h1>
     <span>
 
-      <button class="mx-2" mat-raised-button color="primary" (click)="openCategoryTypeDialog()">{{'CATEGORIES.new-type'
+      <button class="mx-2" mat-raised-button color="primary"
+        (click)="dialogSrv.openCategoryTypeDialog()">{{'CATEGORIES.new-type'
         |
         translate}}</button>
     </span>
   </header>
-  <loader title="{{'CATEGORIES.loading' | translate}}" *ngIf="isLoading" [hasError]="hasError"></loader>
-  <div class="body scroll" *ngIf="!isLoading && !hasError">
+  <loader title="{{'CATEGORIES.loading' | translate}}" *ngIf="categorySrv.isLoading" [hasError]="categorySrv.hasError">
+  </loader>
+  <div class="body scroll" *ngIf="!categorySrv.isLoading">
     <table class="table-theme-1 hover">
       <thead class="text-center">
         <tr>
@@ -22,7 +24,7 @@
         </tr>
       </thead>
       <tbody class="text-center">
-        <ng-container *ngFor="let cat of categories; let i = index">
+        <ng-container *ngFor="let cat of categorySrv.categories; let i = index">
           <tr class="row_space">
             <td colspan="30"></td>
           </tr>
@@ -32,7 +34,7 @@
             <td>{{categoryItemSrv.getItemsWithSameCategory(cat.name).length}}</td>
             <td class="text-end">
               <span>
-                <button mat-icon-button (click)="openCategoryTypeDialog('edit', cat)">
+                <button mat-icon-button (click)="dialogSrv.openCategoryTypeDialog('edit', cat)">
                   <mat-icon>edit</mat-icon>
                 </button>
                 <button mat-icon-button (click)="showCompunds(cat)">
@@ -43,7 +45,7 @@
             </td>
           </tr>
         </ng-container>
-        <tr class="no_data" *ngIf="categories.length == 0">
+        <tr class="no_data" *ngIf="categorySrv.categories.length == 0">
           <td colspan="30">
             {{'CATEGORIES.no-data' | translate}}
           </td>

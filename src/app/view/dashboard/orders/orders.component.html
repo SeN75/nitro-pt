@@ -8,7 +8,7 @@
   </header>
   <loader title="{{ 'ORDERS.loading' | translate}}" [hasError]='hasError' *ngIf="isLoading"></loader>
 
-  <div class="body scroll" *ngIf="!isLoading && !hasError">
+  <div class="body scroll" *ngIf="!isLoading">
     <table class="table-theme-1 hover">
       <thead class="text-center">
         <tr>
@@ -61,7 +61,7 @@
   </header>
   <loader [hasError]='hasError' *ngIf="isLoading" title="{{ 'ORDERS.loading' | translate}}"></loader>
 
-  <div class="body scroll" *ngIf="!isLoading && !hasError">
+  <div class="body scroll" *ngIf="!isLoading">
     <table class="table-theme-1 hover">
       <thead class="text-center">
 

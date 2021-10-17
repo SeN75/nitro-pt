@@ -24,25 +24,19 @@ export class PackagesComponent implements OnInit {
     public dialogSrv: DialogService,
     private logger: LoggerService,
     public packSrv: PackagesService) {
-    this.packSrv.getPackagesList()
+
     this.getPackagesList()
   }
 
   ngOnInit(): void {
   }
   getPackagesList() {
-    this.isLoading = true;
-    this.hasError = false;
-    this.packSrv.__getPackagesList().then((_pack: any) => {
-      this.packages = _pack
-      this.logger.log('packageList: ', this.packages)
-      this.loaded()
-    }, (error: HttpErrorResponse) => {
-      this.hasError = true
-      this.logger.error('packageList error: ', error)
-    })
+    this.packSrv.getPackagesList()
   }
+
   loaded() {
     setTimeout(() => this.isLoading = false, 500)
   }
+
+
 }

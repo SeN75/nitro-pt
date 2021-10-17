@@ -12,6 +12,9 @@ const packUrl = API + "fin/package/";
   providedIn: 'root'
 })
 export class PackagesService {
+  isLoading = true;
+  hasError = false;
+
   packages: any[] = [];
   attachmentList: any = [];
 
@@ -56,10 +59,14 @@ export class PackagesService {
   }
 
   public getPackagesList() {
+    this.isLoading = true;
+    this.hasError = false
     this._getPackagesList().subscribe((success: any) => {
       this.packages = success;
+      this.loaded()
       this.logger.log("get packages List:", success)
     }, (error: HttpErrorResponse) => {
+      this.hasError = true
       this.logger.error("get packages List error: ", error)
     })
   }
@@ -76,6 +83,8 @@ export class PackagesService {
   }
 
   public createPackage(data: any, offer?: any) {
+    this.isLoading = true
+    this.hasError = false
     this._createPackage(data).subscribe((success: any) => {
       this.translateSrv.get('SUCCESS.PACKAGES.new').subscribe(msg => this.toaterSrv.success(msg))
       if (offer) {
@@ -88,7 +97,7 @@ export class PackagesService {
       this.logger.log("create Package:", success)
     }, (error: HttpErrorResponse) => {
       this.translateSrv.get('ERROR.PACKAGES.new').subscribe(msg => this.toaterSrv.error(msg))
-
+      this.hasError = true
       this.logger.error("create Package error: ", error)
     })
   }
@@ -109,24 +118,28 @@ export class PackagesService {
     })
   }
   public updatePackageById(data: any, id: string) {
+    this.isLoading = true
+    this.hasError = false
     this._updatePackageById(data, id).subscribe((success: any) => {
       this.translateSrv.get('SUCCESS.PACKAGES.update').subscribe(msg => this.toaterSrv.success(msg))
       this.getPackagesList()
       this.logger.log("update Package:", success)
     }, (error: HttpErrorResponse) => {
       this.translateSrv.get('ERROR.PACKAGES.update').subscribe(msg => this.toaterSrv.error(msg))
-
+      this.hasError = true
       this.logger.error("update Package error: ", error)
     })
   }
   public deletePackageById(id: string) {
+    this.isLoading = true
+    this.hasError = false
     this._deletePackageById(id).subscribe((success: any) => {
       this.translateSrv.get('SUCCESS.PACKAGES.delete').subscribe(msg => this.toaterSrv.success(msg))
       this.getPackagesList()
       this.logger.log("delete Package By Id:", success)
     }, (error: HttpErrorResponse) => {
       this.translateSrv.get('ERROR.PACKAGES.delete').subscribe(msg => this.toaterSrv.error(msg))
-
+      this.hasError = true
       this.logger.error("delete Package By Id error: ", error)
     })
   }
@@ -137,5 +150,8 @@ export class PackagesService {
     }, (error: HttpErrorResponse) => {
       this.logger.error('error get Packages List For Landingpage: ', error)
     })
+  }
+  loaded() {
+    setTimeout(() => { this.isLoading = false }, 500)
   }
 }
