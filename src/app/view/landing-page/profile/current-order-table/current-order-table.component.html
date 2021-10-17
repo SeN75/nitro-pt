@@ -4,7 +4,7 @@
       {{'ORDERS.current' | translate}}
     </h1>
   </header>
-  <div class="body scroll">
+  <div class="mt-4">
     <table class="table-theme-1 hover">
       <thead>
         <th>{{'ORDERS.no' | translate}}</th>
@@ -13,20 +13,20 @@
         <th>{{'FORM.notes' | translate}}</th>
       </thead>
       <tbody>
-        <tr class="no_data" *ngIf="order.length == 0">
+        <tr class="no_data" *ngIf="isEmpty()">
           <td colspan="4">
             {{'ORDERS.no-data' | translate}}
           </td>
         </tr>
-        <ng-container *ngFor="let info of order">
+        <ng-container *ngIf="!isEmpty()">
           <tr class="row_space">
             <td colspan="4"></td>
           </tr>
           <tr>
-            <td>{{info.order_no}}</td>
-            <td>{{info.type}} </td>
-            <td>{{info.status}}</td>
-            <td>{{info.notes}}</td>
+            <td>{{order.order_no}}</td>
+            <td>{{order.type}} </td>
+            <td>{{order.status}}</td>
+            <td>{{order.notes}}</td>
           </tr>
         </ng-container>
       </tbody>

@@ -157,3 +157,32 @@ export interface CategoryFood {
   name_ar: string,
   id: number
 }
+
+
+export interface MemberProfile {
+  prfile: {
+    username: string,
+    full_name: string,
+    mobile: string,
+    email: string
+  },
+  subscription: {
+    id: string,
+    client: string,
+    start_date: string,
+    end_date: string,
+    price: number,
+    status: string
+  },
+  new_request: {},
+  closed_requests: ClosedRequest[]
+}
+
+
+export interface ClosedRequest {
+  id: string,
+  client: string,
+  type: string,
+  created_date: string,
+  status: string
+}

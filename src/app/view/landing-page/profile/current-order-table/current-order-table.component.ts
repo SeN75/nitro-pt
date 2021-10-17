@@ -6,10 +6,14 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./current-order-table.component.scss']
 })
 export class CurrentOrderTableComponent implements OnInit {
-  @Input() order: any[] = [];
+  @Input() order: any;
   constructor() { }
 
   ngOnInit(): void {
+    ;
+    console.log(Object.entries(this.order).length)
   }
-
+  isEmpty() {
+    return Object.entries(this.order).length == 0
+  }
 }

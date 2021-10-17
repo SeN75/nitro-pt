@@ -37,6 +37,7 @@
         "subscription-number": "رقم الاشتراك",
         "status": "الحاله",
         "info": "معلومات المشترك",
+        "info-s": "معلومات الاشتراك الحالي",
         "joint-sports-health": "معلومات المشترك الرياضية الصحية",
         "health-and-sports-information": "المعلومات ا لرياضية و الصحية",
         "personal-subscriber-info": "معلومات المشترك الشخصية",
@@ -83,7 +84,8 @@
         "married": "متزوج",
         "single": "اعزب",
         "male": "ذكر",
-        "female": "انثى"
+        "female": "انثى",
+        "loading": "جاري تحميل الملف التعريفي..."
     },
     "SOCIAL-STATUS": {
       "Married": "متزوج",

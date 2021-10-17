@@ -36,6 +36,7 @@
     "subscription-number": "Subscription number",
     "status": "status",
     "info": "subscriber information",
+    "info-s": "Current subscription information",
     "joint-sports-health": "joint sports health",
     "health-and-sports-information": "health and sports information",
     "personal-subscriber-info": "Subscriber's personal information",
@@ -82,7 +83,8 @@
     "married": "married",
     "single": "single",
     "male": "male",
-    "female": "female"
+    "female": "female",
+    "loading": "Loading profile..."
   },
   "ORDERS": {
     "orders": "orders",

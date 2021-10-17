@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { LoggerService } from '../logger.service';
 import { ToastService } from '../toast.service';
-import { RequestDetails, Subscription } from 'src/app/_common/types';
+import { MemberProfile, RequestDetails, Subscription } from 'src/app/_common/types';
 
 const subApi = API + "sub/"
 @Injectable({
@@ -23,7 +23,9 @@ export class SubscriptionsService {
 
   requestDetails!: RequestDetails;
 
-  packageId: string = ''
+  packageId: string = '';
+
+  memberProfile!: MemberProfile;
   constructor(
     private httpClient: HttpClient,
     private translateSrv: TranslateService,
@@ -62,6 +64,10 @@ export class SubscriptionsService {
   }
   private _getSubscriptionDetailsById(id: string) {
     return this.httpClient.get(subApi + "info/?id=" + id)
+  }
+
+  private _getMemberData() {
+    return this.httpClient.get(subApi + 'getMemberData');
   }
 
 
@@ -330,5 +336,8 @@ export class SubscriptionsService {
     }, (error: HttpErrorResponse) => {
       this.logger.error('getSocialStatusList: ', error)
     })
+  }
+  public __getMemberData() {
+    return this._getMemberData();
   }
 }

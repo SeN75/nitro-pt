@@ -48,6 +48,7 @@ import { PackageInfoTableComponent } from './view/landing-page/profile/package-i
 import { CurrentOrderTableComponent } from './view/landing-page/profile/current-order-table/current-order-table.component';
 import { CloseOrderTableComponent } from './view/landing-page/profile/close-order-table/close-order-table.component';
 import { DietplanSectionComponent } from './view/landing-page/profile/dietplan-section/dietplan-section.component';
+import { SubscriptionInfoComponent } from './view/landing-page/profile/subscription-info/subscription-info.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { DietplanSectionComponent } from './view/landing-page/profile/dietplan-s
     PackageInfoTableComponent,
     CurrentOrderTableComponent,
     CloseOrderTableComponent,
-    DietplanSectionComponent
+    DietplanSectionComponent,
+    SubscriptionInfoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ClosedRequest } from 'src/app/_common/types';
 
 @Component({
   selector: 'close-order-table',
@@ -6,11 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./close-order-table.component.scss']
 })
 export class CloseOrderTableComponent implements OnInit {
-  @Input() order: any[] = [];
+  @Input() order: ClosedRequest[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
