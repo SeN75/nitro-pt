@@ -11,6 +11,9 @@ const bankUrl = API + "fin/bank/";
 export class BankAccountsService {
   banksAccounts: any;
   banksList: any;
+
+  isLoading = true;
+  hasError = false;
   constructor(
     private httpClient: HttpClient,
     private translateSrv: TranslateService,
@@ -42,18 +45,28 @@ export class BankAccountsService {
 
 
   public getBankAccountsList() {
+    this.isLoading = true;
+    this.hasError = false;
     this._getBankAccountsList().subscribe((success: any) => {
       this.banksAccounts = success;
+      setTimeout(() => this.isLoading = false, 500)
+
       this.logger.log("get Bank Accounts List:", success)
     }, (error: HttpErrorResponse) => {
+      this.hasError = true
+
       this.logger.error("get Bank Accounts List error: ", error)
     })
   }
   public getBankList() {
+    this.isLoading = true;
+    this.hasError = false;
     this._getBankList().subscribe((success: any) => {
       this.banksList = success;
+      setTimeout(() => this.isLoading = false, 500)
       this.logger.log("get Bank List:", success)
     }, (error: HttpErrorResponse) => {
+      this.hasError = true
       this.logger.error("get Bank List error: ", error)
     })
   }

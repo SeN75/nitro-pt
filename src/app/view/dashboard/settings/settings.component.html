@@ -11,8 +11,10 @@
           translate}}</button>
       </span>
     </header>
+    <loader title="{{'PERSONAL-DATA.loading' | translate}}" *ngIf="identitySrv.isLoadingProfile"
+      [hasError]="identitySrv.hasErrorProfile"></loader>
 
-    <div class="row g-0">
+    <div class="row g-0" *ngIf="!identitySrv.isLoadingProfile">
       <div class="col-md-4">
         <div class="header_table">
           {{'SETTINGS.name' | translate}}
@@ -56,7 +58,11 @@
           translate}}</button>
       </span>
     </header>
-    <div class="body">
+    <loader title="{{'SETTINGS.loading-trainer' | translate}}" *ngIf="identitySrv.isLoadingCoaches"
+      [hasError]="identitySrv.hasErrorCoaches">
+    </loader>
+
+    <div class="body" *ngIf="!identitySrv.isLoadingCoaches">
       <table class="table-theme-1 hover">
         <thead class="text-center">
           <tr>
@@ -68,23 +74,31 @@
           </tr>
         </thead>
         <tbody class="text-center">
-          <tr *ngFor="let coa of identitySrv.coaches; let i = index">
-            <td>{{i + 1 }}</td>
-            <td>
-              {{ lang.selected == 'ar'? coa.first_name_ar : coa.first_name }}
-              {{ lang.selected == 'ar'? coa.middle_name_ar : coa.middle_name }}
-              {{ lang.selected == 'ar'? coa.last_name_ar : coa.last_name }}
-            </td>
-            <td>{{coa.email}}</td>
-            <td>{{coa.phone_number }}</td>
-            <td class="text-end">
-              <span>
-                <button mat-icon-button (click)="dialogSrv.openUserDialog('coach', 'edit', coa)">
-                  <mat-icon>edit</mat-icon>
-                </button>
+          <ng-container *ngFor="let coa of identitySrv.coaches; let i = index">
+            <tr class="row_space">
+              <td colspan="20"></td>
+            </tr>
+            <tr>
+              <td>{{i + 1 }}</td>
+              <td>
+                {{ lang.selected == 'ar'? coa.first_name_ar : coa.first_name }}
+                {{ lang.selected == 'ar'? coa.middle_name_ar : coa.middle_name }}
+                {{ lang.selected == 'ar'? coa.last_name_ar : coa.last_name }}
+              </td>
+              <td>{{coa.email}}</td>
+              <td>{{coa.phone_number }}</td>
+              <td class="text-end">
+                <span>
+                  <button mat-icon-button (click)="dialogSrv.openUserDialog('coach', 'edit', coa)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
 
-              </span>
-            </td>
+                </span>
+              </td>
+            </tr>
+          </ng-container>
+          <tr class="no_data" *ngIf="identitySrv.coaches.length == 0">
+            <td colspan="20">{{'SETTINGS.trainer-no-data' | translate}}</td>
           </tr>
         </tbody>
       </table>
@@ -102,9 +116,12 @@
           translate}}</button>
       </span>
     </header>
-    <div class="body">
+    <loader title="{{('SETTINGS.loading-bank') | translate}}" *ngIf="bankSrv.isLoading" [hasError]="bankSrv.hasError">
+    </loader>
+    <div class="body" *ngIf="!bankSrv.isLoading">
       <table class="table-theme-1 hover">
         <thead class="text-center">
+
           <tr>
             <th>#</th>
             <th>{{'SETTINGS.name' | translate}}</th>
@@ -114,21 +131,31 @@
           </tr>
         </thead>
         <tbody class="text-center">
-          <tr *ngFor="let banckAccount of bankSrv.banksAccounts; let i = index">
-            <td>{{i + 1 }}</td>
-            <td>
-              {{ lang.selected == 'ar'? banckAccount.bank_name_ar : banckAccount.bank_name }}
+          <ng-container *ngFor="let banckAccount of bankSrv.banksAccounts; let i = index">
+            <tr class="row_space">
+              <td colspan="10"></td>
+            </tr>
+            <tr>
+              <td>{{i + 1 }}</td>
+              <td>
+                {{ lang.selected == 'ar'? banckAccount.bank_name_ar : banckAccount.bank_name }}
 
-            </td>
-            <td>{{banckAccount.iban}}</td>
-            <!-- <td>{{0 }}</td> -->
-            <td class="text-end">
-              <span>
-                <button mat-icon-button (click)="dialogSrv.openBankAccountDialog('edit', banckAccount)">
-                  <mat-icon>edit</mat-icon>
-                </button>
+              </td>
+              <td>{{banckAccount.iban}}</td>
+              <!-- <td>{{0 }}</td> -->
+              <td class="text-end">
+                <span>
+                  <button mat-icon-button (click)="dialogSrv.openBankAccountDialog('edit', banckAccount)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
 
-              </span>
+                </span>
+              </td>
+            </tr>
+          </ng-container>
+          <tr class="no_data" *ngIf="bankSrv.banksAccounts.length == 0">
+            <td colspan="10">
+              {{'SETTINGS.bank-no-data' | translate}}
             </td>
           </tr>
         </tbody>
@@ -148,7 +175,10 @@
           translate}}</button>
       </span>
     </header>
-    <div class="body">
+    <loader title="{{'SETTINGS.loading-staff' | translate}}" *ngIf="identitySrv.isLoadingStaff"
+      [hasError]="identitySrv.hasErrorStaff"></loader>
+
+    <div class="body" *ngIf="!identitySrv.isLoadingStaff">
       <table class="table-theme-1 hover">
         <thead class="text-center">
           <tr>
@@ -160,23 +190,31 @@
           </tr>
         </thead>
         <tbody class="text-center">
-          <tr *ngFor="let staff of identitySrv.staffs; let i = index">
-            <td>{{i + 1 }}</td>
-            <td>
-              {{ lang.selected == 'ar'? staff.first_name_ar : staff.first_name }}
-              {{ lang.selected == 'ar'? staff.middle_name_ar : staff.middle_name }}
-              {{ lang.selected == 'ar'? staff.last_name_ar : staff.last_name }}
-            </td>
-            <td>{{staff.email}}</td>
-            <td>{{staff.phone_number }}</td>
-            <td class="text-end">
-              <span>
-                <button mat-icon-button (click)="dialogSrv.openUserDialog('staff', 'edit', staff)">
-                  <mat-icon>edit</mat-icon>
-                </button>
+          <ng-container *ngFor="let staff of identitySrv.staffs; let i = index">
+            <tr class="row_space">
+              <td colspan="20"></td>
+            </tr>
+            <tr>
+              <td>{{i + 1 }}</td>
+              <td>
+                {{ lang.selected == 'ar'? staff.first_name_ar : staff.first_name }}
+                {{ lang.selected == 'ar'? staff.middle_name_ar : staff.middle_name }}
+                {{ lang.selected == 'ar'? staff.last_name_ar : staff.last_name }}
+              </td>
+              <td>{{staff.email}}</td>
+              <td>{{staff.phone_number }}</td>
+              <td class="text-end">
+                <span>
+                  <button mat-icon-button (click)="dialogSrv.openUserDialog('staff', 'edit', staff)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
 
-              </span>
-            </td>
+                </span>
+              </td>
+            </tr>
+          </ng-container>
+          <tr class="no_data" *ngIf="identitySrv.staffs.length == 0">
+            <td colspan="20">{{'SETTINGS.staff-no-data' | translate}}</td>
           </tr>
         </tbody>
       </table>

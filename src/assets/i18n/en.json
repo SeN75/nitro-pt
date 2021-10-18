@@ -24,7 +24,13 @@
     "add-coach": "add coach",
     "bank": "bank",
     "warning": "warning",
-    "inactive-msg": "You have been inactive for 2 minutes, please log in again"
+    "inactive-msg": "You have been inactive for 2 minutes, please log in again",
+    "loading-trainer": "Trainers' data is loading...",
+    "loading-staff": "Staff's data is loading...",
+    "loding-bank": "Loading banks accounts data...",
+    "staff-no-data": "no data staff",
+    "bank-no-data": "no data banks",
+    "trainer-no-data": "no data trainers"
   },
   "SUBSCRIBERS": {
     "subscribers": "subscribers",

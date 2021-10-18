@@ -29,6 +29,16 @@ export class IdentityService {
   newDayDate = new Date();
 
   newUserData: any;
+
+  isLoadingCoaches = true;
+  hasErrorCoaches = false;
+
+  isLoadingStaff = true;
+  hasErrorStaff = false;
+
+  isLoadingProfile = true;
+  hasErrorProfile = false;
+
   constructor(
     private httpClient: HttpClient,
     private translateSrv: TranslateService,
@@ -116,27 +126,40 @@ export class IdentityService {
 
 
   public getStaff() {
+    this.isLoadingStaff = true;
+    this.hasErrorStaff = false;
     this._getStaff().subscribe((success: any) => {
       this.staffs = success;
+      setTimeout(() => this.isLoadingStaff = false, 500)
 
       this.logger.log("get staff:", success)
     }, (error: HttpErrorResponse) => {
+      this.hasErrorStaff = true
       this.logger.error("get staff error: ", error)
     })
   }
   public getAllCoaches() {
+    this.isLoadingCoaches = true;
+    this.hasErrorCoaches = false
     this._getAllCoaches().subscribe((success: any) => {
       this.coaches = success;
+      setTimeout(() => this.isLoadingCoaches = false, 500)
       this.logger.log("get all coaches:", success)
     }, (error: HttpErrorResponse) => {
+      this.hasErrorCoaches = true;
       this.logger.error("get all coaches error: ", error)
     })
   }
   public getUserProfileByJWT() {
+    this.isLoadingProfile = true;
+    this.hasErrorProfile = false
     this._getUserProfileByJWT().subscribe((success: any) => {
       this.userData = success;
+      setTimeout(() => this.isLoadingProfile = false, 500)
+
       this.logger.log("get userProfile by JWT:", success)
     }, (error: HttpErrorResponse) => {
+      this.hasErrorProfile = true
       this.logger.error("get userProfile by JWT error: ", error)
     })
   }

@@ -17,20 +17,17 @@ export class SettingsComponent implements OnInit {
     public identitySrv: IdentityService,
     public bankSrv: BankAccountsService,
     public dialogSrv: DialogService,
-    public lang: LanguageService) { }
-
-  ngOnInit(): void {
-    this.coachOptions = {
-      // ajax: 'data/data.json',
-      columns: [
-        { title: "name", data: "coa.first_name_ar" },
-        { title: "email", data: "coa.email" },
-        { title: "phone-number", data: "coa.phone_number" },
-      ],
-    };
-    this.dtOptions = {
-      columns: []
-    }
+    public lang: LanguageService) {
+    this.getData()
   }
 
+  ngOnInit(): void {
+
+  }
+  getData() {
+    this.identitySrv.getAllCoaches()
+    this.identitySrv.getStaff();
+    this.identitySrv.getUserProfileByJWT()
+    this.bankSrv.getBankAccountsList()
+  }
 }
