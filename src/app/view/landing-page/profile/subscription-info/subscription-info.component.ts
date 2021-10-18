@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'subscription-info',
@@ -10,6 +10,9 @@ export class SubscriptionInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  }
 
+  }
+  isEmpty() {
+    return Object.entries(this.sub).length == 0
+  }
 }

@@ -70,7 +70,7 @@ import { SubscriptionInfoComponent } from './view/landing-page/profile/subscript
     CurrentOrderTableComponent,
     CloseOrderTableComponent,
     DietplanSectionComponent,
-    SubscriptionInfoComponent
+    SubscriptionInfoComponent,
   ],
   imports: [
     BrowserModule,

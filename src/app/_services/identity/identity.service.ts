@@ -40,9 +40,9 @@ export class IdentityService {
     //this.logoutAll();
     if (localStorage.getItem('refreshToken') && cookieSrv.get('loggedin')) {
       setTimeout(() => {
-        this.getUserProfileByJWT()
-        this.getAllCoaches()
-        this.getStaff()
+        // this.getUserProfileByJWT()
+        // this.getAllCoaches()
+        // this.getStaff()
       }, 1500)
     }
 

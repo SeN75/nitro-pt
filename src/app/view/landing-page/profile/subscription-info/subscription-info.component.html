@@ -14,12 +14,12 @@
         <th>{{'SUBSCRIBERS.status' | translate}}</th>
       </thead>
       <tbody>
-        <tr class="no_data" *ngIf="!sub">
+        <tr class="no_data" *ngIf="isEmpty()">
           <td colspan="5">
             {{'PACKAGES.no-data' | translate}}
           </td>
         </tr>
-        <ng-container>
+        <ng-container *ngIf="!isEmpty()">
           <tr class="row_space">
             <td colspan="5"></td>
           </tr>

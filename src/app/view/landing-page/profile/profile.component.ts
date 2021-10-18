@@ -36,6 +36,7 @@ export class ProfileComponent implements OnInit {
   getProfile() {
     this.isLoading = true;
     this.hasError = false;
+    this.identitySrv.getUserProfileByJWT()
     this.subSrv.__getMemberData().subscribe((s: any) => {
       this.userData = s
       this.loaded();
