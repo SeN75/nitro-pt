@@ -294,12 +294,19 @@
       "agree": "اوافق على الشروط والأحكام"
     } ,
     "STATUS": {
-      "active": " اشتراك فعال",
+      "active": "فعال",
+      "inactive": " ملغي",
       "need-update": " يتطلب تحديث بيانات",
       "expired": "اشتراك منتهي ",
       "newly": "منظم حديثاً",
       "Order": {
         "new": "طلب اشتراك"
+      },
+      "SUBSCRIBERS": {
+        "approved": "طلب مقبول",
+        "rejected": "طلب مرفوض",
+        "active": "فعال",
+        "inactive": "غير فعال"
       }
     },
     "FORM": {
