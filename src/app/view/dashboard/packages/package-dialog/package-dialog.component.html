@@ -89,7 +89,7 @@
 
     </div>
 
-    <!-- <hr class="my-4">
+    <hr class="my-4">
 
 
     <div class="col-12 col-md-6">
@@ -127,17 +127,17 @@
       </div>
 
     </div>
-  </div> -->
-    <div class="button-group">
-      <button mat-raised-button color="primary" [disabled]="packForm.invalid ||(withOffer && offerForm.invalid)"
-        (click)="action()"> {{'FORM.'+ (data.state
-        == 'edit' ? 'edit' : 'add')
-        | translate}}
-      </button>
-      <button *ngIf="data.state != 'edit'" mat-stroked-button color="primary" (click)="onNoClick()"> {{'FORM.cancel'
-        |
-        translate}} </button>
-      <button *ngIf="data.state == 'edit'" mat-stroked-button color="warn" (click)="delete()"> {{'FORM.remove' |
-        translate}} </button>
-    </div>
   </div>
+  <div class="button-group">
+    <button mat-raised-button color="primary" [disabled]="packForm.invalid ||(withOffer && offerForm.invalid)"
+      (click)="action()"> {{'FORM.'+ (data.state
+      == 'edit' ? 'edit' : 'add')
+      | translate}}
+    </button>
+    <button *ngIf="data.state != 'edit'" mat-stroked-button color="primary" (click)="onNoClick()"> {{'FORM.cancel'
+      |
+      translate}} </button>
+    <button *ngIf="data.state == 'edit'" mat-stroked-button color="warn" (click)="delete()"> {{'FORM.remove' |
+      translate}} </button>
+  </div>
+</div>
