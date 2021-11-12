@@ -16,6 +16,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { DietplanTempDialogComponent } from '../view/dashboard/diet-plan/dietplan-temp-dialog/dietplan-temp-dialog.component';
 import { DietplanEditDialogComponent } from '../view/dashboard/diet-plan/dietplan-edit-dialog/dietplan-edit-dialog.component';
+import { DeleteDialogComponent } from './../view/components/delete-dialog/delete-dialog.component';
+import { PreviewImageOrVideoComponent } from '../view/components/preview-image-or-video/preview-image-or-video.component';
 
 @Injectable({
   providedIn: 'root'
@@ -165,6 +167,26 @@ export class DialogService {
       maxWidth: "750px",
       width: 'auto',
       data: { state: state, data: data }
+    });
+    dialogRef.afterClosed().subscribe(res => console.log("dialog closed"));
+  }
+  deleteDialog(data?: any) {
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      height: 'auto',
+      minWidth: '300px',
+      maxWidth: "750px",
+      width: 'auto',
+      data: data
+    });
+    dialogRef.afterClosed().subscribe(res => console.log("dialog closed"));
+  }
+  preview(src: string, type: string) {
+    const dialogRef = this.dialog.open(PreviewImageOrVideoComponent, {
+      height: 'auto',
+      minWidth: '300px',
+      maxWidth: "750px",
+      width: 'auto',
+      data: { src: src, type: type }
     });
     dialogRef.afterClosed().subscribe(res => console.log("dialog closed"));
   }
