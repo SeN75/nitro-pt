@@ -32,8 +32,8 @@
         translate}}</button>
     </div>
   </header>
-  <div class="body row">
-    <category-card class="col" [categoryid]="categoryId"
+  <div class="body item_row">
+    <category-card class="" [categoryid]="categoryId"
       *ngFor="let cate of foodItemSrv.getItemsWithSameCategory(categorySrv.category.name)  | filter:search"
       [category]="cate">
     </category-card>
