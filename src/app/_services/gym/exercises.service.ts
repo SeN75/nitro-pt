@@ -52,7 +52,8 @@ export class ExercisesService {
   private _updateExercisesById(data: any, id: string, media_link?: File) {
     const formData = new FormData();
     if (media_link)
-      formData.append("media_link", media_link,);
+      if (media_link instanceof File)
+        formData.append("media_link", media_link,);
     formData.append('category', data.category);
     formData.append('name', data.name);
     formData.append('name_ar', data.name_ar);
@@ -101,7 +102,7 @@ export class ExercisesService {
       this.logger.error("create exercises error: ", error)
     })
   }
-  public updateExercisesById(data: any, id: string, media_link: File) {
+  public updateExercisesById(data: any, id: string, media_link?: File) {
     this._updateExercisesById(data, id, media_link).subscribe((success: any) => {
       this.translateSrv.get("SUCCESS.WORKOUT.update-exercise").subscribe(msg => this.toasteSrv.success(msg))
       this.getExerciseList();
@@ -123,6 +124,7 @@ export class ExercisesService {
   }
 
   public getExerciseListOnSameCategory(id: string) {
+    this.logger.log('ss', id)
     return this.exerciseSchedule.filter(ex => {
       return ex.category == id
     });
