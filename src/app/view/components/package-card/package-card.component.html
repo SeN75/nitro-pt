@@ -3,7 +3,13 @@
     <a class="package_edit_link" *ngIf="!with_button" (click)="dialogSrv.openPackageDialog('edit', pack)">...</a>
     <p>{{package_title}}</p>
   </div>
-  <div class="package_body">
+  <div class="package_body ">
+    <div class="package_feature" *ngIf="package_description">
+      <p class="package_feature_title">وصف</p>
+      <p class="package_feature_value"
+        [class.len_10]='package_description && package_description.length >= 10 && package_description.length < 20'
+        [class.len_20]='package_description && package_description.length >= 20 '>{{package_description}} </p>
+    </div>
     <div class="package_feature">
       <p class="package_feature_title">المدة</p>
       <p class="package_feature_value">{{package_months}} اشهر</p>

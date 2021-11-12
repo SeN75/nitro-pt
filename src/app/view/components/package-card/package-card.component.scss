@@ -1,6 +1,6 @@
 /* for RTL */
 
-.package_card {
+.package_body {
   background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 3px 6px #cbbebe29;
   border-radius: 10px;
@@ -8,8 +8,14 @@
   color: #1d4980;
   position: relative;
   height: 100%;
+  width: 100%;
 }
+.package_card {
+  width: 100%;
+  text-align: center;
 
+  background-color: #fff;
+}
 .package_card_header {
   border-radius: 10px;
   height: 130px;
@@ -109,3 +115,9 @@
 }
 
 /* Other Buttons Styles Goes Here */
+.len_20 {
+  font-size: 15px;
+}
+.len_10 {
+  font-size: 20px;
+}

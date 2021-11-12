@@ -16,10 +16,11 @@
     </span>
   </header>
   <loader title="{{'PACKAGES.loading' | translate}}" *ngIf="packSrv.isLoading" [hasError]="packSrv.hasError"></loader>
-  <div class="row body scroll" *ngIf="!packSrv.isLoading && !packSrv.hasError">
-    <package-card class="col col-lg-4 col-md-6 mt-3" *ngFor="let pack of packSrv.packages | filter:search; index as i "
+  <div class=" body scroll package_body" *ngIf="!packSrv.isLoading && !packSrv.hasError">
+    <package-card class="" *ngFor="let pack of packSrv.packages | filter:search; index as i "
       [package_title]="lang.selected == 'ar'? pack.name_ar: pack.name" [package_months]="pack.period"
-      [package_price]="pack.price" [theme_number]="((i%3)+1)" [with_button]="false" [pack]="pack">
+      [package_description]="pack.description_ar" [package_price]="pack.price" [theme_number]="((i%3)+1)"
+      [with_button]="false" [pack]="pack">
     </package-card>
   </div>
 </section>

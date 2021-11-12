@@ -1,0 +1,10 @@
+.package_body {
+  display: flex;
+}
+.package_body package-card {
+  margin: 0 10px;
+  display: flex;
+  flex: 1;
+  max-width: 425px;
+  min-width: 300px;
+}
