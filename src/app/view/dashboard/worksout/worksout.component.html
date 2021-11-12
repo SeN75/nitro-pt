@@ -17,7 +17,7 @@
       <thead class="text-center">
         <tr>
           <th>#</th>
-          <th>{{'WORKSOUT.type' | translate}}</th>
+          <th>{{'WORKSOUT.type_ar' | translate}}</th>
           <th>{{'WORKSOUT.number' | translate}}</th>
           <th></th>
         </tr>
@@ -32,7 +32,7 @@
             <td>{{lang.selected == 'ar'?workout.name_ar: workout.name}}</td>
             <td>
               <!-- {{workout.exercises.length}} -->
-              {{exerciseSrv.getExerciseListOnSameCategory(workout.id).length}}
+              {{exerciseSrv.getExerciseListOnSameCategory(workout.name_ar).length}}
             </td>
             <td class="text-end">
               <span>

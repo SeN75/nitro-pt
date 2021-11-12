@@ -5,6 +5,7 @@ import { FormGroup } from '@angular/forms';
 import { LoggerService } from 'src/app/_services/logger.service';
 import { ExercisesCategoriesService } from './../../../../_services/gym/exercises-categories.service';
 import { ExercisesService } from 'src/app/_services/gym/exercises.service';
+import { DialogService } from 'src/app/_services/dialog.service';
 
 @Component({
   selector: 'app-workout-type-dialog',
@@ -12,6 +13,7 @@ import { ExercisesService } from 'src/app/_services/gym/exercises.service';
   styleUrls: ['./workout-type-dialog.component.scss']
 })
 export class WorkoutTypeDialogComponent implements OnInit {
+  isSend = false;
   workoutType: FormControl = new FormControl('', Validators.required)
   exerciseCategroyForm: FormGroup | any;
   constructor(public dialogRef: MatDialogRef<WorkoutTypeDialogComponent>,
@@ -19,10 +21,11 @@ export class WorkoutTypeDialogComponent implements OnInit {
     private formBuilder: FormBuilder,
     private logger: LoggerService,
     public exerciseSrv: ExercisesService,
+    private dialogSrv: DialogService,
     private exerciseCatgroySrv: ExercisesCategoriesService) {
     this.exerciseCategroyForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
+      name: ['', [Validators.required, Validators.pattern('[A-Za-z0-9 ]+')]],
+      name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669-0-9 ]+$")]],
     })
     if (this.data.workout) {
       this.exerciseCategroyForm.get('name')?.setValue(this.data.workout.name)
@@ -37,13 +40,23 @@ export class WorkoutTypeDialogComponent implements OnInit {
     this.dialogRef.close();
   }
   delete() {
-    this.exerciseCatgroySrv.deleteExerciseCategoryById(this.data.workout.id)
-    this.onNoClick();
+    if (this.exerciseSrv.getExerciseListOnSameCategory(this.data.workout.name_ar).length > 0)
+      this.dialogSrv.deleteDialog({ name: 'exercise type2', id: this.data.workout.id, dialog: this.dialogRef })
+    else
+      this.dialogSrv.deleteDialog({ name: 'exercise type1', id: this.data.workout.id, dialog: this.dialogRef })
+    // this.exerciseCatgroySrv.deleteExerciseCategoryById(this.data.workout.id)
+    // this.onNoClick();
   }
   action() {
+    this.isSend = true;
+    let data = { ...this.exerciseCategroyForm.value }
     if (this.exerciseCategroyForm.valid) {
       if (this.data.state == 'edit') {
-        this.exerciseCatgroySrv.updateExercisesCategoryById(this.exerciseCategroyForm.value, this.data.workout.id)
+        if (!this.exerciseCategroyForm.get('name')?.dirty)
+          delete data.name
+        if (!this.exerciseCategroyForm.get('name_ar')?.dirty)
+          delete data.name_ar
+        this.exerciseCatgroySrv.updateExercisesCategoryById(data, this.data.workout.id)
         this.onNoClick();
       }
       else {

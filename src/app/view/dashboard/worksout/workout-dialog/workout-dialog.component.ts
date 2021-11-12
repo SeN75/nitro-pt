@@ -5,6 +5,7 @@ import { LoggerService } from 'src/app/_services/logger.service';
 import { ExercisesCategoriesService } from 'src/app/_services/gym/exercises-categories.service';
 import { LanguageService } from 'src/app/_services/language.service';
 import { ExercisesService } from './../../../../_services/gym/exercises.service';
+import { DialogService } from 'src/app/_services/dialog.service';
 
 @Component({
   selector: 'app-workout-dialog',
@@ -13,6 +14,7 @@ import { ExercisesService } from './../../../../_services/gym/exercises.service'
 })
 export class WorkoutDialogComponent implements OnInit {
   exerciseForm: FormGroup | any;
+  isSend = false;
   selectedFile: any;
   fileUpload: File | any;
   imgUpload = new FormControl({ value: '', disabled: true }, Validators.required)
@@ -21,25 +23,28 @@ export class WorkoutDialogComponent implements OnInit {
     private logger: LoggerService,
     private exerciseSrv: ExercisesService,
     private formBuilder: FormBuilder,
+    private dialogSrv: DialogService,
     public lang: LanguageService,
     public exerciseCategorySrv: ExercisesCategoriesService,
   ) {
     this.exerciseForm = this.formBuilder.group({
-      name: ['', [Validators.required]],
-      media_link: [{ value: '.', disabled: true }],
-      name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
-      category: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.pattern('[A-Za-z0-9 ]+')]],
+      media_link: [''],
+      name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669-0-9 ]+$")]],
+      category: ['', []],
     });
   }
 
   ngOnInit(): void {
-
+    this.exerciseForm.valueChanges.subscribe(() => {
+      this.logger.log('exerciseForm:', this.exerciseForm.value)
+    })
     this.logger.log('data1: ', this.data)
     if (this.data.workout && this.data.workout.name) {
       this.logger.log('data', this.data.workout)
       this.exerciseForm.get('name').setValue(this.data.workout.name);
       this.exerciseForm.get('name_ar').setValue(this.data.workout.name_ar);
-      this.exerciseForm.get('category').setValue(this.data.workout.category);
+      this.exerciseForm.get('category').setValue(this.exerciseCategorySrv.exerciseCategory.id);
       this.exerciseForm.get('media_link').setValue(this.data.workout.media_link);
     }
   }
@@ -49,10 +54,11 @@ export class WorkoutDialogComponent implements OnInit {
   }
 
   delete() {
-    this.exerciseSrv.deleteExercisesById(this.data.id);
-    this.onNoClick()
+    this.dialogSrv.deleteDialog({ name: "exercise", id: this.data.workout.id, dialog: this.dialogRef })
   }
   action() {
+    this.isSend = true;
+    this.fileUpload = this.exerciseForm.get('media_link').value;
     let data: any = this.exerciseForm.value;
     data.medit_link = this.imgUpload.value;
     this.logger.log('data: ', data);
@@ -68,6 +74,10 @@ export class WorkoutDialogComponent implements OnInit {
 
     }
 
+  }
+  getVideo(eve: any) {
+    this.logger.log('v: ', eve);
+    this.exerciseForm.get('media_link').setValue(eve)
   }
   upload(event: any) {
     // this.exerciseForm.get('media_link')?.setValue(event.target.files[0]);

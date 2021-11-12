@@ -19,21 +19,25 @@
       <thead class="text-center">
         <tr>
           <th>#</th>
-          <th>{{'WORKSOUT.name' | translate}}</th>
-          <th>{{'WORKSOUT.link' | translate}}</th>
+          <th>{{'WORKSOUT.name_ar' | translate}}</th>
+          <th>{{'WORKSOUT.view' | translate}}</th>
           <th></th>
         </tr>
       </thead>
       <tbody class="text-center">
-        <ng-container *ngFor="let exercise of exerciseSrv.getExerciseListOnSameCategory(categoryId); let i = index">
+        <ng-container
+          *ngFor="let exercise of exerciseSrv.getExerciseListOnSameCategory(exerciseCategorSrv.exerciseCategory.name_ar); let i = index">
           <tr class="row_space">
             <td colspan="30"></td>
           </tr>
           <tr>
             <td>{{i + 1 }}</td>
-            <td>{{exercise.name}}</td>
+            <td>{{exercise.name_ar}}</td>
             <!-- <td>{{exercise.media_link}}</td> -->
-            <td>0</td>
+            <td><button mat-button (click)="dialogSrv.preview(exercise.media_link, 'video')">
+                <mat-icon>play_circle_outline</mat-icon>
+                {{'FORM.click-to-preview' | translate}}
+              </button> </td>
             <td class="text-end">
               <span>
                 <button mat-icon-button (click)="dialogSrv.openWorkoutDialog('edit', exercise)">
@@ -45,7 +49,8 @@
             </td>
           </tr>
         </ng-container>
-        <tr class="no_data" *ngIf="exerciseSrv.getExerciseListOnSameCategory(categoryId).length == 0">
+        <tr class="no_data"
+          *ngIf="exerciseSrv.getExerciseListOnSameCategory(exerciseCategorSrv.exerciseCategory.name_ar).length == 0">
           <td colspan="30">
             {{'WORKSOUT.no-data' | translate}}
           </td>
