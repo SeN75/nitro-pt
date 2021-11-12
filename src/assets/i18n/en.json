@@ -185,7 +185,8 @@
     "execrise-add": "add workout",
     "execrise-edit": "edit workout",
     "no-data": "no execrises",
-    "loading": "The exercises are loading..."
+    "loading": "The exercises are loading...",
+    "view": "view exercise"
   },
   "DIETPLAN": {
     "table": "diteplane and exercise  table",
@@ -339,7 +340,8 @@
     "null": "null",
     "Male": "male",
     "Female": "female",
-    "other-attach": "other attachment"
+    "other-attach": "other attachment",
+    "click-to-preview": "prview"
 
 
 
@@ -362,7 +364,9 @@
     "login": "you should login first",
     "phone-number": "The mobile number must be nine digits long",
     "ar": "You must use Arabic letters",
-    "en": "You must use English letters"
+    "en": "You must use English letters",
+    "fill": "Please fill",
+    "req": "Please enter"
   },
   "DURATIONS": {
     "1": "month",
@@ -374,6 +378,12 @@
   },
   "LANDINGPAGE": {
     "home": "home"
+  },
+  "DELETE": {
+    "pack": "package",
+    "exercise type": "exercise type?",
+    "do you want to delete": "do you want to delete",
+    "exercise": "exercise?"
   },
   "SUCCESS": {
     "create-user-verify": "User created, check mail to activate account",

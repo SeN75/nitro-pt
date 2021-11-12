@@ -184,6 +184,7 @@ sidemenu
   width: 100%;
 }
 .form-control:disabled,
+.form-control[aria-disabled="true"],
 .form-control[readonly] {
   background-color: #e2e9ff !important;
 }
