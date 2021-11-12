@@ -1,0 +1,35 @@
+.photo {
+  cursor: zoom-out;
+  width: 100%;
+  height: 100%;
+}
+.video {
+  width: 100%;
+  height: 100%;
+}
+.preview_contianer {
+  max-height: 90vh;
+  padding: 0.5em;
+  overflow: auto;
+  height: auto;
+}
+
+/* width */
+.preview_contianer::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.preview_contianer::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.preview_contianer::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.preview_contianer::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

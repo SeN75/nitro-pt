@@ -18,6 +18,8 @@ import { UplodeFileComponent } from './uplode-file/uplode-file.component';
 import { EntriesAndRemainingComponent } from './entries-and-remaining/entries-and-remaining.component';
 import { LoaderComponent } from './loader/loader.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
+import { PreviewImageOrVideoComponent } from './preview-image-or-video/preview-image-or-video.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     ArchivingInfoComponent,
     UplodeFileComponent,
     EntriesAndRemainingComponent,
-    LoaderComponent
+    LoaderComponent,
+    DeleteDialogComponent,
+    PreviewImageOrVideoComponent
   ],
   imports: [
     BrowserModule,

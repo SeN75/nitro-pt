@@ -1,0 +1,10 @@
+<h1 mat-dialog-title class="dialog-title"> {{'FORM.remove' | translate}}</h1>
+<div mat-dialog-content dir="rtl">
+  <div class="">
+    {{('DELETE.' + data.name) | translate}}
+  </div>
+  <div class="button-group">
+    <button mat-raised-button color="primary" (click)="action()"> {{'FORM.remove' | translate}} </button>
+    <button mat-stroked-button color="primary"> {{'FORM.cancel' | translate}} </button>
+  </div>
+</div>
