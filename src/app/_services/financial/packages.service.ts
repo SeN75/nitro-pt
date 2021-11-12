@@ -83,9 +83,20 @@ export class PackagesService {
   }
 
   public createPackage(data: any, offer?: any) {
+    this.logger.log('dd: ', data)
     this.isLoading = true
     this.hasError = false
-    this._createPackage(data).subscribe((success: any) => {
+    this._createPackage({
+      attach_required: data.attach_required,
+      description: data.description,
+      description_ar: data.description_ar,
+      iban_id: data.iban_id,
+      name: data.name,
+      name_ar: data.name_ar,
+      period: data.period,
+      price: data.price,
+      attachment_id: data.attachment_id
+    }).subscribe((success: any) => {
       this.translateSrv.get('SUCCESS.PACKAGES.new').subscribe(msg => this.toaterSrv.success(msg))
       if (offer) {
         offer.package_id = success.external_id;

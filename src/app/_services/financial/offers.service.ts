@@ -16,10 +16,10 @@ export class OffersService {
   ) { }
 
   public _getOfferByPackageId(id: string) {
-    return this.httpClient.get(offersUrl + id + '')
+    return this.httpClient.get(offersUrl + "id/" + id + '')
   }
   private _updateOfferByPackageId(data: any, id: string) {
-    return this.httpClient.patch(offersUrl, data)
+    return this.httpClient.patch(offersUrl + "id/" + id, data)
   }
   private _createOffer(data: any) {
     return this.httpClient.post(offersUrl + "create", data);
@@ -35,6 +35,9 @@ export class OffersService {
     }, (error: HttpErrorResponse) => {
       this.logger.error("get offer by id error: ", error)
     })
+  }
+  public ___getOfferByPackageId(id: string) {
+    return this._getOfferByPackageId(id);
   }
   public updateOfferByPackageId(data: any, id: string) {
     this._updateOfferByPackageId(data, id).subscribe((success: any) => {
