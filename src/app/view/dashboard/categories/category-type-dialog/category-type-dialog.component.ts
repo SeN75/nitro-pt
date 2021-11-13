@@ -21,7 +21,7 @@ export class CategoryTypeDialogComponent implements OnInit {
     private formBuilder: FormBuilder) {
     this.categoryForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.pattern("[A-Za-z0-9 ]+")]],
-      name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669-0-9 ]+$")]],
+      name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669-\u0900-\u097F ]+$")]],
     })
   }
   ngOnInit(): void {

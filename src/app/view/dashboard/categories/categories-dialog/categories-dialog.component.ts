@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { measuring_units } from 'src/app/_common/globle';
+import { DialogService } from 'src/app/_services/dialog.service';
 import { FoodItemsService } from 'src/app/_services/dite/food-items.service';
 import { FoodUnitsService } from 'src/app/_services/dite/food-units.service';
 import { LanguageService } from 'src/app/_services/language.service';
@@ -15,7 +16,7 @@ import { LoggerService } from 'src/app/_services/logger.service';
 export class CategoriesDialogComponent implements OnInit {
   cateForm: FormGroup | any;
 
-
+  isSend = false;
   unitt: any = {
     name: '',
     name_ar: ''
@@ -25,17 +26,19 @@ export class CategoriesDialogComponent implements OnInit {
     public lang: LanguageService,
     private formBuilder: FormBuilder,
     private logger: LoggerService,
+    private dialgoSrv: DialogService,
     public foodUnitsSrv: FoodUnitsService,
     private foodItemSrv: FoodItemsService) {
     this.cateForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.pattern("[A-Za-z ]+")]],
-      name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
+      name: ['', [Validators.required, Validators.pattern("[A-Za-z0-9 ]+")]],
+      name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669-\u0900-\u097F ]+$")]],
       fat: ['', Validators.required],
       protien: ['', Validators.required],
       carb: ['', Validators.required],
       calories: ['', Validators.required],
       category: ['',],
       unit: ['', Validators.required],
+      media_link: [''],
     })
   }
 
@@ -47,6 +50,7 @@ export class CategoriesDialogComponent implements OnInit {
       this.cateForm.get('fat').setValue(this.data.cate.fat);
       this.cateForm.get('carb').setValue(this.data.cate.carb);
       this.cateForm.get('protien').setValue(this.data.cate.protien);
+      this.cateForm.get('calories').setValue(this.data.cate.calories);
       this.cateForm.get('calories').setValue(this.data.cate.calories);
       this.cateForm.get('unit').setValue(this.foodUnitsSrv.units.filter((u: any) => {
         return u.name_ar == this.data.cate.unit
@@ -60,6 +64,7 @@ export class CategoriesDialogComponent implements OnInit {
     this.unitt = this.foodUnitsSrv.units.filter(u => u.id == this.cateForm.get('unit').value)[0]
   }
   action() {
+    this.isSend = true;
     let data: any = this.cateForm.value;
     data.category = this.data.cate.categoryid;
 
@@ -75,7 +80,7 @@ export class CategoriesDialogComponent implements OnInit {
 
   }
   delete() {
-    this.foodItemSrv.deleteFoodItemById(this.data.cate.id)
+    this.dialgoSrv.deleteDialog({ name: 'food item', id: this.data.cate.id, dialog: this.dialogRef })
   }
   onNoClick(): void {
     this.dialogRef.close();

@@ -15,8 +15,8 @@ export class DietplanTempDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
     this.dietForm = new FormGroup({
-      program_name: new FormControl('', [Validators.required, Validators.pattern("[A-Za-z ]+")]),
-      program_name_ar: new FormControl('', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]),
+      program_name: new FormControl('', [Validators.required, Validators.pattern("[A-Za-z0-9 ]+")]),
+      program_name_ar: new FormControl('', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669-\u0900-\u097F ]+$")]),
       total_calories: new FormControl('', [Validators.required]),
       calories_to_protein: new FormControl('', [Validators.required,]),
       calories_to_fat: new FormControl('', [Validators.required]),

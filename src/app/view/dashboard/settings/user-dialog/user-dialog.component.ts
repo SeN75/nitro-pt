@@ -26,12 +26,12 @@ export class UserDialogComponent implements OnInit {
 
   ) {
     this.userDataForm = this.formbuilder.group({
-      first_name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
-      middle_name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
-      last_name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
-      first_name: ['', [Validators.required, Validators.pattern("[A-Za-z ]+")]],
-      middle_name: ['', [Validators.required, Validators.pattern("[A-Za-z ]+")]],
-      last_name: ['', [Validators.required, Validators.pattern("[A-Za-z ]+")]],
+      first_name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669-\u0900-\u097F ]+$")]],
+      middle_name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669-\u0900-\u097F ]+$")]],
+      last_name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669-\u0900-\u097F ]+$")]],
+      first_name: ['', [Validators.required, Validators.pattern("[A-Za-z0-9 ]+")]],
+      middle_name: ['', [Validators.required, Validators.pattern("[A-Za-z0-9 ]+")]],
+      last_name: ['', [Validators.required, Validators.pattern("[A-Za-z0-9 ]+")]],
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       counterCode: ['966', Validators.required],

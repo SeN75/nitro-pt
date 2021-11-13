@@ -37,10 +37,10 @@ export class PackageDialogComponent implements OnInit {
     private datePipe: DatePipe,
     public packSrv: PackagesService) {
     this.packForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.pattern("[A-Za-z ]+")]],
-      name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
-      description: ['', [Validators.required, Validators.pattern("[A-Za-z ]+")]],
-      description_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669 ]+$")]],
+      name: ['', [Validators.required, Validators.pattern("[A-Za-z0-9 ]+")]],
+      name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669-\u0900-\u097F ]+$")]],
+      description: ['', [Validators.required, Validators.pattern("[A-Za-z0-9 ]+")]],
+      description_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669-\u0900-\u097F ]+$")]],
       period: ['', Validators.required],
       price: ['', [Validators.required, Validators.pattern('(^([0-9]{1,4})\.([0-9]{1,2})?$)')]],
       iban_id: ['', Validators.required],
