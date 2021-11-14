@@ -22,18 +22,18 @@ export class HealthInfoComponent implements OnInit {
 
   ) {
     this.healthInfoForm = this.formBuilder.group({
-      workNature: ['', [Validators.required, Validators.pattern('^[\u0621-\u064A\u0660-\u0669 ]+$')]],
-      healthProblems: ['لا يوجد', [Validators.required, Validators.pattern('^[\u0621-\u064A\u0660-\u0669 ]+$')]],
-      supplements: ['لا يوجد', [Validators.required, Validators.pattern('^[\u0621-\u064A\u0660-\u0669 ]+$')]],
-      goalProblems: ['', [Validators.required, Validators.pattern('^[\u0621-\u064A\u0660-\u0669 ]+$')]],
+      workNature: ['', [Validators.required, Validators.pattern('^[\u0621-\u064A\u0660-\u0669-\u0900-\u097F ]+$')]],
+      healthProblems: ['لا يوجد', [Validators.required, Validators.pattern('^[\u0621-\u064A\u0660-\u0669-\u0900-\u097F ]+$')]],
+      supplements: ['لا يوجد', [Validators.required, Validators.pattern('^[\u0621-\u064A\u0660-\u0669-\u0900-\u097F ]+$')]],
+      goalProblems: ['', [Validators.required, Validators.pattern('^[\u0621-\u064A\u0660-\u0669-\u0900-\u097F ]+$')]],
       sleepHours: ['', Validators.required],
       bedTime: ['', Validators.required],
       weakupTime: ['', Validators.required],
-      ditePlan: ['لا يوجد', [Validators.required, Validators.pattern('^[\u0621-\u064A\u0660-\u0669 ]+$')]],
+      ditePlan: ['لا يوجد', [Validators.required, Validators.pattern('^[\u0621-\u064A\u0660-\u0669-\u0900-\u097F ]+$')]],
       numberMeals: ['', Validators.required],
-      allergen: ['لا يوجد', [Validators.required, Validators.pattern('^[\u0621-\u064A\u0660-\u0669 ]+$')]],
-      unlike: ['لا يوجد', [Validators.required, Validators.pattern('^[\u0621-\u064A\u0660-\u0669 ]+$')]],
-      operations: ['لا يوجد', [Validators.required, Validators.pattern('^[\u0621-\u064A\u0660-\u0669 ]+$')]],
+      allergen: ['لا يوجد', [Validators.required, Validators.pattern('^[\u0621-\u064A\u0660-\u0669-\u0900-\u097F ]+$')]],
+      unlike: ['لا يوجد', [Validators.required, Validators.pattern('^[\u0621-\u064A\u0660-\u0669-\u0900-\u097F ]+$')]],
+      operations: ['لا يوجد', [Validators.required, Validators.pattern('^[\u0621-\u064A\u0660-\u0669-\u0900-\u097F ]+$')]],
     })
     this.healthInfoForm.valueChanges.subscribe(() => {
       console.log("change2")

@@ -56,6 +56,18 @@
         </div>
       </div>
     </div>
+    <div class="row justify-content-center">
+      <button class="col" mat-button color="primary" (click)="preview(category.media_link)"
+        *ngIf="category.media_link != ''">
+        <mat-icon>image</mat-icon>
+        {{'FORM.click-to-preview' | translate}}
+      </button>
+      <button class="col" mat-button *ngIf="category.media_link == ''" disabled="true">
+        <mat-icon>broken_image</mat-icon>
+        {{'FORM.no-pic'| translate}}
+      </button>
+    </div>
+
   </div>
   <div class="category-body" *ngIf="category.unit == 'جرام'">
     <div class="organic-compound">
@@ -125,6 +137,17 @@
           <div class="col">{{(category.fat * 250) | number:'1.0-2'}}</div>
         </div>
       </div>
+    </div>
+    <div class="row justify-content-center">
+      <button class="col" mat-button color="primary" (click)="preview(category.media_link)"
+        *ngIf="category.media_link != ''">
+        <mat-icon>image</mat-icon>
+        {{'FORM.click-to-preview' | translate}}
+      </button>
+      <button class="col" mat-button *ngIf="category.media_link == ''" disabled="true">
+        <mat-icon>broken_image</mat-icon>
+        {{'FORM.no-pic'| translate}}
+      </button>
     </div>
   </div>
 </section>
