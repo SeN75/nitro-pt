@@ -13,7 +13,10 @@ const foodUrl = API + "diet/food/categories/"
 })
 export class FoodCategoriesService {
   categories: CategoryFood[] = [];
-  category: any;
+  category: any = {
+    name: '',
+    name_ar: ''
+  };
 
   isLoading = true;
   hasError = false;
@@ -68,6 +71,7 @@ export class FoodCategoriesService {
   }
   public getFoodCategoriesById(id: string) {
     this._getFoodCategoriesById(id).subscribe((success: any) => {
+      this.category = success;
       this.logger.log("get food list by  id:", success)
     }, (error: HttpErrorResponse) => {
       this.logger.error("get food list by  id error: ", error)

@@ -33,20 +33,21 @@ export class CategoryTypeDialogComponent implements OnInit {
   delete() {
 
     if (this.categoryItemSrv.getItemsWithSameCategory(this.data.cate.name).length > 0)
-      this.dialogSrv.deleteDialog({ name: 'food category2', id: this.data.cate.id, dialog: this.dialogSrv })
+      this.dialogSrv.deleteDialog({ name: 'food category2', id: this.data.cate.id, dialog: this.dialogRef })
     else
-      this.dialogSrv.deleteDialog({ name: 'food category1', id: this.data.cate.id, dialog: this.dialogSrv })
+      this.dialogSrv.deleteDialog({ name: 'food category1', id: this.data.cate.id, dialog: this.dialogRef })
 
   }
   action() {
     this.isSend = true;
+    console.log(this.categoryForm)
     let data = { ...this.categoryForm.value }
     if (this.data.state == 'edit') {
       if (!this.categoryForm.get('name')?.dirty)
         delete data.name
       if (!this.categoryForm.get('name_ar')?.dirty)
         delete data.name_ar
-      this.categorySrv.updateFoodCategoriesById(this.categoryForm.value, this.data.cate.id)
+      this.categorySrv.updateFoodCategoriesById(data, this.data.cate.id)
       this.onNoClick()
     } else {
       this.categorySrv.createFoodCategory(this.categoryForm.value)
