@@ -23,5 +23,7 @@ export class CategoryCardComponent implements OnInit {
   ngOnInit(): void {
     this.logger.log("campound", this.category)
   }
-
+  preview(src: string) {
+    this.dialogSrv.preview(src, 'photo')
+  }
 }

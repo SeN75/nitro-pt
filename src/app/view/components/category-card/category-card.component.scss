@@ -2,11 +2,12 @@
   width: 100%;
   background-color: white;
   border: solid 1px #eff1f8;
-  max-width: 425px;
-  min-width: 300px;
+  max-width: 500px;
   border-radius: 0.25em;
   padding: 10px 20px;
   margin: 20px 0;
+  height: -webkit-fill-available;
+  min-width: 450px;
 }
 .category-body {
   font-size: 13px;
@@ -50,4 +51,10 @@
   color: #1d4980;
   padding: 0 5px 20px;
   text-align: center;
+}
+
+@media screen and (max-width: 400px) {
+  .category-card {
+    min-width: 300px;
+  }
 }
