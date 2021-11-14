@@ -4,7 +4,7 @@
   <div class="row">
     <div class="form-group col-6" [class.has_error]="cateForm.get('name')?.invalid && cateForm.get('name')?.dirty ">
       <label for="input">{{'CATEGORIES.name-type' | translate}}*</label>
-      <input name="input" formControlName="name" class="form-control">
+      <input name="input" formControlName="name" class="form-control" maxlength="25">
       <div class="hint" *ngIf="cateForm.get('name')?.invalid && cateForm.get('name')?.dirty ">
         <span *ngIf="cateForm.get('name').errors.required && !isSend">{{'VALIDATION.fill' | translate}}
           {{'CATEGORIES.name-type' | translate}}</span>
@@ -17,7 +17,7 @@
     <div class="form-group col-6"
       [class.has_error]="cateForm.get('name_ar')?.invalid && cateForm.get('name_ar')?.dirty ">
       <label for="input">{{'CATEGORIES.name-type-ar' | translate}}*</label>
-      <input name="input" formControlName="name_ar" class="form-control">
+      <input name="input" formControlName="name_ar" class="form-control" maxlength="25">
       <div class="hint" *ngIf="cateForm.get('name_ar')?.invalid && cateForm.get('name_ar')?.dirty ">
         <span *ngIf="cateForm.get('name_ar').errors.required && !isSend">{{'VALIDATION.fill' | translate}}
           {{'CATEGORIES.name-type-ar' | translate}}</span>
@@ -92,8 +92,20 @@
         </div>
       </div>
     </div>
+
   </div>
-  <div class="button-group mt-3">
+
+  <div class="row justify-content-center my-3">
+    <div class="upload_file col" (click)="file.click()">
+      <img [src]="img" class="uploder_img">
+      <input type="file" #file hidden (change)="selectImg($event)"
+        accept="image/jpg, image/jpeg, image/png, application/pdf">
+      <button mat-button class="upload_button" (click)="file.click()">
+        {{'SETTINGS.upload-file' | translate}}
+      </button>
+    </div>
+  </div>
+  <div class="button-group mt-5">
     <button mat-raised-button color="primary" [disabled]="cateForm.invalid" (click)="action()"> {{'FORM.'+ (data.state
       == 'edit' ?
       'edit' : 'add')

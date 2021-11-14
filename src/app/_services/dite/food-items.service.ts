@@ -29,20 +29,44 @@ export class FoodItemsService {
     return this.httpClient.get(foodUrl + "list?category=" + filter);
   }
 
-  private _createFoodItem(data: any) {
+  private _createFoodItem(data: any, media_link?: File) {
+    let file: File;
 
-    return this.httpClient.post(foodUrl + "create", data);
+    const formData = new FormData();
+
+    formData.append('name', data.name)
+    formData.append('name_ar', data.name_ar)
+    formData.append('fat', data.fat)
+    formData.append('protien', data.protien)
+    formData.append('carb', data.carb)
+    formData.append('calories', data.calories)
+    formData.append('category', data.category)
+    formData.append('unit', data.unit)
+    if (media_link) {
+      formData.append('media_link', media_link)
+      this.logger.log('media_link: ', media_link)
+    }
+    this.logger.log('data: ', data)
+    return this.httpClient.post(foodUrl + "create", formData);
   }
   private _updateFoodItemById(data: any, id: string) {
     const formData = new FormData();
-    formData.append('name', data.name);
-    formData.append('name_ar', data.name_ar);
-    formData.append('protien', data.protien);
-    formData.append('carb', data.carb);
-    formData.append('fat', data.fat);
-    formData.append('calories', data.calories);
-    formData.append('category', data.category);
-    formData.append('unit', data.unit);
+    if (data.name)
+      formData.append('name', data.name);
+    if (data.name_ar)
+      formData.append('name_ar', data.name_ar);
+    if (data.protien)
+      formData.append('protien', data.protien);
+    if (data.carb)
+      formData.append('carb', data.carb);
+    if (data.fat)
+      formData.append('fat', data.fat);
+    if (data.calories)
+      formData.append('calories', data.calories);
+    if (data.category)
+      formData.append('category', data.category);
+    if (data.unit)
+      formData.append('unit', data.unit);
 
     return this.httpClient.patch(foodUrl + "id/" + id, formData);
   }
@@ -73,8 +97,8 @@ export class FoodItemsService {
     })
   }
 
-  public createFoodItem(data: any) {
-    this._createFoodItem(data).subscribe((success: any) => {
+  public createFoodItem(data: any, media_link?: File) {
+    this._createFoodItem(data, media_link).subscribe((success: any) => {
       this.translateSrv.get('SUCCESS.CATEGORY.new-item').subscribe(msg => this.toasterSrv.success(msg))
       this.getFoodItemList()
       this.logger.log("create food items:", success)

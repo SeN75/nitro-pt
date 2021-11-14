@@ -15,12 +15,13 @@ import { LoggerService } from 'src/app/_services/logger.service';
 })
 export class CategoriesDialogComponent implements OnInit {
   cateForm: FormGroup | any;
-
+  img = "../../../../../assets/images/uploader.svg";
   isSend = false;
   unitt: any = {
     name: '',
     name_ar: ''
   };
+  file: File | any;
   constructor(public dialogRef: MatDialogRef<CategoriesDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public lang: LanguageService,
@@ -38,7 +39,6 @@ export class CategoriesDialogComponent implements OnInit {
       calories: ['', Validators.required],
       category: ['',],
       unit: ['', Validators.required],
-      media_link: [''],
     })
   }
 
@@ -63,16 +63,35 @@ export class CategoriesDialogComponent implements OnInit {
   changeUnit() {
     this.unitt = this.foodUnitsSrv.units.filter(u => u.id == this.cateForm.get('unit').value)[0]
   }
+  selectImg(event: any) {
+    let file: File = <File>event.target.files[0];
+    this.file = file;
+    const reader: FileReader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (e: any) => {
+      this.logger.log('upload in:', e.target.result)
+      this.logger.log('value: ', this.cateForm.value)
+      this.img = e.target.result;
+    }
+  }
+
   action() {
     this.isSend = true;
-    let data: any = this.cateForm.value;
+    console.log(this.cateForm)
+
+    let data: any = { ...this.cateForm.value };
     data.category = this.data.cate.categoryid;
 
     if (this.data.state != 'edit') {
-      this.foodItemSrv.createFoodItem(data)
+      this.foodItemSrv.createFoodItem(data, this.file)
       this.onNoClick();
     }
     else {
+      if (!this.cateForm.get('name')?.dirty)
+        delete data.name;
+      if (!this.cateForm.get('name_ar')?.dirty)
+        delete data.name_ar;
+      this.logger.log('data: ', data)
       this.foodItemSrv.updateFoodItemById(data, this.data.cate.id)
       this.onNoClick();
     }
