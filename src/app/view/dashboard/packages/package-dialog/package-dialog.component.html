@@ -151,8 +151,9 @@
     </div>
   </div>
   <div class="button-group">
-    <button mat-raised-button color="primary" [disabled]="packForm.invalid ||(withOffer && offerForm.invalid)"
-      (click)="action()"> {{'FORM.'+ (data.state
+    <button mat-raised-button color="primary" [disabled]="packForm.invalid ||
+    (packForm.get('attach_required').value &&  !packForm.get('attachment_id').value)
+    || (withOffer && offerForm.invalid)" (click)="action()"> {{'FORM.'+ (data.state
       == 'edit' ? 'edit' : 'add')
       | translate}}
     </button>
