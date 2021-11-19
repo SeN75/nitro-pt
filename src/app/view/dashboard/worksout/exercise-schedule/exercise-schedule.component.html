@@ -7,9 +7,16 @@
     </h1>
     <span>
 
-      <button class="mx-2" mat-raised-button color="primary"
-        (click)="dialogSrv.openWorkoutDialog('add', {category: categoryId})">{{'WORKSOUT.execrise-add' |
-        translate}}</button>
+
+      <span style="align-items: inherit; display: flex;">
+        <button class="mx-2" mat-raised-button color="primary"
+          (click)="dialogSrv.openWorkoutDialog('add', {category: categoryId})">{{'WORKSOUT.execrise-add' |
+          translate}}</button>
+        <button mat-button routerLink="../..">
+          {{'FORM.back' | translate}}
+          <mat-icon color="primary" class="mx-2">arrow_back</mat-icon>
+        </button>
+      </span>
     </span>
   </header>
   <loader title="{{'WORKSOUT.loading' | translate}}" *ngIf="exerciseSrv.isLoading" [hasError]="exerciseSrv.hasError">
