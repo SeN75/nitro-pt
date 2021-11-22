@@ -49,7 +49,7 @@ export class FoodItemsService {
     this.logger.log('data: ', data)
     return this.httpClient.post(foodUrl + "create", formData);
   }
-  private _updateFoodItemById(data: any, id: string) {
+  private _updateFoodItemById(data: any, id: string, media_link?: File) {
     const formData = new FormData();
     if (data.name)
       formData.append('name', data.name);
@@ -67,6 +67,8 @@ export class FoodItemsService {
       formData.append('category', data.category);
     if (data.unit)
       formData.append('unit', data.unit);
+    if (media_link)
+      formData.append('media_link', media_link);
 
     return this.httpClient.patch(foodUrl + "id/" + id, formData);
   }
@@ -107,8 +109,8 @@ export class FoodItemsService {
       this.logger.error("create food items error: ", error)
     })
   }
-  public updateFoodItemById(data: any, id: string) {
-    this._updateFoodItemById(data, id).subscribe((success: any) => {
+  public updateFoodItemById(data: any, id: string, media_link?: File) {
+    this._updateFoodItemById(data, id, media_link).subscribe((success: any) => {
       this.translateSrv.get('SUCCESS.CATEGORY.update-item').subscribe(msg => this.toasterSrv.success(msg))
       this.getFoodItemList()
       this.logger.log("update food item By Id:", success)
