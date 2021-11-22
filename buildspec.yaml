@@ -17,5 +17,3 @@ phases:
     commands:
       - echo build process finished, we should uplload to S3 now
       - cd dist/$APP_NAME
-      - ls -la
-      - aws:s3:::elasticbeanstalk-us-west-2-954905660871
