@@ -92,7 +92,7 @@ export class CategoriesDialogComponent implements OnInit {
       if (!this.cateForm.get('name_ar')?.dirty)
         delete data.name_ar;
       this.logger.log('data: ', data)
-      this.foodItemSrv.updateFoodItemById(data, this.data.cate.id)
+      this.foodItemSrv.updateFoodItemById(data, this.data.cate.id, this.file)
       this.onNoClick();
     }
     this.logger.log('value: ', this.cateForm)
