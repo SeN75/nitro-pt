@@ -1,4 +1,4 @@
-ersion: 0.2
+version: 0.2
 env:
   variables:
     APP_NAME: "nitro-pt"
@@ -8,7 +8,8 @@ phases:
       nodejs: 14.x
     commands:
       - echo install process started
-      - npm install && npm install -g @angular/cli
+      - npm install
+      - npm install -g @angular/cli
   build:
     commands:
       - echo build process started now
@@ -17,3 +18,8 @@ phases:
     commands:
       - echo build process finished, we should uplload to S3 now
       - cd dist/$APP_NAME
+artifacts:
+    files:
+        - '**/*'
+    base-directory: 'dist*'
+    discard-paths: yes
