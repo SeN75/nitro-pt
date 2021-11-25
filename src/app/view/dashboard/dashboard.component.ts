@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { DialogService } from 'src/app/_services/dialog.service';
 import { CookieService } from 'ngx-cookie-service';
+import { IdentityService } from 'src/app/_services/identity/identity.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,12 +18,15 @@ export class DashboardComponent {
   userInactive: Subject<any> = new Subject();
   isSideMenu = false;
   constructor(
+    private identitySrv: IdentityService,
     private router: Router,
     private dialogSrv: DialogService,
     private cookiesSrv: CookieService) {
 
   }
-
+  signOut() {
+    this.identitySrv.logout();
+  }
 
   // setTimeout() {
   //   this.userActivity = setTimeout(() => this.userInactive.next(undefined), 180000);

@@ -21,6 +21,7 @@ import { AuhtGuardGuard } from 'src/app/_helpers/auth-guard.guard';
 import { DietPlanEditDettails2Component } from './diet-plan/diet-plan-edit-dettails2/diet-plan-edit-dettails2.component';
 
 const children: Routes = [
+
   { component: BaseComponent, path: 'base' },
   { component: SubscribersComponent, path: 'subscribers' },
   { component: SubscriberInfoComponent, path: 'subscribers/:id/client-details' },
@@ -36,6 +37,7 @@ const children: Routes = [
   { component: DietPlanComponent, path: 'diet' },
   { component: DietPlanViewDetailsComponent, path: 'diet/:id/view' },
   { component: DietPlanEditDettails2Component, path: 'diet/:id/edit' },
+  { redirectTo: 'subscribers', path: '', pathMatch: "full" },
 ]
 const routes: Routes = [
   { component: DashboardComponent, path: 'dashboard', children: children, canActivate: [AuhtGuardGuard] },

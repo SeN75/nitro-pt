@@ -26,6 +26,10 @@
           src="../../../assets/icons/{{activeLink == (item.name).split('.')[1]?item.activeImg:item.img}}">
         <span>{{ item.name | translate}}</span>
       </a>
+      <a class="items" routerLink="." (click)="signOut()">
+        <img class="icon" src="../../../assets/icons/logout_white_24dp.svg">
+        <span>{{ 'LANDINGPAGE.sign-out' | translate}}</span>
+      </a>
     </nav>
   </div>
 
