@@ -6,23 +6,13 @@ import { LoggerService } from '../logger.service';
 import { ToastService } from '../toast.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { TokenStorageService } from './token-storage.service';
 const Identity = API + "auth/";
 @Injectable({
   providedIn: 'root'
 })
 export class IdentityService {
-  userData: any = {
-    first_name: 'not data',
-    first_name_ar: 'لايوجد',
-    middle_name: '',
-    middle_name_ar: '',
-    last_name: '',
-    last_name_ar: '',
-    email: 'لايوجد',
-    phone_number: 'لايوجد',
-    display_name_ar: 'not found',
-    groups: [0]
-  };
+  userData: any;
   coaches: any;
   staffs: any;
   toDayDate = new Date();
@@ -45,17 +35,21 @@ export class IdentityService {
     private toastSrv: ToastService,
     private router: Router,
     private cookieSrv: CookieService,
+    private tokenService: TokenStorageService,
     private logger: LoggerService) {
     //this.logout();
     //this.logoutAll();
+    this.userData = this.tokenService.getUser();
     if (localStorage.getItem('refreshToken') && cookieSrv.get('loggedin')) {
       setTimeout(() => {
         // this.getUserProfileByJWT()
         // this.getAllCoaches()
         // this.getStaff()
       }, 1500)
+
     }
 
+    this.userData = this.tokenService.getUser();
     this.newDayDate.setDate(this.toDayDate.getDate() + 1);
   }
 
@@ -120,9 +114,6 @@ export class IdentityService {
   private _verifyOTP(data: any) {
     return this.httpClient.post(Identity + "verify_OTP", data)
   }
-
-
-
 
 
   public getStaff() {
@@ -214,10 +205,12 @@ export class IdentityService {
   public login(userData: any) {
     this.logger.log("login:", userData)
     this._login(userData).subscribe((success: any) => {
-      localStorage.setItem('refreshToken', success.refresh)
-      localStorage.setItem('authToken', success.access)
+      this.tokenService.saveRefreshToken(success.refresh)
+      this.tokenService.saveToken(success.access)
+
       this.cookieSrv.set('loggedin', this.toDayDate.getTime() + "", this.newDayDate)
       this._getUserProfileByJWT().subscribe((user: any) => {
+        this.tokenService.saveUser(user)
         this.userData = user;
         this.logger.log('user data: ', user)
         if (user.groups[0] == 1) {
@@ -245,6 +238,9 @@ export class IdentityService {
     }, (error: HttpErrorResponse) => {
       this.logger.error("refresh Token error: ", error)
     })
+  }
+  public __refreshToken(data: any) {
+    return this._refreshToken(data);
   }
   public verifyToken(data: any) {
     this._verifyToken(data).subscribe((success: any) => {
@@ -284,16 +280,11 @@ export class IdentityService {
     })
   }
   public logout() {
-    let refresh = localStorage.getItem('refreshToken');
-    this._logout({ refresh: refresh }).subscribe((success: any) => {
-      localStorage.removeItem('refreshToken');
-      localStorage.removeItem('authToken');
-      this.cookieSrv.delete('loggedin')
-      this.router.navigateByUrl('/register/login')
-      this.logger.log("logout :", success)
-    }, (error: HttpErrorResponse) => {
-      this.logger.error("logout  error: ", error)
-    })
+    let refresh = this.tokenService.getRefreshToken()
+    this.tokenService.signOut();
+    this.cookieSrv.delete('loggedin')
+    this.router.navigateByUrl('/landing')
+    this._logout({ refresh: refresh });
   }
   public deleteProfileById(id: string) {
     this._deleteProfileById(id).subscribe((success: any) => {
