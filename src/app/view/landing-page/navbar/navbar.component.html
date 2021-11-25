@@ -22,6 +22,10 @@
           <li class="nav-item">
             <a class="nav-link" routerLink=".">من نحن</a>
           </li>
+
+          <li class="nav-item" *ngIf="isLoggedin">
+            <a class="nav-link " (click)="signOut()">{{'LANDINGPAGE.sign-out' | translate}}</a>
+          </li>
           <li class="nav-item" *ngIf="!isProfile">
             <a *ngIf="isLoggedin" class="nav-link profile_button"
               [routerLink]="identitySrv.userData.groups[0] == 1 ? '/dashboard/account-settings': identitySrv.userData.groups[0] == 0? '.': '/landing/profile'">{{identitySrv.userData.display_name_ar}}</a>
@@ -31,6 +35,9 @@
       </div>
       <div class="d-flex " *ngIf="isProfile">
         <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link nav-link-2 " (click)="signOut()">{{'LANDINGPAGE.sign-out' | translate}}</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link nav-link-2 " routerLink="/landing">{{'LANDINGPAGE.home' | translate}}</a>
           </li>

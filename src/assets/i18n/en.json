@@ -379,7 +379,9 @@
     "month": "month"
   },
   "LANDINGPAGE": {
-    "home": "home"
+    "home": "home",
+    "sign-out": "sign out"
+
   },
   "DELETE": {
     "pack": "package",

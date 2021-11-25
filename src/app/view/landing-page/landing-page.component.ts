@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SlickCarouselComponent } from 'ngx-slick-carousel';
 import { IdentityService } from 'src/app/_services/identity/identity.service';
+import { TokenStorageService } from './../../_services/identity/token-storage.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -9,8 +10,8 @@ import { IdentityService } from 'src/app/_services/identity/identity.service';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor(public identitySrv: IdentityService) { }
-  rt = localStorage.getItem('refreshToken') ? true : false;
+  constructor(public identitySrv: IdentityService, private tokenSrv: TokenStorageService) { }
+  rt = this.tokenSrv.getRefreshToken() ? true : false;
 
   ngOnInit(): void {
 
