@@ -49,6 +49,7 @@ import { CurrentOrderTableComponent } from './view/landing-page/profile/current-
 import { CloseOrderTableComponent } from './view/landing-page/profile/close-order-table/close-order-table.component';
 import { DietplanSectionComponent } from './view/landing-page/profile/dietplan-section/dietplan-section.component';
 import { SubscriptionInfoComponent } from './view/landing-page/profile/subscription-info/subscription-info.component';
+import { AuthInterceptor, authInterceptorProviders } from './_helpers/Interceptor-jwt';
 
 @NgModule({
   declarations: [
@@ -103,11 +104,7 @@ import { SubscriptionInfoComponent } from './view/landing-page/profile/subscript
     ReactiveFormsModule
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: NaitroInterceptor,
-      multi: true
-    },
+    authInterceptorProviders,
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy

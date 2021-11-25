@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { LanguageService } from './_services/language.service';
 import { IdentityService } from 'src/app/_services/identity/identity.service';
+import { TokenStorageService } from './_services/identity/token-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +11,12 @@ import { IdentityService } from 'src/app/_services/identity/identity.service';
 })
 export class AppComponent {
   title = 'nitro-pt';
-  constructor(private lang: LanguageService, private cookieSrv: CookieService, private identitySrv: IdentityService) {
-    if (!cookieSrv.get('loggedin') && localStorage.getItem('refreshToken')) {
-      cookieSrv.delete('loggedin')
-      localStorage.removeItem('refreshToken')
-      localStorage.removeItem('authToken')
-    } else {
-      this.identitySrv.getUserProfileByJWT()
-    }
+  constructor(
+    private lang: LanguageService,
+    private cookieSrv: CookieService,
+    private identitySrv: IdentityService,
+    private tokenSrv: TokenStorageService) {
+    if (!cookieSrv.get('loggedin') && !this.tokenSrv.getRefreshToken())
+      this.identitySrv.logout();
   }
 }
