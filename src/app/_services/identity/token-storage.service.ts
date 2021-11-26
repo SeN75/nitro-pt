@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { LoggerService } from './../logger.service';
 const TOKEN_KEY = 'auth-token';
 const REFRESHTOKEN_KEY = 'auth-refreshtoken';
 const USER_KEY = 'auth-user';
@@ -6,7 +7,7 @@ const USER_KEY = 'auth-user';
   providedIn: 'root'
 })
 export class TokenStorageService {
-  constructor() { }
+  constructor(private logger: LoggerService) { }
 
   signOut(): void {
     window.sessionStorage.clear();
@@ -15,7 +16,7 @@ export class TokenStorageService {
   public saveToken(token: string): void {
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY, token);
-
+    this.logger.log('access token: ', this.getToken())
     const user = this.getUser();
     if (user.external_id) {
       this.saveUser({ ...user, accessToken: token });
@@ -29,6 +30,8 @@ export class TokenStorageService {
   public saveRefreshToken(token: string): void {
     window.sessionStorage.removeItem(REFRESHTOKEN_KEY);
     window.sessionStorage.setItem(REFRESHTOKEN_KEY, token);
+    this.logger.log('refresh token: ', this.getRefreshToken())
+
   }
 
   public getRefreshToken(): string | null {
