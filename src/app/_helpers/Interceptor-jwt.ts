@@ -7,6 +7,8 @@ import { TokenStorageService } from '../_services/identity/token-storage.service
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, filter, switchMap, take } from 'rxjs/operators';
 import { AuthService } from '../_services/identity/auth.service';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 const TOKEN_HEADER_KEY = 'x-access-token';    // for Node.js Express back-end
 
@@ -18,7 +20,11 @@ export class AuthInterceptor implements HttpInterceptor {
   private isRefreshing = false;
   private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-  constructor(private tokenService: TokenStorageService, private authService: AuthService) { }
+  constructor(
+    private tokenService: TokenStorageService,
+    private authService: AuthService,
+    private router: Router,
+    private cookieSrv: CookieService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<any> {
     let authReq = req;
@@ -52,14 +58,17 @@ export class AuthInterceptor implements HttpInterceptor {
             this.isRefreshing = false;
 
             this.tokenService.saveToken(token.access);
+            this.tokenService.saveRefreshToken(token.refresh);
             this.refreshTokenSubject.next(token.access);
 
             return next.handle(this.addTokenHeader(request, token.access));
           }),
           catchError((err) => {
             this.isRefreshing = false;
-
             this.tokenService.signOut();
+            this.router.navigateByUrl('/landing')
+            this.cookieSrv.delete('loggedin')
+            this.router.navigateByUrl('/landing')
             return throwError(err);
           })
         );
