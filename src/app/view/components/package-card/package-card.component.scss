@@ -7,19 +7,19 @@
   text-align: center;
   color: #1d4980;
   position: relative;
-  height: 100%;
   width: 100%;
+  margin-top: -24px;
 }
 .package_card {
   width: 100%;
   text-align: center;
-
-  background-color: #fff;
+  max-width: 500px;
+  min-width: 450px;
 }
 .package_card_header {
   border-radius: 10px;
   height: 130px;
-  margin-bottom: 30px;
+  z-index: 2;
   position: relative;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .package_body {
-  padding: 30px;
+  padding: 60px 20px 30px;
 }
 
 .package_feature_title {
