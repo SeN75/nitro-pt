@@ -7,6 +7,7 @@ import { FoodItemsService } from 'src/app/_services/dite/food-items.service';
 import { FoodUnitsService } from 'src/app/_services/dite/food-units.service';
 import { LanguageService } from 'src/app/_services/language.service';
 import { LoggerService } from 'src/app/_services/logger.service';
+import { NumberValidator } from './../../../../_helpers/number.validator';
 
 @Component({
   selector: 'app-categories-dialog',
@@ -33,13 +34,18 @@ export class CategoriesDialogComponent implements OnInit {
     this.cateForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.pattern("[A-Za-z0-9 ]+")]],
       name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669-\u0900-\u097F ]+$")]],
-      fat: ['', Validators.required],
-      protien: ['', Validators.required],
-      carb: ['', Validators.required],
-      calories: ['', Validators.required],
+      fat: ['', [Validators.required]],
+      protien: ['', [Validators.required, Validators.pattern('(^([0-9]{0,4})\.([0-9]{0,3})?$)')]],
+      carb: ['', [Validators.required, Validators.pattern('(^([0-9]{0,4})\.([0-9]{0,3})?$)')]],
+      calories: ['', [Validators.required, Validators.pattern('^([0-9]{0,4})\.([0-9]{0,3})?$')]],
       category: ['',],
       unit: ['', Validators.required],
-    })
+    },
+      // {
+      //   validator: NumberValidator('fat'),
+      // }
+    )
+    this.cateForm.valueChanges.subscribe((e: any) => this.logger.log('cate form: ', this.cateForm))
   }
 
   get cate() { return this.cateForm }
