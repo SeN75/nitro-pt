@@ -42,7 +42,7 @@ export class PackageDialogComponent implements OnInit {
       description: ['', [Validators.required, Validators.pattern("[A-Za-z0-9 ]+")]],
       description_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669-\u0900-\u097F ]+$")]],
       period: ['', Validators.required],
-      price: ['', [Validators.required, Validators.pattern('(^([0-9]{1,4})\.([0-9]{1,2})?$)')]],
+      price: ['', [Validators.required, Validators.pattern('([0-9]{1,4}\.[0-9]{0,2})')]],
       iban_id: ['', Validators.required],
       discountAmount: [''],
       attach_required: [false],
@@ -63,10 +63,11 @@ export class PackageDialogComponent implements OnInit {
       end_date: ['', Validators.required],
       offer_value: ['', Validators.required],
       package_id: [''],
-      type: [''],
+      type: ['', Validators.required],
     })
     this.minDate.setDate(this.toDayDate.getDate() - 0)
     this.logger.log('minDate: ', this.minDate)
+    this.offerForm.get('type').valueChanges.subscribe((e: any) => this.logger.log('type: ', e))
   }
 
   ngOnInit(): void {
@@ -90,6 +91,7 @@ export class PackageDialogComponent implements OnInit {
       }
 
     }
+    this.logger.log("test: ", this.offerForm)
     console.log(this.data)
   }
   getOffer(id: string) {
@@ -128,6 +130,10 @@ export class PackageDialogComponent implements OnInit {
         delete offer.package_id;
         offer.end_date = this.replaceNumber(moment(offer.end_date).format('yyyy-MM-D'))
         offer.start_date = this.replaceNumber(moment(offer.start_date).format('yyyy-MM-D'))
+        if (this.offerForm.get('end_date')?.dirty)
+          delete offer.end_date
+        if (this.offerForm.get('start_date')?.dirty)
+          delete offer.start_date
         this.offerSrv.updateOfferByPackageId(offer, this.data.package.external_id)
       }
       this.onNoClick();
