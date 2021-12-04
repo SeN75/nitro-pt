@@ -26,4 +26,7 @@ export class CategoryCardComponent implements OnInit {
   preview(src: string) {
     this.dialogSrv.preview(src, 'photo')
   }
+  isEmptyObject(obj: any) {
+    return JSON.stringify(obj) === '{}';
+  }
 }

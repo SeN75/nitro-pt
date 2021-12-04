@@ -53,6 +53,8 @@
               {{'CATEGORIES.calories' | translate}}</span>
             <span *ngIf="cateForm.get('calories').errors.required && isSend">{{'VALIDATION.req' | translate}}
               {{'CATEGORIES.calories' | translate}}</span>
+            <span *ngIf="cateForm.get('calories').errors.pattern">
+              {{'VALIDATION.amount-2' | translate}}<br>{{'VALIDATION.amount-ex2' | translate}}</span>
           </div>
         </div>
         <div class="form-group col" [class.has_error]="cateForm.get('fat')?.invalid && cateForm.get('fat')?.dirty ">
@@ -64,6 +66,8 @@
               {{'CATEGORIES.fat' | translate}}</span>
             <span *ngIf="cateForm.get('fat').errors.required && isSend">{{'VALIDATION.req' | translate}}
               {{'CATEGORIES.fat' | translate}}</span>
+            <span *ngIf="cateForm.get('fat').errors.pattern">
+              {{'VALIDATION.amount-2' | translate}}<br>{{'VALIDATION.amount-ex2' | translate}}</span>
           </div>
         </div>
         <div class="form-group col" [class.has_error]="cateForm.get('carb')?.invalid && cateForm.get('carb')?.dirty ">
@@ -75,6 +79,8 @@
               {{'CATEGORIES.carb' | translate}}}</span>
             <span *ngIf="cateForm.get('carb').errors.required && isSend">{{'VALIDATION.req' | translate}}
               {{'CATEGORIES.carb' | translate}}}</span>
+            <span *ngIf="cateForm.get('carb').errors.pattern">
+              {{'VALIDATION.amount-2' | translate}}<br>{{'VALIDATION.amount-ex2' | translate}}</span>
           </div>
         </div>
         <div class="form-group col"
@@ -88,6 +94,8 @@
               {{'CATEGORIES.protein' | translate}}</span>
             <span *ngIf="cateForm.get('protien').errors.required && isSend">{{'VALIDATION.req' | translate}}
               {{'CATEGORIES.protein' | translate}}</span>
+            <span *ngIf="cateForm.get('protien').errors.pattern">
+              {{'VALIDATION.amount-2' | translate}}<br>{{'VALIDATION.amount-ex2' | translate}}</span>
           </div>
         </div>
       </div>
