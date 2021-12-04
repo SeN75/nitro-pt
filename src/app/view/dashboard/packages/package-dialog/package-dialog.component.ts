@@ -67,7 +67,7 @@ export class PackageDialogComponent implements OnInit {
     })
     this.minDate.setDate(this.toDayDate.getDate() - 0)
     this.logger.log('minDate: ', this.minDate)
-    this.offerForm.get('type').valueChanges.subscribe((e: any) => this.logger.log('type: ', e))
+    this.offerForm.get('type')?.valueChanges.subscribe((e: any) => { })
   }
 
   ngOnInit(): void {
