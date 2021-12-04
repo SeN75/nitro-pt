@@ -19,6 +19,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { ComponentsModule } from '../components/components.module';
@@ -99,7 +100,8 @@ import { DietplanEditDialogComponent } from './diet-plan/dietplan-edit-dialog/di
     MatDatepickerModule,
     MatNativeDateModule,
     FileUploadModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule
   ],
   exports: [],
   entryComponents: [

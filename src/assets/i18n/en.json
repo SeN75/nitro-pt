@@ -168,7 +168,9 @@
     "start-date": "offer start date",
     "end-date": "offer end date",
     "value": "offer value",
-    "type": "offer type"
+    "type": "offer type",
+    "fx": "Fixed value",
+    "pr": "percentage value"
   },
   "WORKSOUT": {
     "table": "worksout table",
@@ -368,7 +370,11 @@
     "ar": "You must use Arabic letters",
     "en": "You must use English letters",
     "fill": "Please fill",
-    "req": "Please enter"
+    "req": "Please enter",
+    "amount": "please enter a value that is two digits after the break maximum or four digits before the break maximum",
+    "amount-ex": "Example: 0.99 or 9999",
+    "amount-2": "please enter a value that is three digits after the break maximum or four digits before the break maximum",
+    "amount-ex2": "Example: 0.999 or 9999"
   },
   "DURATIONS": {
     "1": "month",
