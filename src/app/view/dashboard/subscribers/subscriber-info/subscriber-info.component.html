@@ -1,0 +1,81 @@
+<section class="content">
+  <header class="page-header">
+    <h1 class="title">
+      {{'SUBSCRIBERS.info' | translate}}
+    </h1>
+    <span style="align-items: inherit; display: flex;" routerLink="../..">
+      <button mat-button>
+        {{'FORM.back' | translate}}
+        <mat-icon color="primary" class="mx-2">arrow_back</mat-icon>
+      </button>
+    </span>
+  </header>
+  <loader title="{{'SUBSCRIBERS.loading-details' | translate}}" [hasError]="hasError" *ngIf="isLoading"></loader>
+
+  <header class="nitro-card row mt-3" *ngIf="!isLoading">
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.name' | translate}}"
+      [info_item_value]="current_subscription.personal_info.name">
+    </info-item>
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.start-date' | translate}}" info_item_value="{{(current_subscription.subscription_info.date_from == 'N/A'? '' :current_subscription.subscription_info.date_from)  | date}}
+
+      {{(current_subscription.subscription_info.date_from == 'N/A'? 'FORM.null' :'')  | translate}}">
+    </info-item>
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.end-date' | translate}}" info_item_value="{{(current_subscription.subscription_info.date_to == 'N/A'? '' :current_subscription.subscription_info.date_to)  | date}}
+
+      {{(current_subscription.subscription_info.date_to == 'N/A'? 'FORM.null' :'')  | translate}}">
+    </info-item>
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.amount-paid' | translate}}"
+      [info_item_value]="current_subscription.subscription_info.price">
+    </info-item>
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.subscription-number' | translate}}"
+      [info_item_value]="current_subscription.subscription_info.subscription_id">
+    </info-item>
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.status' | translate}}" [is_status]=false
+      info_item_value="{{current_subscription.subscription_info.status}}">
+    </info-item>
+  </header>
+  <div class="body scroll" *ngIf="!isLoading">
+
+    <mat-accordion #accordion multi>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title color="primary">
+            {{'PERSONAL-DATA.personal-data' | translate}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <personal-data [info]="current_subscription.personal_info" class="mt-3"></personal-data>
+        <h2 class="my-5 section-title">
+          <mat-label color="primary"> {{'SUBSCRIBERS.joint-sports-health' | translate}}
+          </mat-label>
+        </h2>
+        <sports-health-suber-info [info]="current_subscription.health_info"></sports-health-suber-info>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{'BODY.body-measurements-info' | translate}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <body-measurements [info]="current_subscription.body_info" [action]="false"></body-measurements>
+        <h2 class="my-5 section-title">
+          {{'BODY.pic' | translate}}
+        </h2>
+        <body-pic-info [info]="current_subscription.media"> </body-pic-info>
+        <!-- <h2 class="section-title mt-3">{{'DIETPLAN.dietplan' | translate}}</h2>
+        <div class="row justify-content-between pb-5">
+          <div class="col d-flex" style="align-items: center;">
+            <mat-icon *ngIf="info.ditePlan.planName == ''">whatshot</mat-icon>
+            <div class="detail" *ngIf="info.ditePlan.planName != ''"> {{info.ditePlan.planName}}</div>
+            <span class="detail" *ngIf="info.ditePlan.planName == ''">{{'DIETPLAN.no-plan' | translate}}</span>
+          </div>
+          <div class="col text-end" *ngIf="info.ditePlan.planName == ''">
+            <button mat-raised-button color="primary">
+              {{'PROGRAM.add' | translate}}
+            </button>
+          </div>
+        </div> -->
+      </mat-expansion-panel>
+    </mat-accordion>
+    <archiving-info [info]="info.history_subscriptions.data"></archiving-info>
+  </div>
+</section>

@@ -1,0 +1,73 @@
+<table class="entries_and_remaining_table">
+  <tbody>
+    <!-- entries -->
+    <tr>
+      <td class="label">{{'DIETPLAN.entries' | translate}}</td>
+      <td>{{entries.calories}}</td>
+      <td>{{entries.protein}}</td>
+      <td>{{entries.carp}}</td>
+      <td>{{entries.fat}}</td>
+      <td class="space_column"></td>
+      <td>{{entries.protein}}</td>
+      <td>{{entries.carp}}</td>
+      <td>{{entries.fat}}</td>
+    </tr>
+    <!--/ entries -->
+    <!-- remaining -->
+    <tr>
+      <td class="label">{{'DIETPLAN.remaining' | translate}}</td>
+      <td>{{total.calories - entries.calories}}</td>
+      <td>{{total.protein - entries.protein}}</td>
+      <td>{{total.carp - entries.carp}}</td>
+      <td>{{total.fat -entries.fat}}</td>
+      <td class="space_column"></td>
+      <td>{{entries.protein}}</td>
+      <td>{{entries.carp}}</td>
+      <td>{{entries.fat}}</td>
+    </tr>
+    <!--/ remaining -->
+
+    <!-- header -->
+    <tr class="header">
+      <td class="no_column"></td>
+      <td>{{'CATEGORIES.calories' | translate}}</td>
+      <td>{{'CATEGORIES.protein' | translate}}</td>
+      <td>{{'CATEGORIES.carb' | translate}}</td>
+      <td>{{'CATEGORIES.fat' | translate}}</td>
+      <td class="space_column"></td>
+      <td>{{'CATEGORIES.protein' | translate}} / {{'CATEGORIES.measuring-unit.gram' | translate}}</td>
+      <td>{{'CATEGORIES.carb' | translate}} / {{'CATEGORIES.measuring-unit.gram' | translate}}</td>
+      <td>{{'CATEGORIES.fat' | translate}} / {{'CATEGORIES.measuring-unit.gram' | translate}}</td>
+    </tr>
+    <!--/ header -->
+
+    <!-- total -->
+    <tr>
+      <td class="no_column"></td>
+      <td>{{total.calories }}</td>
+      <td>{{total.protein }}</td>
+      <td>{{total.carp }}</td>
+      <td>{{total.fat }}</td>
+      <td class="space_column"></td>
+      <td>{{entries.protein}}</td>
+      <td>{{entries.carp}}</td>
+      <td>{{entries.fat}}</td>
+    </tr>
+    <!--/ total -->
+
+    <!-- percent -->
+    <tr>
+      <td class="no_column"></td>
+      <td>{{(total.calories /total.calories ) *100 }} %</td>
+      <td>{{(total.protein /total.calories ) *100}}%</td>
+      <td>{{(total.carp /total.calories ) *100}}%</td>
+      <td>{{(total.fat /total.calories ) *100}}%</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <!--/ percent -->
+
+  </tbody>
+</table>

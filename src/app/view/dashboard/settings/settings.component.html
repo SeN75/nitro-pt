@@ -1,0 +1,224 @@
+<section class="scroll">
+  <div class="content">
+    <header class="page-header">
+      <h1 class="title">
+        {{'PERSONAL-DATA.personal-data' | translate}}
+      </h1>
+      <span>
+
+        <button class="mx-2" mat-raised-button color="primary"
+          (click)="dialogSrv.openResetpasswordDialog()">{{'FORM.reset-password' |
+          translate}}</button>
+      </span>
+    </header>
+    <loader title="{{'PERSONAL-DATA.loading' | translate}}" *ngIf="identitySrv.isLoadingProfile"
+      [hasError]="identitySrv.hasErrorProfile"></loader>
+
+    <div class="row g-0" *ngIf="!identitySrv.isLoadingProfile">
+      <div class="col-md-4">
+        <div class="header_table">
+          {{'SETTINGS.name' | translate}}
+        </div>
+        <div class="body_table">
+          {{ lang.selected == 'ar'? identitySrv.userData.first_name_ar : identitySrv.userData.first_name }}
+          {{ lang.selected == 'ar'? identitySrv.userData.middle_name_ar : identitySrv.userData.middle_name }}
+          {{ lang.selected == 'ar'? identitySrv.userData.last_name_ar : identitySrv.userData.last_name }}
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="header_table">
+          {{'SETTINGS.email' | translate}}
+        </div>
+        <div class="body_table">
+          {{identitySrv.userData.email}}
+        </div>
+      </div>
+      <div class="col-md-4  last-child">
+        <div class="header_table">
+          {{'SETTINGS.phone-number' | translate}}
+        </div>
+        <div class="body_table">
+          {{identitySrv.userData.phone_number}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="content">
+    <header class="page-header">
+      <h1 class="title">
+        {{'SETTINGS.managing-the-trainers' | translate}}
+      </h1>
+      <span>
+
+        <button class="mx-2" mat-raised-button color="primary"
+          (click)="dialogSrv.openUserDialog('coach')">{{'SETTINGS.new-trainer' |
+          translate}}</button>
+      </span>
+    </header>
+    <loader title="{{'SETTINGS.loading-trainer' | translate}}" *ngIf="identitySrv.isLoadingCoaches"
+      [hasError]="identitySrv.hasErrorCoaches">
+    </loader>
+
+    <div class="body" *ngIf="!identitySrv.isLoadingCoaches">
+      <table class="table-theme-1 hover">
+        <thead class="text-center">
+          <tr>
+            <th>#</th>
+            <th>{{'SETTINGS.name' | translate}}</th>
+            <th>{{'SETTINGS.email' | translate}}</th>
+            <th>{{'SETTINGS.phone-number' | translate}}</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <ng-container *ngFor="let coa of identitySrv.coaches; let i = index">
+            <tr class="row_space">
+              <td colspan="20"></td>
+            </tr>
+            <tr>
+              <td>{{i + 1 }}</td>
+              <td>
+                {{ lang.selected == 'ar'? coa.first_name_ar : coa.first_name }}
+                {{ lang.selected == 'ar'? coa.middle_name_ar : coa.middle_name }}
+                {{ lang.selected == 'ar'? coa.last_name_ar : coa.last_name }}
+              </td>
+              <td>{{coa.email}}</td>
+              <td>{{coa.phone_number }}</td>
+              <td class="text-end">
+                <span>
+                  <button mat-icon-button (click)="dialogSrv.openUserDialog('coach', 'edit', coa)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+
+                </span>
+              </td>
+            </tr>
+          </ng-container>
+          <tr class="no_data" *ngIf="identitySrv.coaches.length == 0">
+            <td colspan="20">{{'SETTINGS.trainer-no-data' | translate}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="content">
+    <header class="page-header">
+      <h1 class="title">
+        {{'SETTINGS.managing-bank-accounts' | translate}}
+      </h1>
+      <span>
+
+        <button class="mx-2" mat-raised-button color="primary"
+          (click)="dialogSrv.openBankAccountDialog()">{{'SETTINGS.new-bank-account' |
+          translate}}</button>
+      </span>
+    </header>
+    <loader title="{{('SETTINGS.loading-bank') | translate}}" *ngIf="bankSrv.isLoading" [hasError]="bankSrv.hasError">
+    </loader>
+    <div class="body" *ngIf="!bankSrv.isLoading">
+      <table class="table-theme-1 hover">
+        <thead class="text-center">
+
+          <tr>
+            <th>#</th>
+            <th>{{'SETTINGS.name' | translate}}</th>
+            <th>{{'SETTINGS.iban' | translate}}</th>
+            <!-- <th>{{'SETTINGS.phone_number' | translate}}</th> -->
+            <th></th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <ng-container *ngFor="let banckAccount of bankSrv.banksAccounts; let i = index">
+            <tr class="row_space">
+              <td colspan="10"></td>
+            </tr>
+            <tr>
+              <td>{{i + 1 }}</td>
+              <td>
+                {{ lang.selected == 'ar'? banckAccount.bank_name_ar : banckAccount.bank_name }}
+
+              </td>
+              <td>{{banckAccount.iban}}</td>
+              <!-- <td>{{0 }}</td> -->
+              <td class="text-end">
+                <span>
+                  <button mat-icon-button (click)="dialogSrv.openBankAccountDialog('edit', banckAccount)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+
+                </span>
+              </td>
+            </tr>
+          </ng-container>
+          <tr class="no_data" *ngIf="bankSrv.banksAccounts.length == 0">
+            <td colspan="10">
+              {{'SETTINGS.bank-no-data' | translate}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="content">
+
+    <header class="page-header">
+      <h1 class="title">
+        {{'SETTINGS.affiliate-accounts-management' | translate}}
+      </h1>
+      <span>
+
+        <button class="mx-2" mat-raised-button color="primary"
+          (click)="dialogSrv.openUserDialog('staff')">{{'SETTINGS.new-affiliate-account' |
+          translate}}</button>
+      </span>
+    </header>
+    <loader title="{{'SETTINGS.loading-staff' | translate}}" *ngIf="identitySrv.isLoadingStaff"
+      [hasError]="identitySrv.hasErrorStaff"></loader>
+
+    <div class="body" *ngIf="!identitySrv.isLoadingStaff">
+      <table class="table-theme-1 hover">
+        <thead class="text-center">
+          <tr>
+            <th>#</th>
+            <th>{{'SETTINGS.name' | translate}}</th>
+            <th>{{'SETTINGS.email' | translate}}</th>
+            <th>{{'SETTINGS.phone-number' | translate}}</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <ng-container *ngFor="let staff of identitySrv.staffs; let i = index">
+            <tr class="row_space">
+              <td colspan="20"></td>
+            </tr>
+            <tr>
+              <td>{{i + 1 }}</td>
+              <td>
+                {{ lang.selected == 'ar'? staff.first_name_ar : staff.first_name }}
+                {{ lang.selected == 'ar'? staff.middle_name_ar : staff.middle_name }}
+                {{ lang.selected == 'ar'? staff.last_name_ar : staff.last_name }}
+              </td>
+              <td>{{staff.email}}</td>
+              <td>{{staff.phone_number }}</td>
+              <td class="text-end">
+                <span>
+                  <button mat-icon-button (click)="dialogSrv.openUserDialog('staff', 'edit', staff)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+
+                </span>
+              </td>
+            </tr>
+          </ng-container>
+          <tr class="no_data" *ngIf="identitySrv.staffs.length == 0">
+            <td colspan="20">{{'SETTINGS.staff-no-data' | translate}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</section>

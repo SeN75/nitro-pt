@@ -1,0 +1,40 @@
+.term_wrapper {
+  padding: 10px 20px;
+}
+.term {
+  display: flex;
+  justify-content: space-between;
+}
+.term_label {
+}
+.term_number {
+  font-size: 2.2em;
+  color: #1d4980;
+  font-weight: 800;
+  margin: 0 5px;
+}
+.term_description {
+  color: #1d4980;
+  font-size: 1em;
+  font-weight: 500;
+  width: 80%;
+}
+.term_icon {
+  width: 20px;
+  height: auto;
+  display: inline;
+}
+
+.register_form {
+  max-width: 800px;
+}
+
+.term_card {
+  background: #fff;
+  // border: 1px solid #aeaeae;
+  box-shadow: 1px 1px 15px 0 #eff1f8;
+
+  border-radius: 0.5em;
+  padding: 10px 20px;
+  direction: rtl;
+}

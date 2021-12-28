@@ -1,0 +1,18 @@
+.register_form {
+  direction: ltr;
+  position: relative;
+  padding: 0 1em;
+}
+.otp_codes {
+  direction: ltr !important;
+}
+.count_down {
+  color: #aeaeae;
+  font-size: 1.6em;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.row.otp_codes .col-2 {
+  padding: 0 0.25em;
+}

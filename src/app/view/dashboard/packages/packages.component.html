@@ -1,0 +1,26 @@
+<section class="content">
+  <header class="page-header">
+    <h1 class="title">
+      {{'PACKAGES.packages' | translate}}
+    </h1>
+    <span>
+      <mat-form-field appearance="outline">
+        <mat-label>{{'SETTINGS.search' | translate}}</mat-label>
+        <mat-icon *ngIf="lang.dir == 'rtl'" matPrefix>search</mat-icon>
+        <mat-icon *ngIf="lang.dir == 'ltr'" matSuffix>search</mat-icon>
+        <input type="text" [(ngModel)]="search" matInput placeholder="{{'SETTINGS.search' | translate}}">
+      </mat-form-field>
+      <button class="mx-2" mat-raised-button color="primary"
+        (click)="dialogSrv.openPackageDialog()">{{'PACKAGES.new-pack' |
+        translate}}</button>
+    </span>
+  </header>
+  <loader title="{{'PACKAGES.loading' | translate}}" *ngIf="packSrv.isLoading" [hasError]="packSrv.hasError"></loader>
+  <div class=" body scroll package_body" *ngIf="!packSrv.isLoading && !packSrv.hasError">
+    <package-card class="" *ngFor="let pack of packSrv.packages | filter:search; index as i "
+      [package_title]="lang.selected == 'ar'? pack.name_ar: pack.name" [package_months]="pack.period"
+      [package_description]="pack.description_ar" [package_price]="pack.price" [theme_number]="((i%3)+1)"
+      [with_button]="false" [pack]="pack">
+    </package-card>
+  </div>
+</section>

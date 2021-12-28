@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import "table";
+@import "thems";
+@import "fonts";
+@import "rtl";
+@import "globle";
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

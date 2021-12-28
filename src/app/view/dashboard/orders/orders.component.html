@@ -1,0 +1,110 @@
+<section class="content">
+  <header class="page-header">
+    <h1 class="title">
+      {{'ORDERS.new-table' | translate}}
+    </h1>
+    <span>
+    </span>
+  </header>
+  <loader title="{{ 'ORDERS.loading' | translate}}" [hasError]='hasError' *ngIf="isLoading"></loader>
+
+  <div class="body scroll" *ngIf="!isLoading">
+    <table class="table-theme-1 hover">
+      <thead class="text-center">
+        <tr>
+          <th>#</th>
+          <th>{{'ORDERS.no' | translate}}</th>
+          <th>{{'ORDERS.name' | translate}}</th>
+          <th>{{'ORDERS.type' | translate}}</th>
+          <th>{{'ORDERS.status' | translate}}</th>
+          <th>{{'ORDERS.date' | translate}}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr class="no_data" *ngIf="newRequestList.length == 0">
+          <td colspan="30">
+            {{'ORDERS.no-data' | translate}}
+          </td>
+        </tr>
+        <ng-container *ngFor="let order of newRequestList; let i = index">
+          <tr class="row_space">
+            <td colspan="30"></td>
+          </tr>
+          <tr>
+            <td>{{i + 1 }}</td>
+            <td>{{order.id}}</td>
+            <td>{{order.client}}</td>
+            <td>{{order.type}}</td>
+            <td>{{order.status}}</td>
+            <td>{{order.created_date | date}}</td>
+            <td class="text-end">
+              <span>
+
+                <button mat-icon-button (click)="showOrder(order)">
+                  <mat-icon>arrow_back_ios</mat-icon>
+                </button>
+
+              </span>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+  <header class="page-header mt-3">
+    <h1 class="title">
+      {{'ORDERS.complete-table' | translate}}
+    </h1>
+    <span>
+    </span>
+  </header>
+  <loader [hasError]='hasError' *ngIf="isLoading" title="{{ 'ORDERS.loading' | translate}}"></loader>
+
+  <div class="body scroll" *ngIf="!isLoading">
+    <table class="table-theme-1 hover">
+      <thead class="text-center">
+
+        <tr>
+          <th>#</th>
+          <th>{{'ORDERS.no' | translate}}</th>
+          <th>{{'ORDERS.name' | translate}}</th>
+          <th>{{'ORDERS.type' | translate}}</th>
+          <th>{{'ORDERS.status' | translate}}</th>
+          <th>{{'ORDERS.date' | translate}}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr class="no_data" *ngIf="expiredRequest.length == 0">
+          <td colspan="30">
+            {{'ORDERS.no-data' | translate}}
+          </td>
+        </tr>
+        <ng-container *ngFor="let order of expiredRequest; let i = index">
+          <tr class="row_space">
+            <td colspan="30"></td>
+          </tr>
+          <tr>
+            <td>{{i + 1 }}</td>
+            <td>{{order.id}}</td>
+            <td>{{order.client}}</td>
+            <td>{{order.type}}</td>
+            <td>{{order.status}}</td>
+            <td>{{order.created_date | date}}</td>
+            <td class="text-end">
+              <span>
+
+                <button mat-icon-button (click)="showOrder(order)">
+                  <mat-icon>arrow_back_ios</mat-icon>
+                </button>
+
+              </span>
+            </td>
+          </tr>
+        </ng-container>
+
+      </tbody>
+    </table>
+  </div>
+</section>

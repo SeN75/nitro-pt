@@ -1,0 +1,42 @@
+<section class="form_wrapper mb-2 scroll register_card">
+  <div class="h5 section-title text-center">{{'BODY.pic' | translate}}</div>
+  <div class="tips">
+    {{'BODY.body-take-pic-tipe1' | translate}}<br>{{'BODY.body-take-pic-tipe2' | translate}}
+  </div>
+  <div [formGroup]="bodyPicForm">
+    <div class="row ">
+      <div class="col-6">
+        <button mat-button class="w-100 " (click)="front.click()">{{'BODY.front' | translate}}</button>
+        <img [src]="front_img" class="body_pic">
+        <input type="file" hidden #front (change)="selectImg($event, 'front')"
+          accept="image/jpg, image/jpeg, image/png, application/pdf">
+      </div>
+      <div class="col-6">
+        <button mat-button class="w-100 " (click)="back.click()">{{'BODY.back' | translate}}</button>
+        <img [src]="back_img" class="body_pic">
+        <input type="file" hidden #back (change)="selectImg($event, 'back')"
+          accept="image/jpg, image/jpeg, image/png, application/pdf">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <button mat-button class="w-100 " (click)="right.click()">{{'BODY.right' | translate}}</button>
+        <img [src]="right_img" class="body_pic">
+        <input type="file" hidden #right (change)="selectImg($event, 'right')"
+          accept="image/jpg, image/jpeg, image/png, application/pdf">
+      </div>
+      <div class="col-6">
+        <button mat-button class="w-100 " (click)="left.click()">{{'BODY.left' | translate}}</button>
+        <img [src]="left_img" class="body_pic">
+        <input type="file" hidden #left (change)="selectImg($event, 'left')"
+          accept="image/jpg, image/jpeg, image/png, application/pdf">
+      </div>
+    </div>
+  </div>
+  <div class="exposition">
+    <button mat-button (click)="dialgoSrv.openTipsDialog()">
+      <span>{{'SETTINGS.exposition' | translate}}</span>
+      <img src="../../../../../assets/icons/icon_alert-circle-exc.svg">
+    </button>
+  </div>
+</section>

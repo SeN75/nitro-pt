@@ -1,0 +1,123 @@
+/* for RTL */
+
+.package_body {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #cbbebe29;
+  border-radius: 10px;
+  text-align: center;
+  color: #1d4980;
+  position: relative;
+  width: 100%;
+  margin-top: -24px;
+}
+.package_card {
+  width: 100%;
+  text-align: center;
+  max-width: 500px;
+  min-width: 450px;
+}
+.package_card_header {
+  border-radius: 10px;
+  height: 130px;
+  z-index: 2;
+  position: relative;
+}
+
+.package_card_header p {
+  color: white;
+  padding-top: 25px;
+  font-weight: bold;
+  font: normal normal bold 27px/60px Helvetica;
+}
+
+.package_body {
+  padding: 60px 20px 30px;
+}
+
+.package_feature_title {
+  font: normal normal normal 13px/29px Helvetica;
+  color: #1d4980;
+}
+
+.package_feature_value {
+  position: relative;
+  font: normal normal normal 35px/78px Helvetica;
+  color: #1d4980;
+}
+
+.package_edit_link {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.package_feature_value::before {
+  content: "•";
+  font-size: 65px;
+  position: absolute;
+  right: 5%;
+}
+
+.package_theme_1 .package_card_header {
+  background: transparent linear-gradient(180deg, #651d80 0%, #200f40 100%) 0%
+    0% no-repeat padding-box;
+}
+
+.package_theme_1 .package_feature_value::before {
+  background: transparent linear-gradient(180deg, #651d80 0%, #200f40 100%) 0%
+    0% no-repeat padding-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.package_theme_2 .package_card_header {
+  background: transparent linear-gradient(180deg, #2ecbe0 0%, #200f40 100%) 0%
+    0% no-repeat padding-box;
+}
+
+.package_theme_2 .package_feature_value::before {
+  background: transparent linear-gradient(180deg, #2ecbe0 0%, #200f40 100%) 0%
+    0% no-repeat padding-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.package_theme_3 .package_card_header {
+  background: transparent linear-gradient(180deg, #1d4980 0%, #200f40 100%) 0%
+    0% no-repeat padding-box;
+}
+
+.package_theme_3 .package_feature_value::before {
+  background: transparent linear-gradient(180deg, #1d4980 0%, #200f40 100%) 0%
+    0% no-repeat padding-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.package_join_button a {
+  border: 1px solid #bdc8d0;
+  border-radius: 10px;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #1d4980;
+  height: 50px;
+  font-size: 28px;
+}
+
+.hide_button {
+  visibility: none;
+  opacity: 0;
+  display: none !important;
+}
+
+/* Other Buttons Styles Goes Here */
+.len_20 {
+  font-size: 15px;
+}
+.len_10 {
+  font-size: 20px;
+}

@@ -1,0 +1,68 @@
+<section class="content">
+  <header class="page-header">
+    <h1 class="title">
+      {{(lang.dir == 'rtl'?'WORKSOUT.exercise-table': '') | translate}} {{ lang.selected =='ar'?
+      exerciseCategorSrv.exerciseCategory.name_ar: exerciseCategorSrv.exerciseCategory.name}}{{(lang.dir ==
+      'ltr'?'WORKSOUT.exercise-table': '') | translate}}
+    </h1>
+    <span>
+
+
+      <span style="align-items: inherit; display: flex;">
+        <button class="mx-2" mat-raised-button color="primary"
+          (click)="dialogSrv.openWorkoutDialog('add', {category: categoryId})">{{'WORKSOUT.execrise-add' |
+          translate}}</button>
+        <button mat-button routerLink="../..">
+          {{'FORM.back' | translate}}
+          <mat-icon color="primary" class="mx-2">arrow_back</mat-icon>
+        </button>
+      </span>
+    </span>
+  </header>
+  <loader title="{{'WORKSOUT.loading' | translate}}" *ngIf="exerciseSrv.isLoading" [hasError]="exerciseSrv.hasError">
+  </loader>
+  <div class="body scroll" *ngIf="!exerciseSrv.isLoading">
+    <table class="table-theme-1 hover">
+      <thead class="text-center">
+        <tr>
+          <th>#</th>
+          <th>{{'WORKSOUT.name_ar' | translate}}</th>
+          <th>{{'WORKSOUT.view' | translate}}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <ng-container
+          *ngFor="let exercise of exerciseSrv.getExerciseListOnSameCategory(exerciseCategorSrv.exerciseCategory.name_ar); let i = index">
+          <tr class="row_space">
+            <td colspan="30"></td>
+          </tr>
+          <tr>
+            <td>{{i + 1 }}</td>
+            <td>{{exercise.name_ar}}</td>
+            <!-- <td>{{exercise.media_link}}</td> -->
+            <td><button mat-button (click)="dialogSrv.preview(exercise.media_link, 'video')">
+                <mat-icon>play_circle_outline</mat-icon>
+                {{'FORM.click-to-preview' | translate}}
+              </button> </td>
+            <td class="text-end">
+              <span>
+                <button mat-icon-button (click)="dialogSrv.openWorkoutDialog('edit', exercise)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+
+
+              </span>
+            </td>
+          </tr>
+        </ng-container>
+        <tr class="no_data"
+          *ngIf="exerciseSrv.getExerciseListOnSameCategory(exerciseCategorSrv.exerciseCategory.name_ar).length == 0">
+          <td colspan="30">
+            {{'WORKSOUT.no-data' | translate}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+<div class="row">
+  <info-item class="col" [info_item_img]="'./assets/icons/profile/name_icon.svg'"
+    info_item_title="{{'PERSONAL-DATA.name' | translate}}" [info_item_value]="info.name">
+  </info-item>
+  <info-item class="col" [info_item_img]="'./assets/icons/profile/call.svg'"
+    info_item_title="{{'PERSONAL-DATA.contact-number' | translate}}" [info_item_value]="info.phone_number">
+  </info-item>
+  <info-item class="col" [info_item_img]="'./assets/icons/profile/calendar-3.svg'"
+    info_item_title="{{'PERSONAL-DATA.birthday' | translate}}" info_item_value="{{ info.birthday_Gregorian | date}}">
+  </info-item>
+  <info-item class="col" [info_item_img]="'./assets/icons/profile/wedding-rings.svg'"
+    info_item_title="{{'PERSONAL-DATA.social-status' | translate}}" [info_item_value]="info.social_status">
+  </info-item>
+</div>
+<div class="row">
+  <info-item class="col" [info_item_img]="'./assets/icons/profile/gender.svg'"
+    info_item_title="{{'PERSONAL-DATA.gender' | translate}}" [info_item_value]="info.gender">
+  </info-item>
+  <info-item class="col" [info_item_img]="'./assets/icons/profile/height-limit_icon.svg'"
+    info_item_title="{{'PERSONAL-DATA.height' | translate}}" [info_item_value]="info.height">
+  </info-item>
+  <info-item class="col" [info_item_img]="'./assets/icons/profile/scale.svg'"
+    info_item_title="{{'PERSONAL-DATA.wight' | translate}}" [info_item_value]="info.weight">
+  </info-item>
+  <info-item class="col" [info_item_img]="'./assets/icons/profile/city-map.svg'"
+    info_item_title="{{'PERSONAL-DATA.city' | translate}}" [info_item_value]="info.city">
+  </info-item>
+</div>

@@ -1,0 +1,241 @@
+<section class="form_wrapper scroll mb-2 py-3 register_card">
+  <div class="h5 section-title text-center">{{'SUBSCRIBERS.health-and-sports-information' | translate}}</div>
+  <div class="px-4" [formGroup]="healthInfoForm">
+    <div class="row form-group justify-content-between"
+      [class.has_error]="healthInfoForm.get('workNature')?.invalid && healthInfoForm.get('workNature')?.dirty ">
+      <label class="col-12">{{'SUBSCRIBERS.work-type' | translate}}</label>
+      <div class="col-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('workNature')?.value == 'مكتبي'"
+          (click)="healthInfoForm.get('workNature')?.setValue('مكتبي')">{{'SUBSCRIBERS.office' | translate}}
+        </button>
+      </div>
+      <div class="col-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('workNature')?.value == 'ميداني'"
+          (click)="healthInfoForm.get('workNature')?.setValue('ميداني')">{{'SUBSCRIBERS.field' | translate}}
+        </button>
+      </div>
+      <div class="col-4">
+        <button class="w-100" mat-stroked-button
+          [class.selected]=" healthInfoForm.get('workNature')?.value != 'ميداني' && healthInfoForm.get('workNature')?.value != 'مكتبي'"
+          (click)="healthInfoForm.get('workNature')?.setValue('')">{{'FORM.other' | translate}}
+        </button>
+      </div>
+      <div class="col-12 mt-3">
+        <input class="form-control" type="text" formControlName="workNature"
+          *ngIf=" healthInfoForm.get('workNature')?.value != 'ميداني' && healthInfoForm.get('workNature')?.value != 'مكتبي'">
+        <div class="hint" *ngIf="healthInfoForm.get('workNature')?.invalid && healthInfoForm.get('workNature')?.dirty ">
+          <span *ngIf="healthInfoForm.get('workNature').errors.required">{{'VALIDATION.required' | translate}}</span>
+          <span *ngIf="healthInfoForm.get('workNature').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+
+        </div>
+      </div>
+    </div>
+    <div class="row form-group justify-content-between"
+      [class.has_error]="healthInfoForm.get('healthProblems')?.invalid && healthInfoForm.get('healthProblems')?.dirty ">
+      <label class="col-12">{{'SUBSCRIBERS.are-there-health-problems' | translate}} </label>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button
+          [class.selected]="healthInfoForm.get('healthProblems')?.value != 'لا يوجد' "
+          (click)="healthInfoForm.get('healthProblems')?.setValue('')">
+          {{'FORM.yes' | translate}}
+        </button>
+      </div>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button
+          [class.selected]="healthInfoForm.get('healthProblems')?.value == 'لا يوجد'"
+          (click)="healthInfoForm.get('healthProblems')?.setValue('لا يوجد')">
+          {{'FORM.no' | translate}}
+        </button>
+      </div>
+      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('healthProblems')?.value != 'لا يوجد'">
+        <label class="col-12">{{'SUBSCRIBERS.what-is-the-health-problem' | translate}} <span
+            class="text-danger">*</span> </label>
+        <input class="form-control" type="text" formControlName="healthProblems">
+        <div class="hint"
+          *ngIf="healthInfoForm.get('healthProblems')?.invalid && healthInfoForm.get('healthProblems')?.dirty ">
+          <span *ngIf="healthInfoForm.get('healthProblems').errors.required">{{'VALIDATION.required' |
+            translate}}</span>
+          <span *ngIf="healthInfoForm.get('healthProblems').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+
+        </div>
+      </div>
+    </div>
+    <div class="row form-group justify-content-between"
+      [class.has_error]="healthInfoForm.get('supplements')?.invalid && healthInfoForm.get('supplements')?.dirty ">
+      <label class="col-12">{{'SUBSCRIBERS.do-you-use-supplements' | translate}} </label>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button
+          [class.selected]="healthInfoForm.get('supplements')?.value != 'لا يوجد'"
+          (click)="healthInfoForm.get('supplements')?.setValue('')">
+          {{'FORM.yes' | translate}}
+        </button>
+      </div>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button
+          [class.selected]="healthInfoForm.get('supplements')?.value == 'لا يوجد'"
+          (click)="healthInfoForm.get('supplements')?.setValue('لا يوجد')">
+          {{'FORM.no' | translate}}
+        </button>
+      </div>
+      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('supplements')?.value != 'لا يوجد'">
+        <label class="col-12">{{'SUBSCRIBERS.what-are-the-supplements' | translate}} <span
+            class="text-danger">*</span></label>
+        <input class="form-control" type="text" formControlName="supplements">
+        <div class="hint"
+          *ngIf="healthInfoForm.get('supplements')?.invalid && healthInfoForm.get('supplements')?.dirty ">
+          <span *ngIf="healthInfoForm.get('supplements').errors.required">{{'VALIDATION.required' | translate}}</span>
+          <span *ngIf="healthInfoForm.get('supplements').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+
+        </div>
+      </div>
+    </div>
+    <div class="row form-group"
+      [class.has_error]="healthInfoForm.get('goalProblems')?.invalid && healthInfoForm.get('goalProblems')?.dirty ">
+      <label>{{'SUBSCRIBERS.what-is-the-purpose-of-the-programme' | translate}}<span
+          class="text-danger">*</span></label>
+      <div class="col-12">
+        <input class="form-control" type="text" formControlName="goalProblems">
+        <div class="hint"
+          *ngIf="healthInfoForm.get('supplements')?.invalid && healthInfoForm.get('supplements')?.dirty ">
+          <span *ngIf="healthInfoForm.get('supplements').errors.required">{{'VALIDATION.required' | translate}}</span>
+          <span *ngIf="healthInfoForm.get('supplements').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-4">
+        <label>{{'SUBSCRIBERS.sleeping-hours' | translate}} <span class="text-danger">*</span></label>
+        <input formControlName="sleepHours" type="text" class="form-control">
+      </div>
+      <div class="form-group col-4">
+        <label>{{'SUBSCRIBERS.bed-time' | translate}} <span class="text-danger">*</span></label>
+        <input [ngxTimepicker]="bedTime" formControlName="bedTime" type="text" class="form-control">
+        <ngx-material-timepicker #bedTime dir="ltr"></ngx-material-timepicker>
+      </div>
+      <div class="form-group col-4">
+        <label>{{'SUBSCRIBERS.wakeup-time' | translate}} <span class="text-danger">*</span></label>
+        <input [ngxTimepicker]="weakupTime" formControlName="weakupTime" type="text" class="form-control">
+        <ngx-material-timepicker #weakupTime dir="ltr"></ngx-material-timepicker>
+      </div>
+    </div>
+    <div class="row form-group justify-content-between"
+      [class.has_error]="healthInfoForm.get('goalProblems')?.invalid && healthInfoForm.get('goalProblems')?.dirty ">
+      <label class="col-12">{{'SUBSCRIBERS.do-you-have-a-current-diet-program' | translate}}</label>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('ditePlan')?.value != 'لا يوجد'"
+          (click)="healthInfoForm.get('ditePlan')?.setValue('')">
+          {{'FORM.yes' | translate}}
+        </button>
+      </div>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('ditePlan')?.value == 'لا يوجد'"
+          (click)="healthInfoForm.get('ditePlan')?.setValue('لا يوجد')">
+          {{'FORM.no' | translate}}
+        </button>
+      </div>
+      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('ditePlan')?.value != 'لا يوجد'">
+        <label class="col-12">{{'SUBSCRIBERS.please-write-the-program' | translate}}<span
+            class="text-danger">*</span></label>
+        <textarea class="form-control" type="text" formControlName="ditePlan" rows="4"></textarea>
+        <div class="hint"
+          *ngIf="healthInfoForm.get('goalProblems')?.invalid && healthInfoForm.get('goalProblems')?.dirty ">
+          <span *ngIf="healthInfoForm.get('goalProblems').errors.required">{{'VALIDATION.required' | translate}}</span>
+          <span *ngIf="healthInfoForm.get('goalProblems').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+
+        </div>
+      </div>
+    </div>
+    <div class="row form-group"
+      [class.has_error]="healthInfoForm.get('numberMeals')?.invalid && healthInfoForm.get('numberMeals')?.dirty ">
+      <label>{{'SUBSCRIBERS.number-of-meals' | translate}} <span class="text-danger">*</span></label>
+      <div class="col-12">
+        <input class="form-control" formControlName="numberMeals" type="number">
+        <div class="hint"
+          *ngIf="healthInfoForm.get('numberMeals')?.invalid && healthInfoForm.get('numberMeals')?.dirty ">
+          <span *ngIf="healthInfoForm.get('numberMeals').errors.required">{{'VALIDATION.required' | translate}}</span>
+          <span *ngIf="healthInfoForm.get('numberMeals').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+
+        </div>
+      </div>
+    </div>
+    <div class="row form-group justify-content-between"
+      [class.has_error]="healthInfoForm.get('allergen')?.invalid && healthInfoForm.get('allergen')?.dirty ">
+      <label class="col-12">{{'SUBSCRIBERS.do-you-have-an-allergy-to-a-certain-food' | translate}}</label>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('allergen')?.value != 'لا يوجد'"
+          (click)="healthInfoForm.get('allergen')?.setValue('')">
+          {{'FORM.yes' | translate}}
+        </button>
+      </div>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('allergen')?.value == 'لا يوجد'"
+          (click)="healthInfoForm.get('allergen')?.setValue('لا يوجد')">
+          {{'FORM.no' | translate}}
+        </button>
+      </div>
+      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('allergen')?.value != 'لا يوجد'">
+        <label class="col-12">{{'SUBSCRIBERS.list-the-allergens' | translate}} <span
+            class="text-danger">*</span></label>
+        <textarea class="form-control" type="text" formControlName="allergen"></textarea>
+        <div class="hint" *ngIf="healthInfoForm.get('allergen')?.invalid && healthInfoForm.get('allergen')?.dirty ">
+          <span *ngIf="healthInfoForm.get('allergen').errors.required">{{'VALIDATION.required' | translate}}</span>
+          <span *ngIf="healthInfoForm.get('allergen').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+
+        </div>
+      </div>
+    </div>
+    <div class="row form-group justify-content-between"
+      [class.has_error]="healthInfoForm.get('unlike')?.invalid && healthInfoForm.get('unlike')?.dirty ">
+      <label class="col-12">{{'SUBSCRIBERS.do-you-have-a-food-you-dont-like' | translate}}</label>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('unlike')?.value != 'لا يوجد'"
+          (click)="healthInfoForm.get('unlike')?.setValue('')">
+          {{'FORM.yes' | translate}}
+        </button>
+      </div>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('unlike')?.value == 'لا يوجد'"
+          (click)="healthInfoForm.get('unlike')?.setValue('لا يوجد')">
+          {{'FORM.no' | translate}}
+        </button>
+      </div>
+      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('unlike')?.value != 'لا يوجد'">
+        <label class="col-12">{{'SUBSCRIBERS.please-mention-the-food-you-dont-like' | translate}} <span
+            class="text-danger">*</span></label>
+        <textarea class="form-control" type="text" formControlName="unlike"></textarea>
+        <div class="hint" *ngIf="healthInfoForm.get('unlike')?.invalid && healthInfoForm.get('unlike')?.dirty ">
+          <span *ngIf="healthInfoForm.get('unlike').errors.required">{{'VALIDATION.required' | translate}}</span>
+          <span *ngIf="healthInfoForm.get('unlike').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+
+        </div>
+      </div>
+    </div>
+    <div class="row form-group justify-content-between"
+      [class.has_error]="healthInfoForm.get('operations')?.invalid && healthInfoForm.get('operations')?.dirty ">
+      <label class="col-12">{{'SUBSCRIBERS.have-you-had-surgery-recently' | translate}}</label>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('operations')?.value != 'لا يوجد'"
+          (click)="healthInfoForm.get('operations')?.setValue('')">
+          {{'FORM.yes' | translate}}
+        </button>
+      </div>
+      <div class="col-5 col-md-4">
+        <button class="w-100" mat-stroked-button [class.selected]="healthInfoForm.get('operations')?.value == 'لا يوجد'"
+          (click)="healthInfoForm.get('operations')?.setValue('لا يوجد')">
+          {{'FORM.no' | translate}}
+        </button>
+      </div>
+      <div class="col-12 mt-3" *ngIf="healthInfoForm.get('operations')?.value != 'لا يوجد'">
+        <label class="col-12">{{'SUBSCRIBERS.please-indicate-the-location-and-type-of-the-operation' |
+          translate}} <span class="text-danger">*</span></label>
+        <textarea class="form-control" type="text" formControlName="operations"></textarea>
+        <div class="hint" *ngIf="healthInfoForm.get('operations')?.invalid && healthInfoForm.get('operations')?.dirty ">
+          <span *ngIf="healthInfoForm.get('operations').errors.required">{{'VALIDATION.required' | translate}}</span>
+          <span *ngIf="healthInfoForm.get('operations').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

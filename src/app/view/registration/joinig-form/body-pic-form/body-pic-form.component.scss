@@ -1,0 +1,45 @@
+.form_wrapper {
+  max-height: 60vh !important;
+  height: 100vh !important;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.body_button {
+  border-radius: 0;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  border: solid 1px #adabac;
+}
+.body_pic {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 199px;
+  max-height: 162px;
+}
+.tips {
+  text-align: center;
+  font-size: 0.8em;
+  color: #adabac;
+  margin: 50px 0 20px;
+}
+.row {
+  margin-top: 20px;
+}
+.exposition {
+  margin-top: 30px;
+}
+.exposition button img {
+  display: inline;
+}
+.exposition button span {
+  font-size: 0.8em;
+  color: #adabac;
+  margin: 0 5px;
+}
+@media screen and (max-width: 578px) {
+  .form_wrapper {
+    max-height: 70vh !important;
+    overflow-y: auto;
+  }
+}

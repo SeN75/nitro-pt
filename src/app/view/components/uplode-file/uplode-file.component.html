@@ -1,0 +1,30 @@
+<div class="video" *ngIf="fileName && !isUploading">
+
+  <div class="uploaded">
+    <mat-icon>videocam</mat-icon>
+    <div class="file_name">{{fileName}}</div>
+  </div>
+
+</div>
+
+<div class="container " [class.fileover]="fileOver" *ngIf="!fileName || isUploading">
+  <input type="file" #fileDropRef id="fileDropRef" accept="video/mp4,video/x-m4v,video/*"
+    (change)="fileBrowseHandler($event)" />
+  <mat-icon>file_upload</mat-icon>
+  <h3>{{'FORM.drop-and-drage' | translate}}</h3>
+  <div class="my-2">{{'FORM.or' | translate}}</div>
+  <button mat-stroked-button color="primary"> {{'FORM.select-upload' |
+    translate}}</button>
+
+  <div class="upload_file" *ngIf=isUploading>
+    <div class="text h5">
+      {{'SETTINGS.upload-file' | translate}}.. {{progress}}%
+      <br>
+      {{fileName}}
+      <br>
+      {{index+1}}/{{photos.length}}
+    </div>
+    <mat-spinner style="    transform: scale(0.7);
+      "></mat-spinner>
+  </div>
+</div>

@@ -1,0 +1,496 @@
+/*
+sidemenu
+*/
+.side-menu {
+  position: fixed;
+  width: 200px;
+  background-color: var(--primray);
+  top: 0;
+  height: 100%;
+  border-radius: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: auto;
+}
+.side-menu-close .side-menu {
+  width: 50px;
+}
+.nitro-logo {
+  width: 90px;
+  height: auto;
+  display: block;
+  margin: 30px auto 0;
+}
+.side-menu-close .nitro-logo {
+  margin: 30px 10px 0 0;
+  width: 35px;
+}
+.main {
+  background-color: #f9faff;
+  height: 100%;
+  position: relative;
+}
+.nav_bar {
+  display: flex;
+  padding: 5px 20px;
+  justify-content: space-between;
+  height: 60px;
+}
+.nav_bar .nitro-logo {
+  width: 90px;
+  display: none;
+  margin: 0;
+}
+.logo-underline {
+  width: 95px;
+  height: 0.15px;
+  background-color: rgb(224, 224, 224);
+  margin: 10px auto 0;
+}
+.side-menu-close .logo-underline {
+  width: 30px;
+}
+.menu {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.main .items {
+  width: 100%;
+  padding: 10px 10px 10px 15px;
+  color: white;
+  margin: 15px 0;
+  text-decoration: none;
+  border-radius: 0;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.main .items span {
+  text-transform: capitalize;
+  margin: 0 20px;
+  font-size: 14px;
+}
+.side-menu-close .side-menu .menu .items span {
+  display: none !important;
+}
+.main .items .icon {
+  width: 20px;
+  height: auto;
+}
+.main .items.active {
+  color: var(--primray);
+  background-color: white;
+  text-decoration: none;
+}
+
+.dashboard {
+  padding: 0 20px;
+  width: calc(100% - 200px);
+  margin-left: auto;
+  background-color: #f9faff;
+}
+.side-menu-close .dashboard {
+  width: calc(100% - 60px);
+}
+/*
+sidemenu
+*/
+
+.label {
+  text-transform: capitalize;
+  font-size: 12px;
+  color: var(--gray);
+  font-weight: bold;
+}
+.detail {
+  text-transform: capitalize;
+  color: var(--primray);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* dialog */
+.mat-dialog-container {
+  background-color: var(--gray-blue);
+}
+.dialog-title {
+  color: var(--primray) !important;
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-size: 26px;
+  text-align: left;
+}
+
+#picDialog.mat-dialog-container {
+  background-color: var(--white) !important;
+}
+/* dialog */
+
+/*  fromgroup   */
+.form-group label {
+  color: var(--gray);
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+.register_form .form-group {
+  margin-top: 30px;
+}
+.register_form .form-group label {
+  color: var(--primray);
+}
+.form-group .form-control {
+  background-color: var(--white);
+  border: 1px solid var(--gray-blue);
+  color: var(--primray);
+  height: 52px;
+  text-align: left;
+  outline: none !important;
+}
+.form-group.has_error .form-control {
+  border-color: var(--red);
+  color: var(--red);
+}
+.form-group.has_error label {
+  color: var(--red);
+}
+.form-group.has_error .hint {
+  color: var(--red);
+  font-size: 12px;
+}
+.register_form .form-group .form-control {
+  box-shadow: 0px 0px 1px 0px #adabac;
+}
+.form-group.password {
+  position: relative;
+}
+.form-group.password button {
+  color: #eeeeee;
+  position: absolute;
+  z-index: 3;
+  top: 36px;
+  right: 24px;
+}
+.form-control:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.form-group .form-radio {
+  width: 100%;
+  display: flex;
+  height: 50px;
+  align-items: end;
+  justify-content: space-between;
+}
+.mat-radio-label-content {
+  padding: 0 8px !important;
+  font-size: 1.2rem !important;
+}
+.attach_button {
+  justify-content: space-between;
+  display: flex;
+  align-items: flex-end;
+}
+.attach_button .form-group {
+  width: 100%;
+}
+.form-control:disabled,
+.form-control[aria-disabled="true"],
+.form-control[readonly] {
+  background-color: #e2e9ff !important;
+}
+.register_form {
+  min-height: 65%;
+  width: 95%;
+  max-width: 423px;
+  margin: auto;
+}
+.register_card {
+}
+.button-group {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: center;
+}
+.button-group button {
+  margin: 0 5px;
+}
+/*  fromgroup   */
+
+.content {
+  padding: 80px 20px 60px;
+}
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.page-header-card {
+  background-color: #fff !important;
+  border: 1px solid var(--gray-blue);
+  padding-top: 1.34375em;
+  border-radius: 5px;
+}
+.title {
+  color: #1d4980;
+  text-transform: capitalize;
+}
+
+.body {
+  margin-top: 65px;
+  height: 75vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+/* width */
+.scroll::-webkit-scrollbar {
+  width: 0.7em;
+}
+.scroll::-webkit-scrollbar:hover {
+  width: 30px !important;
+}
+
+/* Track */
+.scroll::-webkit-scrollbar-track {
+  background: var(--gray-blue);
+}
+
+/* Handle */
+.scroll::-webkit-scrollbar-thumb {
+  background: var(--gray);
+}
+
+/* Handle on hover */
+.scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--gray);
+}
+
+.nitro-card {
+  background-color: var(--white);
+  border: 1px solid var(--gray-blue);
+  box-shadow: 2px ​1px 5px 2px var(--gray-blue);
+  padding: 1.5em 0.8em;
+}
+
+/* */
+mat-expansion-panel {
+  box-shadow: 0px 3px 3px -2px rgb(29 73 128 / 20%),
+    0px 2px 2px 0px rgb(29 73 128 / 14%), 0px 1px 5px 0px rgb(29 73 128 / 12%) !important;
+}
+
+mat-panel-title,
+.section-title {
+  color: #1d4980 !important;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/*status*/
+.active {
+  color: #4bb543;
+}
+.need-update {
+  color: #ffcc00;
+}
+.expired {
+  color: #cc3300;
+}
+.newly {
+  color: #1d4980;
+}
+.success-message {
+  color: white;
+  background-color: #4bb543;
+}
+.error-message {
+  color: white;
+  background-color: #cc3300;
+}
+select.form-control {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+  padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+  background: url("../assets/images/Group.svg") no-repeat right 0.75rem
+    center/8px 10px;
+}
+
+.link {
+  text-decoration: underline;
+  color: #1d4980;
+  cursor: pointer;
+}
+
+.slick-dots li button:before {
+  font-size: 20px !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #1d4980 !important;
+  opacity: 1 !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #1d4980 !important;
+  background-image: url(".././assets/icons/arrowLeft.svg") !important;
+  background-position: center bottom;
+  background-size: cover;
+  content: "__" !important;
+  font-size: 25px !important;
+}
+
+.slick-next {
+  right: -25px !important;
+}
+.slick-prev {
+  left: -25px !important;
+}
+
+.slick_wrapper {
+  position: relative;
+}
+.slick_carousel_buttons {
+  position: absolute;
+  top: 47%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-right: -45px;
+}
+.terms_carousel,
+.joining_carousel {
+  .slick-current {
+    height: auto !important;
+    transition: ease-in-out;
+    transform: scale(1);
+    .form_wrapper {
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+    }
+  }
+  .slick-slide {
+    height: 50vh;
+    overflow: auto;
+    transform: scale(0.985);
+    transition: ease-in-out;
+    overflow: hidden;
+    .form_wrapper {
+      overflow: hidden;
+    }
+  }
+  .slick-track {
+    display: flex;
+    align-items: center;
+    transition: ease-in-out;
+  }
+}
+
+button.selected {
+  background-color: #1d4980;
+  color: white;
+}
+.timepicker {
+  direction: ltr !important;
+  .timepicker__header,
+  .clock-face__number > span.active,
+  .clock-face__clock-hand {
+    background-color: #1d4980 !important;
+    color: white;
+  }
+  .timepicker-button {
+    color: #1d4980 !important;
+  }
+}
+.uploder_img {
+  height: auto;
+  width: 90%;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+}
+.upload_file {
+  position: relative;
+  display: block;
+  width: auto;
+  height: auto;
+}
+.upload_file .upload_button {
+  width: auto;
+  background-color: #2185d0;
+  color: #fff;
+  border-radius: 0.25em;
+  margin: -70px auto 0;
+  display: block;
+  transform: scale(0.75);
+}
+.upload_title {
+  color: #fff;
+  margin: -70px auto 0;
+  display: block;
+  transform: scale(0.75);
+}
+
+@media screen and (max-width: 578px) {
+  .register_card {
+    background: #fff;
+    // border: 1px solid #aeaeae;
+    box-shadow: 1px 1px 15px 0 #eff1f8;
+    border-radius: 0.5em;
+  }
+  .terms_carousel,
+  .joining_carousel {
+    .slick-slide {
+      .register_card {
+        padding: 20px;
+      }
+    }
+    .slick-current {
+      .register_card {
+        padding: 10px !important;
+      }
+    }
+  }
+  .nav_bar {
+    background-color: #1d4980;
+    color: white;
+  }
+  .nav_bar .nitro-logo {
+    display: block;
+  }
+  .nav_bar button {
+    color: white;
+  }
+  .content {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .side-menu-close .side-menu {
+    display: block;
+    z-index: 1000;
+  }
+  .side-menu {
+    display: none;
+  }
+  .dashboard {
+    width: 100% !important;
+  }
+  .side-menu-close .side-menu {
+    width: 200px;
+  }
+  .side-menu-close .nitro-logo {
+    margin: 0 auto !important;
+    width: 90px;
+  }
+  .side-menu-close .side-menu .menu .items span {
+    display: inline-block !important;
+  }
+}

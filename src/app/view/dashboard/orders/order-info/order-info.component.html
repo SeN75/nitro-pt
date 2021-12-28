@@ -1,0 +1,88 @@
+<section class="content">
+
+  <header class="page-header">
+    <h1 class="title">
+      {{'ORDERS.info' | translate}}
+    </h1>
+    <span style="align-items: inherit; display: flex;" routerLink="../../">
+      <button mat-button>
+        {{'FORM.back' | translate}}
+        <mat-icon color="primary" class="mx-2">arrow_back</mat-icon>
+      </button>
+    </span>
+  </header>
+  <loader [hasError]='hasError' *ngIf="isLoading" title="{{ 'ORDERS.loading-details' | translate}}"></loader>
+
+  <header class="nitro-card row mt-3" *ngIf="!isLoading">
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.name' | translate}}"
+      [info_item_value]="info.personalData.name">
+    </info-item>
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.start-date' | translate}}"
+      info_item_value="{{info.request_info.created_date | date}}">
+    </info-item>
+    <info-item *ngIf="info.request_info.status != 'new'" class="col"
+      info_item_title="{{'SUBSCRIBERS.end-date' | translate}}" [info_item_value]="'محمد شلبي'">
+    </info-item>
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.amount-paid' | translate}}"
+      [info_item_value]="info.finance_info.price">
+    </info-item>
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.subscription-number' | translate}}"
+      [info_item_value]="info.request_info.request_id">
+    </info-item>
+    <info-item class="col" info_item_title="{{'SUBSCRIBERS.status' | translate}}"
+      info_item_value="{{('STATUS.Order.'+info.request_info.status) | translate}}">
+    </info-item>
+  </header>
+  <div class="body scroll" *ngIf="!isLoading">
+
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title color="primary">
+            {{'PERSONAL-DATA.personal-data' | translate}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <personal-data [info]="info.personalData" class="mt-3"></personal-data>
+
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title color="primary">
+            {{'SUBSCRIBERS.joint-sports-health' | translate}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <sports-health-suber-info [info]="info.subscriber"></sports-health-suber-info>
+
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{'BODY.body-measurements-info' | translate}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <body-measurements [info]="info.bodyMeasurements"></body-measurements>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{'BODY.pic' | translate}}
+          </mat-panel-title>
+
+        </mat-expansion-panel-header>
+
+        <body-pic-info [info]="info.bodyImg">
+
+        </body-pic-info>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <div class="button-group " *ngIf="info.request_info.status == 'new'">
+      <button mat-raised-button color="primary" (click)="sendRequest(true)">{{'ORDERS.approval' | translate}}</button>
+      <button mat-stroked-button color="primary" (click)="sendRequest(false)">{{'ORDERS.deny' | translate}}</button>
+    </div>
+  </div>
+
+
+</section>

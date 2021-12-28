@@ -1,0 +1,128 @@
+<h1 mat-dialog-title class="dialog-title text-center"> {{'CATEGORIES.'+ (data.state == 'edit' ? 'edit-type' : 'add') |
+  translate}}</h1>
+<div mat-dialog-content [formGroup]="cateForm">
+  <div class="row">
+    <div class="form-group col-6" [class.has_error]="cateForm.get('name')?.invalid && cateForm.get('name')?.dirty ">
+      <label for="input">{{'CATEGORIES.name-type' | translate}}*</label>
+      <input name="input" formControlName="name" class="form-control" maxlength="25">
+      <div class="hint" *ngIf="cateForm.get('name')?.invalid && cateForm.get('name')?.dirty ">
+        <span *ngIf="cateForm.get('name').errors.required && !isSend">{{'VALIDATION.fill' | translate}}
+          {{'CATEGORIES.name-type' | translate}}</span>
+        <span *ngIf="cateForm.get('name').errors.required && isSend">{{'VALIDATION.req' | translate}}
+          {{'CATEGORIES.name-type' | translate}}</span>
+        <span *ngIf="cateForm.get('name').errors.pattern">{{'VALIDATION.en' | translate}}</span>
+
+      </div>
+    </div>
+    <div class="form-group col-6"
+      [class.has_error]="cateForm.get('name_ar')?.invalid && cateForm.get('name_ar')?.dirty ">
+      <label for="input">{{'CATEGORIES.name-type-ar' | translate}}*</label>
+      <input name="input" formControlName="name_ar" class="form-control" maxlength="25">
+      <div class="hint" *ngIf="cateForm.get('name_ar')?.invalid && cateForm.get('name_ar')?.dirty ">
+        <span *ngIf="cateForm.get('name_ar').errors.required && !isSend">{{'VALIDATION.fill' | translate}}
+          {{'CATEGORIES.name-type-ar' | translate}}</span>
+        <span *ngIf="cateForm.get('name_ar').errors.required && isSend">{{'VALIDATION.req' | translate}}
+          {{'CATEGORIES.name-type-ar' | translate}}</span>
+        <span *ngIf="cateForm.get('name_ar').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+
+      </div>
+    </div>
+    <div class="form-group col-12" [class.has_error]="cateForm.get('unit')?.invalid && cateForm.get('unit')?.dirty ">
+      <label for="input">{{'CATEGORIES.calc' | translate}}*</label>
+      <select formControlName="unit" class="form-control" (change)="changeUnit()">
+        <option *ngFor="let u of foodUnitsSrv.units" [value]="u.id">
+          {{lang.selected =='ar'? u.name_ar: u.name}}
+        </option>
+        <div class="hint" *ngIf="cateForm.get('unit')?.invalid && cateForm.get('unit')?.dirty ">
+          <span *ngIf="cateForm.get('unit').errors.required && !isSend">{{'VALIDATION.fill' | translate}}
+            {{'CATEGORIES.calc' | translate}}</span>
+          <span *ngIf="cateForm.get('unit').errors.required && isSend">{{'VALIDATION.req' | translate}}
+            {{'CATEGORIES.calc' | translate}}</span>
+        </div>
+      </select>
+    </div>
+    <div class="col-12">
+      <div class="row">
+        <div class="form-group col"
+          [class.has_error]="cateForm.get('calories')?.invalid && cateForm.get('calories')?.dirty ">
+          <label for="input">{{'CATEGORIES.calories' | translate}} \ {{lang.selected == 'ar'? unitt.name_ar:
+            unitt.name}}*</label>
+          <input name="input" formControlName="calories" class="form-control">
+          <div class="hint" *ngIf="cateForm.get('calories')?.invalid && cateForm.get('calories')?.dirty ">
+            <span *ngIf="cateForm.get('calories').errors.required && !isSend">{{'VALIDATION.fill' | translate}}
+              {{'CATEGORIES.calories' | translate}}</span>
+            <span *ngIf="cateForm.get('calories').errors.required && isSend">{{'VALIDATION.req' | translate}}
+              {{'CATEGORIES.calories' | translate}}</span>
+            <span *ngIf="cateForm.get('calories').errors.pattern">
+              {{'VALIDATION.amount-2' | translate}}<br>{{'VALIDATION.amount-ex2' | translate}}</span>
+          </div>
+        </div>
+        <div class="form-group col" [class.has_error]="cateForm.get('fat')?.invalid && cateForm.get('fat')?.dirty ">
+          <label for="input">{{'CATEGORIES.fat' | translate}} \ {{lang.selected == 'ar'? unitt.name_ar:
+            unitt.name}}*</label>
+          <input name="input" formControlName="fat" class="form-control">
+          <div class="hint" *ngIf="cateForm.get('fat')?.invalid && cateForm.get('fat')?.dirty ">
+            <span *ngIf="cateForm.get('fat').errors.required && !isSend">{{'VALIDATION.fill' | translate}}
+              {{'CATEGORIES.fat' | translate}}</span>
+            <span *ngIf="cateForm.get('fat').errors.required && isSend">{{'VALIDATION.req' | translate}}
+              {{'CATEGORIES.fat' | translate}}</span>
+            <span *ngIf="cateForm.get('fat').errors.pattern">
+              {{'VALIDATION.amount-2' | translate}}<br>{{'VALIDATION.amount-ex2' | translate}}</span>
+          </div>
+        </div>
+        <div class="form-group col" [class.has_error]="cateForm.get('carb')?.invalid && cateForm.get('carb')?.dirty ">
+          <label for="input">{{'CATEGORIES.carb' | translate}} \ {{lang.selected == 'ar'? unitt.name_ar:
+            unitt.name}}*</label>
+          <input name="input" formControlName="carb" class="form-control">
+          <div class="hint" *ngIf="cateForm.get('carb')?.invalid && cateForm.get('carb')?.dirty ">
+            <span *ngIf="cateForm.get('carb').errors.required && !isSend">{{'VALIDATION.fill' | translate}}
+              {{'CATEGORIES.carb' | translate}}}</span>
+            <span *ngIf="cateForm.get('carb').errors.required && isSend">{{'VALIDATION.req' | translate}}
+              {{'CATEGORIES.carb' | translate}}}</span>
+            <span *ngIf="cateForm.get('carb').errors.pattern">
+              {{'VALIDATION.amount-2' | translate}}<br>{{'VALIDATION.amount-ex2' | translate}}</span>
+          </div>
+        </div>
+        <div class="form-group col"
+          [class.has_error]="cateForm.get('protien')?.invalid && cateForm.get('protien')?.dirty ">
+          <label for="input">{{'CATEGORIES.protein' | translate}} \
+            {{lang.selected == 'ar'? unitt.name_ar:
+            unitt.name}}*</label>
+          <input name="input" formControlName="protien" class="form-control">
+          <div class="hint" *ngIf="cateForm.get('protien')?.invalid && cateForm.get('protien')?.dirty ">
+            <span *ngIf="cateForm.get('protien').errors.required && !isSend">{{'VALIDATION.fill' | translate}}
+              {{'CATEGORIES.protein' | translate}}</span>
+            <span *ngIf="cateForm.get('protien').errors.required && isSend">{{'VALIDATION.req' | translate}}
+              {{'CATEGORIES.protein' | translate}}</span>
+            <span *ngIf="cateForm.get('protien').errors.pattern">
+              {{'VALIDATION.amount-2' | translate}}<br>{{'VALIDATION.amount-ex2' | translate}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row justify-content-center my-3">
+    <div class="upload_file col" (click)="file.click()">
+      <img [src]="img" class="uploder_img">
+      <input type="file" #file hidden (change)="selectImg($event)"
+        accept="image/jpg, image/jpeg, image/png, application/pdf">
+      <button mat-button class="upload_button" (click)="file.click()">
+        {{'SETTINGS.upload-file' | translate}}
+      </button>
+    </div>
+  </div>
+  <div class="button-group mt-5">
+    <button mat-raised-button color="primary" [disabled]="cateForm.invalid" (click)="action()"> {{'FORM.'+ (data.state
+      == 'edit' ?
+      'edit' : 'add')
+      | translate}}
+    </button>
+    <button *ngIf="data.state != 'edit'" mat-stroked-button color="primary" (click)="onNoClick()"> {{'FORM.cancel'
+      |
+      translate}} </button>
+    <button *ngIf="data.state == 'edit'" mat-stroked-button color="warn" (click)="delete()"> {{'FORM.remove' |
+      translate}} </button>
+  </div>
+</div>

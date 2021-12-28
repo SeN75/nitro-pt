@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-end">
+  <button mat-icon-button (click)="onNoClick()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<div class="preview_contianer" *ngIf="data.type == 'photo'">
+  <img [src]="src" class="photo" (click)="onNoClick()">
+</div>
+
+<div class="preview_container" *ngIf="data.type == 'video'">
+  <video class="video" controls>
+    <source [src]="src">
+  </video>
+</div>

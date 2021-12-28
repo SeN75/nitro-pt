@@ -1,0 +1,9 @@
+.item_row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  justify-content: center;
+}
+.item_row category-card {
+  margin: 0 10px;
+}

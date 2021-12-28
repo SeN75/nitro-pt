@@ -1,0 +1,35 @@
+<section class="content pt-0">
+  <header class="page-header">
+    <h1 class="title">
+      {{'ORDERS.current' | translate}}
+    </h1>
+  </header>
+  <div class="mt-4">
+    <table class="table-theme-1 hover">
+      <thead>
+        <th>{{'ORDERS.no' | translate}}</th>
+        <th>{{'ORDERS.type' | translate}}</th>
+        <th>{{'ORDERS.status' | translate}}</th>
+        <th>{{'FORM.notes' | translate}}</th>
+      </thead>
+      <tbody>
+        <tr class="no_data" *ngIf="isEmpty()">
+          <td colspan="4">
+            {{'ORDERS.no-data' | translate}}
+          </td>
+        </tr>
+        <ng-container *ngIf="!isEmpty()">
+          <tr class="row_space">
+            <td colspan="4"></td>
+          </tr>
+          <tr>
+            <td>{{order.order_no}}</td>
+            <td>{{order.type}} </td>
+            <td>{{order.status}}</td>
+            <td>{{order.notes}}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</section>

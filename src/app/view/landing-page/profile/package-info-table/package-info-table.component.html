@@ -1,0 +1,37 @@
+<section class="content pt-0">
+  <header class="page-header">
+    <h1 class="title">
+      {{'PACKAGES.info' | translate}}
+    </h1>
+  </header>
+  <div class="body scroll">
+    <table class="table-theme-1 hover">
+      <thead>
+        <th>{{'SUBSCRIBERS.subscription-number' | translate}}</th>
+        <th>{{'FORM.name' | translate}}</th>
+        <th>{{'SUBSCRIBERS.start-date' | translate}}</th>
+        <th>{{'SUBSCRIBERS.end-date' | translate}}</th>
+        <th>{{'SUBSCRIBERS.status' | translate}}</th>
+      </thead>
+      <tbody>
+        <tr class="no_data" *ngIf="pack.length == 0">
+          <td colspan="5">
+            {{'PACKAGES.no-data' | translate}}
+          </td>
+        </tr>
+        <ng-container *ngFor="let info of pack">
+          <tr class="row_space">
+            <td colspan="5"></td>
+          </tr>
+          <tr>
+            <td>{{info.memebership}}</td>
+            <td>{{info.first_name_ar}} {{info.middle_name_ar}}</td>
+            <td>{{info.start_date | date}}</td>
+            <td>{{info.end_date | date}}</td>
+            <td class="{{info.status}}">{{'STATUS.'+info.status | translate}}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</section>

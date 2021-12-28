@@ -1,0 +1,56 @@
+<section class="content">
+  <header class="page-header">
+    <h1 class="title">
+      {{'CATEGORIES.table' | translate}}
+    </h1>
+    <span>
+
+      <button class="mx-2" mat-raised-button color="primary"
+        (click)="dialogSrv.openCategoryTypeDialog()">{{'CATEGORIES.new-type'
+        |
+        translate}}</button>
+    </span>
+  </header>
+  <loader title="{{'CATEGORIES.loading' | translate}}" *ngIf="categorySrv.isLoading" [hasError]="categorySrv.hasError">
+  </loader>
+  <div class="body scroll" *ngIf="!categorySrv.isLoading">
+    <table class="table-theme-1 hover">
+      <thead class="text-center">
+        <tr>
+          <th>#</th>
+          <th>{{'CATEGORIES.name-type-ar' | translate}}</th>
+          <th>{{'CATEGORIES.number' | translate}}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <ng-container *ngFor="let cat of categorySrv.categories; let i = index">
+          <tr class="row_space">
+            <td colspan="30"></td>
+          </tr>
+          <tr>
+            <td>{{i + 1 }}</td>
+            <td>{{lang.selected =='ar' ? cat.name_ar: cat.name}}</td>
+            <td>{{categoryItemSrv.getItemsWithSameCategory(cat.name).length}}</td>
+            <td class="text-end">
+              <span>
+                <button mat-icon-button (click)="dialogSrv.openCategoryTypeDialog('edit', cat)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button (click)="showCompunds(cat)">
+                  <mat-icon>arrow_back_ios</mat-icon>
+                </button>
+
+              </span>
+            </td>
+          </tr>
+        </ng-container>
+        <tr class="no_data" *ngIf="categorySrv.categories.length == 0">
+          <td colspan="30">
+            {{'CATEGORIES.no-data' | translate}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

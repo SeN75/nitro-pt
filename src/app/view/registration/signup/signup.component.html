@@ -1,0 +1,140 @@
+<h4 class="text-center section-title  h4">{{'FORM.new-registr' | translate}}</h4>
+<div [formGroup]="registerForm" class="register_form">
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <div class="form-group  w-100"
+        [class.has_error]="registerFormControl.controls.first_name_ar.invalid && registerFormControl.controls.first_name_ar.touched">
+        <label> {{'FORM.name' | translate}}</label>
+        <input autocomplete="off" class="form-control" placeholder="{{'FORM.name' | translate}}"
+          formControlName="first_name_ar">
+        <div class="hint">
+          {{(
+          registerFormControl.controls.first_name_ar.errors&&registerFormControl.controls.first_name_ar.touched ?
+          registerFormControl.controls.first_name_ar.errors.required ? 'VALIDATION.required':
+          registerFormControl.controls.first_name_ar.errors.pattern ? 'VALIDATION.ar' :'' : '')
+          | translate }}
+        </div>
+      </div>
+      <div class="form-group  w-100"
+        [class.has_error]="registerFormControl.controls.middle_name_ar.invalid && registerFormControl.controls.middle_name_ar.touched">
+        <label> {{'FORM.father-name' | translate}}</label>
+        <input autocomplete="off" class="form-control" placeholder="{{'FORM.father-name' | translate}}"
+          formControlName="middle_name_ar">
+        <div class="hint">
+          {{(
+          registerFormControl.controls.middle_name_ar.errors&&registerFormControl.controls.middle_name_ar.touched ?
+          registerFormControl.controls.middle_name_ar.errors.required ? 'VALIDATION.required':
+          registerFormControl.controls.middle_name_ar.errors.pattern ? 'VALIDATION.ar' :'' : '')
+          | translate }}
+        </div>
+      </div>
+      <div class="form-group  w-100"
+        [class.has_error]="registerFormControl.controls.last_name_ar.invalid && registerFormControl.controls.last_name_ar.touched">
+        <label> {{'FORM.family-name' | translate}}</label>
+        <input autocomplete="off" class="form-control" placeholder="{{'FORM.family-name' | translate}}"
+          formControlName="last_name_ar">
+        <div class="hint">
+          {{(
+          registerFormControl.controls.last_name_ar.errors&&registerFormControl.controls.last_name_ar.touched ?
+          registerFormControl.controls.last_name_ar.errors.required ? 'VALIDATION.required':
+          registerFormControl.controls.last_name_ar.errors.pattern ? 'VALIDATION.ar' :'' : '')
+          | translate }}
+        </div>
+      </div>
+      <div class="form-group  w-100"
+        [class.has_error]="registerFormControl.controls.username.invalid && registerFormControl.controls.username.touched">
+        <label> {{'FORM.user-name' | translate}}</label>
+        <input autocomplete="off" class="form-control" placeholder="{{'FORM.user-name' | translate}}"
+          formControlName="username">
+        <div class="hint">
+          {{(
+          registerFormControl.controls.username.errors&&registerFormControl.controls.username.touched ?
+          registerFormControl.controls.username.errors.required ? 'VALIDATION.required':
+          '' : '')
+          | translate }}
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6">
+      <div class="form-group  w-100"
+        [class.has_error]="registerFormControl.controls.email.invalid && registerFormControl.controls.email.touched">
+        <label> {{'FORM.email' | translate}}</label>
+        <input autocomplete="off" class="form-control" placeholder="email@example.com" formControlName="email">
+        <div class="hint">
+          {{(
+          registerFormControl.controls.email.errors&&registerFormControl.controls.email.touched ?
+          registerFormControl.controls.email.errors.required ? 'VALIDATION.email.required':
+          'VALIDATION.email.': '')
+          | translate }}
+        </div>
+      </div>
+      <div class="row justify-content-between align-items-end">
+        <div class="form-group col-7 col-sm-8" [class.has_error]="phoneNumber.invalid && phoneNumber.touched">
+          <label for="input">{{'FORM.phone-mobile' | translate}}</label>
+          <input autocomplete="off" name="input" type="tel" maxlength="9" class="form-control" placeholder="5XX-XXX-XX"
+            [formControl]="phoneNumber">
+
+        </div>
+        <div class="form-group col-5 col-sm-4">
+          <select class="form-control" placeholder="+966" [formControl]="counterCode">
+            <option *ngFor="let code of countriesCode" [value]="code.phone_code">+ {{code.phone_code}}</option>
+          </select>
+        </div>
+        <div class="hint">
+          {{(
+          phoneNumber.errors&&phoneNumber.touched ?
+          phoneNumber.errors.required ? 'VALIDATION.required':
+          '' : '')
+          | translate }}
+        </div>
+      </div>
+      <div class="form-group password w-100"
+        [class.has_error]="registerFormControl.controls.password.invalid && registerFormControl.controls.password.touched">
+        <label> {{'FORM.password' | translate}}</label>
+        <input autocomplete="off" class="form-control" [type]="hidePassword ? 'password': 'text'"
+          placeholder="*************" formControlName="password">
+        <button mat-icon-button (click)="hidePassword = !hidePassword">
+          <mat-icon>{{ hidePassword? 'visibility': 'visibility_off'}}</mat-icon>
+        </button>
+        <div class="hint">
+          {{(
+          registerFormControl.controls.password.errors&&registerFormControl.controls.password.touched ?
+          registerFormControl.controls.password.errors.required ? 'VALIDATION.password.required':
+          registerFormControl.controls.password.errors.minlength ? 'VALIDATION.password.minlength':
+          registerFormControl.controls.password.errors.pattern ? 'VALIDATION.password.pattern': '' : '')
+          | translate }}
+        </div>
+      </div>
+      <div class="form-group password w-100"
+        [class.has_error]="registerFormControl.controls.re_password.invalid && registerFormControl.controls.re_password.touched">
+        <label> {{'FORM.confirm-password' | translate}}</label>
+        <input autocomplete="off" class="form-control" [type]="hidePassword ? 'password': 'text'"
+          placeholder="*************" formControlName="re_password">
+        <button mat-icon-button (click)="hidePassword = !hidePassword">
+          <mat-icon>{{ hidePassword? 'visibility': 'visibility_off'}}</mat-icon>
+        </button>
+        <div class="hint">
+          {{(
+          registerFormControl.controls.re_password.errors&&registerFormControl.controls.re_password.touched ?
+          registerFormControl.controls.re_password.errors.required ? 'VALIDATION.password.required':
+          registerFormControl.controls.re_password.errors.confirmPasswordValidator == true ?
+          'VALIDATION.password.not-match' : '': '')
+          | translate }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!--  routerLink="/register/join_program" -->
+  <div class="d-flex justity-content-center mt-5 mb-3">
+    <button mat-raised-button color="primary" class="btn-lg m-auto" (click)="_signup()"
+      [disabled]="registerForm.invalid || phoneNumber.invalid">{{'FORM.sign-up' |
+      translate}}</button>
+  </div>
+  <div class="d-flex justity-content-center ">
+    <span class=" m-auto link" routerLink="/register/login">{{'FORM.login' | translate}}</span>
+  </div>
+
+
+</div>
+<!-- <button class="bg-dark text-light mx-5" mat-raised-button routerLink="/home">{{'FORM.cancel' | translate}}</button> -->

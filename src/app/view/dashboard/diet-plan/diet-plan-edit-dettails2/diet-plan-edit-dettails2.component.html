@@ -1,0 +1,165 @@
+<section class="content">
+  <header class="page-header">
+    <h1 class="title">
+      {{programName}}
+    </h1>
+    <span style="align-items: inherit; display: flex;" routerLink="../view">
+      <button mat-raised-button color="primary">
+        {{'FORM.save' | translate}}
+      </button>
+      <button mat-button>
+        {{'FORM.back' | translate}}
+        <mat-icon color="primary" class="mx-2">arrow_back</mat-icon>
+      </button>
+    </span>
+  </header>
+  <div class="body container">
+    <entries-and-remaining></entries-and-remaining>
+
+    <div class="nitro-card mt-3">
+      <h2 class="section-title">{{'DIETPLAN.dietplan' | translate}}</h2>
+      <table class="table-theme-2 w-100">
+        <thead>
+          <th>{{'FORM.name' | translate}}</th>
+          <th>{{'DIETPLAN.number-of-meals' | translate}}</th>
+          <th>{{'DIETPLAN.total-calories' | translate}}</th>
+          <th class="text-end">
+            <button mat-raised-button color="primary" (click)="addingNewTable = true">
+              {{'DIETPLAN.add-table' | translate}}
+            </button>
+          </th>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="addingNewTable">
+            <tr class="table_input">
+              <td colspan="4">
+                <div class="form-group d-inline-block mx-1">
+                  <input [formControl]="newTableName" class="form-control"
+                    placeholder="{{'DIETPLAN.table-name' | translate}}">
+                </div>
+                <button mat-raised-button color="primary" (click)="addTable()">
+                  {{'FORM.add'| translate}}
+                </button>
+                <button mat-button (click)="addingNewTable = false">
+                  {{'FORM.cancel'| translate}}
+                </button>
+              </td>
+            </tr>
+          </ng-container>
+          <ng-container *ngFor="let program of programs; let i = index">
+            <tr class="row_space">
+              <td colspan="7"></td>
+            </tr>
+            <tr (click)="selectedTable == i+'' ? selectedTable = '': selectedTable = i+''">
+              <td>{{program.name}}</td>
+              <td>{{program.meals.length}}</td>
+              <td>{{program.total_calories}}</td>
+              <td class="text-end">
+                <button mat-icon-button
+                  (click)="dialogSrv.openDietplanEditDialog('table', program); $event.stopPropagation()">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button>
+                  <mat-icon>{{selectedTable == i +'' ? 'expand_less' :'expand_more'}}</mat-icon>
+                </button>
+              </td>
+            </tr>
+            <ng-container *ngIf="selectedTable == i+''">
+              <tr>
+                <td colspan="7" class="p-0">
+                  <table class="table-theme-3 hover w-100">
+                    <thead>
+                      <th>{{'DIETPLAN.meal-name' | translate}}</th>
+                      <th>{{'CATEGORIES.number-of' | translate}}</th>
+                      <th>{{'DIETPLAN.total-calories' | translate}}</th>
+                      <th class="text-end">
+                        <button mat-raised-button color="primary" (click)="addingNewMeal = true">
+                          {{'DIETPLAN.add-meal' | translate}}
+                        </button>
+                      </th>
+                    </thead>
+                    <tbody>
+                      <ng-container *ngIf="addingNewMeal">
+                        <tr class="table_input">
+                          <td colspan="4">
+                            <div class="form-group d-inline-block mx-1">
+                              <input [formControl]="newMealName" class="form-control"
+                                placeholder="{{'DIETPLAN.meal-name' | translate}}">
+                            </div>
+                            <button mat-raised-button color="primary" (click)="addMeal(i)">
+                              {{'FORM.add'| translate}}
+                            </button>
+                            <button mat-button (click)="addingNewMeal = false">
+                              {{'FORM.cancel'| translate}}
+                            </button>
+                          </td>
+                        </tr>
+                      </ng-container>
+                      <ng-container *ngFor="let meal of program.meals; let j = index">
+                        <tr class="row_space">
+                          <td colspan="5"></td>
+                        </tr>
+                        <tr (click)="(selectedMeal == j+'' ? selectedMeal = '': selectedMeal = j+'')">
+                          <td>{{meal.name}}</td>
+                          <td>{{meal.items.length}}</td>
+                          <td>{{meal.calories}}</td>
+                          <td class="text-end">
+                            <button mat-icon-button
+                              (click)="dialogSrv.openDietplanEditDialog('meal', meal); $event.stopPropagation()">
+                              <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-icon-button>
+                              <mat-icon>
+                                {{selectedMeal == j+'' ? 'expand_less' :'expand_more'}}
+                              </mat-icon>
+                            </button>
+                          </td>
+                        </tr>
+
+                        <tr *ngIf="selectedMeal == j+''">
+                          <td colspan="5" class="p-0">
+                            <table class="table-theme-3 hover w-100">
+                              <thead>
+                                <th>{{'CATEGORIES.name' | translate}}</th>
+                                <th>{{'CATEGORIES.type' | translate}}</th>
+                                <th>{{'CATEGORIES.weight' | translate}}</th>
+                                <th class="text-end">
+                                  <button mat-raised-button color="primary" (click)="addingNewTable = true">
+                                    {{'DIETPLAN.add-item' | translate}}
+                                  </button>
+                                </th>
+                              </thead>
+                              <tbody>
+                                <ng-container *ngFor="let item of meal.items; let k =index">
+                                  <tr>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.type}}</td>
+                                    <td>{{item.weight}}</td>
+                                    <td></td>
+                                  </tr>
+                                </ng-container>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </ng-container>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+
+            </ng-container>
+          </ng-container>
+          <ng-container *ngIf="programs.length == 0">
+            <tr>
+              <td colspan="4">
+                {{'DIETPLAN.no-table' | translate}}
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+    <!--  -->
+  </div>
+</section>
