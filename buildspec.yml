@@ -2,10 +2,10 @@ version: 0.2
 
 env:
   variables:
-    S3_BUCKET: "dev.nitropt.com"
+    S3_BUCKET: "nitropt.com"
     APP_NAME: "nitro-pt"
     BUILD_ENV: "prod"
-    CDN_DISTRIBUTION_ID: "E126WPUKD07D3H"
+    CDN_DISTRIBUTION_ID: "E34X6T36L2WZRJ"
 
 phases:
   install:
