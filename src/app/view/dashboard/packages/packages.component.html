@@ -22,5 +22,20 @@
       [package_description]="pack.description_ar" [package_price]="pack.price" [theme_number]="((i%3)+1)"
       [with_button]="false" [pack]="pack">
     </package-card>
+    <package-card class="" *ngFor="let pack of packSrv.packages | filter:search; index as i "
+      [package_title]="lang.selected == 'ar'? pack.name_ar: pack.name" [package_months]="pack.period"
+      [package_description]="pack.description_ar" [package_price]="pack.price" [theme_number]="((i%3)+1)"
+      [with_button]="false" [pack]="pack">
+    </package-card>
+    <package-card class="" *ngFor="let pack of packSrv.packages | filter:search; index as i "
+      [package_title]="lang.selected == 'ar'? pack.name_ar: pack.name" [package_months]="pack.period"
+      [package_description]="pack.description_ar" [package_price]="pack.price" [theme_number]="((i%3)+1)"
+      [with_button]="false" [pack]="pack">
+    </package-card>
+    <package-card class="" *ngFor="let pack of packSrv.packages | filter:search; index as i "
+      [package_title]="lang.selected == 'ar'? pack.name_ar: pack.name" [package_months]="pack.period"
+      [package_description]="pack.description_ar" [package_price]="pack.price" [theme_number]="((i%3)+1)"
+      [with_button]="false" [pack]="pack">
+    </package-card>
   </div>
 </section>
