@@ -158,6 +158,10 @@ sidemenu
   color: var(--red);
   font-size: 12px;
 }
+.has_error.hint {
+  color: var(--red);
+  font-size: 12px;
+}
 .register_form .form-group .form-control {
   box-shadow: 0px 0px 1px 0px #adabac;
 }

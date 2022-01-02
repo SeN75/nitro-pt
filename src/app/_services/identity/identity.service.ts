@@ -7,6 +7,7 @@ import { ToastService } from '../toast.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { TokenStorageService } from './token-storage.service';
+import { MessageService } from '../message.service';
 const Identity = API + "auth/";
 @Injectable({
   providedIn: 'root'
@@ -36,7 +37,8 @@ export class IdentityService {
     private router: Router,
     private cookieSrv: CookieService,
     private tokenService: TokenStorageService,
-    private logger: LoggerService) {
+    private logger: LoggerService,
+    private messageSrv: MessageService) {
     //this.logout();
     //this.logoutAll();
     this.userData = this.tokenService.getUser();
@@ -114,7 +116,12 @@ export class IdentityService {
   private _verifyOTP(data: any) {
     return this.httpClient.post(Identity + "verify_OTP", data)
   }
-
+  private _generateOTP(data: any) {
+    return this.httpClient.post(Identity + 'generate_OTP', data);
+  }
+  private _generateUID(data: any) {
+    return this.httpClient.post(Identity + 'generate_uid', data);
+  }
 
   public getStaff() {
     this.isLoadingStaff = true;
@@ -221,8 +228,9 @@ export class IdentityService {
         }
       })
     }, (error: HttpErrorResponse) => {
-      this.translateSrv.get('ERROR.').subscribe(msg => this.toastSrv.error(msg));
+
       this.logger.error("login error: ", error)
+      this.translateSrv.get('ERROR.').subscribe(msg => this.toastSrv.error(msg));
     })
   }
   public userActivation(data: any) {
@@ -324,4 +332,23 @@ export class IdentityService {
     })
   }
 
+  public generateOTP(data: any) {
+    this._generateOTP(data).subscribe((success: any) => {
+      this.router.navigateByUrl('/register/otp_verify/' + data.phone_number)
+      this.logger.log('generateOtp: ', success)
+    }, (error: any) => {
+      this.logger.error('error generateOtp: ', error);
+      let errorMessage: any = this.messageSrv.errorMessage("REGISTRATION.forget-password " + error.detils, 'REGISTRATION.forget-password', '');
+      this.toastSrv.error(errorMessage);
+
+    })
+  }
+  public generateUID(data: any) {
+    this._generateUID(data).subscribe((success: any) => {
+      this.logger.log('generateUID: ', success)
+    }, (error: HttpErrorResponse) => {
+      this.logger.error('error generateUID: ', error);
+
+    })
+  }
 }

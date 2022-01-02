@@ -482,7 +482,9 @@
     },
     "REGISTRATION": {
       "change-password": "حدث خطأ اثناء تغيير كلمة المرور",
-      "login": "حدث "
+      "login": "حدث ",
+      "forget-password": "حدث خطأ اثناء ارسال رقم الجوال",
+      "forget-password Not found.": "لم يتم العثور على رقم الجوال"
     },
     "SETTINGS": {
       "new-bankaccount": "حدث خطأ اثناء اضافة حساب بنكي جديد",
