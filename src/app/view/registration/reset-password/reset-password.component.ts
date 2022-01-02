@@ -14,6 +14,7 @@ export class ResetPasswordComponent implements OnInit {
   emailControl: FormControl = new FormControl('', [Validators.required, Validators.email]);
   resetPasswordForm: any;
   hidePassword = true;
+
   constructor(
     private identitySrv: IdentityService,
     private formBuilder: FormBuilder,
@@ -21,7 +22,6 @@ export class ResetPasswordComponent implements OnInit {
     this.resetPasswordForm = this.formBuilder.group({
       new_password: ['', [Validators.required]],
       re_new_password: ['', [Validators.required]],
-      current_password: ['', [Validators.required]],
     }, {
       validator: ConfirmPasswordValidator("new_password", "re_new_password")
 
@@ -30,7 +30,12 @@ export class ResetPasswordComponent implements OnInit {
   ngOnInit(): void {
   }
   resetPassword() {
-    this.identitySrv.resetPassword({ email: this.emailControl.value })
+    if (this.resetPasswordForm.valid) {
+      this.identitySrv.resetPasswordObj.new_password = this.resetPasswordForm.get('new_password')?.value;
+      this.identitySrv.resetPasswordObj.re_new_password = this.resetPasswordForm.get('re_new_password')?.value;
+      this.identitySrv.resetPasswordConfirm(this.identitySrv.resetPasswordObj)
+    }
+    // this.identitySrv.resetPassword({ email: this.emailControl.value })
   }
 
 }

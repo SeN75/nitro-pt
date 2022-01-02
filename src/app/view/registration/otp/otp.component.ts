@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChildren, Input } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { LoggerService } from 'src/app/_services/logger.service';
 import { IdentityService } from 'src/app/_services/identity/identity.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-otp',
@@ -16,17 +16,31 @@ export class OtpComponent implements OnInit {
   minutes = 0;
   otpForm: FormGroup;
   @ViewChildren('formRow') rows: any;
+  mobile = '';
+  type = '';
   constructor(
     private logger: LoggerService,
     private Router: Router,
-    private identitySrv: IdentityService
+    private identitySrv: IdentityService,
+    private activeRoute: ActivatedRoute
   ) {
     this.otpForm = this.toFormGroup(this.formInput)
     this.countDown()
     let phone_number = this.Router.url.replace('register/otp_verify/%2B', '');
-
     // this.identitySrv.getUserProfileByJWT();
     this.logger.log('test', phone_number.replace('/', ''))
+    this.activeRoute.queryParams.subscribe(root => {
+      if (root.p)
+        this.mobile = root.p;
+      if (root.t)
+        this.type = root.t;
+
+      this.mobile = this.mobile.trim();
+      this.type = this.type.trim();
+
+      this.logger.log("mobile: ", this.mobile);
+      this.logger.log('type: ', this.type)
+    })
   }
 
 
@@ -71,11 +85,10 @@ export class OtpComponent implements OnInit {
 
 
   submit() {
-    let phone_number = this.Router.url.replace('register/otp_verify/%2B', '');
     if (this.otpForm.valid) {
       let code = '';
       this.formInput.forEach(e => code += this.otpForm.get(e)?.value)
-      this.identitySrv.verifyOTP({ otp: code, phone_number: "+" + phone_number.replace('/', '') });
+      this.identitySrv.verifyOTP({ otp: code, phone_number: '+' + this.mobile.trim() }, this.type);
       this.logger.log('otp: ', code)
     }
   }

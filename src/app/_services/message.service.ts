@@ -23,4 +23,11 @@ export class MessageService {
     })
     return message;
   }
+  successMessage(resMessage: string): string {
+    let message: string = '';
+    this.translate.get('SUCCESS.' + resMessage).subscribe(resMsg => {
+      message = resMsg
+    })
+    return message;
+  }
 }

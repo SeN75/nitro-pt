@@ -186,3 +186,12 @@ export interface ClosedRequest {
   created_date: string,
   status: string
 }
+
+
+export interface ResetPassword {
+  uid: string,
+  token: string,
+  new_password: string,
+  phone_number?: string,
+  re_new_password: string
+}
