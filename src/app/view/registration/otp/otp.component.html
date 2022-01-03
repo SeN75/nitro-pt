@@ -2,8 +2,8 @@
 <div class="register_form">
   <div class="row otp_codes" [formGroup]=otpForm>
     <div class="form-group col-2" *ngFor="let input of formInput;  index as i">
-      <input #formRow type="text" formControlName="{{input}}" class="form-control text-center" maxlength="1"
-        (keyup)="keyUpEvent($event, i)" placeholder="X">
+      <input #formRow formControlName="{{input}}" inputmode="numeric" autocomplete="one-time-code"
+        class="form-control text-center" maxlength="1" (keyup)="keyUpEvent($event, i)" placeholder="X">
     </div>
   </div>
   <div class="row justify-content-center">
