@@ -336,7 +336,7 @@ export class IdentityService {
       if (type == 'n')
         this.router.navigateByUrl("/register/login")
       if (type == 'r') {
-        this.generateUID({ phone_number: "+" + data.phone_number })
+        this.generateUID({ phone_number: data.phone_number })
         this.router.navigateByUrl("/register/reset_password")
       }
     }, (error: HttpErrorResponse) => {
@@ -350,6 +350,8 @@ export class IdentityService {
   public generateOTP(data: any) {
     this._generateOTP(data).subscribe((success: any) => {
       this.router.navigateByUrl('/register/otp_verify/?p=' + data.phone_number + '&t=r')
+      let successMsg = this.messageSrv.successMessage('REGISTRATION.otp');
+      this.toastSrv.success(successMsg)
       this.logger.log('generateOtp: ', success)
     }, (error: any) => {
       this.logger.error('error generateOtp: ', error);
