@@ -18,6 +18,7 @@ export class OtpComponent implements OnInit {
   @ViewChildren('formRow') rows: any;
   mobile = '';
   type = '';
+  autoInput: FormControl = new FormControl('', [Validators.maxLength(6)]);
   constructor(
     private logger: LoggerService,
     private Router: Router,
@@ -41,10 +42,35 @@ export class OtpComponent implements OnInit {
       this.logger.log("mobile: ", this.mobile);
       this.logger.log('type: ', this.type)
     })
+    this.autoInput.valueChanges.subscribe(value => {
+      if (value.length == this.formInput.length)
+        for (let i = 0; i < value.length; i++) {
+          this.otpForm.get(`input${i + 1}`)?.setValue(value[i]);
+        }
+    })
   }
 
 
   ngOnInit(): void {
+    this.otpRequest();
+  }
+  async otpRequest() {
+    if ('OTPCredential' in window) {
+
+      const abortController = new AbortController();
+      let timer = setTimeout(() => {
+        abortController.abort();
+      }, 10 * 1000);
+
+      let o: any = {
+        otp: { transport: ['sms'] },
+        signal: abortController.signal
+      };
+
+      const content = await window.navigator['credentials'].get(o);
+      this.autoInput.setValue(content);
+      //do what ever you want to do with the received code, probably send it to server
+    }
   }
   toFormGroup(elements: any) {
     const group: any = {};
