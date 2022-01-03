@@ -68,6 +68,8 @@ export class OtpComponent implements OnInit {
       };
 
       const content = await window.navigator['credentials'].get(o);
+      console.log(content)
+      alert(content)
       this.autoInput.setValue(content);
       //do what ever you want to do with the received code, probably send it to server
     }
