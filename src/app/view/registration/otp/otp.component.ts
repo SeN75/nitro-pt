@@ -56,7 +56,6 @@ export class OtpComponent implements OnInit {
   }
   async otpRequest() {
     if ('OTPCredential' in window) {
-
       const abortController = new AbortController();
       let timer = setTimeout(() => {
         abortController.abort();
@@ -68,8 +67,6 @@ export class OtpComponent implements OnInit {
       };
 
       const content = await window.navigator['credentials'].get(o);
-      console.log(content)
-      alert(content)
       this.autoInput.setValue(content);
       //do what ever you want to do with the received code, probably send it to server
     }
