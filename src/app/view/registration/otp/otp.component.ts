@@ -73,6 +73,9 @@ export class OtpComponent implements OnInit {
       this.autoInput.setValue(content);
       //do what ever you want to do with the received code, probably send it to server
     }
+    else {
+      alert('0')
+    }
   }
   toFormGroup(elements: any) {
     const group: any = {};
