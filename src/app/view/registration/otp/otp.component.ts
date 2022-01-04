@@ -43,10 +43,12 @@ export class OtpComponent implements OnInit {
       this.logger.log('type: ', this.type)
     })
     this.autoInput.valueChanges.subscribe(value => {
-      if (value.length == this.formInput.length)
-        for (let i = 0; i < value.length; i++) {
-          this.otpForm.get(`input${i + 1}`)?.setValue(value[i]);
-        }
+      // if (value.length == this.formInput.length)
+      //   for (let i = 0; i < value.length; i++) {
+      //     this.otpForm.get(`input${i + 1}`)?.setValue(value[i]);
+      //   }
+      if (value.length == 6)
+        this.submit();
     })
   }
 
@@ -67,6 +69,7 @@ export class OtpComponent implements OnInit {
       };
 
       const content = await window.navigator['credentials'].get(o);
+      alert(content);
       this.autoInput.setValue(content);
       //do what ever you want to do with the received code, probably send it to server
     }
@@ -107,12 +110,14 @@ export class OtpComponent implements OnInit {
       }, 1000)
     }
   }
-
+  resendOtp() {
+    this.identitySrv.generateOTP({ phone_number: this.mobile.trim() });
+  }
 
   submit() {
-    if (this.otpForm.valid) {
+    if (this.otpForm.valid || true) {
       let code = '';
-      this.formInput.forEach(e => code += this.otpForm.get(e)?.value)
+      // this.formInput.forEach(e => code += this.otpForm.get(e)?.value)
       this.identitySrv.verifyOTP({ otp: this.autoInput.value, phone_number: '+' + this.mobile.trim() }, this.type);
       this.logger.log('otp: ', code)
     }

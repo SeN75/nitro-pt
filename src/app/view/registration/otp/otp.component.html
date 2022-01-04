@@ -22,7 +22,7 @@
     </div>
 
     <div class="text-center ">
-      <button mat-button [disabled]="seconds != 0 || minutes != 0">
+      <button mat-button [disabled]="seconds != 0 || minutes != 0" (click)="resendOtp()">
         {{'FORM.resend' | translate}}
       </button>
     </div>
