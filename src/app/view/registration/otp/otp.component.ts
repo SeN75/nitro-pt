@@ -69,12 +69,12 @@ export class OtpComponent implements OnInit {
       };
 
       const content = await window.navigator['credentials'].get(o);
-      alert(content);
+      // alert(content);
       this.autoInput.setValue(content);
       //do what ever you want to do with the received code, probably send it to server
     }
     else {
-      alert('0')
+      // alert('0')
     }
   }
   toFormGroup(elements: any) {
