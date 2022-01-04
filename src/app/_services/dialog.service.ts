@@ -37,8 +37,9 @@ export class DialogService {
   openPackageDialog(state?: string, pack?: any) {
     const dialogRef = this.dialog.open(PackageDialogComponent, {
       height: 'auto',
+      maxHeight: '90%',
       minWidth: '300px',
-      maxWidth: "750px",
+      maxWidth: "90%",
       width: 'auto',
       data: { state: state, package: pack }
     });
@@ -48,8 +49,9 @@ export class DialogService {
   openWorkoutTypeDialog(state?: string, workout?: any) {
     const dialogRef = this.dialog.open(WorkoutTypeDialogComponent, {
       height: 'auto',
+      maxHeight: '90%',
       minWidth: '300px',
-      maxWidth: "750px",
+      maxWidth: "90%",
       width: 'auto',
       data: { state: state, workout: workout }
     });
@@ -58,8 +60,9 @@ export class DialogService {
   openWorkoutDialog(state?: string, workout?: any) {
     const dialogRef = this.dialog.open(WorkoutDialogComponent, {
       height: 'auto',
+      maxHeight: '90%',
       minWidth: '300px',
-      maxWidth: "750px",
+      maxWidth: "90%",
       width: 'auto',
       data: { state: state, workout: workout }
     });
@@ -68,8 +71,9 @@ export class DialogService {
   openCategoryTypeDialog(state?: string, cate?: any) {
     const dialogRef = this.dialog.open(CategoryTypeDialogComponent, {
       height: 'auto',
+      maxHeight: '90%',
       minWidth: '300px',
-      maxWidth: "750px",
+      maxWidth: "90%",
       width: 'auto',
       data: { state: state, cate: cate }
     });
@@ -78,8 +82,9 @@ export class DialogService {
   openCategoryDialog(state?: string, cate?: any) {
     const dialogRef = this.dialog.open(CategoriesDialogComponent, {
       height: 'auto',
+      maxHeight: '90%',
       minWidth: '300px',
-      maxWidth: "750px",
+      maxWidth: "90%",
       width: 'auto',
       data: { state: state, cate: cate }
     });
@@ -88,8 +93,9 @@ export class DialogService {
   openSubscribersDialog(state?: string, cate?: any) {
     const dialogRef = this.dialog.open(CategoriesDialogComponent, {
       height: 'auto',
+      maxHeight: '90%',
       minWidth: '300px',
-      maxWidth: "750px",
+      maxWidth: "90%",
       width: 'auto',
       data: { state: state, cate: cate }
     });
@@ -98,8 +104,9 @@ export class DialogService {
   openTipsDialog() {
     const dialogRef = this.dialog.open(TipsComponent, {
       height: 'auto',
+      maxHeight: '90%',
       minWidth: '300px',
-      maxWidth: "750px",
+      maxWidth: "90%",
       minHeight: '60vh',
       id: "picDialog",
       direction: "rtl",
@@ -110,8 +117,9 @@ export class DialogService {
   openResetpasswordDialog() {
     const dialogRef = this.dialog.open(ResetPasswordComponent, {
       height: 'auto',
+      maxHeight: '90%',
       minWidth: '300px',
-      maxWidth: "650px",
+      maxWidth: "90%",
       width: 'auto',
     });
     dialogRef.afterClosed().subscribe(res => console.log("dialog closed"));
@@ -119,8 +127,9 @@ export class DialogService {
   openUserDialog(path?: string, state?: string, user?: any) {
     const dialogRef = this.dialog.open(UserDialogComponent, {
       height: 'auto',
+      maxHeight: '90%',
       minWidth: '300px',
-      maxWidth: "750px",
+      maxWidth: "90%",
       width: 'auto',
       data: { state: state, user: user, path: path }
     });
@@ -129,8 +138,9 @@ export class DialogService {
   openBankAccountDialog(state?: string, account?: any) {
     const dialogRef = this.dialog.open(BankAccountDialogComponent, {
       height: 'auto',
+      maxHeight: '90%',
       minWidth: '300px',
-      maxWidth: "750px",
+      maxWidth: "90%",
       width: 'auto',
       data: { state: state, account: account }
     });
@@ -139,6 +149,7 @@ export class DialogService {
   inactiveDialog() {
     const dialogRef = this.dialog.open(InactiveDialogComponent, {
       height: 'auto',
+      maxHeight: '90%',
       width: 'auto',
     });
     dialogRef.afterClosed().subscribe(res => {
@@ -153,8 +164,9 @@ export class DialogService {
   openDietplanTempDialog(state?: string, dietplan?: any) {
     const dialogRef = this.dialog.open(DietplanTempDialogComponent, {
       height: 'auto',
+      maxHeight: '90%',
       minWidth: '300px',
-      maxWidth: "750px",
+      maxWidth: "90%",
       width: 'auto',
       data: { state: state, dietplan: dietplan }
     });
@@ -163,8 +175,9 @@ export class DialogService {
   openDietplanEditDialog(state?: string, data?: any) {
     const dialogRef = this.dialog.open(DietplanEditDialogComponent, {
       height: 'auto',
+      maxHeight: '90%',
       minWidth: '300px',
-      maxWidth: "750px",
+      maxWidth: "90%",
       width: 'auto',
       data: { state: state, data: data }
     });
@@ -173,8 +186,9 @@ export class DialogService {
   deleteDialog(data?: any) {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       height: 'auto',
+      maxHeight: '90%',
       minWidth: '300px',
-      maxWidth: "750px",
+      maxWidth: "90%",
       width: 'auto',
       data: data
     });
@@ -183,8 +197,9 @@ export class DialogService {
   preview(src: string, type: string) {
     const dialogRef = this.dialog.open(PreviewImageOrVideoComponent, {
       height: 'auto',
+      maxHeight: '90%',
       minWidth: '300px',
-      maxWidth: "750px",
+      maxWidth: "90%",
       width: 'auto',
       data: { src: src, type: type }
     });

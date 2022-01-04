@@ -6,3 +6,8 @@
 .package_body package-card {
   margin: 10px;
 }
+@media screen and (max-width: 35em) {
+  .package_body package-card {
+    width: 100%;
+  }
+}

@@ -8,6 +8,7 @@ import { TermsAndConditionComponent } from './terms-and-condition/terms-and-cond
 import { JoinigFormComponent } from './joinig-form/joinig-form.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { OtpComponent } from './otp/otp.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 export const RegistrationRouting: Routes = [
   { component: ResetPasswordComponent, path: 'reset_password' },
@@ -19,6 +20,7 @@ export const RegistrationRouting: Routes = [
   { component: TermsAndConditionComponent, path: 'terms_and_condition' },
   { component: JoinigFormComponent, path: 'joining_form' },
   { component: OtpComponent, path: 'otp_verify/:phonenumber' },
+  { component: ForgetPasswordComponent, path: 'forget_password' },
 
 ]
 

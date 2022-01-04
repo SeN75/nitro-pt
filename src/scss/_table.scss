@@ -143,3 +143,10 @@ div.header_table {
 .body {
   height: auto;
 }
+
+@media screen and (max-width: 768px) {
+  div.body_table,
+  div.header_table {
+    border: #e2e2e3 solid 1px !important;
+  }
+}

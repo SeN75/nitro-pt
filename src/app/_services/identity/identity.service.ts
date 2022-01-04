@@ -7,6 +7,8 @@ import { ToastService } from '../toast.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { TokenStorageService } from './token-storage.service';
+import { MessageService } from '../message.service';
+import { ResetPassword } from 'src/app/_common/types';
 const Identity = API + "auth/";
 @Injectable({
   providedIn: 'root'
@@ -17,8 +19,15 @@ export class IdentityService {
   staffs: any;
   toDayDate = new Date();
   newDayDate = new Date();
-
   newUserData: any;
+
+  resetPasswordObj: ResetPassword = {
+    uid: '',
+    token: '',
+    new_password: '',
+    re_new_password: '',
+    phone_number: ''
+  }
 
   isLoadingCoaches = true;
   hasErrorCoaches = false;
@@ -36,7 +45,8 @@ export class IdentityService {
     private router: Router,
     private cookieSrv: CookieService,
     private tokenService: TokenStorageService,
-    private logger: LoggerService) {
+    private logger: LoggerService,
+    private messageSrv: MessageService) {
     //this.logout();
     //this.logoutAll();
     this.userData = this.tokenService.getUser();
@@ -76,10 +86,8 @@ export class IdentityService {
   }
   private _login(userData: any) {
     const formData = new FormData();
-
     formData.append('username', userData.userName);
     formData.append('password', userData.password);
-
     return this.httpClient.post(Identity + 'user/login/', formData);
   }
   private _userActivation(data: any) {
@@ -114,7 +122,12 @@ export class IdentityService {
   private _verifyOTP(data: any) {
     return this.httpClient.post(Identity + "verify_OTP", data)
   }
-
+  private _generateOTP(data: any) {
+    return this.httpClient.post(Identity + 'generate_OTP', data);
+  }
+  private _generateUID(data: any) {
+    return this.httpClient.post(Identity + 'generate_uid', data);
+  }
 
   public getStaff() {
     this.isLoadingStaff = true;
@@ -194,7 +207,7 @@ export class IdentityService {
       else {
         this.newUserData = success
         this.userData = success;
-        this.router.navigateByUrl('/register/otp_verify/' + success.phone_number)
+        this.router.navigateByUrl('/register/otp_verify/?p=' + success.phone_number + '&t=n')
       }
     }, (error: HttpErrorResponse) => {
       this.logger.error("post Create User  error: ", error)
@@ -221,8 +234,8 @@ export class IdentityService {
         }
       })
     }, (error: HttpErrorResponse) => {
-      this.translateSrv.get('ERROR.').subscribe(msg => this.toastSrv.error(msg));
       this.logger.error("login error: ", error)
+      this.translateSrv.get('ERROR.').subscribe(msg => this.toastSrv.error(msg));
     })
   }
   public userActivation(data: any) {
@@ -268,8 +281,13 @@ export class IdentityService {
   public resetPasswordConfirm(data: any) {
     this._resetPasswordConfirm(data).subscribe((success: any) => {
       this.logger.log("reset Password Confirm:", success)
+      let successMessage = this.messageSrv.successMessage('REGISTRATION.change-password');
+      this.toastSrv.success(successMessage)
+      this.router.navigateByUrl('/register/login')
     }, (error: HttpErrorResponse) => {
-      this.logger.error("reset Password Confirm error: ", error)
+      this.logger.error("reset Password Confirm error: ", error);
+      let errorMessage = this.messageSrv.errorMessage('REGISTRATION.change-password', '', '');
+      this.toastSrv.error(errorMessage)
     })
   }
   public logoutAll() {
@@ -312,10 +330,15 @@ export class IdentityService {
     })
 
   }
-  public verifyOTP(data: any) {
+  public verifyOTP(data: any, type: string) {
     this._verifyOTP(data).subscribe((success: any) => {
       this.logger.log('accept otp: ', success)
-      this.router.navigateByUrl("/register/login")
+      if (type == 'n')
+        this.router.navigateByUrl("/register/login")
+      if (type == 'r') {
+        this.generateUID({ phone_number: data.phone_number })
+        this.router.navigateByUrl("/register/reset_password")
+      }
     }, (error: HttpErrorResponse) => {
       this.logger.error('otp not accept:', error);
       this.translateSrv.get('ERROR.').subscribe(msg => {
@@ -324,4 +347,27 @@ export class IdentityService {
     })
   }
 
+  public generateOTP(data: any) {
+    this._generateOTP(data).subscribe((success: any) => {
+      this.router.navigateByUrl('/register/otp_verify/?p=' + data.phone_number + '&t=r')
+      let successMsg = this.messageSrv.successMessage('REGISTRATION.otp');
+      this.toastSrv.success(successMsg)
+      this.logger.log('generateOtp: ', success)
+    }, (error: any) => {
+      this.logger.error('error generateOtp: ', error);
+      let errorMessage: any = this.messageSrv.errorMessage("REGISTRATION.forget-password " + error.detils, 'REGISTRATION.forget-password', '');
+      this.toastSrv.error(errorMessage);
+
+    })
+  }
+  public generateUID(data: any) {
+    this._generateUID(data).subscribe((success: any) => {
+      this.resetPasswordObj.uid = success.uid;
+      this.resetPasswordObj.token = success.token;
+      this.logger.log('generateUID: ', success)
+    }, (error: HttpErrorResponse) => {
+      this.logger.error('error generateUID: ', error);
+
+    })
+  }
 }

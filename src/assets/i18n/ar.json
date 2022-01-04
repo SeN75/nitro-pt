@@ -448,7 +448,8 @@
       "delete-item": "تم حذف عنصر بنجاح"
     },
     "REGISTRATION": {
-      "change-password": "تم تغيير كلمة المرور بنجاح"
+      "change-password": "تم تغيير كلمة المرور بنجاح",
+      "otp": "تم ارسال رمز التحقق على رقم جوالك"
     },
     "SETTINGS": {
       "new-bankaccount": " تم اضافة حساب بنكي جديد بنجاح",
@@ -482,7 +483,10 @@
     },
     "REGISTRATION": {
       "change-password": "حدث خطأ اثناء تغيير كلمة المرور",
-      "login": "حدث "
+      "login": "حدث ",
+      "forget-password": "حدث خطأ اثناء ارسال رقم الجوال",
+      "forget-password Not found.": "لم يتم العثور على رقم الجوال",
+      "otp": "حدث خطأ اثناء ارسال رمز التحقق"
     },
     "SETTINGS": {
       "new-bankaccount": "حدث خطأ اثناء اضافة حساب بنكي جديد",

@@ -85,7 +85,7 @@ sidemenu
 }
 
 .dashboard {
-  padding: 0 20px;
+  // padding: 0 20px;
   width: calc(100% - 200px);
   margin-left: auto;
   background-color: #f9faff;
@@ -155,6 +155,10 @@ sidemenu
   color: var(--red);
 }
 .form-group.has_error .hint {
+  color: var(--red);
+  font-size: 12px;
+}
+.has_error.hint {
   color: var(--red);
   font-size: 12px;
 }
@@ -438,7 +442,9 @@ button.selected {
   display: block;
   transform: scale(0.75);
 }
-
+.mat-dialog-content {
+  max-width: 750px;
+}
 @media screen and (max-width: 578px) {
   .register_card {
     background: #fff;
