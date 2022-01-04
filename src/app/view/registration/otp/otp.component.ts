@@ -113,7 +113,7 @@ export class OtpComponent implements OnInit {
     if (this.otpForm.valid) {
       let code = '';
       this.formInput.forEach(e => code += this.otpForm.get(e)?.value)
-      this.identitySrv.verifyOTP({ otp: code, phone_number: '+' + this.mobile.trim() }, this.type);
+      this.identitySrv.verifyOTP({ otp: this.autoInput.value, phone_number: '+' + this.mobile.trim() }, this.type);
       this.logger.log('otp: ', code)
     }
   }

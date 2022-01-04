@@ -1,11 +1,14 @@
 <h4 class="text-center section-title  h4">{{'FORM.otp-code' | translate}}</h4>
 <div class="register_form">
   <div class="row otp_codes" [formGroup]=otpForm>
-    <div class="form-group col-2" *ngFor="let input of formInput;  index as i">
+    <!-- <div class="form-group col-2" *ngFor="let input of formInput;  index as i">
       <input #formRow formControlName="{{input}}" class="form-control text-center" inputmode="numeric" maxlength="1"
         (keyup)="keyUpEvent($event, i)" placeholder="X">
+    </div> -->
+    <div class="form-group">
+      <input [formControl]="autoInput" class="form-control text-center col-12" inputmode="numeric"
+        autocomplete="one-time-code" maxlength="6" placeholder="xxx-xxx">
     </div>
-    <input [formControl]="autoInput" inputmode="numeric" autocomplete="one-time-code" hidden>
   </div>
   <div class="row justify-content-center">
 
