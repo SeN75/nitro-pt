@@ -188,7 +188,9 @@
     "execrise-edit": "edit workout",
     "no-data": "no execrises",
     "loading": "The exercises are loading...",
-    "view": "view exercise"
+    "view": "view exercise",
+    "upload-file": "Please upload a video *"
+
   },
   "DIETPLAN": {
     "table": "diteplane and exercise  table",
@@ -378,6 +380,7 @@
   },
   "DURATIONS": {
     "1": "month",
+    "11": "month",
     "2": "two month",
     "12": "year",
     "years": "years",

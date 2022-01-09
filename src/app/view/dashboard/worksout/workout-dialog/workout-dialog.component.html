@@ -29,6 +29,10 @@
       </div>
     </div>
     <uplode-file class="my-2" (file)="getVideo($event)"></uplode-file>
+
+    <p class="file_hint" *ngIf="exerciseForm.get('media_link').invalid">
+      {{'WORKSOUT.upload-file' | translate}} *
+    </p>
   </div>
   <div class="button-group mt-3">
     <button mat-raised-button color="primary" (click)="action()" [disabled]="exerciseForm.invalid"> {{'FORM.'+

@@ -17,7 +17,7 @@ export class WorkoutDialogComponent implements OnInit {
   isSend = false;
   selectedFile: any;
   fileUpload: File | any;
-  imgUpload = new FormControl({ value: '', disabled: true }, Validators.required)
+  imgUpload = new FormControl('', Validators.required)
   constructor(public dialogRef: MatDialogRef<WorkoutDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private logger: LoggerService,
@@ -29,7 +29,7 @@ export class WorkoutDialogComponent implements OnInit {
   ) {
     this.exerciseForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.pattern('[A-Za-z0-9 ]+')]],
-      media_link: [''],
+      media_link: ['', Validators.required],
       name_ar: ['', [Validators.required, Validators.pattern("^[\u0621-\u064A\u0660-\u0669-\u0900-\u097F ]+$")]],
       category: ['', []],
     });
@@ -84,6 +84,8 @@ export class WorkoutDialogComponent implements OnInit {
     this.imgUpload.setValue(event.target.files[0])
     this.fileUpload = <File>event.target.files[0];
     this.logger.log("img: ", this.imgUpload.value)
+    this.exerciseForm.get('media_link').setValue(this.imgUpload.value);
+
 
   }
 }
