@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { DialogService } from 'src/app/_services/dialog.service';
@@ -9,6 +9,7 @@ import { OffersService } from 'src/app/_services/financial/offers.service';
 import { PackagesService } from 'src/app/_services/financial/packages.service';
 import { LanguageService } from 'src/app/_services/language.service';
 import { LoggerService } from 'src/app/_services/logger.service';
+import { NumberValidator } from './../../../../_helpers/number.validator';
 
 @Component({
   selector: 'app-package-dialog',
@@ -25,6 +26,8 @@ export class PackageDialogComponent implements OnInit {
   maxDate = new Date();
   durations = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
   isSend = false;
+
+
   constructor(
     public dialogRef: MatDialogRef<PackageDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -48,7 +51,11 @@ export class PackageDialogComponent implements OnInit {
       attach_required: [false],
       attachment_id: [{ value: '', disabled: true }],
       showInWebsite: [false]
-    })
+    },
+      {
+        validator: NumberValidator('price')
+      }
+    )
     this.logger.log('attach: ', this.packSrv.attachmentList)
     this.packForm.get("attach_required")?.valueChanges.subscribe((value: boolean) => {
       this.logger.log('value:', value)
@@ -61,13 +68,44 @@ export class PackageDialogComponent implements OnInit {
     this.offerForm = this.formBuilder.group({
       start_date: ['', Validators.required],
       end_date: ['', Validators.required],
-      offer_value: ['', Validators.required],
+      offer_value: ['', [Validators.required, Validators.max(100)]],
       package_id: [''],
-      type: ['', Validators.required],
+      type: ['pr', Validators.required],
     })
+
     this.minDate.setDate(this.toDayDate.getDate() - 0)
     this.logger.log('minDate: ', this.minDate)
-    this.offerForm.get('type')?.valueChanges.subscribe((e: any) => { })
+
+
+    // change validation of offer_value when offer_type change
+    this.offerForm.get('type')?.valueChanges.subscribe((e: any) => {
+      if (e == 'fx') {
+        this.offerForm.removeControl('offer_value');
+        this.offerForm.addControl('offer_value', new FormControl('', [Validators.required, Validators.max(this.packForm.get('price').value)]));
+      }
+      else {
+        this.offerForm.removeControl('offer_value');
+        this.offerForm.addControl('offer_value', new FormControl('', [Validators.required, Validators.max(100)]));
+      }
+      this.offerForm.updateValueAndValidity();
+    })
+    // change validation of price when value change
+    // this.packForm.get('price')?.valueChanges.subscribe((e: any) => {
+    //   if (e.length > 4 && e.indexOf('.') == -1) {
+    //     this.packForm.removeControl('price');
+    //     this.packForm.addControl('price', new FormControl('', [Validators.required, Validators.pattern('([0-9]{1,4}')]));
+    //   } else {
+    //     this.packForm.removeControl('price');
+    //     this.packForm.addControl('price', new FormControl('', [Validators.required, Validators.pattern('([0-9]{1,4}\.[0-9]{0,2})')]));
+    //   }
+    //   this.offerForm.updateValueAndValidity();
+
+    // })
+    // NumberValidator(this.packForm.get('price'));
+
+    this.packForm.get('price').valueChanges.subscribe(() => {
+      this.logger.log('price: ', this.packForm.get('price'))
+    })
   }
 
   ngOnInit(): void {
