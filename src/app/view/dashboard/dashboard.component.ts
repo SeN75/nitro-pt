@@ -1,10 +1,11 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { categories, sideMenu } from './../../_common/globle';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { DialogService } from 'src/app/_services/dialog.service';
 import { CookieService } from 'ngx-cookie-service';
 import { IdentityService } from 'src/app/_services/identity/identity.service';
+import { LoggerService } from 'src/app/_services/logger.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,8 +21,11 @@ export class DashboardComponent {
   constructor(
     private identitySrv: IdentityService,
     private router: Router,
+    private activeRout: ActivatedRoute,
     private dialogSrv: DialogService,
+    private logger: LoggerService,
     private cookiesSrv: CookieService) {
+    activeRout.url.subscribe(() => this.activeLink = this.router.url)
 
   }
   signOut() {
