@@ -31,7 +31,7 @@
           <tr class="row_space">
             <td colspan="30"></td>
           </tr>
-          <tr>
+          <tr (click)="showOrder(order)">
             <td>{{i + 1 }}</td>
             <td>{{order.id}}</td>
             <td>{{order.client}}</td>
@@ -85,7 +85,7 @@
           <tr class="row_space">
             <td colspan="30"></td>
           </tr>
-          <tr>
+          <tr (click)="showOrder(order)">
             <td>{{i + 1 }}</td>
             <td>{{order.id}}</td>
             <td>{{order.client}}</td>

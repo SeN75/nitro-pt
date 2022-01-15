@@ -27,7 +27,7 @@
           <tr class="row_space">
             <td colspan="30"></td>
           </tr>
-          <tr>
+          <tr (click)="showExercise(workout)">
             <td>{{i + 1 }}</td>
             <td>{{lang.selected == 'ar'?workout.name_ar: workout.name}}</td>
             <td>
@@ -36,7 +36,8 @@
             </td>
             <td class="text-end">
               <span>
-                <button mat-icon-button (click)="dialogSrv.openWorkoutTypeDialog('edit', workout)">
+                <button mat-icon-button
+                  (click)="dialogSrv.openWorkoutTypeDialog('edit', workout); $event.stopPropagation()">
                   <mat-icon>edit</mat-icon>
                 </button>
                 <button mat-icon-button (click)="showExercise(workout)">

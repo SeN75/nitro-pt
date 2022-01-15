@@ -28,13 +28,14 @@
           <tr class="row_space">
             <td colspan="30"></td>
           </tr>
-          <tr>
+          <tr (click)="showCompunds(cat)">
             <td>{{i + 1 }}</td>
             <td>{{lang.selected =='ar' ? cat.name_ar: cat.name}}</td>
             <td>{{categoryItemSrv.getItemsWithSameCategory(cat.name).length}}</td>
             <td class="text-end">
               <span>
-                <button mat-icon-button (click)="dialogSrv.openCategoryTypeDialog('edit', cat)">
+                <button mat-icon-button
+                  (click)="dialogSrv.openCategoryTypeDialog('edit', cat); $event.stopPropagation()">
                   <mat-icon>edit</mat-icon>
                 </button>
                 <button mat-icon-button (click)="showCompunds(cat)">
