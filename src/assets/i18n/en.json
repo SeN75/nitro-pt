@@ -370,13 +370,16 @@
     "login": "you should login first",
     "phone-number": "The mobile number must be nine digits long",
     "ar": "You must use Arabic letters",
+    "ar-number": "You must use Arabic letters or numbers",
     "en": "You must use English letters",
     "fill": "Please fill",
     "req": "Please enter",
     "amount": "please enter a value that is two digits after the break maximum or four digits before the break maximum",
     "amount-ex": "Example: 0.99 or 9999",
     "amount-2": "please enter a value that is three digits after the break maximum or four digits before the break maximum",
-    "amount-ex2": "Example: 0.999 or 9999"
+    "amount-ex2": "Example: 0.999 or 9999",
+    "amount-3": "please enter a value that is one digit after the break maximum or three digits before the break maximum",
+    "amount-ex3": "Example: 0.9 or 999"
   },
   "DURATIONS": {
     "1": "month",

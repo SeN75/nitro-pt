@@ -44,11 +44,11 @@
     <close-order-table [order]="userData.closed_requests"></close-order-table>
     <!-- <dietplan-section></dietplan-section> -->
 
-    <div class="button-group " *ngIf="isSubscriptionExist()">
-      <button mat-raised-button color="primary">{{'FORM.update-profile' | translate}}</button>
-      <button mat-stroked-button color="primary" routerLink="/register/join_program">{{'FORM.new-subscription' |
-        translate}}</button>
-    </div>
+  </div>
+  <div class="button-group " *ngIf="isSubscriptionExist()">
+    <button mat-raised-button color="primary">{{'FORM.update-profile' | translate}}</button>
+    <button mat-stroked-button color="primary" routerLink="/register/join_program">{{'FORM.new-subscription' |
+      translate}}</button>
   </div>
 </section>
 <app-footer></app-footer>

@@ -21,7 +21,7 @@
         </button>
       </div>
       <div class="col-12 mt-3">
-        <input class="form-control" type="text" formControlName="workNature"
+        <input class="form-control" type="text" formControlName="workNature" maxLength="15"
           *ngIf=" healthInfoForm.get('workNature')?.value != 'ميداني' && healthInfoForm.get('workNature')?.value != 'مكتبي'">
         <div class="hint" *ngIf="healthInfoForm.get('workNature')?.invalid && healthInfoForm.get('workNature')?.dirty ">
           <span *ngIf="healthInfoForm.get('workNature').errors.required">{{'VALIDATION.required' | translate}}</span>
@@ -50,12 +50,13 @@
       <div class="col-12 mt-3" *ngIf="healthInfoForm.get('healthProblems')?.value != 'لا يوجد'">
         <label class="col-12">{{'SUBSCRIBERS.what-is-the-health-problem' | translate}} <span
             class="text-danger">*</span> </label>
-        <input class="form-control" type="text" formControlName="healthProblems">
+        <input class="form-control" type="text" formControlName="healthProblems" maxLength="30">
         <div class="hint"
           *ngIf="healthInfoForm.get('healthProblems')?.invalid && healthInfoForm.get('healthProblems')?.dirty ">
           <span *ngIf="healthInfoForm.get('healthProblems').errors.required">{{'VALIDATION.required' |
             translate}}</span>
-          <span *ngIf="healthInfoForm.get('healthProblems').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+          <span *ngIf="healthInfoForm.get('healthProblems').errors.pattern">{{'VALIDATION.ar-number' |
+            translate}}</span>
 
         </div>
       </div>
@@ -80,7 +81,7 @@
       <div class="col-12 mt-3" *ngIf="healthInfoForm.get('supplements')?.value != 'لا يوجد'">
         <label class="col-12">{{'SUBSCRIBERS.what-are-the-supplements' | translate}} <span
             class="text-danger">*</span></label>
-        <input class="form-control" type="text" formControlName="supplements">
+        <input class="form-control" type="text" formControlName="supplements" maxlength="25">
         <div class="hint"
           *ngIf="healthInfoForm.get('supplements')?.invalid && healthInfoForm.get('supplements')?.dirty ">
           <span *ngIf="healthInfoForm.get('supplements').errors.required">{{'VALIDATION.required' | translate}}</span>
@@ -94,19 +95,25 @@
       <label>{{'SUBSCRIBERS.what-is-the-purpose-of-the-programme' | translate}}<span
           class="text-danger">*</span></label>
       <div class="col-12">
-        <input class="form-control" type="text" formControlName="goalProblems">
+        <input class="form-control" type="text" formControlName="goalProblems" maxlength="25">
         <div class="hint"
-          *ngIf="healthInfoForm.get('supplements')?.invalid && healthInfoForm.get('supplements')?.dirty ">
-          <span *ngIf="healthInfoForm.get('supplements').errors.required">{{'VALIDATION.required' | translate}}</span>
-          <span *ngIf="healthInfoForm.get('supplements').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+          *ngIf="healthInfoForm.get('goalProblems')?.invalid && healthInfoForm.get('goalProblems')?.dirty ">
+          <span *ngIf="healthInfoForm.get('goalProblems').errors.required">{{'VALIDATION.required' | translate}}</span>
+          <span *ngIf="healthInfoForm.get('goalProblems').errors.pattern">{{'VALIDATION.ar-number' | translate}}</span>
 
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="form-group col-4">
+      <div class="form-group col-4"
+        [class.has_error]="healthInfoForm.get('sleepHours')?.invalid && healthInfoForm.get('sleepHours')?.dirty">
         <label>{{'SUBSCRIBERS.sleeping-hours' | translate}} <span class="text-danger">*</span></label>
-        <input formControlName="sleepHours" type="text" class="form-control">
+        <input formControlName="sleepHours" type="text" class="form-control" inputmode="numeric" maxlength="2">
+        <div class="hint" *ngIf="healthInfoForm.get('sleepHours')?.invalid && healthInfoForm.get('sleepHours')?.dirty ">
+          <span *ngIf="healthInfoForm.get('sleepHours').errors.required">{{'VALIDATION.required' | translate}}</span>
+          <!-- <span *ngIf="healthInfoForm.get('sleepHours').errors.pattern">{{'VALIDATION.hours' | translate}}</span> -->
+
+        </div>
       </div>
       <div class="form-group col-4">
         <label>{{'SUBSCRIBERS.bed-time' | translate}} <span class="text-danger">*</span></label>
@@ -137,11 +144,11 @@
       <div class="col-12 mt-3" *ngIf="healthInfoForm.get('ditePlan')?.value != 'لا يوجد'">
         <label class="col-12">{{'SUBSCRIBERS.please-write-the-program' | translate}}<span
             class="text-danger">*</span></label>
-        <textarea class="form-control" type="text" formControlName="ditePlan" rows="4"></textarea>
+        <textarea class="form-control" type="text" formControlName="ditePlan" rows="4" maxlength="80"></textarea>
         <div class="hint"
           *ngIf="healthInfoForm.get('goalProblems')?.invalid && healthInfoForm.get('goalProblems')?.dirty ">
           <span *ngIf="healthInfoForm.get('goalProblems').errors.required">{{'VALIDATION.required' | translate}}</span>
-          <span *ngIf="healthInfoForm.get('goalProblems').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+          <span *ngIf="healthInfoForm.get('goalProblems').errors.pattern">{{'VALIDATION.ar-number' | translate}}</span>
 
         </div>
       </div>
@@ -177,10 +184,10 @@
       <div class="col-12 mt-3" *ngIf="healthInfoForm.get('allergen')?.value != 'لا يوجد'">
         <label class="col-12">{{'SUBSCRIBERS.list-the-allergens' | translate}} <span
             class="text-danger">*</span></label>
-        <textarea class="form-control" type="text" formControlName="allergen"></textarea>
+        <textarea class="form-control" type="text" formControlName="allergen" maxlength="80"></textarea>
         <div class="hint" *ngIf="healthInfoForm.get('allergen')?.invalid && healthInfoForm.get('allergen')?.dirty ">
           <span *ngIf="healthInfoForm.get('allergen').errors.required">{{'VALIDATION.required' | translate}}</span>
-          <span *ngIf="healthInfoForm.get('allergen').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+          <span *ngIf="healthInfoForm.get('allergen').errors.pattern">{{'VALIDATION.ar-number' | translate}}</span>
 
         </div>
       </div>
@@ -203,10 +210,10 @@
       <div class="col-12 mt-3" *ngIf="healthInfoForm.get('unlike')?.value != 'لا يوجد'">
         <label class="col-12">{{'SUBSCRIBERS.please-mention-the-food-you-dont-like' | translate}} <span
             class="text-danger">*</span></label>
-        <textarea class="form-control" type="text" formControlName="unlike"></textarea>
+        <textarea class="form-control" type="text" formControlName="unlike" maxlength="80"></textarea>
         <div class="hint" *ngIf="healthInfoForm.get('unlike')?.invalid && healthInfoForm.get('unlike')?.dirty ">
           <span *ngIf="healthInfoForm.get('unlike').errors.required">{{'VALIDATION.required' | translate}}</span>
-          <span *ngIf="healthInfoForm.get('unlike').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+          <span *ngIf="healthInfoForm.get('unlike').errors.pattern">{{'VALIDATION.ar-number' | translate}}</span>
 
         </div>
       </div>
@@ -229,10 +236,10 @@
       <div class="col-12 mt-3" *ngIf="healthInfoForm.get('operations')?.value != 'لا يوجد'">
         <label class="col-12">{{'SUBSCRIBERS.please-indicate-the-location-and-type-of-the-operation' |
           translate}} <span class="text-danger">*</span></label>
-        <textarea class="form-control" type="text" formControlName="operations"></textarea>
+        <textarea class="form-control" type="text" formControlName="operations" maxlength="80"></textarea>
         <div class="hint" *ngIf="healthInfoForm.get('operations')?.invalid && healthInfoForm.get('operations')?.dirty ">
           <span *ngIf="healthInfoForm.get('operations').errors.required">{{'VALIDATION.required' | translate}}</span>
-          <span *ngIf="healthInfoForm.get('operations').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+          <span *ngIf="healthInfoForm.get('operations').errors.pattern">{{'VALIDATION.ar-number' | translate}}</span>
 
         </div>
       </div>

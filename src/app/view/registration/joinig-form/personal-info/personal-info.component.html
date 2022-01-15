@@ -32,13 +32,31 @@
       </div>
     </div>
     <div class="row justify-content-between">
-      <div class="form-group col-5 col-md-4">
-        <label>{{'PERSONAL-DATA.height'| translate}} <span class="text-danger">*</span></label>
+      <div class="form-group col-5 col-md-4" [class.has_error]="controls.height.invalid && controls.height.dirty">
+        <label>{{'PERSONAL-DATA.height'| translate}} <span class="label_hint">cm </span> <span
+            class="text-danger">*</span></label>
         <input class="form-control" formControlName="height">
+        <div class="hint" *ngIf="controls.height.invalid && controls.height.dirty">
+          <span *ngIf="controls.height.errors && controls.height.errors.required">
+            {{'VALIDATION.fill' | translate}} {{'PERSONAL-DATA.height'| translate}}
+          </span>
+          <span *ngIf="controls.height.errors && controls.height.errors.pattern">
+            {{'VALIDATION.amount-3' | translate}} {{'VALIDATION.amount-ex3' | translate}}
+          </span>
+        </div>
       </div>
-      <div class="form-group col-5 col-md-4">
-        <label>{{'PERSONAL-DATA.wight'| translate}} <span class="text-danger">*</span></label>
-        <input class="form-control" formControlName="weight">
+      <div class="form-group col-5 col-md-4" [class.has_error]="controls.weight.invalid && controls.weight.dirty">
+        <label>{{'PERSONAL-DATA.wight'| translate}} <span class="label_hint">kg </span> <span
+            class="text-danger">*</span></label>
+        <input class="form-control" formControlName="weight" inputmode="numeric" maxlength="5">
+        <div class="hint" *ngIf="controls.weight.invalid && controls.weight.dirty">
+          <span *ngIf="controls.weight.errors && controls.weight.errors.required">
+            {{'VALIDATION.fill' | translate}} {{'PERSONAL-DATA.wight'| translate}}
+          </span>
+          <span *ngIf="controls.weight.errors && controls.weight.errors.pattern">
+            {{'VALIDATION.amount-3' | translate}} {{'VALIDATION.amount-ex3' | translate}}
+          </span>
+        </div>
       </div>
     </div>
     <div class="row justify-content-between form-group">

@@ -31,9 +31,9 @@ export class PersonalInfoComponent implements OnInit {
     this.personalInfoForm = this.formBuilder.group({
       birthDate: ['', Validators.required],
       social_status: [0, Validators.required],
-      height: ['', Validators.required],
-      weight: ['', Validators.required],
-      gender: [1, Validators.required],
+      height: ['', [Validators.required, Validators.pattern('([0-9]{1,3}\.{1}[0-9]{0,1})')]],
+      weight: ['', [Validators.required, Validators.pattern('([0-9]{1,3}\.{1}[0-9]{0,1})')]],
+      gender: [2, Validators.required],
       city: ['', Validators.required]
     })
     this.personalInfoForm.valueChanges.subscribe(() => { this.isValid() })
@@ -43,6 +43,7 @@ export class PersonalInfoComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  get controls() { return this.personalInfoForm.controls }
   daysInMonth(month: any, year: any) {
     return new Date(year, month, 0).getDate();
   }
