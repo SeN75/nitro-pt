@@ -38,14 +38,20 @@ export class HealthInfoComponent implements OnInit {
     })
     this.healthInfoForm.valueChanges.subscribe(() => {
       console.log("change2")
-      this.value.data = this.healthInfoForm.value;
-      this.value.valid = this.healthInfoForm.valid;
-      this.healthInfo.emit(this.value)
-      this.logger.log('form value2: ', this.value)
-    })
+      setTimeout(() => this.output(), 600)
+    });
+
   }
 
   ngOnInit(): void {
-  }
 
+
+  }
+  output() {
+    console.log('fdafafadfd')
+    this.value.data = this.healthInfoForm.value;
+    this.value.valid = this.healthInfoForm.valid;
+    this.healthInfo.emit(this.value)
+    this.logger.log('form value2: ', this.value)
+  }
 }

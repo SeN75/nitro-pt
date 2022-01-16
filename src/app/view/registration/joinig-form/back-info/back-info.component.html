@@ -16,8 +16,8 @@
   </div>
 
   <div class="form-group w-100" *ngIf="package.attach_required">
-    <label>{{'FORM.other-attach' | translate}} {{package.required_attachments.length != 0 ?
-      package.required_attachments[0].attach_name_ar : ''}}</label>
+    <label>{{'FORM.other-attach' | translate}} {{package.required_attachments ?
+      package.required_attachments.attach_name_ar : ''}}</label>
     <div class="upload_file" (click)="attach.click()">
       <img [src]="attach_img" class="uploder_img">
       <button mat-button class="upload_button">

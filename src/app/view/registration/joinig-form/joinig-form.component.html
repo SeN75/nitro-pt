@@ -12,9 +12,9 @@
   </ngx-slick-carousel>
   <div class="register_slick_button">
     <!-- [disabled]="!isFormValid" -->
-    <button mat-button (click)="next()" *ngIf="caurselPos != 4" [disabled]="!isFormValid">{{'FORM.next' |
+    <button mat-button (click)="next()" *ngIf="caurselPos != 4" [disabled]="!isFormValid || isMove">{{'FORM.next' |
       translate}}</button>
     <span></span>
-    <button mat-button (click)="prev()" *ngIf="caurselPos != 0">{{'FORM.back' | translate}}</button>
+    <button mat-button (click)="prev()" *ngIf="caurselPos != 0" [disabled]="isMove">{{'FORM.back' | translate}}</button>
   </div>
 </div>

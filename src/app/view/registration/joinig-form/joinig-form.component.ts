@@ -45,20 +45,47 @@ export class JoinigFormComponent implements OnInit {
     ]
   };
   isFormValid = false;
+  isMove = false;
   caurselPos = 0;
   @ViewChild('slickModal')
   slickModal!: SlickCarouselComponent;
 
   next() {
-    this.caurselPos++;
-    if (this.caurselPos != 3)
-      this.isFormValid = false;
-    this.slickModal.slickNext();
+    this.isMove = true;
+    if (this.subscription.gender == 2 && this.caurselPos == 2) {
+      this.caurselPos += 2;
+      this.slickModal.slickNext();
+      setTimeout(() => {
+        this.slickModal.slickNext();
+        this.isMove = false;
+      }, 500)
+
+    }
+    else {
+      this.caurselPos++;
+      this.slickModal.slickNext();
+      setTimeout(() => this.isMove = false, 500);
+      if (this.caurselPos != 2)
+        this.isFormValid = false;
+    }
+
   }
 
   prev() {
-    this.caurselPos--;
-    this.slickModal.slickPrev();
+    this.isMove = true;
+    if (this.subscription.gender == 2 && this.caurselPos == 4) {
+      this.caurselPos -= 2;
+      this.slickModal.slickPrev();
+      setTimeout(() => {
+        this.slickModal.slickPrev();
+        this.isMove = false;
+      }, 500)
+    } else {
+      this.caurselPos--;
+      this.slickModal.slickPrev();
+      setTimeout(() => this.isMove = false, 500)
+    }
+
 
   }
   constructor(

@@ -35,13 +35,15 @@ export class PersonalInfoComponent implements OnInit {
       weight: ['', [Validators.required, Validators.pattern('([0-9]{1,3}\.{1}[0-9]{0,1})')]],
       gender: [2, Validators.required],
       city: ['', Validators.required]
-    })
+    });
     this.personalInfoForm.valueChanges.subscribe(() => { this.isValid() })
     this.subSrv.getGenderList();
     this.subSrv.getSocialStatusList();
   }
 
   ngOnInit(): void {
+    this.isValid();
+
   }
   get controls() { return this.personalInfoForm.controls }
   daysInMonth(month: any, year: any) {
