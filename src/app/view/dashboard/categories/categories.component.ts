@@ -35,9 +35,7 @@ export class CategoriesComponent implements OnInit {
     this.getFoodCategoriesList()
     // this.categorySrv.categories = this.categories;
     this.categoryItemSrv.getFoodItemList();
-    setTimeout(() => this.logger.log("sort: ", this.filterSrv.search(this.categorySrv.categories, 'name', 'pro')), 1500)
-    setTimeout(() => this.logger.log("sort: ", (this.categorySrv.categories)), 1000)
-    //setTimeout(() => this.logger.log("sort: ", this.filterSrv.descending(this.categorySrv.categories, 'name_ar')), 1000)
+
 
   }
 
