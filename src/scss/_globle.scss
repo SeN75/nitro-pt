@@ -245,9 +245,9 @@ sidemenu
 
 .body {
   margin-top: 65px;
-  height: 75vh;
-  overflow-y: auto;
-  scrollbar-width: thin;
+  height: auto;
+  // overflow-y: auto;
+  // scrollbar-width: thin;
 }
 
 /* width */

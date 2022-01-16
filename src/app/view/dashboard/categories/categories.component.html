@@ -13,7 +13,7 @@
   </header>
   <loader title="{{'CATEGORIES.loading' | translate}}" *ngIf="categorySrv.isLoading" [hasError]="categorySrv.hasError">
   </loader>
-  <div class="body scroll" *ngIf="!categorySrv.isLoading">
+  <div class="body " *ngIf="!categorySrv.isLoading">
     <table class="table-theme-1 hover">
       <thead class="text-center">
         <tr>

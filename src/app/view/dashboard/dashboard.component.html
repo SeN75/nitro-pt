@@ -20,7 +20,8 @@
         <img class="icon" src="../../../assets/icons/customer.svg">
         <span>{{ 'SETTINGS.nitro' | translate}}</span>
       </a>
-      <a *ngFor="let item of sideMenu; index as i" [routerLink]="item.path" class="items" routerLinkActive="active">
+      <a *ngFor="let item of sideMenu; index as i" [routerLink]="item.path" class="items"
+        [class.active]="activeLink.includes(item.root+'')">
         <img class="icon" src="../../../assets/icons/{{activeLink.includes(item.root+'')?item.activeImg:item.img}}">
         <span>{{ item.name | translate}}</span>
       </a>
