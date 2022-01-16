@@ -11,19 +11,24 @@ sidemenu
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   overflow: auto;
+  transition: all .6s ease-in-out;
 }
 .side-menu-close .side-menu {
   width: 50px;
+  transition: all .6s ease-in-out;
+  overflow: none!important;
 }
 .nitro-logo {
   width: 90px;
-  height: auto;
+  height: 85px;
   display: block;
   margin: 30px auto 0;
+  transition: all .6s ease-in-out;
 }
 .side-menu-close .nitro-logo {
-  margin: 30px 10px 0 0;
   width: 35px;
+  height: 85px;
+  transition: all .6s ease-in-out;
 }
 .main {
   background-color: #f9faff;
@@ -46,9 +51,11 @@ sidemenu
   height: 0.15px;
   background-color: rgb(224, 224, 224);
   margin: 10px auto 0;
+  transition: all .6s ease-in-out;
 }
 .side-menu-close .logo-underline {
   width: 30px;
+  transition: all .6s ease-in-out;
 }
 .menu {
   display: flex;
@@ -70,9 +77,30 @@ sidemenu
   text-transform: capitalize;
   margin: 0 20px;
   font-size: 14px;
+  opacity:1;
+  position: absolute;
+  white-space: nowrap;
+  transition: opacity 3s ease-in-out;
+}
+.menu-button-wrapper{
+  width: 100%!important;
+  text-align: center;
+  margin: 0px auto;
+  position:relative;
+  top: 25px;
+}
+.white-icon {
+  color: white;
+}
+/* Note: If you're using an SVG icon, you should make the class target the `<svg>` element */
+.white-icon svg {
+  fill: white;
 }
 .side-menu-close .side-menu .menu .items span {
+  opacity:0;
   display: none !important;
+  position: absolute;
+  transition: opacity 3.5s ease-in-out;
 }
 .main .items .icon {
   width: 20px;
@@ -89,9 +117,12 @@ sidemenu
   width: calc(100% - 200px);
   margin-left: auto;
   background-color: #f9faff;
+  transition: all .6s ease-in-out;
 }
+
 .side-menu-close .dashboard {
   width: calc(100% - 60px);
+  transition: all .6s ease-in-out;
 }
 /*
 sidemenu

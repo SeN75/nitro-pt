@@ -7,7 +7,8 @@
   padding: 10px 20px;
   margin: 20px 0;
   height: -webkit-fill-available;
-  min-width: 450px;
+  min-width: 350px;
+  position: relative;
 }
 .category-body {
   font-size: 13px;
@@ -26,12 +27,14 @@
   color: #1d4980;
   font-weight: bolder;
   font-size: 25px;
+  width: 100%;
+  text-align: center;
 }
 
 .organic-compound {
   text-align: center;
   border-top: 1px solid #eff1f8;
-  padding-top: 20px;
+  padding-top: 5px;
 }
 
 .organic-compound .title {
@@ -57,4 +60,10 @@
   .category-card {
     min-width: 300px;
   }
+}
+
+.measruing-unit {
+  position: absolute;
+  right: 20px;
+  top: 10px;
 }

@@ -1,9 +1,6 @@
 <!-- Alsaggaf -->
 <section class="main" [class.side-menu-close]="isSideMenu">
   <div class="nav_bar">
-    <button mat-icon-button (click)="isSideMenu = !isSideMenu">
-      <mat-icon>menu</mat-icon>
-    </button>
     <span></span>
     <img class="nitro-logo" src="../../../assets/images/Logo.svg">
     <span></span>
@@ -11,6 +8,11 @@
 
   </div>
   <div class="side-menu">
+    <div class="menu-button-wrapper">
+  <button class="mat-menu-button" mat-icon-button (click)="isSideMenu = !isSideMenu">
+    <div *ngIf="isSideMenu"><mat-icon class="white-icon">keyboard_arrow_left</mat-icon></div>
+    <div *ngIf="!isSideMenu"><mat-icon class="white-icon">keyboard_arrow_right</mat-icon></div>
+  </button></div>
     <img class="nitro-logo" src="../../../assets/images/Logo.svg">
     <div class="logo-underline"></div>
 
