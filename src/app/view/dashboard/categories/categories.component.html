@@ -29,9 +29,9 @@
             <td colspan="30"></td>
           </tr>
           <tr (click)="showCompunds(cat)">
-            <td>{{i + 1 }}</td>
+            <td>{{ cat.pos }}</td>
             <td>{{lang.selected =='ar' ? cat.name_ar: cat.name}}</td>
-            <td>{{categoryItemSrv.getItemsWithSameCategory(cat.name).length}}</td>
+            <td>{{cat.total_items}}</td>
             <td class="text-end">
               <span>
                 <button mat-icon-button

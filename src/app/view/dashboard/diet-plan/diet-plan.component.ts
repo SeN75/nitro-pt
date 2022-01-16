@@ -1,4 +1,4 @@
-import { DietPlanService } from './../../../_services/diet-plan.service';
+import { DietPlanService } from '../../../_services/dite/diet-plan.service';
 import { Component, OnInit } from '@angular/core';
 import { DialogService } from 'src/app/_services/dialog.service';
 

@@ -7,7 +7,6 @@ import { ExercisesService } from 'src/app/_services/gym/exercises.service';
 import { LoggerService } from 'src/app/_services/logger.service';
 import { SubscriptionsService } from 'src/app/_services/subscriptions/subscriptions.service';
 import { completedOrders } from './../../../_common/globle';
-import { OrdersService } from './../../../_services/orders.service';
 
 @Component({
   selector: 'app-orders',
@@ -26,7 +25,6 @@ export class OrdersComponent implements OnInit {
   hasError = false;
   constructor(
     public dialogSrv: DialogService,
-    public orderSrv: OrdersService,
     public subscriptionSrv: SubscriptionsService,
     private logger: LoggerService,
     private router: Router,

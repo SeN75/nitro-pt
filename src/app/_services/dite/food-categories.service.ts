@@ -58,8 +58,10 @@ export class FoodCategoriesService {
     this.hasError = false;
 
     this._getFoodCategoriesList().subscribe((success: any) => {
+      let count = 1;
       this.loaded()
       this.categories = success;
+      this.categories.forEach((e: any) => e.pos = count++)
       this.logger.log("get food categories List:", success)
     }, (error: HttpErrorResponse) => {
       this.hasError = true

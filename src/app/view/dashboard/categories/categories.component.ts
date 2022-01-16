@@ -10,6 +10,7 @@ import { CategoryFood } from 'src/app/_common/types';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { CategoryTypeDialogComponent } from './category-type-dialog/category-type-dialog.component';
+import { FilteringService } from './../../../_services/filtering.service';
 
 @Component({
   selector: 'app-categories',
@@ -28,11 +29,16 @@ export class CategoriesComponent implements OnInit {
     private router: Router,
     public lang: LanguageService,
     private dialog: MatDialog,
+    private filterSrv: FilteringService,
     private logger: LoggerService) {
     // this.categorySrv.getFoodCategoriesList()
     this.getFoodCategoriesList()
     // this.categorySrv.categories = this.categories;
-    this.categoryItemSrv.getFoodItemList()
+    this.categoryItemSrv.getFoodItemList();
+    setTimeout(() => this.logger.log("sort: ", this.filterSrv.search(this.categorySrv.categories, 'name', 'pro')), 1500)
+    setTimeout(() => this.logger.log("sort: ", (this.categorySrv.categories)), 1000)
+    //setTimeout(() => this.logger.log("sort: ", this.filterSrv.descending(this.categorySrv.categories, 'name_ar')), 1000)
+
   }
 
   ngOnInit(): void {

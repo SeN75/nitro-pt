@@ -155,7 +155,9 @@ export interface PackageAttachment {
 export interface CategoryFood {
   name: string,
   name_ar: string,
-  id: number
+  id: number,
+  pos?: number,
+  total_items?: number
 }
 
 
