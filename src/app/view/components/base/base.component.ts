@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { categories } from 'src/app/_common/globle';
+import { DatepickerService } from 'src/app/_services/datepicker.service';
+import { LoggerService } from 'src/app/_services/logger.service';
 import { DialogService } from './../../../_services/dialog.service';
 
 @Component({
@@ -9,10 +13,20 @@ import { DialogService } from './../../../_services/dialog.service';
 })
 export class BaseComponent implements OnInit {
   categories = categories;
-
-  constructor(public dialogSrv: DialogService) { }
+  dateTest: FormControl = new FormControl('')
+  constructor(
+    public dialogSrv: DialogService,
+    private dateSrv: DatepickerService,
+    private logger: LoggerService) { }
 
   ngOnInit(): void {
   }
-
+  openDate() {
+    this.dateSrv.dateInput('test', this.dateTest.value).subscribe(() => {
+      this.logger.log('Date: ', this.dateSrv.dateToString())
+      this.logger.log('Date: ', this.dateSrv.newDate)
+      this.dateTest.setValue(this.dateSrv.dateToString());
+      this.dateSrv.newDate = undefined
+    })
+  }
 }

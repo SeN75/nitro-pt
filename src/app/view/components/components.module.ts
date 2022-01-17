@@ -20,6 +20,10 @@ import { LoaderComponent } from './loader/loader.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { PreviewImageOrVideoComponent } from './preview-image-or-video/preview-image-or-video.component';
+import { DatepickerComponent } from './datepicker/datepicker.component';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { DateHijriComponent } from './datepicker/date-hijri/date-hijri.component';
+import { DateGregorianComponent } from './datepicker/date-gregorian/date-gregorian.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,10 @@ import { PreviewImageOrVideoComponent } from './preview-image-or-video/preview-i
     EntriesAndRemainingComponent,
     LoaderComponent,
     DeleteDialogComponent,
-    PreviewImageOrVideoComponent
+    PreviewImageOrVideoComponent,
+    DatepickerComponent,
+    DateHijriComponent,
+    DateGregorianComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,8 @@ import { PreviewImageOrVideoComponent } from './preview-image-or-video/preview-i
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgbModule
 
   ],
   exports: [
