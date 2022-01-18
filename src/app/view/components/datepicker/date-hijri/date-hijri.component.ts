@@ -35,8 +35,10 @@ export class DateHijriComponent implements OnInit {
     this.date = ev;
   }
   slectedDate() {
-    this.dateSrv.newDate = this.date;
-    this._output(this.date)
-    this.output.emit(this.date);
+    this.logger.log('date value: ', this.date + "")
+
+    this.dateSrv.newDate = this.date != undefined ? this.date : this.value;
+    this.dateSrv.isValueChange = true;
+    this.output.emit(this.dateSrv.newDate);
   }
 }

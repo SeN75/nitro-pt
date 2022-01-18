@@ -11,6 +11,7 @@ export class DatepickerService {
 
   newDate: any;
   moment_hijri = _moment();
+  isValueChange = false;
   constructor(
     private dialog: MatDialog
   ) { }

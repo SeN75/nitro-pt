@@ -4,7 +4,10 @@
   </button>
   <h2 mat-dialog-title color="primary">{{data.title | translate}}</h2>
 </div>
-<button (click)="changeDateType(); ">{{isHijri ? 1 : 0}}</button>
+<div class="dateType">
+  <button [class.typeActive]="isHijri" (click)="changeDateType(); ">{{'FORM.hijri' | translate}}</button>
+  <button [class.typeActive]="!isHijri" (click)="changeDateType(); ">{{'FORM.gregorian' | translate}}</button>
+</div>
 <div style="margin: auto -14px;">
   <div mat-dialog-content>
     <date-gregorian *ngIf="!isHijri" outsideDays="hidden" [startDate]="toDayDate" [value]="toDayDate"

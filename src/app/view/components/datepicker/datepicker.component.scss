@@ -3,3 +3,37 @@
   justify-content: space-between;
   margin-bottom: 30px;
 }
+.dateType {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.dateType button {
+  padding: 5px 10px;
+  border: 1px solid var(--gray);
+  background: var(--white);
+
+  cursor: pointer;
+}
+.dateType button:nth-child(1) {
+  border-bottom-left-radius: 0.5em;
+  border-top-left-radius: 0.5em;
+  border-right: 0.5px;
+}
+.dateType button:nth-child(2) {
+  border-bottom-right-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+.dateType button.typeActive {
+  background: var(--primray);
+  color: var(--white);
+}
+
+.dateType button:active {
+  background: var(--white-dark);
+  color: var(--primray);
+}
+.dateType button.typeActive:active {
+  background: var(--primray-dark);
+  color: var(--white);
+}

@@ -25,8 +25,11 @@ export class BaseComponent implements OnInit {
     this.dateSrv.dateInput('test', this.dateTest.value).subscribe(() => {
       this.logger.log('Date: ', this.dateSrv.dateToString())
       this.logger.log('Date: ', this.dateSrv.newDate)
-      this.dateTest.setValue(this.dateSrv.dateToString());
-      this.dateSrv.newDate = undefined
+      if (this.dateSrv.isValueChange) {
+        this.dateTest.setValue(this.dateSrv.dateToString());
+        this.dateSrv.newDate = undefined;
+        this.dateSrv.isValueChange = false;
+      }
     })
   }
 }

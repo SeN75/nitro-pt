@@ -24,6 +24,7 @@ import { DatepickerComponent } from './datepicker/datepicker.component';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { DateHijriComponent } from './datepicker/date-hijri/date-hijri.component';
 import { DateGregorianComponent } from './datepicker/date-gregorian/date-gregorian.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { DateGregorianComponent } from './datepicker/date-gregorian/date-gregori
     FormsModule,
     RouterModule,
     MatProgressSpinnerModule,
-    NgbModule
+    NgbModule,
+    MatButtonToggleModule
 
   ],
   exports: [

@@ -346,7 +346,9 @@
     "Female": "female",
     "other-attach": "other attachment",
     "click-to-preview": "prview",
-    "no-pic": "no picture"
+    "no-pic": "no picture",
+    "hijri": "hijri",
+    "gregorian": "gregorian"
 
 
 

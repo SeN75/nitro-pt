@@ -370,8 +370,8 @@
         "select-upload": "اضغط لرفع",
         "click-to-preview": "اضغط للمعاينة",
         "no-pic": "لا توجد صوره للمعاينة",
-        "height-by-cm": "بالسنتيمتر",
-        "weight-by-km": "بالكيلو جرام"
+        "hijri": "هجري",
+        "gregorian": "ميلادي"
 
 
     },

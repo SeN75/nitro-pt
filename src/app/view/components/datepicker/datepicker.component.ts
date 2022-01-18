@@ -7,6 +7,7 @@ import * as _moment from 'moment-hijri';
 import { IslamicI18n } from 'src/app/_helpers/hijri-date';
 import { DatepickerService } from 'src/app/_services/datepicker.service';
 import { LoggerService } from 'src/app/_services/logger.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-datepicker',
@@ -36,7 +37,7 @@ export class DatepickerComponent implements OnInit {
     this.logger.log('current date initial: ', this.data.date + "")
     if (this.data.date === undefined || this.data.date == '') {
       this.toDayDate = this.calendar.getToday();
-      this.dateSrv.newDate = {};
+      this.dateSrv.newDate = this.toDayDate;
     } else {
       this.toDayDate = this.dateSrv.dateObj(this.data.date);
       this.dateSrv.newDate = this.toDayDate;
@@ -44,7 +45,7 @@ export class DatepickerComponent implements OnInit {
       this.logger.log('current date: ', this.toDayDate)
 
     }
-    this.logger.log('current date: ', this.toDayDate)
+    this.logger.log('current date: ', this.toDayDate);
     this.assmbaleData();
   }
   assmbaleData() {
@@ -98,6 +99,7 @@ export class DatepickerComponent implements OnInit {
     this.dialogRef.close();
   }
   onNoClick() {
+    this.dateSrv.isValueChange = false
     this.dialogRef.close();
 
   }
