@@ -19,6 +19,7 @@ export class DateHijriComponent implements OnInit {
   @Input() startDate: any;
   @Input() maxDate: any;
   @Input() markDisabled: any;
+  @Input() value: any;
   @Output() output = new EventEmitter();
   date: any;
 

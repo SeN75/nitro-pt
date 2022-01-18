@@ -66,5 +66,25 @@ export class DatepickerService {
     let _d: any[] = date.split('/');
     return { year: +(_d[0]), month: +(_d[1]), day: +(_d[2]) }
   }
+  getTodayDateHijri() {
+    return this.replaceNumber(_moment().format('iYYYY/iMM/iDD'))
+  }
+  getTodayDate() {
+    return this.replaceNumber(moment().format('YYYY/M/DD'));
+  }
+  replaceNumber(str: string) {
+    return str
+      .replace(/٠/g, '0')
+      .replace(/١/g, '1')
+      .replace(/٢/g, '2')
+      .replace(/٣/g, '3')
+      .replace(/٤/g, '4')
+      .replace(/٥/g, '5')
+      .replace(/٦/g, '6')
+      .replace(/٧/g, '7')
+      .replace(/٨/g, '8')
+      .replace(/٩/g, '9')
+  }
+
 }
 

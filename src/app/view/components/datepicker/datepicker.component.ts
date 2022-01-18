@@ -7,6 +7,7 @@ import * as _moment from 'moment-hijri';
 import { IslamicI18n } from 'src/app/_helpers/hijri-date';
 import { DatepickerService } from 'src/app/_services/datepicker.service';
 import { LoggerService } from 'src/app/_services/logger.service';
+
 @Component({
   selector: 'app-datepicker',
   templateUrl: './datepicker.component.html',
@@ -76,8 +77,21 @@ export class DatepickerComponent implements OnInit {
     else {
       this.minDate = this.isHijri ? { year: 1300, month: 1, day: 1 } : { year: 1700, month: 1, day: 1 }
       this.config.minDate = this.minDate;
+      this.maxDate = this.isHijri ? { year: 1600, month: 12, day: 29 } : { year: 2200, month: 12, day: 29 };
+      this.config.maxDate = this.maxDate;
+
+
+
+
+
     }
 
+  }
+
+  changeDateType() {
+    this.isHijri = !this.isHijri;
+    this.toDayDate = this.isHijri ? this.dateSrv.dateObj(this.dateSrv.getTodayDateHijri()) : this.dateSrv.dateObj(this.dateSrv.getTodayDate());
+    this.assmbaleData()
   }
   slectedDate() {
     this.dateSrv.newDate = this.toDayDate;

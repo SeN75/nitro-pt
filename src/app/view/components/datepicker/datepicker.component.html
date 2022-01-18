@@ -4,14 +4,15 @@
   </button>
   <h2 mat-dialog-title color="primary">{{data.title | translate}}</h2>
 </div>
-<button (click)="isHijri = !isHijri; assmbaleData() ">{{isHijri ? 1 : 0}}</button>
+<button (click)="changeDateType(); ">{{isHijri ? 1 : 0}}</button>
 <div style="margin: auto -14px;">
   <div mat-dialog-content>
-    <date-gregorian *ngIf="!isHijri" outsideDays="hidden" [startDate]="toDayDate" [minDate]="minDate"
-      [maxDate]="maxDate" [markDisabled]="config.markDisabled" class="datepicker" (output)="valueChange($event)">
+    <date-gregorian *ngIf="!isHijri" outsideDays="hidden" [startDate]="toDayDate" [value]="toDayDate"
+      [minDate]="minDate" [maxDate]="maxDate" [markDisabled]="config.markDisabled" class="datepicker"
+      (output)="valueChange($event)">
     </date-gregorian>
-    <date-hijri *ngIf="isHijri" outsideDays="hidden" [startDate]="toDayDate" [minDate]="minDate" [maxDate]="maxDate"
-      [markDisabled]="config.markDisabled" class="datepicker" (output)="valueChange($event)">
+    <date-hijri *ngIf="isHijri" outsideDays="hidden" [startDate]="toDayDate" [value]="toDayDate" [minDate]="minDate"
+      [maxDate]="maxDate" [markDisabled]="config.markDisabled" class="datepicker" (output)="valueChange($event)">
     </date-hijri>
 
   </div>
