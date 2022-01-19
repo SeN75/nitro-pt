@@ -1,24 +1,14 @@
 <section class="form_wrapper mb-2 scroll py-3 register_card">
   <div class="h5 section-title text-center">{{'SUBSCRIBERS.personal-subscriber-info' | translate}}</div>
   <div class="px-4 " [formGroup]="personalInfoForm">
-    <div class="row  form-group justify-content-between">
-      <label class="">{{'PERSONAL-DATA.birthday' | translate}} <span class="text-danger">*</span></label>
-      <div class="col">
-        <select [formControl]="birthDateDay" class=" form-control " (change)="setBirthDate()">
-          <option *ngFor="let day of counter(numberDaysInMonth); let i = index" [value]="i+1">{{i+1}}</option>
-        </select>
-      </div>
-      <div class="col">
-        <select [formControl]="birthDateMonth" class=" form-control " (change)="setNumberDaysInMonth(); setBirthDate()">
-          <option *ngFor="let month of counter(12); let i = index" [value]="i+1">{{i+1}}</option>
-        </select>
-      </div>
-      <div class="col">
-        <select [formControl]="birthDateYear" class=" form-control " (change)="setNumberDaysInMonth(); setBirthDate()">
-          <option *ngFor="let year of getYears()" [value]="year">{{year}}</option>
-        </select>
+    <div class="row">
+
+      <div class="  form-group col-12">
+        <label class="">{{'PERSONAL-DATA.birthday' | translate}} <span class="text-danger">*</span></label>
+        <input formControlName="birthDate" class="form-control" (click)="birthDate()">
       </div>
     </div>
+
     <div class="row form-group">
       <label for="">{{'PERSONAL-DATA.social-status' | translate}} <span class="text-danger">*</span></label>
       <div class="col-12">

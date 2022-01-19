@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
+import { DatepickerService } from 'src/app/_services/datepicker.service';
 import { LanguageService } from 'src/app/_services/language.service';
 import { LoggerService } from 'src/app/_services/logger.service';
 import { cities } from './../../../../_common/cities';
@@ -27,6 +28,7 @@ export class PersonalInfoComponent implements OnInit {
     private formBuilder: FormBuilder,
     private logger: LoggerService,
     public subSrv: SubscriptionsService,
+    private dateSrv: DatepickerService,
     public lang: LanguageService) {
     this.personalInfoForm = this.formBuilder.group({
       birthDate: ['', Validators.required],
@@ -85,5 +87,16 @@ export class PersonalInfoComponent implements OnInit {
     this.value.data = this.personalInfoForm.value;
     this.personalInfo.emit(this.value);
     this.logger.log('form value: ', this.value)
+  }
+
+  birthDate() {
+    let birthDate: any = this.personalInfoForm.get('birthDate');
+    this.dateSrv.dateInput('PERSONAL-DATA.birthday', birthDate.value).subscribe(() => {
+      if (this.dateSrv.isValueChange) {
+        birthDate.setValue(this.dateSrv.dateToString());
+        this.dateSrv.newDate = undefined;
+        this.dateSrv.isValueChange = false;
+      }
+    })
   }
 }

@@ -63,6 +63,16 @@ export class DatepickerService {
   dateToString() {
     return this.newDate.year + "/" + this.newDate.month + "/" + this.newDate.day;
   }
+  toString(date: any, space?: string) {
+    space = space ? space : '/';
+    return date.year + space + date.month + space + date.day;
+  }
+  gergorianToString(date: any, space?: string) {
+    return this.replaceNumber(_moment(date, 'iYYYY/iMM/iDD').format(`YYYY${space}MM${space}DD`))
+  }
+  hijriToString(date: any, space?: string) {
+    return this.replaceNumber(_moment(date, 'YYYY/MM/DD').format(`iYYYY${space}iMM${space}iDD`))
+  }
   dateObj(date: string) {
     let _d: any[] = date.split('/');
     return { year: +(_d[0]), month: +(_d[1]), day: +(_d[2]) }
@@ -72,6 +82,9 @@ export class DatepickerService {
   }
   getTodayDate() {
     return this.replaceNumber(moment().format('YYYY/M/DD'));
+  }
+  isDateHijri(date: string) {
+    return +(date.split('/')[0]) < 1700;
   }
   replaceNumber(str: string) {
     return str
