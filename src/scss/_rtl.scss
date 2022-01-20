@@ -104,4 +104,20 @@
   .package_slashline {
     transform: rotateZ(313deg) !important;
   }
+
+  .table-theme-1 th:first-child,
+  .table-theme-1 td:first-child {
+    border-top-right-radius: 0.25em;
+    border-bottom-right-radius: 0.25em;
+    border-top-left-radius: unset;
+    border-bottom-left-radius: unset;
+  }
+
+  .table-theme-1 th:last-child,
+  .table-theme-1 tr td:last-child {
+    border-top-left-radius: 0.25em;
+    border-bottom-left-radius: 0.25em;
+    border-top-right-radius: unset;
+    border-bottom-right-radius: unset;
+  }
 }
