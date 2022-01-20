@@ -13,7 +13,8 @@
       <div class="package_slashline"></div>
       <div class="package_duration">
         <span class="pack_value">{{package_months > 2 && package_months < 12? package_months: '' }}</span>
-            <span class="pack_duration">{{ ( package_months < 11 && package_months> 2 ? 'DURATIONS.month' :
+        <span [class.pack_duration]="package_months < 11 && package_months> 2"
+          [class.pack_duration_2]="package_months < 3 || package_months = 12 ">{{ ( package_months < 11 && package_months> 2 ? 'DURATIONS.month' :
                 package_months
                 >=
                 12 ? 'DURATIONS.year' :
