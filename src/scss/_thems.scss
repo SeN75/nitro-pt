@@ -2,8 +2,8 @@
 @include mat-core();
 
 :root {
-  --primray: #1d4980;
-  --primray-dark: #143864;
+  --primary: #1d4980;
+  --primary-dark: #143864;
   --gray: #adabac;
   --gray-blue: #eff1f8;
   --white: rgb(255, 255, 255);
@@ -66,5 +66,5 @@ $nitro-theme: mat-light-theme(
 }
 
 .bg-primary {
-  background-color: var(--primray) !important;
+  background-color: var(--primary) !important;
 }

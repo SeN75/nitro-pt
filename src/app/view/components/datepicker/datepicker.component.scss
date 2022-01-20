@@ -25,15 +25,15 @@
   border-top-right-radius: 0.5em;
 }
 .dateType button.typeActive {
-  background: var(--primray);
+  background: var(--primary);
   color: var(--white);
 }
 
 .dateType button:active {
   background: var(--white-dark);
-  color: var(--primray);
+  color: var(--primary);
 }
 .dateType button.typeActive:active {
-  background: var(--primray-dark);
+  background: var(--primary-dark);
   color: var(--white);
 }

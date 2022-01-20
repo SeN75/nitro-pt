@@ -4,7 +4,7 @@ sidemenu
 .side-menu {
   position: fixed;
   width: 200px;
-  background-color: var(--primray);
+  background-color: var(--primary);
   top: 0;
   height: 100%;
   border-radius: 0;
@@ -107,7 +107,7 @@ sidemenu
   height: auto;
 }
 .main .items.active {
-  color: var(--primray);
+  color: var(--primary);
   background-color: white;
   text-decoration: none;
 }
@@ -136,7 +136,7 @@ sidemenu
 }
 .detail {
   text-transform: capitalize;
-  color: var(--primray);
+  color: var(--primary);
   font-size: 16px;
   font-weight: bold;
 }
@@ -146,7 +146,7 @@ sidemenu
   background-color: var(--gray-blue) !important;
 }
 .dialog-title {
-  color: var(--primray) !important;
+  color: var(--primary) !important;
   font-weight: bolder;
   text-transform: uppercase;
   font-size: 26px;
@@ -168,12 +168,12 @@ sidemenu
   margin-top: 30px;
 }
 .register_form .form-group label {
-  color: var(--primray);
+  color: var(--primary);
 }
 .form-group .form-control {
   background-color: var(--white);
   border: 1px solid var(--gray-blue);
-  color: var(--primray);
+  color: var(--primary);
   height: 52px;
   text-align: left;
   outline: none !important;

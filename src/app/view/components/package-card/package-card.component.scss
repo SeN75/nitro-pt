@@ -140,7 +140,7 @@
 }
 
 .package_price .pack_currncey {
-  color: var(--primray);
+  color: var(--primary);
   font: normal normal bold 14px/20px Helvetica;
   justify-content: left;
   display: flex;
@@ -172,7 +172,7 @@
 
 .package_duration .pack_duration {
   font: normal normal bold 14px/20px Helvetica;
-  color: var(--primray);
+  color: var(--primary);
   margin-right: 10px;
   justify-content: left;
   display: flex;
@@ -181,10 +181,15 @@
 
 }
 
-.package_duration .pack_value,
-.package_duration .pack_duration_2 {
+.package_duration .pack_value {
   font: normal normal normal 40px/20px Helvetica;
   color: var(--black);
+}
+
+.package_duration .pack_duration_2 {
+
+  font: normal normal normal 35px/24px Helvetica;
+  color: var(--primary-dark);
 }
 
 @media screen and (max-width: 35em) {
