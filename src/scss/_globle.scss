@@ -12,12 +12,17 @@ sidemenu
   border-bottom-right-radius: 10px;
   overflow: auto;
   transition: all 0.6s ease-in-out;
+  // direction: ltr;
+
+
 }
+
 .side-menu-close .side-menu {
   width: 50px;
   transition: all 0.6s ease-in-out;
   overflow: none !important;
 }
+
 .nitro-logo {
   width: 90px;
   height: 85px;
@@ -25,27 +30,32 @@ sidemenu
   margin: 30px auto 0;
   transition: all 0.6s ease-in-out;
 }
+
 .side-menu-close .nitro-logo {
   width: 35px;
   height: 85px;
   transition: all 0.6s ease-in-out;
 }
+
 .main {
   background-color: #f9faff;
   height: 100%;
   position: relative;
 }
+
 .nav_bar {
   display: flex;
   padding: 5px 20px;
   justify-content: space-between;
   height: 60px;
 }
+
 .nav_bar .nitro-logo {
   width: 90px;
   display: none;
   margin: 0;
 }
+
 .logo-underline {
   width: 95px;
   height: 0.15px;
@@ -53,10 +63,12 @@ sidemenu
   margin: 10px auto 0;
   transition: all 0.6s ease-in-out;
 }
+
 .side-menu-close .logo-underline {
   width: 30px;
   transition: all 0.6s ease-in-out;
 }
+
 .menu {
   display: flex;
   align-items: flex-start;
@@ -73,6 +85,7 @@ sidemenu
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
+
 .main .items span {
   text-transform: capitalize;
   margin: 0 20px;
@@ -82,6 +95,7 @@ sidemenu
   white-space: nowrap;
   transition: opacity 3s ease-in-out;
 }
+
 .menu-button-wrapper {
   width: 100% !important;
   text-align: center;
@@ -89,23 +103,28 @@ sidemenu
   position: relative;
   top: 25px;
 }
+
 .white-icon {
   color: white;
 }
+
 /* Note: If you're using an SVG icon, you should make the class target the `<svg>` element */
 .white-icon svg {
   fill: white;
 }
+
 .side-menu-close .side-menu .menu .items span {
   opacity: 0;
   display: none !important;
   position: absolute;
   transition: opacity 3.5s ease-in-out;
 }
+
 .main .items .icon {
   width: 20px;
   height: auto;
 }
+
 .main .items.active {
   color: var(--primary);
   background-color: white;
@@ -124,6 +143,7 @@ sidemenu
   width: calc(100% - 60px);
   transition: all 0.6s ease-in-out;
 }
+
 /*
 sidemenu
 */
@@ -134,6 +154,7 @@ sidemenu
   color: var(--gray);
   font-weight: bold;
 }
+
 .detail {
   text-transform: capitalize;
   color: var(--primary);
@@ -145,6 +166,7 @@ sidemenu
 .mat-dialog-container {
   background-color: var(--gray-blue) !important;
 }
+
 .dialog-title {
   color: var(--primary) !important;
   font-weight: bolder;
@@ -156,6 +178,7 @@ sidemenu
 #picDialog.mat-dialog-container {
   background-color: var(--white) !important;
 }
+
 /* dialog */
 
 /*  fromgroup   */
@@ -164,12 +187,15 @@ sidemenu
   font-size: 15px;
   margin-bottom: 8px;
 }
+
 .register_form .form-group {
   margin-top: 30px;
 }
+
 .register_form .form-group label {
   color: var(--primary);
 }
+
 .form-group .form-control {
   background-color: var(--white);
   border: 1px solid var(--gray-blue);
@@ -178,27 +204,34 @@ sidemenu
   text-align: left;
   outline: none !important;
 }
+
 .form-group.has_error .form-control {
   border-color: var(--red);
   color: var(--red);
 }
+
 .form-group.has_error label {
   color: var(--red);
 }
+
 .form-group.has_error .hint {
   color: var(--red);
   font-size: 12px;
 }
+
 .has_error.hint {
   color: var(--red);
   font-size: 12px;
 }
+
 .register_form .form-group .form-control {
   box-shadow: 0px 0px 1px 0px #adabac;
 }
+
 .form-group.password {
   position: relative;
 }
+
 .form-group.password button {
   color: #eeeeee;
   position: absolute;
@@ -206,10 +239,12 @@ sidemenu
   top: 36px;
   right: 24px;
 }
+
 .form-control:focus {
   outline: none !important;
   box-shadow: none !important;
 }
+
 .form-group .form-radio {
   width: 100%;
   display: flex;
@@ -217,31 +252,37 @@ sidemenu
   align-items: end;
   justify-content: space-between;
 }
+
 .mat-radio-label-content {
   padding: 0 8px !important;
   font-size: 1.2rem !important;
 }
+
 .attach_button {
   justify-content: space-between;
   display: flex;
   align-items: flex-end;
 }
+
 .attach_button .form-group {
   width: 100%;
 }
+
 .form-control:disabled,
 .form-control[aria-disabled="true"],
 .form-control[readonly] {
   background-color: #e2e9ff !important;
 }
+
 .register_form {
   min-height: 65%;
   width: 95%;
   max-width: 423px;
   margin: auto;
 }
-.register_card {
-}
+
+.register_card {}
+
 .button-group {
   margin-top: 20px;
   display: flex;
@@ -249,26 +290,31 @@ sidemenu
 
   justify-content: center;
 }
+
 .button-group button {
   margin: 0 5px;
 }
+
 /*  fromgroup   */
 
 .content {
   padding: 80px 20px 60px;
 }
+
 .page-header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
+
 .page-header-card {
   background-color: #fff !important;
   border: 1px solid var(--gray-blue);
   padding-top: 1.34375em;
   border-radius: 5px;
 }
+
 .title {
   color: #1d4980;
   text-transform: capitalize;
@@ -285,6 +331,7 @@ sidemenu
 .scroll::-webkit-scrollbar {
   width: 0.7em;
 }
+
 .scroll::-webkit-scrollbar:hover {
   width: 30px !important;
 }
@@ -328,23 +375,29 @@ mat-panel-title,
 .active {
   color: #4bb543;
 }
+
 .need-update {
   color: #ffcc00;
 }
+
 .expired {
   color: #cc3300;
 }
+
 .newly {
   color: #1d4980;
 }
+
 .success-message {
   color: white !important;
   background-color: #4bb543 !important;
 }
+
 .error-message {
   color: white !important;
   background-color: var(--red) !important;
 }
+
 select.form-control {
   width: 100%;
   display: flex;
@@ -354,8 +407,7 @@ select.form-control {
   text-indent: 1px;
   text-overflow: "";
   padding: 0.375rem 1.75rem 0.375rem 0.75rem;
-  background: url("../assets/images/Group.svg") no-repeat right 0.75rem
-    center/8px 10px;
+  background: url("../assets/images/Group.svg") no-repeat right 0.75rem center/8px 10px;
 }
 
 .link {
@@ -386,6 +438,7 @@ select.form-control {
 .slick-next {
   right: -25px !important;
 }
+
 .slick-prev {
   left: -25px !important;
 }
@@ -393,6 +446,7 @@ select.form-control {
 .slick_wrapper {
   position: relative;
 }
+
 .slick_carousel_buttons {
   position: absolute;
   top: 47%;
@@ -401,27 +455,32 @@ select.form-control {
   width: 100%;
   margin-right: -45px;
 }
+
 .terms_carousel,
 .joining_carousel {
   .slick-current {
     height: auto !important;
     transition: ease-in-out;
     transform: scale(1);
+
     .form_wrapper {
       overflow-y: auto !important;
       overflow-x: hidden !important;
     }
   }
+
   .slick-slide {
     height: 50vh;
     overflow: auto;
     transform: scale(0.985);
     transition: ease-in-out;
     overflow: hidden;
+
     .form_wrapper {
       overflow: hidden;
     }
   }
+
   .slick-track {
     display: flex;
     align-items: center;
@@ -433,18 +492,22 @@ button.selected {
   background-color: #1d4980;
   color: white;
 }
+
 .timepicker {
   direction: ltr !important;
+
   .timepicker__header,
-  .clock-face__number > span.active,
+  .clock-face__number>span.active,
   .clock-face__clock-hand {
     background-color: #1d4980 !important;
     color: white;
   }
+
   .timepicker-button {
     color: #1d4980 !important;
   }
 }
+
 .uploder_img {
   height: auto;
   width: 90%;
@@ -452,12 +515,14 @@ button.selected {
   margin: auto;
   cursor: pointer;
 }
+
 .upload_file {
   position: relative;
   display: block;
   width: auto;
   height: auto;
 }
+
 .upload_file .upload_button {
   width: auto;
   background-color: #2185d0;
@@ -467,15 +532,18 @@ button.selected {
   display: block;
   transform: scale(0.75);
 }
+
 .upload_title {
   color: #fff;
   margin: -70px auto 0;
   display: block;
   transform: scale(0.75);
 }
+
 .mat-dialog-content {
   max-width: 750px;
 }
+
 @media screen and (max-width: 578px) {
   .register_card {
     background: #fff;
@@ -483,6 +551,7 @@ button.selected {
     box-shadow: 1px 1px 15px 0 #eff1f8;
     border-radius: 0.5em;
   }
+
   .terms_carousel,
   .joining_carousel {
     .slick-slide {
@@ -490,43 +559,54 @@ button.selected {
         padding: 20px;
       }
     }
+
     .slick-current {
       .register_card {
         padding: 10px !important;
       }
     }
   }
+
   .nav_bar {
     background-color: #1d4980;
     color: white;
   }
+
   .nav_bar .nitro-logo {
     display: block;
   }
+
   .nav_bar button {
     color: white;
   }
+
   .content {
     padding-left: 10px;
     padding-right: 10px;
   }
+
   .side-menu-close .side-menu {
     display: block;
     z-index: 1000;
   }
+
   .side-menu {
     display: none;
   }
+
   .dashboard {
     width: 100% !important;
   }
+
   .side-menu-close .side-menu {
     width: 200px;
   }
+
   .side-menu-close .nitro-logo {
     margin: 0 auto !important;
     width: 90px;
   }
+
   .side-menu-close .side-menu .menu .items span {
     display: inline-block !important;
   }

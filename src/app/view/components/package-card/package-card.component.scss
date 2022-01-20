@@ -15,7 +15,7 @@
   width: 100%;
   text-align: center;
   max-width: 500px;
-  min-width: 400px;
+  min-width: 350px;
 }
 
 .package_card_header {
@@ -192,8 +192,18 @@
   color: var(--primary-dark);
 }
 
-@media screen and (max-width: 35em) {
+
+@media screen and (max-width: 31em) {
   .package_card {
     min-width: unset;
+  }
+
+  .package_duration .pack_value,
+  .package_price .pack_price {
+    font-size: 28px;
+  }
+
+  .package_duration .pack_duration_2 {
+    font-size: 25px;
   }
 }
