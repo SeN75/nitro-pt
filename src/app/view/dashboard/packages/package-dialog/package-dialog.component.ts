@@ -136,10 +136,12 @@ export class PackageDialogComponent implements OnInit {
     this.offerSrv.___getOfferByPackageId(id).subscribe((s: any) => {
       this.offerObj = s;
       this.withOffer = true;
+      this.logger.log('offer: ', this.offerObj)
       this.offerForm.get('start_date')?.setValue(s.start_date);
       // this.offerForm.get('start_date')?.disable();
       this.offerForm.get('end_date')?.setValue(s.end_date);
-      this.offerForm.get('offer_value')?.setValue(s.offer_value);
+      setTimeout(() => this.offerForm.get('offer_value')?.setValue(s.offer_value), 500)
+
       this.offerForm.get('type')?.setValue(s.type);
     })
   }

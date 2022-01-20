@@ -23,11 +23,18 @@
   position: relative;
 }
 
-.package_card_header p {
+.package_card_header .package_title {
   color: white;
-  padding-top: 25px;
+  padding-top: 15px;
   font-weight: bold;
   font: normal normal bold 27px/60px Helvetica;
+  margin: 0;
+}
+.package_card_header .package_description {
+  color: white;
+  opacity: 0.9;
+  font-weight: bold;
+  font: normal normal bold 18px/20px Helvetica;
 }
 
 .package_body {
@@ -122,6 +129,47 @@
   font-size: 20px;
 }
 
+.package_price_duration {
+  display: flex;
+  justify-content: center;
+}
+.package_price {
+}
+.package_price .pack_currncey {
+  display: flex;
+  color: var(--primray);
+  font: normal normal bold 14px/20px Helvetica;
+  justify-content: left;
+  margin-left: 5px;
+  margin-top: -12px;
+}
+.package_price .pack_price {
+  color: var(--black);
+  font: normal normal normal 40px/20px Helvetica;
+  margin-left: 20px;
+}
+.package_slashline {
+  height: 65px;
+  background-color: var(--gray-blue);
+  opacity: 0.8;
+  width: 2px;
+  margin: 0 27px 0 17px;
+  margin-top: 0px;
+  transform: rotateZ(44deg);
+}
+
+.package_duration {
+  align-self: center;
+}
+.package_duration .pack_duration {
+  font-size: 20px;
+  color: var(--primray);
+  margin-right: 10px;
+}
+.package_duration .pack_value {
+  font-size: 25px;
+  color: var(--black);
+}
 @media screen and (max-width: 35em) {
   .package_card {
     min-width: unset;
