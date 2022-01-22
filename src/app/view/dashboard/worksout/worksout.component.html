@@ -37,9 +37,7 @@
       </thead>
       <tbody class="text-center">
         <ng-container *ngFor="let workout of workoutSrv.categories; let i = index">
-          <tr class="row_space">
-            <td colspan="30"></td>
-          </tr>
+
           <tr (click)="showExercise(workout)">
             <td>
               {{workout.pos }}

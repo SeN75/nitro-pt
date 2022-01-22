@@ -28,9 +28,7 @@
       </thead>
       <tbody class="text-center">
         <ng-container *ngFor="let sub of subsList; let i = index">
-          <tr class="row_space">
-            <td colspan="30"></td>
-          </tr>
+
           <tr (click)="subscribersDetails(sub)">
             <td>{{i + 1 }}</td>
             <td>{{sub.client }}</td>

@@ -1,10 +1,10 @@
 export const sideMenu = [
-  { name: "SUBSCRIBERS.subscribers", img: "customer.svg", activeImg: "customer_active.svg", path: "/dashboard/subscribers" },
-  { name: "ORDERS.orders", img: "orders.svg", activeImg: "orders_active.svg", path: "/dashboard/orders", root: 'orders' },
-  { name: "CATEGORIES.categories", img: "protein.svg", activeImg: "protein_active.svg", path: "/dashboard/categories", root: 'categories' },
   { name: "PACKAGES.packages", img: "subscription.svg", activeImg: "subscription_active.svg", path: "/dashboard/packages", root: 'packages' },
-  { name: "DIETPLAN.dietplan", img: "Color.svg", activeImg: "colorires_active.svg", path: "/dashboard/diet", root: 'diet' },
   { name: "WORKSOUT.worksout", img: "workout.svg", activeImg: "workout_active.svg", path: "/dashboard/worksout", root: 'worksout' },
+  { name: "CATEGORIES.categories", img: "protein.svg", activeImg: "protein_active.svg", path: "/dashboard/categories", root: 'categories' },
+  { name: "DIETPLAN.dietplan", img: "Color.svg", activeImg: "colorires_active.svg", path: "/dashboard/diet", root: 'diet' },
+  { name: "ORDERS.orders", img: "orders.svg", activeImg: "orders_active.svg", path: "/dashboard/orders", root: 'orders' },
+  { name: "SUBSCRIBERS.subscribers", img: "customer.svg", activeImg: "customer_active.svg", path: "/dashboard/subscribers", root: 'subscribers' },
   { name: "SETTINGS.account-settings", img: "settings.svg", activeImg: "settings_active.svg", path: "/dashboard/account-settings", root: 'account-settings' },
 ]
 

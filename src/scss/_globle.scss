@@ -75,9 +75,9 @@ sidemenu
 
 .main .items {
   width: 100%;
-  padding: 10px 10px 10px 15px;
+  padding: 7px 10px 7px 15px;
   color: white;
-  margin: 15px 0;
+  margin: 5px 0;
   text-decoration: none;
   border-radius: 0;
   border-top-left-radius: 0.5em;
@@ -633,4 +633,25 @@ button.selected {
 .dropdown-item:nth-child(even) {
   background-color: var(--white);
   color: var(--primary);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--primary);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--white);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--white-dark);
 }

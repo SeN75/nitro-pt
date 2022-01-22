@@ -23,7 +23,7 @@ export class ExercisesService {
     private translateSrv: TranslateService,
     private toasteSrv: ToastService,
     private logger: LoggerService) {
-    // this.getExerciseList()
+    this.getExerciseList()
   }
   checkWorkout() {
     if (this.workout === undefined)
