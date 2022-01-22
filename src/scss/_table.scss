@@ -12,6 +12,7 @@
   height: 58px;
   padding: 8px 10px;
   cursor: default;
+  position: relative;
 }
 
 .table-theme-1 th:first-child,
@@ -40,6 +41,7 @@
   border-top: 1px solid #e2e2e3;
   border-bottom: 1px solid #e2e2e3;
   transition: 0.4s;
+  position: relative;
 }
 
 .table-theme-1 tr {

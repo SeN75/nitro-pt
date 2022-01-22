@@ -397,6 +397,10 @@
     "sign-out": "sign out"
 
   },
+  "FILTER": {
+    "ascending": "ascending",
+    "descending": "descending"
+  },
   "DELETE": {
     "pack": "package",
     "exercise type": "exercise type?",

@@ -17,9 +17,19 @@
     <table class="table-theme-1 hover">
       <thead class="text-center">
         <tr>
-          <th>#</th>
-          <th>{{'CATEGORIES.name-type-ar' | translate}}</th>
-          <th>{{'CATEGORIES.number' | translate}}</th>
+          <th>
+            <tb-filter [data]="categorySrv.categories" mode="order" label="pos"></tb-filter>
+            #
+          </th>
+          <th>
+            <tb-filter [data]="categorySrv.categories" mode="order" label="{{lang.selected =='ar' ?'name_ar': 'name'}}">
+            </tb-filter>
+            {{'CATEGORIES.name-type-ar' | translate}}
+          </th>
+          <th>
+            <tb-filter [data]="categorySrv.categories" mode="order" label="total_items"></tb-filter>
+            {{'CATEGORIES.number' | translate}}
+          </th>
           <th></th>
         </tr>
       </thead>

@@ -13,8 +13,6 @@ sidemenu
   overflow: auto;
   transition: all 0.6s ease-in-out;
   // direction: ltr;
-
-
 }
 
 .side-menu-close .side-menu {
@@ -82,8 +80,8 @@ sidemenu
   margin: 15px 0;
   text-decoration: none;
   border-radius: 0;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-top-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
 }
 
 .main .items span {
@@ -281,7 +279,8 @@ sidemenu
   margin: auto;
 }
 
-.register_card {}
+.register_card {
+}
 
 .button-group {
   margin-top: 20px;
@@ -407,7 +406,8 @@ select.form-control {
   text-indent: 1px;
   text-overflow: "";
   padding: 0.375rem 1.75rem 0.375rem 0.75rem;
-  background: url("../assets/images/Group.svg") no-repeat right 0.75rem center/8px 10px;
+  background: url("../assets/images/Group.svg") no-repeat right 0.75rem
+    center/8px 10px;
 }
 
 .link {
@@ -497,7 +497,7 @@ button.selected {
   direction: ltr !important;
 
   .timepicker__header,
-  .clock-face__number>span.active,
+  .clock-face__number > span.active,
   .clock-face__clock-hand {
     background-color: #1d4980 !important;
     color: white;
@@ -610,4 +610,27 @@ button.selected {
   .side-menu-close .side-menu .menu .items span {
     display: inline-block !important;
   }
+}
+.dropdown-toggle::after {
+  content: none !important;
+}
+.dropdown-menu {
+  border-radius: 0.5rem;
+}
+.dropdown-item {
+  text-align: center !important;
+  font-size: 15px !important;
+}
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: var(--primary) !important;
+  color: #fff !important;
+}
+.dropdown-item:nth-child(odd) {
+  background-color: var(--gray-blue);
+  color: var(--black);
+}
+.dropdown-item:nth-child(even) {
+  background-color: var(--white);
+  color: var(--primary);
 }

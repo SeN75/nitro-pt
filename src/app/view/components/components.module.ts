@@ -21,10 +21,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { PreviewImageOrVideoComponent } from './preview-image-or-video/preview-image-or-video.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { NgbDropdown, NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { DateHijriComponent } from './datepicker/date-hijri/date-hijri.component';
 import { DateGregorianComponent } from './datepicker/date-gregorian/date-gregorian.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { TableFilterComponent } from './table-filter/table-filter.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     PreviewImageOrVideoComponent,
     DatepickerComponent,
     DateHijriComponent,
-    DateGregorianComponent
+    DateGregorianComponent,
+    TableFilterComponent
   ],
   imports: [
     BrowserModule,
@@ -55,8 +58,9 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     FormsModule,
     RouterModule,
     MatProgressSpinnerModule,
+    MatButtonToggleModule,
     NgbModule,
-    MatButtonToggleModule
+    MatMenuModule
 
   ],
   exports: [
@@ -70,7 +74,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     ArchivingInfoComponent,
     EntriesAndRemainingComponent,
     LoaderComponent,
-    UplodeFileComponent
+    UplodeFileComponent,
+    TableFilterComponent
   ]
 })
 export class ComponentsModule { }

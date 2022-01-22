@@ -1,0 +1,14 @@
+<div ngbDropdown class="d-inline-block">
+
+  <button mat-icon-button id="{{label}}" ngbDropdownToggle>
+    <span class="material-icons-outlined">
+      filter_alt
+    </span>
+  </button>
+
+
+  <div ngbDropdownMenu aria-labelledby="df" *ngIf="mode == 'order'">
+    <button ngbDropdownItem (click)="fitler('asce')">{{'FILTER.ascending' | translate}}</button>
+    <button ngbDropdownItem (click)="fitler('desce')">{{'FILTER.descending' | translate}}</button>
+  </div>
+</div>

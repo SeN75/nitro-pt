@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { API } from 'src/app/_helpers/api.config';
 import { LoggerService } from '../logger.service';
 import { ToastService } from '../toast.service';
+import { ExercisesService } from 'src/app/_services/gym/exercises.service';
 const gymUrl = API + "gym/exercise/categories/";
 
 @Injectable({
@@ -26,7 +27,10 @@ export class ExercisesCategoriesService {
     private httpClient: HttpClient,
     private translateSrv: TranslateService,
     private toastSrv: ToastService,
-    private logger: LoggerService) { }
+    private exerciseSrv: ExercisesService,
+    private logger: LoggerService) {
+    this.exerciseSrv.getExerciseList()
+  }
 
 
   private _getExerciseCategoriesList() {
@@ -51,14 +55,25 @@ export class ExercisesCategoriesService {
   public getExerciseCategoriesList() {
     this.isLoading = true;
     this.hasError = false;
-    this._getExerciseCategoriesList().subscribe((success: any) => {
-      this.categories = success;
-      this.loaded()
-      this.logger.log("get Exercise List:", success)
-    }, (error: HttpErrorResponse) => {
-      this.hasError = false;
-      this.logger.error("get Exercise List error: ", error)
-    })
+    setTimeout(() => {
+
+
+      this._getExerciseCategoriesList().subscribe((success: any) => {
+        let count = 1;
+        this.categories = success;
+
+        this.categories.forEach((e: any) => {
+          e.total_items = this.exerciseSrv.getExerciseListOnSameCategory(e.name_ar).length
+          e.pos = count++
+        })
+
+        this.loaded()
+        this.logger.log("get Exercise List:", success)
+      }, (error: HttpErrorResponse) => {
+        this.hasError = false;
+        this.logger.error("get Exercise List error: ", error)
+      })
+    }, 500)
   }
 
   public getExercisetCategoriesById(id: string) {

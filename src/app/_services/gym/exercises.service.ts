@@ -23,7 +23,7 @@ export class ExercisesService {
     private translateSrv: TranslateService,
     private toasteSrv: ToastService,
     private logger: LoggerService) {
-    this.getExerciseList()
+    // this.getExerciseList()
   }
   checkWorkout() {
     if (this.workout === undefined)
@@ -68,7 +68,9 @@ export class ExercisesService {
     this.isLoading = true;
     this.hasError = false;
     this._getExerciseList().subscribe((success: any) => {
+      let pos = 1;
       this.exerciseSchedule = success;
+      this.exerciseSchedule.forEach(e => e.pos = pos++);
       this.loaded()
       this.logger.log("get Exercise List:", success)
     }, (error: HttpErrorResponse) => {
@@ -124,7 +126,6 @@ export class ExercisesService {
   }
 
   public getExerciseListOnSameCategory(id: string) {
-    this.logger.log('ss', id)
     return this.exerciseSchedule.filter(ex => {
       return ex.category == id
     });

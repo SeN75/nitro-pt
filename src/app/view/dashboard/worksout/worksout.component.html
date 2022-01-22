@@ -16,9 +16,22 @@
     <table class="table-theme-1 hover">
       <thead class="text-center">
         <tr>
-          <th>#</th>
-          <th>{{'WORKSOUT.type_ar' | translate}}</th>
-          <th>{{'WORKSOUT.number' | translate}}</th>
+          <th>
+            <tb-filter [data]="workoutSrv.categories" mode="order" label="pos"></tb-filter>
+            #
+          </th>
+          <th>
+            <tb-filter [data]="workoutSrv.categories" mode="order"
+              label="{{lang.selected == 'ar'? 'name_ar':  'name'}}">
+            </tb-filter>
+
+            {{'WORKSOUT.type_ar' | translate}}
+          </th>
+          <th>
+            <tb-filter [data]="workoutSrv.categories" mode="order" label="total_items"></tb-filter>
+
+            {{'WORKSOUT.number' | translate}}
+          </th>
           <th></th>
         </tr>
       </thead>
@@ -28,11 +41,14 @@
             <td colspan="30"></td>
           </tr>
           <tr (click)="showExercise(workout)">
-            <td>{{i + 1 }}</td>
+            <td>
+              {{workout.pos }}
+
+            </td>
             <td>{{lang.selected == 'ar'?workout.name_ar: workout.name}}</td>
             <td>
               <!-- {{workout.exercises.length}} -->
-              {{exerciseSrv.getExerciseListOnSameCategory(workout.name_ar).length}}
+              {{workout.total_items}}
             </td>
             <td class="text-end">
               <span>
