@@ -19,7 +19,7 @@
 }
 
 .package_card_header {
-  border-radius: 10px;
+  border-radius: 0.5em;
   height: 130px;
   z-index: 2;
   position: relative;
@@ -72,33 +72,39 @@
 }
 
 .package_theme_1 .package_card_header {
-  background: transparent linear-gradient(180deg, #651d80 0%, #200f40 100%) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(180deg, #651d80 0%, #200f40 100%) 0%
+    0% no-repeat padding-box;
 }
 
 .package_theme_1 .package_feature_value::before {
-  background: transparent linear-gradient(180deg, #651d80 0%, #200f40 100%) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(180deg, #651d80 0%, #200f40 100%) 0%
+    0% no-repeat padding-box;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .package_theme_2 .package_card_header {
-  background: transparent linear-gradient(180deg, #2ecbe0 0%, #200f40 100%) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(180deg, #2ecbe0 0%, #200f40 100%) 0%
+    0% no-repeat padding-box;
 }
 
 .package_theme_2 .package_feature_value::before {
-  background: transparent linear-gradient(180deg, #2ecbe0 0%, #200f40 100%) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(180deg, #2ecbe0 0%, #200f40 100%) 0%
+    0% no-repeat padding-box;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .package_theme_3 .package_card_header {
-  background: transparent linear-gradient(180deg, #1d4980 0%, #200f40 100%) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(180deg, #1d4980 0%, #200f40 100%) 0%
+    0% no-repeat padding-box;
 }
 
 .package_theme_3 .package_feature_value::before {
-  background: transparent linear-gradient(180deg, #1d4980 0%, #200f40 100%) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(180deg, #1d4980 0%, #200f40 100%) 0%
+    0% no-repeat padding-box;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -167,7 +173,6 @@
 .package_duration {
   // align-self: center;
   min-width: 65px;
-
 }
 
 .package_duration .pack_duration {
@@ -178,7 +183,6 @@
   display: flex;
   margin-right: 10px;
   margin-top: -7px;
-
 }
 
 .package_duration .pack_value {
@@ -187,11 +191,9 @@
 }
 
 .package_duration .pack_duration_2 {
-
   font: normal normal normal 35px/24px Helvetica;
   color: var(--primary-dark);
 }
-
 
 @media screen and (max-width: 31em) {
   .package_card {
