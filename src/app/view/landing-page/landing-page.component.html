@@ -1,11 +1,11 @@
 <section class="bg-section">
   <app-navbar [isLoggedin]=rt></app-navbar>
   <div class="container">
-    <div class="row  position-absolute-mobile" id="place_bottom">
-      <div class="col-lg-6 col-12 position-absolute-mobile">
+    <div class="row">
+      <div class="col-lg-6 col-12">
         <div class="hero-img"></div>
       </div>
-      <div class="col-lg-6 col-12 slogan position-absolute-mobile">
+      <div class="col-lg-6 col-12 slogan">
         <img src="../../../assets/images/slogan.svg" alt="">
         <div *ngIf="rt">
           <h1>أهلاً {{identitySrv.userData.first_name_ar}}</h1>
@@ -13,16 +13,23 @@
         <div *ngIf="!rt">
           <div class="row justify-content-center mt-5">
             <div class="col col-md-6 col-lg-8">
-              <button mat-stroked-button color="primary" class="px-5 mx-1" routerLink="/register/login">
-                <span class="text-light">
-                  {{'FORM.login' | translate}}
-                </span>
-              </button>
-              <button mat-raised-button color="primary" class="px-5 mx-1" routerLink="/register/sign_up">
-                <span>
-                  {{'FORM.sign-up' | translate}}
-                </span>
-              </button>
+              <div class="row">
+                <div class="col text-center">
+                  <button mat-stroked-button color="primary" class="px-5 mx-1" routerLink="/register/login">
+                    <span class="text-light">
+                      {{'FORM.login' | translate}}
+                    </span>
+                  </button>
+                </div>
+
+                <div class="col text-center">
+                  <button mat-raised-button color="primary" class="px-5 mx-1" routerLink="/register/sign_up">
+                    <span>
+                      {{'FORM.sign-up' | translate}}
+                    </span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
