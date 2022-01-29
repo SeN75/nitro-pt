@@ -38,6 +38,8 @@
     "name": "Subscriber's name",
     "start-date": "Subscription start date",
     "end-date": "Subscription end date",
+    "start_date": "Subscription start date",
+    "end_date": "Subscription end date",
     "amount-paid": "Subscription amount",
     "subscription-number": "Subscription number",
     "status": "status",
@@ -103,6 +105,7 @@
     "type": "order type",
     "status": "order status",
     "date": "order date",
+    "created_date": "order date",
     "info": "order information",
     "no-data": "There is no orders",
     "approval": "approval",
@@ -160,8 +163,7 @@
     "no-data": " There is no data for package yet.",
     "hello": "hello",
     "sr": "SR",
-    "loading":"Packages are being loading..."
-
+    "loading": "Packages are being loading..."
   },
   "OFFER": {
     "title": "offer",
@@ -190,7 +192,6 @@
     "loading": "The exercises are loading...",
     "view": "view exercise",
     "upload-file": "Please upload a video *"
-
   },
   "DIETPLAN": {
     "table": "diteplane and exercise  table",
@@ -290,7 +291,7 @@
   },
   "SOCIAL-STATUS": {
     "Married": "married",
-    "Single":"single",
+    "Single": "single",
     "Widowed": "widowed"
   },
   "FORM": {
@@ -333,7 +334,7 @@
     "receipt-pic": "Image receipt",
     "send": "send",
     "return": "back",
-    "ok" : "ok",
+    "ok": "ok",
     "otp-code": "otp code",
     "resend": "resend",
     "enter-otp": "Enter otp code.",
@@ -351,8 +352,6 @@
     "gregorian": "gregorian",
     "select": "select",
     "sar": "sar"
-
-
   },
   "VALIDATION": {
     "email": {
@@ -395,7 +394,6 @@
   "LANDINGPAGE": {
     "home": "home",
     "sign-out": "sign out"
-
   },
   "FILTER": {
     "ascending": "ascending",

@@ -71,7 +71,13 @@ export class OrdersComponent implements OnInit {
       this.newRequestList = success.new_requests.requests;
       this.logger.log('getRequestDetailsById this.expired_request: ', this.expiredRequest)
       this.logger.log('getRequestDetailsById this.new_request: ', this.newRequestList)
-      this.loaded()
+      this.loaded();
+
+      let eCount = 1;
+      let nCount = 1;
+
+      this.expiredRequest.forEach(e => e.pos === eCount++);
+      this.newRequestList.forEach(e => e.pos === nCount++);
     }, (error: HttpErrorResponse) => {
       this.hasError = false;
 

@@ -12,12 +12,30 @@
     <table class="table-theme-1 hover">
       <thead class="text-center">
         <tr>
-          <th>#</th>
-          <th>{{'ORDERS.no' | translate}}</th>
-          <th>{{'ORDERS.name' | translate}}</th>
-          <th>{{'ORDERS.type' | translate}}</th>
-          <th>{{'ORDERS.status' | translate}}</th>
-          <th>{{'ORDERS.date' | translate}}</th>
+          <th>
+            <tb-filter [data]="newRequestList" mode="order" label="pos"></tb-filter>
+            #
+          </th>
+          <th>
+            <tb-filter [data]="newRequestList" mode="order" label="id"></tb-filter>
+            {{'ORDERS.no' | translate}}
+          </th>
+          <th>
+            <tb-filter [data]="newRequestList" mode="order" label="client"></tb-filter>
+            {{'ORDERS.name' | translate}}
+          </th>
+          <th>
+            <tb-filter [data]="newRequestList" mode="order" label="type"></tb-filter>
+            {{'ORDERS.type' | translate}}
+          </th>
+          <th>
+            <tb-filter [data]="newRequestList" mode="order" label="status"></tb-filter>
+            {{'ORDERS.status' | translate}}
+          </th>
+          <th>
+            <tb-filter [data]="newRequestList" mode="date" label="created_date" _translate="ORDERS"></tb-filter>
+            {{'ORDERS.date' | translate}}
+          </th>
           <th></th>
         </tr>
       </thead>
@@ -30,7 +48,7 @@
         <ng-container *ngFor="let order of newRequestList; let i = index">
 
           <tr (click)="showOrder(order)">
-            <td>{{i + 1 }}</td>
+            <td>{{order.pos }}</td>
             <td>{{order.id}}</td>
             <td>{{order.client}}</td>
             <td>{{order.type}}</td>
@@ -64,12 +82,30 @@
       <thead class="text-center">
 
         <tr>
-          <th>#</th>
-          <th>{{'ORDERS.no' | translate}}</th>
-          <th>{{'ORDERS.name' | translate}}</th>
-          <th>{{'ORDERS.type' | translate}}</th>
-          <th>{{'ORDERS.status' | translate}}</th>
-          <th>{{'ORDERS.date' | translate}}</th>
+          <th>
+            <tb-filter [data]="expiredRequest" mode="order" label="pos"></tb-filter>
+            #
+          </th>
+          <th>
+            <tb-filter [data]="expiredRequest" mode="order" label="id"></tb-filter>
+            {{'ORDERS.no' | translate}}
+          </th>
+          <th>
+            <tb-filter [data]="expiredRequest" mode="order" label="client"></tb-filter>
+            {{'ORDERS.name' | translate}}
+          </th>
+          <th>
+            <tb-filter [data]="expiredRequest" mode="order" label="type"></tb-filter>
+            {{'ORDERS.type' | translate}}
+          </th>
+          <th>
+            <tb-filter [data]="expiredRequest" mode="order" label="status"></tb-filter>
+            {{'ORDERS.status' | translate}}
+          </th>
+          <th>
+            <tb-filter [data]="expiredRequest" mode="date" label="created_date" _translate="ORDERS"></tb-filter>
+            {{'ORDERS.date' | translate}}
+          </th>
           <th></th>
         </tr>
       </thead>

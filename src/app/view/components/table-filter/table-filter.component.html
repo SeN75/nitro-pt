@@ -1,4 +1,4 @@
-<div ngbDropdown class="d-inline-block">
+<div ngbDropdown class="d-inline-block" *ngIf="mode == 'order'">
 
   <button mat-icon-button id="{{label}}" ngbDropdownToggle>
     <span class="material-icons-outlined">
@@ -7,8 +7,32 @@
   </button>
 
 
-  <div ngbDropdownMenu aria-labelledby="df" *ngIf="mode == 'order'">
+  <div ngbDropdownMenu aria-labelledby="df">
     <button ngbDropdownItem (click)="fitler('asce')">{{'FILTER.ascending' | translate}}</button>
     <button ngbDropdownItem (click)="fitler('desce')">{{'FILTER.descending' | translate}}</button>
   </div>
+</div>
+<div ngbDropdown class="d-inline-block" *ngIf="mode == 'search-order'">
+
+  <button mat-icon-button id="{{label}}" ngbDropdownToggle>
+    <span class="material-icons-outlined">
+      filter_alt
+    </span>
+  </button>
+
+  <div ngbDropdownMenu aria-labelledby="df">
+    <button *ngFor="let v of list" ngbDropdownItem (click)="fitler(v)">{{('STATUS.'+_translate+'.'+v )|
+      translate}}</button>
+  </div>
+</div>
+
+<div class="d-inline-block" *ngIf="mode == 'date'">
+
+  <button mat-icon-button id="{{label}}" (click)="datePicker()">
+    <span class="material-icons-outlined">
+      filter_alt
+    </span>
+  </button>
+
+  <input hidden [(ngModel)]="dateInput" type="text">
 </div>
