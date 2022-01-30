@@ -46,7 +46,8 @@
 
   </div>
   <div class="button-group " *ngIf="isSubscriptionExist()">
-    <button mat-raised-button color="primary">{{'FORM.update-profile' | translate}}</button>
+    <button mat-raised-button color="primary" routerLink="/register/update_info">{{'FORM.update-profile' |
+      translate}}</button>
     <button mat-stroked-button color="primary" routerLink="/register/join_program">{{'FORM.new-subscription' |
       translate}}</button>
   </div>

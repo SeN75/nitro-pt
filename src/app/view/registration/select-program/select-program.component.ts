@@ -30,19 +30,19 @@ export class SelectProgramComponent implements OnInit {
     "focusOnSelect": true,
     "responsive": [
       {
-        "breakpoint": 1200, "settings": {
+        "breakpoint": 2000, "settings": {
           "slidesToShow": 3,
           "slidesToScroll": 1,
         }
       },
       {
-        "breakpoint": 1024, "settings": {
+        "breakpoint": 1524, "settings": {
           "slidesToShow": 2,
           "slidesToScroll": 1,
         }
       },
       {
-        "breakpoint": 800, "settings": {
+        "breakpoint": 1090, "settings": {
           "slidesToShow": 1,
           "slidesToScroll": 1,
         }

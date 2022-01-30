@@ -1,0 +1,22 @@
+<header class="text-center title mb-1 h4 ">{{'TERMS.update-information-sub' | translate}}</header>
+<h3 class="text-center section-title  h3">{{'TERMS.hi' | translate}} {{identitySrv.userData.first_name_ar}}</h3>
+
+<div class="register_form register_form mt-5 ">
+  <ngx-slick-carousel class="carousel update_carousel" #slickModal="slick-carousel" [config]="slideConfig"
+    (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+    (beforeChange)="beforeChange($event)">
+    <!-- <subscriber-update (updateData)="output($event)" ngxSlickItem></subscriber-update> -->
+    <joining-measuring-method (measuringInfo)=output($event) ngxSlickItem></joining-measuring-method>
+    <joining-body-pic-form (bodyPic)="output($event)" ngxSlickItem></joining-body-pic-form>
+
+  </ngx-slick-carousel>
+  <div class="register_slick_button">
+    <!-- [disabled]="!isFormValid" -->
+    <button mat-button (click)="next()" *ngIf="caurselPos != 1" [disabled]="!isFormValid || isMove">{{'FORM.next' |
+      translate}}</button>
+    <button mat-button (click)="update()" *ngIf="caurselPos == 1" [disabled]="!isFormValid ">{{'FORM.update' |
+      translate}}</button>
+    <span></span>
+    <button mat-button (click)="prev()" *ngIf="caurselPos != 0" [disabled]="isMove">{{'FORM.back' | translate}}</button>
+  </div>
+</div>

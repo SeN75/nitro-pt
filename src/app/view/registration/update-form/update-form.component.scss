@@ -1,0 +1,20 @@
+.register_form {
+  // max-width: 800px;
+  min-height: 65%;
+  width: 95%;
+  max-width: 423px;
+  margin: auto;
+}
+.register_form {
+  direction: ltr;
+  position: relative;
+}
+
+.title {
+  color: var(--gray);
+}
+
+.register_slick_button {
+  display: flex;
+  justify-content: space-between;
+}

@@ -32,7 +32,7 @@ export class PackageCardComponent implements OnInit {
 
   selectProgram(pack: any) {
     this.subSrv.packageId = pack.external_id
-    this.router.navigateByUrl('/register/joining_form')
+    this.router.navigateByUrl('/register/terms_and_condition')
   }
 
 }

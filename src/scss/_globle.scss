@@ -457,6 +457,7 @@ select.form-control {
 }
 
 .terms_carousel,
+.update_carousel,
 .joining_carousel {
   .slick-current {
     height: auto !important;
@@ -553,6 +554,7 @@ button.selected {
   }
 
   .terms_carousel,
+  .update_carousel,
   .joining_carousel {
     .slick-slide {
       .register_card {

@@ -4,13 +4,13 @@
     <div class="col-12">
       <label class="select_way ">{{'BODY.choose-a-measurement-method' | translate}}</label>
     </div>
-    <div class="col-6 col-md-4">
+    <div class="col-6 col-md-5">
       <button mat-stroked-button class="w-100" [class.selected]="isTraditional"
         (click)="isTraditional = true;_output(true);">
         {{'BODY.traditional' | translate}}
       </button>
     </div>
-    <div class="col-6 col-md-4">
+    <div class="col-6 col-md-5">
       <button mat-stroked-button class="w-100" [class.selected]="!isTraditional"
         (click)="isTraditional = false; _output(false);">
         {{'BODY.in-body' | translate}}

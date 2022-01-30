@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="row justify-content-between">
-      <div class="form-group col-5 col-md-4" [class.has_error]="controls.height.invalid && controls.height.dirty">
+      <div class="form-group col-6" [class.has_error]="controls.height.invalid && controls.height.dirty">
         <label>{{'PERSONAL-DATA.height'| translate}} <span class="label_hint">cm </span> <span
             class="text-danger">*</span></label>
         <input class="form-control" formControlName="height">
@@ -35,7 +35,7 @@
           </span>
         </div>
       </div>
-      <div class="form-group col-5 col-md-4" [class.has_error]="controls.weight.invalid && controls.weight.dirty">
+      <div class="form-group col-6" [class.has_error]="controls.weight.invalid && controls.weight.dirty">
         <label>{{'PERSONAL-DATA.wight'| translate}} <span class="label_hint">kg </span> <span
             class="text-danger">*</span></label>
         <input class="form-control" formControlName="weight" inputmode="numeric" maxlength="5">
@@ -51,13 +51,13 @@
     </div>
     <div class="row justify-content-between form-group">
       <label>{{'PERSONAL-DATA.gender' | translate}} <span class="text-danger">*</span></label>
-      <div class="col-5 col-md-4" *ngFor="let g of subSrv.genderList">
+      <div class="col-6" *ngFor="let g of subSrv.genderList">
         <button mat-stroked-button class="w-100" [class.selected]="personalInfoForm.get('gender')?.value == g.id"
           (click)="personalInfoForm.get('gender')?.setValue(g.id)">
           {{'FORM.'+g.gender_name | translate}}
         </button>
       </div>
-      <!-- <div class=" col-5 col-md-4">
+      <!-- <div class=" col-6">
         <button mat-stroked-button class=" w-100" [class.selected]="personalInfoForm.get('gender')?.value == 'female'"
           (click)="personalInfoForm.get('gender')?.setValue('female')">
           {{'PERSONAL-DATA.female' | translate}}

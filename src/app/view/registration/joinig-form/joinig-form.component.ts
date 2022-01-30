@@ -126,7 +126,7 @@ export class JoinigFormComponent implements OnInit {
     console.log('beforeChange');
   }
   output(event: any) {
-    console.log(event)
+    // console.log(event)
     this.isFormValid = event.valid;
     if (this.caurselPos == 0) {
       let birthDate: string = event.data.birthDate
