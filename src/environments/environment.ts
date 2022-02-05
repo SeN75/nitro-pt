@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://Nitroptstage-env.eba-m2d8wxzr.us-east-1.elasticbeanstalk.com/api/"
+  apiUrl: "http://nitroptstage-env.eba-m2d8wxzr.us-east-1.elasticbeanstalk.com/api/"
 };
 
 /*
