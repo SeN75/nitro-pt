@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://awsapi.nitropt.com/stg/stg/api/"
+  apiUrl: "https://awsapi.nitropt.com/api/"
 };
 
 /*
