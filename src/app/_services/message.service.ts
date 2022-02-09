@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { DialogService } from './dialog.service';
+import { ToastService } from './toast.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +9,9 @@ import { TranslateService } from '@ngx-translate/core';
 export class MessageService {
 
   constructor(
-    private translate: TranslateService
+    private translate: TranslateService,
+    private dialog: DialogService,
+    private toast: ToastService
   ) { }
   errorMessage(resMessage: string, altrMessage: string, key: string): string {
     let message: string = ''
@@ -29,5 +33,13 @@ export class MessageService {
       message = resMsg
     })
     return message;
+  }
+  errors(res: any, type: string = '') {
+    let resKeys = Object.keys(res);
+    let messages = [];
+    if (resKeys.length > 0)
+      resKeys.forEach(e => {
+        this.translate.get(`ERROR.${type}`)
+      })
   }
 }
