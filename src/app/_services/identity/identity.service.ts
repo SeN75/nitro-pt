@@ -211,6 +211,7 @@ export class IdentityService {
       }
     }, (error: HttpErrorResponse) => {
       this.logger.error("post Create User  error: ", error)
+      this.messageSrv.errors(error, 'REGISTRATION', 'GENRAL')
       this.translateSrv.get('ERROR.create-user').subscribe(msg => this.toastSrv.error(msg))
 
     })

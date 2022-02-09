@@ -24,7 +24,7 @@ import { PreviewImageOrVideoComponent } from '../view/components/preview-image-o
 })
 export class DialogService {
 
-  constructor(private dialog: MatDialog, private identitySrv: IdentityService, private cookieSrv: CookieService, private router: Router) { }
+  constructor(private dialog: MatDialog, private cookieSrv: CookieService, private router: Router) { }
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogComponent, {
