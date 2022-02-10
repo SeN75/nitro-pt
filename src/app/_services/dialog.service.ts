@@ -18,13 +18,19 @@ import { DietplanTempDialogComponent } from '../view/dashboard/diet-plan/dietpla
 import { DietplanEditDialogComponent } from '../view/dashboard/diet-plan/dietplan-edit-dialog/dietplan-edit-dialog.component';
 import { DeleteDialogComponent } from './../view/components/delete-dialog/delete-dialog.component';
 import { PreviewImageOrVideoComponent } from '../view/components/preview-image-or-video/preview-image-or-video.component';
+import { AlertDialogComponent } from '../view/components/alert-dialog/alert-dialog.component';
+import { LoggerService } from './logger.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DialogService {
 
-  constructor(private dialog: MatDialog, private cookieSrv: CookieService, private router: Router) { }
+  constructor(
+    private dialog: MatDialog,
+    private cookieSrv: CookieService,
+    private router: Router,
+    private logger: LoggerService) { }
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogComponent, {
@@ -203,6 +209,19 @@ export class DialogService {
       width: 'auto',
       data: { src: src, type: type }
     });
-    dialogRef.afterClosed().subscribe(res => console.log("dialog closed"));
+    dialogRef.afterClosed().subscribe(res => this.logger.log("dialog closed"));
+  }
+  anErrorOccurred(data: any[]) {
+    const dialogRef = this.dialog.open(AlertDialogComponent, {
+      height: 'auto',
+      maxHeight: '90%',
+      minWidth: '300px',
+      maxWidth: "90%",
+      width: 'auto',
+      data: data,
+      id: 'alert_dialog'
+    })
+    dialogRef.afterClosed().subscribe(res => this.logger.log("dialog closed"));
+
   }
 }

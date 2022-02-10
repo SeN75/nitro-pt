@@ -27,6 +27,7 @@ import { DateGregorianComponent } from './datepicker/date-gregorian/date-gregori
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { TableFilterComponent } from './table-filter/table-filter.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { MatMenuModule } from '@angular/material/menu';
     DatepickerComponent,
     DateHijriComponent,
     DateGregorianComponent,
-    TableFilterComponent
+    TableFilterComponent,
+    AlertDialogComponent
   ],
   imports: [
     BrowserModule,

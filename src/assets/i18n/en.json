@@ -337,6 +337,7 @@
     "send": "send",
     "return": "back",
     "ok": "ok",
+    "ok1": "ok",
     "otp-code": "otp code",
     "resend": "resend",
     "enter-otp": "Enter otp code.",
@@ -441,6 +442,7 @@
   },
   "ERROR": {
     "create-user": "An error occurred while creating a new subscriber",
+    "an error occurred": "an error occurred",
     "PACKAGES": {
       "update": "An error occurred while updating the package",
       "delete": "An error occurred while deleting the package",
@@ -534,7 +536,9 @@
       "Successful Logout": "Successful Logout",
       "phone_number can not be empty": "phone_number can not be empty",
       "{} is missing": "{} is missing",
-      "can't generate OTP code": "can't generate OTP code"
+      "can't generate OTP code": "can't generate OTP code",
+      "user account with this email already exists.": "user account with this email already exists.",
+      "user account with this phone number already exists.": "user account with this phone number already exists."
     },
     "SETTINGS": {
       "new-bankaccount": "An error occurred while adding new bank account",

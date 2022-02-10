@@ -358,6 +358,7 @@
     "resend": "اعاده ارسال",
     "return": "عودة",
     "ok": "تم",
+    "ok1": "حسنا",
     "otp-code": "رمز التحقق",
     "enter-otp": "ادخل رمز التحقق",
     "notes": "الملاحظات",
@@ -472,6 +473,7 @@
   },
   "ERROR": {
     "create-user": "حدث خطأ اثناء انشاء مشترك جديد",
+    "an error occurred": "حدث خطأ",
     "PACKAGES": {
       "update": "حدث خطأ اثناء تحديث الباقة",
       "new": "حدث خطأ اثناء انشاء باقة",
@@ -569,7 +571,9 @@
       "Successful Logout": "تم تسجيل الخروج",
       "phone_number can not be empty": "لا يمكن أن يكون رقم الجوال فارغًا",
       "{} is missing": "{} مفقود",
-      "can't generate OTP code": "لا يمكن إنشاء رمز OTP"
+      "can't generate OTP code": "لا يمكن إنشاء رمز OTP",
+      "user account with this email already exists.": "حساب المستخدم مع هذا البريد الإلكتروني موجود بالفعل.",
+      "user account with this phone number already exists.": "حساب المستخدم مع رقم الهاتف هذا موجود بالفعل."
     },
     "SETTINGS": {
       "new-bankaccount": "حدث خطأ اثناء اضافة حساب بنكي جديد",

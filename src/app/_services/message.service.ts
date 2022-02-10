@@ -52,36 +52,39 @@ export class MessageService {
         else {
           this.getTranslate(res.error[e], type, altType, altMessage).then(msg => messages.push(msg))
         }
-
       });
-
-      if (messages.length == 1)
-        this.toast.error(messages[0])
-      else {
-        // this.dialog.errorLog(messages)
-      }
+      setTimeout(() => {
+        if (messages.length == 1)
+          this.toast.error(messages[0])
+        else {
+          this.dialog.anErrorOccurred(messages)
+        }
+      }, 500)
     }
     setTimeout(() => {
 
       this.logger.log('resMessages: ', res)
       this.logger.log('resKeys: ', resKeys)
       this.logger.log('messages: ', messages)
-    }, 1000)
+    }, 500)
 
     return throwError('error')
   }
 
 
-  private getTranslate(value: string, type: string = '', altType: string = '', altMessage: string = '') {
+  private getTranslate(value: string, type: string = '', alterType: string = '', altMessage: string = '') {
     let _message = '';
 
-    this.translate.get(`ERROR.${type}.${value}`).toPromise().then(msg => {
-      if (msg.includes(`ERROR.${type}.${value}`)) {
-        this.translate.get(`ERROR.${altType}.${value}`).toPromise().then(altType => {
-          if (altType.includes(`ERROR.${altType}.${value}`)) {
-            this.translate.get(`ERROR.${type}.${altMessage}`).toPromise().then(altMsg => {
-              if (altType.includes(`ERROR.${type}.${altMessage}`)) {
-                this.translate.get('ERROR.error').toPromise().then(er => _message = (`${er} - ${value}`))
+    this.translate.get(`ERROR.${type}${value}`).toPromise().then(msg => {
+
+      if (msg.includes(`ERROR.${type}${value}`)) {
+        this.translate.get(`ERROR.${alterType}${value}`).toPromise().then(altType => {
+
+          if (altType.includes(`ERROR.${alterType}${value}`)) {
+            this.translate.get(`ERROR.${type}${altMessage}`).toPromise().then(altMsg => {
+
+              if (altMsg.includes(`ERROR.${type}${altMessage}`)) {
+                _message = value;
               }
               else {
                 _message = (altMsg)
@@ -99,7 +102,7 @@ export class MessageService {
       setTimeout(() => {
 
         res(_message)
-      }, 1000)
+      }, 500)
     })
   }
 }

@@ -13,6 +13,7 @@ import { DialogService } from './../../../_services/dialog.service';
 })
 export class BaseComponent implements OnInit {
   categories = categories;
+  errors = ['قيمة المدة غير صالحة ، يجب أن تكون رقمًا أعلى من 0', 'ترتبط بعض الباقات بهذا الحساب المصرفي ، يرجى تغيير الحساب المصرفي في هذه الباقات لحذف الحساب المصرفي']
   dateTest: FormControl = new FormControl('')
   constructor(
     public dialogSrv: DialogService,
