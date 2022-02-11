@@ -79,11 +79,10 @@
 }
 
 .table-theme-2 {
-  border-collapse: collapse;
+  border-spacing: 0 1.3em;
+  border-collapse: inherit;
   background-color: #e2e2e3;
   color: #313438;
-  height: 50px;
-  padding: 8px 10px;
 }
 
 .table-theme-3 th {
