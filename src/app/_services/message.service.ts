@@ -13,8 +13,6 @@ export class MessageService {
 
   constructor(
     private translate: TranslateService,
-    private dialog: DialogService,
-    private toast: ToastService,
     private logger: LoggerService
   ) { }
   errorMessage(resMessage: string, altrMessage: string, key: string): string {
@@ -38,7 +36,7 @@ export class MessageService {
     })
     return message;
   }
-  errors(res: HttpErrorResponse, type: string = '', altType: string = '', altMessage: string = '') {
+  errors(res: HttpErrorResponse, type: string = '', altType: string = '', altMessage: string = '', useAlert = true): Promise<any> {
     this.logger.log('resMessages: ', res)
     let resKeys = Object.keys(res.error);
     let messages: any = [];
@@ -47,19 +45,22 @@ export class MessageService {
     if (resKeys.length > 0) {
       resKeys.forEach((e: any) => {
         if (Array.isArray(res.error[e])) {
-          res.error[e].forEach((e2: any) => { this.getTranslate(e2, type, altType, altMessage).then(msg => messages.push(msg)) })
+          let arr: any = [];
+          res.error[e].forEach((e2: any) => { this.getTranslate(e2, type, altType, altMessage).then(msg => arr.push(msg)) })
+          messages.push(arr)
         }
         else {
           this.getTranslate(res.error[e], type, altType, altMessage).then(msg => messages.push(msg))
         }
       });
-      setTimeout(() => {
-        if (messages.length == 1)
-          this.toast.error(messages[0])
-        else {
-          this.dialog.anErrorOccurred(messages)
-        }
-      }, 500)
+      // setTimeout(() => {
+      //   if (messages.length == 1)
+      //     this.toast.error(messages[0])
+      //   else if (useAlert) {
+      //     this.dialog.anErrorOccurred(messages)
+
+      //   }
+      // }, 500)
     }
     setTimeout(() => {
 
@@ -67,8 +68,11 @@ export class MessageService {
       this.logger.log('resKeys: ', resKeys)
       this.logger.log('messages: ', messages)
     }, 500)
-
-    return throwError('error')
+    return new Promise((res, rej) => {
+      setTimeout(() => {
+        res({ keySet: resKeys, errors: messages })
+      }, 500)
+    })
   }
 
 
