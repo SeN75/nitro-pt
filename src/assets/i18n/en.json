@@ -354,7 +354,9 @@
     "hijri": "hijri",
     "gregorian": "gregorian",
     "select": "select",
-    "sar": "sar"
+    "sar": "sar",
+    "ar": "in arabic",
+    "en": "in english"
   },
   "VALIDATION": {
     "email": {
@@ -538,7 +540,8 @@
       "{} is missing": "{} is missing",
       "can't generate OTP code": "can't generate OTP code",
       "user account with this email already exists.": "user account with this email already exists.",
-      "user account with this phone number already exists.": "user account with this phone number already exists."
+      "user account with this phone number already exists.": "user account with this phone number already exists.",
+      "user account with this username already exists": "user account with this username already exists"
     },
     "SETTINGS": {
       "new-bankaccount": "An error occurred while adding new bank account",

@@ -12,7 +12,7 @@
   </header>
 
   <div class="body scroll">
-    <table datatable [dtOptions]="dtOptions" class="table-theme-1 hover">
+    <table class="table-theme-1 hover">
       <thead>
         <th>#</th>
         <th>{{'FORM.name' | translate}}</th>
@@ -23,9 +23,7 @@
       </thead>
       <tbody>
         <ng-container *ngFor="let program of dietplanArr; let i = index">
-          <tr class="row_space">
-            <td colspan="7"></td>
-          </tr>
+
           <tr (click)="(selectedPro == i+'' ? selectedPro = '': selectedPro = i+'')">
             <td>{{i+1}}</td>
             <td>{{program.name}}</td>

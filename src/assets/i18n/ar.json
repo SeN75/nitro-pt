@@ -377,7 +377,9 @@
     "hijri": "هجري",
     "gregorian": "ميلادي",
     "select": "اختر",
-    "sar": "ريال"
+    "sar": "ريال",
+    "ar": "بالعربي",
+    "en": "بالانجليزي"
   },
   "VALIDATION": {
     "email": {
@@ -573,7 +575,8 @@
       "{} is missing": "{} مفقود",
       "can't generate OTP code": "لا يمكن إنشاء رمز OTP",
       "user account with this email already exists.": "حساب المستخدم مع هذا البريد الإلكتروني موجود بالفعل.",
-      "user account with this phone number already exists.": "حساب المستخدم مع رقم الهاتف هذا موجود بالفعل."
+      "user account with this phone number already exists.": "حساب المستخدم مع رقم الهاتف هذا موجود بالفعل.",
+      "user account with this username already exists": "حساب المستخدم مع اسم المستخدم هذا موجود بالفعل"
     },
     "SETTINGS": {
       "new-bankaccount": "حدث خطأ اثناء اضافة حساب بنكي جديد",
