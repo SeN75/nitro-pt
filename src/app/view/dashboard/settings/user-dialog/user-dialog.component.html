@@ -10,37 +10,46 @@
     <div class="col-12 col-sm-6">
       <div class="form-group  w-100"
         [class.has_error]="userDataForm.controls.first_name_ar.invalid && userDataForm.controls.first_name_ar.dirty">
-        <label> {{'FORM.name' | translate}}</label>
-        <input class="form-control" placeholder="{{'FORM.name' | translate}}" formControlName="first_name_ar">
+        <label> {{'FORM.name' | translate}} {{'FORM.ar' | translate}}</label>
+        <input class="form-control" placeholder="{{'FORM.name' | translate}} {{'FORM.ar' | translate}}"
+          formControlName="first_name_ar">
         <div class="hint">
           {{(
           userDataForm.controls.first_name_ar.errors&&userDataForm.controls.first_name_ar.dirty ?
           userDataForm.controls.first_name_ar.errors.required ? 'VALIDATION.required':
-          userDataForm.controls.first_name_ar.errors.pattern ? 'VALIDATION.ar' :'' : '')
+          userDataForm.controls.first_name_ar.errors.pattern ? 'VALIDATION.ar' :
+          userDataForm.controls.first_name_ar.errors.resError ? userDataForm.controls.first_name_ar.errors.resError :
+          '' : '')
           | translate }}
         </div>
       </div>
       <div class="form-group  w-100"
         [class.has_error]="userDataForm.controls.middle_name_ar.invalid && userDataForm.controls.middle_name_ar.dirty">
-        <label> {{'FORM.father-name' | translate}}</label>
-        <input class="form-control" placeholder="{{'FORM.father-name' | translate}}" formControlName="middle_name_ar">
+        <label> {{'FORM.father-name' | translate}} {{'FORM.ar' | translate}}</label>
+        <input class="form-control" placeholder="{{'FORM.father-name' | translate}} {{'FORM.ar' | translate}}"
+          formControlName="middle_name_ar">
         <div class="hint">
           {{(
           userDataForm.controls.middle_name_ar.errors&&userDataForm.controls.middle_name_ar.dirty ?
           userDataForm.controls.middle_name_ar.errors.required ? 'VALIDATION.required':
-          userDataForm.controls.middle_name_ar.errors.pattern ? 'VALIDATION.ar' :'' : '')
+          userDataForm.controls.middle_name_ar.errors.pattern ? 'VALIDATION.ar' :
+          userDataForm.controls.middle_name_ar.errors.resError ? userDataForm.controls.middle_name_ar.errors.resError :
+          '' : '')
           | translate }}
         </div>
       </div>
       <div class="form-group  w-100"
         [class.has_error]="userDataForm.controls.last_name_ar.invalid && userDataForm.controls.last_name_ar.dirty">
-        <label> {{'FORM.family-name' | translate}}</label>
-        <input class="form-control" placeholder="{{'FORM.family-name' | translate}}" formControlName="last_name_ar">
+        <label> {{'FORM.family-name' | translate}} {{'FORM.ar' | translate}}</label>
+        <input class="form-control" placeholder="{{'FORM.family-name' | translate}} {{'FORM.ar' | translate}}"
+          formControlName="last_name_ar">
         <div class="hint">
           {{(
           userDataForm.controls.last_name_ar.errors&&userDataForm.controls.last_name_ar.dirty ?
           userDataForm.controls.last_name_ar.errors.required ? 'VALIDATION.required':
-          userDataForm.controls.last_name_ar.errors.pattern ? 'VALIDATION.ar' :'' : '')
+          userDataForm.controls.last_name_ar.errors.pattern ? 'VALIDATION.ar' :
+          userDataForm.controls.last_name_ar.errors.resError ? userDataForm.controls.last_name_ar.errors.resError :
+          '' : '')
           | translate }}
         </div>
       </div>
@@ -52,6 +61,7 @@
           {{(
           userDataForm.controls.username.errors&&userDataForm.controls.username.dirty ?
           userDataForm.controls.username.errors.required ? 'VALIDATION.required':
+          userDataForm.controls.username.errors.resError ? userDataForm.controls.username.errors.resError:
           '' : '')
           | translate }}
         </div>
@@ -71,7 +81,9 @@
           userDataForm.controls.password.errors&&userDataForm.controls.password.dirty ?
           userDataForm.controls.password.errors.required ? 'VALIDATION.password.required':
           userDataForm.controls.password.errors.minlength ? 'VALIDATION.password.minlength':
-          userDataForm.controls.password.errors.pattern ? 'VALIDATION.password.pattern': '' : '')
+          userDataForm.controls.password.errors.pattern ? 'VALIDATION.password.pattern':
+          userDataForm.controls.password.errors.resError ? userDataForm.controls.password.errors.resError:
+          '' : '')
           | translate }}
         </div>
       </div>
@@ -88,7 +100,9 @@
           userDataForm.controls.re_password.errors&&userDataForm.controls.re_password.dirty ?
           userDataForm.controls.re_password.errors.required ? 'VALIDATION.password.required':
           userDataForm.controls.re_password.errors.confirmPasswordValidator == true ?
-          'VALIDATION.password.not-match' : '': '')
+          'VALIDATION.password.not-match' :
+          userDataForm.controls.re_password.errors.resError ? userDataForm.controls.re_password.errors.resError: '' :
+          '')
           | translate }}
         </div>
       </div>
@@ -109,6 +123,7 @@
           {{(
           userDataForm.controls.phone_number.errors&&userDataForm.controls.phone_number.dirty ?
           userDataForm.controls.phone_number.errors.required ? 'VALIDATION.required':
+          userDataForm.controls.phone_number.errors.resError ? userDataForm.controls.phone_number.errors.resError:
           '' : '')
           | translate }}
         </div>
@@ -117,41 +132,45 @@
     <div class="col-12 col-sm-6">
       <div class="form-group  w-100"
         [class.has_error]="userDataForm.controls.first_name.invalid && userDataForm.controls.first_name.dirty">
-        <label> {{'FORM.name' | translate}}</label>
-        <input class="form-control" placeholder="{{'FORM.name' | translate}}" formControlName="first_name">
+        <label> {{'FORM.name' | translate}} {{'FORM.en' | translate}}</label>
+        <input class="form-control" placeholder="{{'FORM.name' | translate}} {{'FORM.en' | translate}}"
+          formControlName="first_name">
         <div class="hint">
           {{(
           userDataForm.controls.first_name.errors&&userDataForm.controls.first_name.dirty ?
           userDataForm.controls.first_name.errors.required ? 'VALIDATION.required':
           userDataForm.controls.first_name.errors.pattern ? 'VALIDATION.en':
+          userDataForm.controls.first_name.errors.resError ? userDataForm.controls.first_name.errors.resError:
           '' : '')
           | translate }}
         </div>
       </div>
       <div class="form-group  w-100"
         [class.has_error]="userDataForm.controls.middle_name.invalid && userDataForm.controls.middle_name.dirty">
-        <label> {{'FORM.father-name' | translate}}</label>
-        <input class="form-control" placeholder="{{'FORM.father-name' | translate}}" formControlName="middle_name">
+        <label> {{'FORM.father-name' | translate}} {{'FORM.en' | translate}}</label>
+        <input class="form-control" placeholder="{{'FORM.father-name' | translate}} {{'FORM.en' | translate}}"
+          formControlName="middle_name">
         <div class="hint">
           {{(
           userDataForm.controls.middle_name.errors&&userDataForm.controls.middle_name.dirty ?
           userDataForm.controls.middle_name.errors.required ? 'VALIDATION.required':
           userDataForm.controls.middle_name.errors.pattern ? 'VALIDATION.en':
-
+          userDataForm.controls.middle_name.errors.resError ? userDataForm.controls.middle_name.errors.resError :
           '': '')
           | translate }}
         </div>
       </div>
       <div class="form-group  w-100"
         [class.has_error]="userDataForm.controls.last_name.invalid && userDataForm.controls.last_name.dirty">
-        <label> {{'FORM.family-name' | translate}}</label>
-        <input class="form-control" placeholder="{{'FORM.family-name' | translate}}" formControlName="last_name">
+        <label> {{'FORM.family-name' | translate}} {{'FORM.en' | translate}}</label>
+        <input class="form-control" placeholder="{{'FORM.family-name' | translate}} {{'FORM.en' | translate}}"
+          formControlName="last_name">
         <div class="hint">
           {{(
           userDataForm.controls.last_name.errors&&userDataForm.controls.last_name.dirty ?
           userDataForm.controls.last_name.errors.required ? 'VALIDATION.required':
           userDataForm.controls.last_name.errors.pattern ? 'VALIDATION.en':
-
+          userDataForm.controls.last_name.errors.resError ? userDataForm.controls.last_name.errors.resError:
           '': '')
           | translate }}
         </div>
@@ -164,7 +183,8 @@
           {{(
           userDataForm.controls.email.errors&&userDataForm.controls.email.dirty ?
           userDataForm.controls.email.errors.required ? 'VALIDATION.email.required':
-          'VALIDATION.email.': '')
+          userDataForm.controls.email.errors.resError ? userDataForm.controls.email.errors.resError:
+          '': '')
           | translate }}
         </div>
       </div>
@@ -181,10 +201,11 @@
             <option *ngFor="let code of countriesCode" [value]="code.phone_code">+ {{code.phone_code}}</option>
           </select>
         </div>
-        <div class="hint">
+        <div class="hint_error">
           {{(
           userDataForm.controls.phone_number.errors&&userDataForm.controls.phone_number.dirty ?
           userDataForm.controls.phone_number.errors.required ? 'VALIDATION.required':
+          userDataForm.controls.phone_number.errors.resError ? userDataForm.controls.phone_number.errors.resError:
           '' : '')
           | translate }}
         </div>

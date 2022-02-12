@@ -30,7 +30,13 @@ export class BankAccountDialogComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.data.account) {
+      this.logger.log('account: ', this.data)
       this.bankForm.get('iban')?.setValue(this.data.account.iban)
+      let id: any = this.bankSrv.banksList.filter(e => e.name_ar === this.data.account.bank_name_ar
+      )
+      this.logger.log(id)
+      if (id && id.length == 1)
+        this.bankForm.get('bank_id')?.setValue(id[0].id)
     }
   }
   delete() {
@@ -42,12 +48,11 @@ export class BankAccountDialogComponent implements OnInit {
   }
   action() {
     if (this.data.state == 'edit') {
-      this.bankSrv.updateBankAccountById(this.bankForm.value, this.data.account.external_id)
-      this.onNoClick()
+      this.bankSrv.updateBankAccountById(this.bankForm.value, this.data.account.external_id, this.bankForm).then(e => this.onNoClick())
+
 
     } else {
-      this.bankSrv.createBankAccount(this.bankForm.value)
-      this.onNoClick()
+      this.bankSrv.createBankAccount(this.bankForm.value, this.bankForm).then(e => this.onNoClick())
 
     }
   }

@@ -37,6 +37,6 @@ export class ResetPasswordComponent implements OnInit {
     this.dialogRef.close();
   }
   action() {
-    this.identitySrv.changeCurrentUserPassword(this.resetPasswordForm.value);
+    this.identitySrv.changeCurrentUserPassword(this.resetPasswordForm.value, this.resetPasswordForm).then(s => this.onNoClick());
   }
 }
