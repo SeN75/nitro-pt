@@ -15,23 +15,24 @@ export class FormAlertService {
     let errorObj: any = {};
     let notKey: any = {};
     this.logger.log('formGroup alert: ', form)
-    keySet.forEach((control, i) => {
-      let errorList = ''
-      if (Array.isArray(errors[i])) {
-        errors[i].forEach((msg: any) => {
-          errorList += msg + '\n';
-        });
-      } else {
-        errorList = errors[i];
-      }
-      this.logger.log('control: ', control)
-      if (form.controls[control]) {
-        errorObj[control] = errorList
-        form.controls[control].setErrors({ resError: errorList })
-      }
-      else
-        notKey[control] = errorList
-    });
+    if (keySet.length < 50)
+      keySet.forEach((control, i) => {
+        let errorList = ''
+
+        if (Array.isArray(errors[i])) {
+          errors[i].forEach((msg: any) => {
+            errorList += msg + '\n';
+          });
+        } else {
+          errorList = errors[i];
+        }
+        if (form.controls[control]) {
+          errorObj[control] = errorList
+          form.controls[control].setErrors({ resError: errorList })
+        }
+        else
+          notKey[control] = errorList
+      });
 
     return { controlErrors: errorObj, notKey: notKey };
   }

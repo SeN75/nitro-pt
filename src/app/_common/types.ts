@@ -197,3 +197,10 @@ export interface ResetPassword {
   phone_number?: string,
   re_new_password: string
 }
+
+type Status = 'Error' | 'Success' | 'Wait' | 'Warning' | 'Failed'
+export interface MessageRespones {
+  status: Status;
+  message: any,
+  method: string
+}

@@ -34,12 +34,21 @@ export class ToastService {
   errors(messages: any) {
     let data: any = [];
     let keySet: any[] = Object.keys(messages)
+    if (!Array.isArray(messages)) {
 
-    if (keySet.length == 1)
-      this.error(messages[keySet[0]])
-    else if (keySet.length > 1) {
-      keySet.forEach(e => data.push(e))
-      this.dialog.anErrorOccurred(data)
+      if (keySet.length == 1)
+        this.error(messages[keySet[0]])
+      else if (keySet.length > 1) {
+        keySet.forEach(e => data.push(e))
+        this.dialog.anErrorOccurred(data)
+      }
+    } else {
+      if (messages.length == 1)
+        this.error(messages[0])
+      else if (messages.length > 1) {
+        messages.forEach(e => data.push(e))
+        this.dialog.anErrorOccurred(data)
+      }
     }
   }
 }

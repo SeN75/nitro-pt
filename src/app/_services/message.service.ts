@@ -29,12 +29,15 @@ export class MessageService {
     })
     return message;
   }
-  successMessage(resMessage: string): string {
+  successMessage(resMessage: string): Promise<string> {
     let message: string = '';
-    this.translate.get('SUCCESS.' + resMessage).subscribe(resMsg => {
-      message = resMsg
+    return new Promise<string>((res, rej) => {
+
+      this.translate.get('SUCCESS.' + resMessage).subscribe(resMsg => {
+        message = resMsg
+      })
+      res(message);
     })
-    return message;
   }
   errors(res: HttpErrorResponse, type: string = '', altType: string = '', altMessage: string = '', useAlert = true): Promise<any> {
     this.logger.log('resMessages: ', res)
