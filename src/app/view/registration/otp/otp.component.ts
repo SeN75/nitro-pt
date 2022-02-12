@@ -19,13 +19,17 @@ export class OtpComponent implements OnInit {
   mobile = '';
   type = '';
   autoInput: FormControl = new FormControl('', [Validators.maxLength(6)]);
+
   constructor(
     private logger: LoggerService,
     private Router: Router,
     private identitySrv: IdentityService,
     private activeRoute: ActivatedRoute
   ) {
-    this.otpForm = this.toFormGroup(this.formInput)
+    // this.otpForm = this.toFormGroup(this.formInput)
+    this.otpForm = new FormGroup({
+      otp: new FormControl('', [Validators.maxLength(6)])
+    })
     this.countDown()
     let phone_number = this.Router.url.replace('register/otp_verify/%2B', '');
     // this.identitySrv.getUserProfileByJWT();
@@ -70,7 +74,7 @@ export class OtpComponent implements OnInit {
 
       const content = await window.navigator['credentials'].get(o);
       // alert(content);
-      this.autoInput.setValue(content);
+      this.otpForm.controls['otp'].setValue(content);
       //do what ever you want to do with the received code, probably send it to server
     }
     else {
@@ -121,7 +125,7 @@ export class OtpComponent implements OnInit {
     if (this.otpForm.valid || true) {
       let code = '';
       // this.formInput.forEach(e => code += this.otpForm.get(e)?.value)
-      this.identitySrv.verifyOTP({ otp: this.autoInput.value, phone_number: '+' + this.mobile.trim() }, this.type);
+      this.identitySrv.verifyOTP({ otp: this.otpForm.controls['otp'].value, phone_number: '+' + this.mobile.trim() }, this.type, this.otpForm);
       this.logger.log('otp: ', code)
     }
   }
