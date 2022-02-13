@@ -63,14 +63,14 @@ export class WorkoutDialogComponent implements OnInit {
     data.medit_link = this.imgUpload.value;
     this.logger.log('data: ', data);
     if (this.data.state == 'edit') {
-      this.exerciseSrv.updateExercisesById(data, this.data.workout.id, this.fileUpload)
-      this.onNoClick();
+      this.exerciseSrv.updateExercisesById(data, this.data.workout.id, this.exerciseForm, this.fileUpload)
+        .then(s => this.onNoClick()).catch(e => e)
     } else {
       data.category = this.data.workout.category;
       this.logger.log('data: ', data);
 
-      this.exerciseSrv.createExercises(data, this.fileUpload)
-      this.onNoClick();
+      this.exerciseSrv.createExercises(data, this.fileUpload, this.exerciseForm)
+        .then(s => this.onNoClick()).catch(e => e)
 
     }
 

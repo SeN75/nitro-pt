@@ -13,6 +13,7 @@
         <span *ngIf="exerciseForm.get('name').errors.required && isSend">{{'VALIDATION.req' | translate}}
           {{'WORKSOUT.name' | translate}}</span>
         <span *ngIf="exerciseForm.get('name').errors.pattern">{{'VALIDATION.en' | translate}}</span>
+        <span *ngIf="exerciseForm.get('name').errors.resError">{{exerciseForm.get('name').errors.resError}}</span>
       </div>
     </div>
     <div class="form-group col-12 col-sm-6"
@@ -25,7 +26,7 @@
         <span *ngIf="exerciseForm.get('name_ar').errors.required && isSend">{{'VALIDATION.req' | translate}}
           {{'WORKSOUT.name_ar' | translate}}</span>
         <span *ngIf="exerciseForm.get('name_ar').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
-
+        <span *ngIf="exerciseForm.get('name_ar').errors.resError">{{exerciseForm.get('name_ar').errors.resError}}</span>
       </div>
     </div>
     <uplode-file class="my-2" (file)="getVideo($event)"></uplode-file>
