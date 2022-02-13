@@ -47,11 +47,14 @@ export class CategoryTypeDialogComponent implements OnInit {
         delete data.name
       if (!this.categoryForm.get('name_ar')?.dirty)
         delete data.name_ar
-      this.categorySrv.updateFoodCategoriesById(data, this.data.cate.id)
-      this.onNoClick()
+      this.categorySrv.updateFoodCategoriesById(data, this.data.cate.id, this.categoryForm)
+        .then(s => this.onNoClick())
+        .catch(e => e)
+
     } else {
-      this.categorySrv.createFoodCategory(this.categoryForm.value)
-      this.onNoClick()
+      this.categorySrv.createFoodCategory(this.categoryForm.value, this.categoryForm)
+        .then(s => this.onNoClick())
+        .catch(e => e)
     }
   }
   onNoClick(): void {
