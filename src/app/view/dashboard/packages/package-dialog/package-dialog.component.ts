@@ -19,6 +19,10 @@ import { NumberValidator } from './../../../../_helpers/number.validator';
 export class PackageDialogComponent implements OnInit {
   packForm: FormGroup | any;
   offerForm: FormGroup | any;
+
+  packagesErrors: any[] = [];
+  offerErrors: any[] = [];
+
   withOffer = false;
   offerObj: any;
   toDayDate = new Date();
@@ -157,14 +161,19 @@ export class PackageDialogComponent implements OnInit {
     delete data.discountAmount;
     delete data.showInWebsite;
     if (this.data.state == 'edit') {
-
       this.logger.log('edit pack: ', this.packForm.value);
       this.logger.log('edit pack: ', this.data.package);
       if (!this.packForm.get('name')?.dirty)
         delete data.name
       if (!this.packForm.get('name_ar')?.dirty)
         delete data.name_ar
-      this.packSrv.updatePackageById(data, this.data.package.external_id)
+      this.packSrv.updatePackageById(data, this.data.package.external_id, this.packForm)
+        .then(() => { this.onNoClick(); })
+        .catch(e => {
+          if (e.message)
+            this.offerErrors = e.message;
+          this.packSrv.isLoading = false;
+        })
       if (this.withOffer) {
         let offer = { ...this.offerForm.value }
         delete offer.package_id;
@@ -174,14 +183,22 @@ export class PackageDialogComponent implements OnInit {
           delete offer.end_date
         if (this.offerForm.get('start_date')?.dirty)
           delete offer.start_date
-        this.offerSrv.updateOfferByPackageId(offer, this.data.package.external_id)
+        this.offerSrv.updateOfferByPackageId(offer, this.data.package.external_id, this.offerForm)
+          .catch(e => {
+            if (e.message)
+              this.offerErrors = e.message;
+            this.packSrv.isLoading = false;
+          })
       }
-      this.onNoClick();
     }
     else {
       this.logger.log('add pack: ', this.packForm.value);
-      this.packSrv.createPackage(this.packForm.value, (this.offerForm.valid ? this.offerForm.value : undefined))
-      this.onNoClick();
+      this.packSrv.createPackage(this.packForm.value, this.packForm, (this.offerForm.valid ? this.offerForm.value : undefined)).then(() => this.onNoClick())
+        .catch(e => {
+          if (e.message)
+            this.packagesErrors = e.message;
+          this.packSrv.isLoading = false;
+        })
     }
   }
   replaceNumber(str: string) {
