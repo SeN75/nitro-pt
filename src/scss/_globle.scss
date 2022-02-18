@@ -10,7 +10,7 @@ sidemenu
   border-radius: 0;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  overflow: auto;
+  overflow: hidden;
   transition: all 0.6s ease-in-out;
   // direction: ltr;
 }
@@ -82,6 +82,10 @@ sidemenu
   border-radius: 0;
   border-top-left-radius: 0.5em;
   border-bottom-left-radius: 0.5em;
+  transition: 0.4s;
+  &:hover {
+    background-color: #295d9c;
+  }
 }
 
 .main .items span {
@@ -125,7 +129,7 @@ sidemenu
 
 .main .items.active {
   color: var(--primary);
-  background-color: white;
+  background-color: #f9faff;
   text-decoration: none;
 }
 
