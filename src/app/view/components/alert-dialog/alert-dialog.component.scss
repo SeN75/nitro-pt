@@ -1,0 +1,12 @@
+.error_list {
+  color: var(--red);
+  list-style: square;
+}
+.error_list li {
+  font-size: medium;
+  margin-top: 10px;
+}
+
+.dialog-title {
+  color: var(--red) !important;
+}

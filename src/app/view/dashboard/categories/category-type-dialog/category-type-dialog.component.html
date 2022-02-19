@@ -12,6 +12,7 @@
         <span *ngIf="categoryForm.get('name').errors.required && isSend">{{'VALIDATION.req' | translate}}
           {{'CATEGORIES.name-type' | translate}}</span>
         <span *ngIf="categoryForm.get('name').errors.pattern">{{'VALIDATION.en' | translate}}</span>
+        <span *ngIf="categoryForm.get('name').errors.resError">{{categoryForm.get('name').errors.resError}}</span>
 
       </div>
     </div>
@@ -25,7 +26,7 @@
         <span *ngIf="categoryForm.get('name_ar').errors.required && isSend">{{'VALIDATION.req' | translate}}
           {{'CATEGORIES.name-type-ar' | translate}}</span>
         <span *ngIf="categoryForm.get('name_ar').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
-
+        <span *ngIf="categoryForm.get('name_ar').errors.resError">{{categoryForm.get('name_ar').errors.resError}}</span>
       </div>
     </div>
   </div>

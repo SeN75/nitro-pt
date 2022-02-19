@@ -20,6 +20,14 @@ import { LoaderComponent } from './loader/loader.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { PreviewImageOrVideoComponent } from './preview-image-or-video/preview-image-or-video.component';
+import { DatepickerComponent } from './datepicker/datepicker.component';
+import { NgbDropdown, NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { DateHijriComponent } from './datepicker/date-hijri/date-hijri.component';
+import { DateGregorianComponent } from './datepicker/date-gregorian/date-gregorian.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { TableFilterComponent } from './table-filter/table-filter.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +43,12 @@ import { PreviewImageOrVideoComponent } from './preview-image-or-video/preview-i
     EntriesAndRemainingComponent,
     LoaderComponent,
     DeleteDialogComponent,
-    PreviewImageOrVideoComponent
+    PreviewImageOrVideoComponent,
+    DatepickerComponent,
+    DateHijriComponent,
+    DateGregorianComponent,
+    TableFilterComponent,
+    AlertDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +59,10 @@ import { PreviewImageOrVideoComponent } from './preview-image-or-video/preview-i
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatButtonToggleModule,
+    NgbModule,
+    MatMenuModule
 
   ],
   exports: [
@@ -60,7 +76,8 @@ import { PreviewImageOrVideoComponent } from './preview-image-or-video/preview-i
     ArchivingInfoComponent,
     EntriesAndRemainingComponent,
     LoaderComponent,
-    UplodeFileComponent
+    UplodeFileComponent,
+    TableFilterComponent
   ]
 })
 export class ComponentsModule { }

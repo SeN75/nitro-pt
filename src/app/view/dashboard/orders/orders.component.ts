@@ -7,7 +7,6 @@ import { ExercisesService } from 'src/app/_services/gym/exercises.service';
 import { LoggerService } from 'src/app/_services/logger.service';
 import { SubscriptionsService } from 'src/app/_services/subscriptions/subscriptions.service';
 import { completedOrders } from './../../../_common/globle';
-import { OrdersService } from './../../../_services/orders.service';
 
 @Component({
   selector: 'app-orders',
@@ -26,7 +25,6 @@ export class OrdersComponent implements OnInit {
   hasError = false;
   constructor(
     public dialogSrv: DialogService,
-    public orderSrv: OrdersService,
     public subscriptionSrv: SubscriptionsService,
     private logger: LoggerService,
     private router: Router,
@@ -73,7 +71,13 @@ export class OrdersComponent implements OnInit {
       this.newRequestList = success.new_requests.requests;
       this.logger.log('getRequestDetailsById this.expired_request: ', this.expiredRequest)
       this.logger.log('getRequestDetailsById this.new_request: ', this.newRequestList)
-      this.loaded()
+      this.loaded();
+
+      let eCount = 1;
+      let nCount = 1;
+
+      this.expiredRequest.forEach(e => e.pos === eCount++);
+      this.newRequestList.forEach(e => e.pos === nCount++);
     }, (error: HttpErrorResponse) => {
       this.hasError = false;
 

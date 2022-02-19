@@ -16,23 +16,44 @@
     <table class="table-theme-1 hover">
       <thead class="text-center">
         <tr>
-          <th>#</th>
-          <th>{{'SUBSCRIBERS.name' | translate}}</th>
-          <th>{{'SUBSCRIBERS.start-date' | translate}}</th>
-          <th>{{'SUBSCRIBERS.end-date' | translate}}</th>
-          <th>{{'SUBSCRIBERS.amount-paid' | translate}}</th>
-          <th>{{'SUBSCRIBERS.subscription-number' | translate}}</th>
-          <th>{{'SUBSCRIBERS.status' | translate}}</th>
+          <th>
+            <tb-filter [data]="subsList" mode="order" label="pos"></tb-filter>
+            #
+          </th>
+          <th>
+            <tb-filter [data]="subsList" mode="order" label="client"></tb-filter>
+            {{'SUBSCRIBERS.name' | translate}}
+          </th>
+          <th>
+            <tb-filter [data]="subsList" mode="date" label="start_date" _translate="SUBSCRIBERS"></tb-filter>
+            {{'SUBSCRIBERS.start-date' | translate}}
+          </th>
+          <th>
+            <tb-filter [data]="subsList" mode="date" label="end_date" _translate="SUBSCRIBERS"></tb-filter>
+            {{'SUBSCRIBERS.end-date' | translate}}
+          </th>
+          <th>
+            <tb-filter [data]="subsList" mode="order" label="price"></tb-filter>
+            {{'SUBSCRIBERS.amount-paid' | translate}}
+          </th>
+          <th>
+            <tb-filter [data]="subsList" mode="order" label="id"></tb-filter>
+
+            {{'SUBSCRIBERS.subscription-number' | translate}}
+          </th>
+          <th>
+            <tb-filter [data]="subsList" mode="search-order" label="status"
+              [list]="['active', 'inactive', 'approved','rejected']" _translate="SUBSCRIBERS"></tb-filter>
+            {{'SUBSCRIBERS.status' | translate}}
+          </th>
           <th></th>
         </tr>
       </thead>
       <tbody class="text-center">
         <ng-container *ngFor="let sub of subsList; let i = index">
-          <tr class="row_space">
-            <td colspan="30"></td>
-          </tr>
-          <tr>
-            <td>{{i + 1 }}</td>
+
+          <tr (click)="subscribersDetails(sub)">
+            <td>{{sub.pos }}</td>
             <td>{{sub.client }}</td>
             <td>
               <span *ngIf="sub.start_date != 'N/A'">

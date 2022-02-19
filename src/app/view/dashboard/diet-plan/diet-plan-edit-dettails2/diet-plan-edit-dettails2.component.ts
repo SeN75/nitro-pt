@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DietPlanService } from 'src/app/_services/diet-plan.service';
+import { DietPlanService } from 'src/app/_services/dite/diet-plan.service';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoggerService } from 'src/app/_services/logger.service';

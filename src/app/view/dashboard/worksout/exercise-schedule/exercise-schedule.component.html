@@ -25,20 +25,28 @@
     <table class="table-theme-1 hover">
       <thead class="text-center">
         <tr>
-          <th>#</th>
-          <th>{{'WORKSOUT.name_ar' | translate}}</th>
-          <th>{{'WORKSOUT.view' | translate}}</th>
+          <th>
+            <tb-filter [data]="exercises" mode="order" label="id"></tb-filter>
+
+            #
+          </th>
+          <th>
+            <tb-filter [data]="exercises" mode="order" label="name_ar"></tb-filter>
+
+            {{'WORKSOUT.name_ar' | translate}}
+          </th>
+          <th>
+
+            {{'WORKSOUT.view' | translate}}
+          </th>
           <th></th>
         </tr>
       </thead>
       <tbody class="text-center">
-        <ng-container
-          *ngFor="let exercise of exerciseSrv.getExerciseListOnSameCategory(exerciseCategorSrv.exerciseCategory.name_ar); let i = index">
-          <tr class="row_space">
-            <td colspan="30"></td>
-          </tr>
+        <ng-container *ngFor="let exercise of exercises; let i = index">
+
           <tr>
-            <td>{{i + 1 }}</td>
+            <td>{{exercise.id}}</td>
             <td>{{exercise.name_ar}}</td>
             <!-- <td>{{exercise.media_link}}</td> -->
             <td><button mat-button (click)="dialogSrv.preview(exercise.media_link, 'video')">
@@ -56,8 +64,7 @@
             </td>
           </tr>
         </ng-container>
-        <tr class="no_data"
-          *ngIf="exerciseSrv.getExerciseListOnSameCategory(exerciseCategorSrv.exerciseCategory.name_ar).length == 0">
+        <tr class="no_data" *ngIf="exercises.length == 0">
           <td colspan="30">
             {{'WORKSOUT.no-data' | translate}}
           </td>

@@ -74,13 +74,16 @@ export class UserDialogComponent implements OnInit {
       delete data.re_password;
       delete data.username;
       data.phone_number = "+" + data.counterCode + data.phone_number;
-
-      this.identitySrv.updateDataUserDataById(data, this.data.user.external_id)
+      this.identitySrv.updateDataUserDataById(data, this.data.user.external_id, this.userDataForm)
+        .then(s => this.dialogRef.close())
+        .catch(e => e);
     } else {
       let data = this.userDataForm.value;
       data.role = this.data.path;
       data.phone_number = "+" + data.counterCode + data.phone_number;
-      this.identitySrv.postCreateUser(this.userDataForm.value)
+      this.identitySrv.postCreateUser(this.userDataForm.value, this.userDataForm)
+        .then(s => this.dialogRef.close())
+        .catch(e => e)
     }
   }
 }

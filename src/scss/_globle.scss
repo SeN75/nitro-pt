@@ -4,52 +4,69 @@ sidemenu
 .side-menu {
   position: fixed;
   width: 200px;
-  background-color: var(--primray);
+  background-color: var(--primary);
   top: 0;
   height: 100%;
   border-radius: 0;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  overflow: auto;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  // direction: ltr;
 }
+
 .side-menu-close .side-menu {
   width: 50px;
+  transition: all 0.6s ease-in-out;
+  overflow: none !important;
 }
+
 .nitro-logo {
   width: 90px;
-  height: auto;
+  height: 85px;
   display: block;
   margin: 30px auto 0;
+  transition: all 0.6s ease-in-out;
 }
+
 .side-menu-close .nitro-logo {
-  margin: 30px 10px 0 0;
   width: 35px;
+  height: 85px;
+  transition: all 0.6s ease-in-out;
 }
+
 .main {
   background-color: #f9faff;
   height: 100%;
   position: relative;
 }
+
 .nav_bar {
   display: flex;
   padding: 5px 20px;
   justify-content: space-between;
   height: 60px;
 }
+
 .nav_bar .nitro-logo {
   width: 90px;
   display: none;
   margin: 0;
 }
+
 .logo-underline {
   width: 95px;
   height: 0.15px;
   background-color: rgb(224, 224, 224);
   margin: 10px auto 0;
+  transition: all 0.6s ease-in-out;
 }
+
 .side-menu-close .logo-underline {
   width: 30px;
+  transition: all 0.6s ease-in-out;
 }
+
 .menu {
   display: flex;
   align-items: flex-start;
@@ -58,29 +75,61 @@ sidemenu
 
 .main .items {
   width: 100%;
-  padding: 10px 10px 10px 15px;
+  padding: 7px 10px 7px 15px;
   color: white;
-  margin: 15px 0;
+  margin: 5px 0;
   text-decoration: none;
   border-radius: 0;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-top-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  transition: 0.4s;
+  &:hover {
+    background-color: #295d9c;
+  }
 }
+
 .main .items span {
   text-transform: capitalize;
   margin: 0 20px;
   font-size: 14px;
+  opacity: 1;
+  position: absolute;
+  white-space: nowrap;
+  transition: opacity 3s ease-in-out;
 }
+
+.menu-button-wrapper {
+  width: 100% !important;
+  text-align: center;
+  margin: 0px auto;
+  position: relative;
+  top: 25px;
+}
+
+.white-icon {
+  color: white;
+}
+
+/* Note: If you're using an SVG icon, you should make the class target the `<svg>` element */
+.white-icon svg {
+  fill: white;
+}
+
 .side-menu-close .side-menu .menu .items span {
+  opacity: 0;
   display: none !important;
+  position: absolute;
+  transition: opacity 3.5s ease-in-out;
 }
+
 .main .items .icon {
   width: 20px;
   height: auto;
 }
+
 .main .items.active {
-  color: var(--primray);
-  background-color: white;
+  color: var(--primary);
+  background-color: #f9faff;
   text-decoration: none;
 }
 
@@ -89,10 +138,14 @@ sidemenu
   width: calc(100% - 200px);
   margin-left: auto;
   background-color: #f9faff;
+  transition: all 0.6s ease-in-out;
 }
+
 .side-menu-close .dashboard {
   width: calc(100% - 60px);
+  transition: all 0.6s ease-in-out;
 }
+
 /*
 sidemenu
 */
@@ -103,19 +156,21 @@ sidemenu
   color: var(--gray);
   font-weight: bold;
 }
+
 .detail {
   text-transform: capitalize;
-  color: var(--primray);
+  color: var(--primary);
   font-size: 16px;
   font-weight: bold;
 }
 
 /* dialog */
 .mat-dialog-container {
-  background-color: var(--gray-blue);
+  background-color: var(--gray-blue) !important;
 }
+
 .dialog-title {
-  color: var(--primray) !important;
+  color: var(--primary) !important;
   font-weight: bolder;
   text-transform: uppercase;
   font-size: 26px;
@@ -125,119 +180,30 @@ sidemenu
 #picDialog.mat-dialog-container {
   background-color: var(--white) !important;
 }
+#alert_dialog.mat-dialog-container {
+  background-color: #fff !important;
+  border-color: #f5c6cb !important;
+}
 /* dialog */
-
-/*  fromgroup   */
-.form-group label {
-  color: var(--gray);
-  font-size: 15px;
-  margin-bottom: 8px;
-}
-.register_form .form-group {
-  margin-top: 30px;
-}
-.register_form .form-group label {
-  color: var(--primray);
-}
-.form-group .form-control {
-  background-color: var(--white);
-  border: 1px solid var(--gray-blue);
-  color: var(--primray);
-  height: 52px;
-  text-align: left;
-  outline: none !important;
-}
-.form-group.has_error .form-control {
-  border-color: var(--red);
-  color: var(--red);
-}
-.form-group.has_error label {
-  color: var(--red);
-}
-.form-group.has_error .hint {
-  color: var(--red);
-  font-size: 12px;
-}
-.has_error.hint {
-  color: var(--red);
-  font-size: 12px;
-}
-.register_form .form-group .form-control {
-  box-shadow: 0px 0px 1px 0px #adabac;
-}
-.form-group.password {
-  position: relative;
-}
-.form-group.password button {
-  color: #eeeeee;
-  position: absolute;
-  z-index: 3;
-  top: 36px;
-  right: 24px;
-}
-.form-control:focus {
-  outline: none !important;
-  box-shadow: none !important;
-}
-.form-group .form-radio {
-  width: 100%;
-  display: flex;
-  height: 50px;
-  align-items: end;
-  justify-content: space-between;
-}
-.mat-radio-label-content {
-  padding: 0 8px !important;
-  font-size: 1.2rem !important;
-}
-.attach_button {
-  justify-content: space-between;
-  display: flex;
-  align-items: flex-end;
-}
-.attach_button .form-group {
-  width: 100%;
-}
-.form-control:disabled,
-.form-control[aria-disabled="true"],
-.form-control[readonly] {
-  background-color: #e2e9ff !important;
-}
-.register_form {
-  min-height: 65%;
-  width: 95%;
-  max-width: 423px;
-  margin: auto;
-}
-.register_card {
-}
-.button-group {
-  margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
-
-  justify-content: center;
-}
-.button-group button {
-  margin: 0 5px;
-}
-/*  fromgroup   */
 
 .content {
   padding: 80px 20px 60px;
 }
+
 .page-header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
+
 .page-header-card {
   background-color: #fff !important;
   border: 1px solid var(--gray-blue);
   padding-top: 1.34375em;
   border-radius: 5px;
 }
+
 .title {
   color: #1d4980;
   text-transform: capitalize;
@@ -245,15 +211,16 @@ sidemenu
 
 .body {
   margin-top: 65px;
-  height: 75vh;
-  overflow-y: auto;
-  scrollbar-width: thin;
+  height: auto;
+  // overflow-y: auto;
+  // scrollbar-width: thin;
 }
 
 /* width */
 .scroll::-webkit-scrollbar {
   width: 0.7em;
 }
+
 .scroll::-webkit-scrollbar:hover {
   width: 30px !important;
 }
@@ -297,23 +264,29 @@ mat-panel-title,
 .active {
   color: #4bb543;
 }
+
 .need-update {
   color: #ffcc00;
 }
+
 .expired {
   color: #cc3300;
 }
+
 .newly {
   color: #1d4980;
 }
+
 .success-message {
-  color: white;
-  background-color: #4bb543;
+  color: white !important;
+  background-color: #4bb543 !important;
 }
+
 .error-message {
-  color: white;
-  background-color: #cc3300;
+  color: white !important;
+  background-color: var(--red) !important;
 }
+
 select.form-control {
   width: 100%;
   display: flex;
@@ -355,6 +328,7 @@ select.form-control {
 .slick-next {
   right: -25px !important;
 }
+
 .slick-prev {
   left: -25px !important;
 }
@@ -362,6 +336,7 @@ select.form-control {
 .slick_wrapper {
   position: relative;
 }
+
 .slick_carousel_buttons {
   position: absolute;
   top: 47%;
@@ -370,27 +345,33 @@ select.form-control {
   width: 100%;
   margin-right: -45px;
 }
+
 .terms_carousel,
+.update_carousel,
 .joining_carousel {
   .slick-current {
     height: auto !important;
     transition: ease-in-out;
     transform: scale(1);
+
     .form_wrapper {
       overflow-y: auto !important;
       overflow-x: hidden !important;
     }
   }
+
   .slick-slide {
     height: 50vh;
     overflow: auto;
     transform: scale(0.985);
     transition: ease-in-out;
     overflow: hidden;
+
     .form_wrapper {
       overflow: hidden;
     }
   }
+
   .slick-track {
     display: flex;
     align-items: center;
@@ -402,18 +383,22 @@ button.selected {
   background-color: #1d4980;
   color: white;
 }
+
 .timepicker {
   direction: ltr !important;
+
   .timepicker__header,
   .clock-face__number > span.active,
   .clock-face__clock-hand {
     background-color: #1d4980 !important;
     color: white;
   }
+
   .timepicker-button {
     color: #1d4980 !important;
   }
 }
+
 .uploder_img {
   height: auto;
   width: 90%;
@@ -421,12 +406,14 @@ button.selected {
   margin: auto;
   cursor: pointer;
 }
+
 .upload_file {
   position: relative;
   display: block;
   width: auto;
   height: auto;
 }
+
 .upload_file .upload_button {
   width: auto;
   background-color: #2185d0;
@@ -436,15 +423,18 @@ button.selected {
   display: block;
   transform: scale(0.75);
 }
+
 .upload_title {
   color: #fff;
   margin: -70px auto 0;
   display: block;
   transform: scale(0.75);
 }
+
 .mat-dialog-content {
   max-width: 750px;
 }
+
 @media screen and (max-width: 578px) {
   .register_card {
     background: #fff;
@@ -452,51 +442,108 @@ button.selected {
     box-shadow: 1px 1px 15px 0 #eff1f8;
     border-radius: 0.5em;
   }
+
   .terms_carousel,
+  .update_carousel,
   .joining_carousel {
     .slick-slide {
       .register_card {
         padding: 20px;
       }
     }
+
     .slick-current {
       .register_card {
         padding: 10px !important;
       }
     }
   }
+
   .nav_bar {
     background-color: #1d4980;
     color: white;
   }
+
   .nav_bar .nitro-logo {
     display: block;
   }
+
   .nav_bar button {
     color: white;
   }
+
   .content {
     padding-left: 10px;
     padding-right: 10px;
   }
+
   .side-menu-close .side-menu {
     display: block;
     z-index: 1000;
   }
+
   .side-menu {
     display: none;
   }
+
   .dashboard {
     width: 100% !important;
   }
+
   .side-menu-close .side-menu {
     width: 200px;
   }
+
   .side-menu-close .nitro-logo {
     margin: 0 auto !important;
     width: 90px;
   }
+
   .side-menu-close .side-menu .menu .items span {
     display: inline-block !important;
   }
+}
+.dropdown-toggle::after {
+  content: none !important;
+}
+.dropdown-menu {
+  border-radius: 0.5rem;
+}
+.dropdown-item {
+  text-align: center !important;
+  font-size: 15px !important;
+}
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: var(--primary) !important;
+  color: #fff !important;
+}
+.dropdown-item:nth-child(odd) {
+  background-color: var(--gray-blue);
+  color: var(--black);
+}
+.dropdown-item:nth-child(even) {
+  background-color: var(--white);
+  color: var(--primary);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--primary);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--white);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--white-dark);
 }

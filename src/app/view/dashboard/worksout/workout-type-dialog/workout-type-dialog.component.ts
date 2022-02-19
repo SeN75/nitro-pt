@@ -56,13 +56,13 @@ export class WorkoutTypeDialogComponent implements OnInit {
           delete data.name
         if (!this.exerciseCategroyForm.get('name_ar')?.dirty)
           delete data.name_ar
-        this.exerciseCatgroySrv.updateExercisesCategoryById(data, this.data.workout.id)
-        this.onNoClick();
+        this.exerciseCatgroySrv.updateExercisesCategoryById(data, this.data.workout.id, this.exerciseCategroyForm).then(s => this.onNoClick()).catch(e => e)
+
       }
       else {
         this.logger.log('cate value: ', this.exerciseCategroyForm.value)
-        this.exerciseCatgroySrv.createExercisesCategory(this.exerciseCategroyForm.value)
-        this.onNoClick();
+        this.exerciseCatgroySrv.createExercisesCategory(this.exerciseCategroyForm.value, this.exerciseCategroyForm).then(s => this.onNoClick()).catch(e => e)
+          ;
       }
 
     }

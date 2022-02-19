@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { DialogService } from 'src/app/_services/dialog.service';
@@ -9,6 +9,7 @@ import { OffersService } from 'src/app/_services/financial/offers.service';
 import { PackagesService } from 'src/app/_services/financial/packages.service';
 import { LanguageService } from 'src/app/_services/language.service';
 import { LoggerService } from 'src/app/_services/logger.service';
+import { NumberValidator } from './../../../../_helpers/number.validator';
 
 @Component({
   selector: 'app-package-dialog',
@@ -18,6 +19,10 @@ import { LoggerService } from 'src/app/_services/logger.service';
 export class PackageDialogComponent implements OnInit {
   packForm: FormGroup | any;
   offerForm: FormGroup | any;
+
+  packagesErrors: any[] = [];
+  offerErrors: any[] = [];
+
   withOffer = false;
   offerObj: any;
   toDayDate = new Date();
@@ -25,6 +30,8 @@ export class PackageDialogComponent implements OnInit {
   maxDate = new Date();
   durations = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
   isSend = false;
+
+
   constructor(
     public dialogRef: MatDialogRef<PackageDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -48,7 +55,11 @@ export class PackageDialogComponent implements OnInit {
       attach_required: [false],
       attachment_id: [{ value: '', disabled: true }],
       showInWebsite: [false]
-    })
+    },
+      {
+        validator: NumberValidator('price')
+      }
+    )
     this.logger.log('attach: ', this.packSrv.attachmentList)
     this.packForm.get("attach_required")?.valueChanges.subscribe((value: boolean) => {
       this.logger.log('value:', value)
@@ -61,13 +72,44 @@ export class PackageDialogComponent implements OnInit {
     this.offerForm = this.formBuilder.group({
       start_date: ['', Validators.required],
       end_date: ['', Validators.required],
-      offer_value: ['', Validators.required],
+      offer_value: ['', [Validators.required, Validators.max(100)]],
       package_id: [''],
-      type: ['', Validators.required],
+      type: ['pr', Validators.required],
     })
+
     this.minDate.setDate(this.toDayDate.getDate() - 0)
     this.logger.log('minDate: ', this.minDate)
-    this.offerForm.get('type')?.valueChanges.subscribe((e: any) => { })
+
+
+    // change validation of offer_value when offer_type change
+    this.offerForm.get('type')?.valueChanges.subscribe((e: any) => {
+      if (e == 'fx') {
+        this.offerForm.removeControl('offer_value');
+        this.offerForm.addControl('offer_value', new FormControl('', [Validators.required, Validators.max(this.packForm.get('price').value)]));
+      }
+      else {
+        this.offerForm.removeControl('offer_value');
+        this.offerForm.addControl('offer_value', new FormControl('', [Validators.required, Validators.max(100)]));
+      }
+      this.offerForm.updateValueAndValidity();
+    })
+    // change validation of price when value change
+    // this.packForm.get('price')?.valueChanges.subscribe((e: any) => {
+    //   if (e.length > 4 && e.indexOf('.') == -1) {
+    //     this.packForm.removeControl('price');
+    //     this.packForm.addControl('price', new FormControl('', [Validators.required, Validators.pattern('([0-9]{1,4}')]));
+    //   } else {
+    //     this.packForm.removeControl('price');
+    //     this.packForm.addControl('price', new FormControl('', [Validators.required, Validators.pattern('([0-9]{1,4}\.[0-9]{0,2})')]));
+    //   }
+    //   this.offerForm.updateValueAndValidity();
+
+    // })
+    // NumberValidator(this.packForm.get('price'));
+
+    this.packForm.get('price').valueChanges.subscribe(() => {
+      this.logger.log('price: ', this.packForm.get('price'))
+    })
   }
 
   ngOnInit(): void {
@@ -98,10 +140,12 @@ export class PackageDialogComponent implements OnInit {
     this.offerSrv.___getOfferByPackageId(id).subscribe((s: any) => {
       this.offerObj = s;
       this.withOffer = true;
+      this.logger.log('offer: ', this.offerObj)
       this.offerForm.get('start_date')?.setValue(s.start_date);
       // this.offerForm.get('start_date')?.disable();
       this.offerForm.get('end_date')?.setValue(s.end_date);
-      this.offerForm.get('offer_value')?.setValue(s.offer_value);
+      setTimeout(() => this.offerForm.get('offer_value')?.setValue(s.offer_value), 500)
+
       this.offerForm.get('type')?.setValue(s.type);
     })
   }
@@ -117,14 +161,19 @@ export class PackageDialogComponent implements OnInit {
     delete data.discountAmount;
     delete data.showInWebsite;
     if (this.data.state == 'edit') {
-
       this.logger.log('edit pack: ', this.packForm.value);
       this.logger.log('edit pack: ', this.data.package);
       if (!this.packForm.get('name')?.dirty)
         delete data.name
       if (!this.packForm.get('name_ar')?.dirty)
         delete data.name_ar
-      this.packSrv.updatePackageById(data, this.data.package.external_id)
+      this.packSrv.updatePackageById(data, this.data.package.external_id, this.packForm)
+        .then(() => { this.onNoClick(); })
+        .catch(e => {
+          if (e.message)
+            this.offerErrors = e.message;
+          this.packSrv.isLoading = false;
+        })
       if (this.withOffer) {
         let offer = { ...this.offerForm.value }
         delete offer.package_id;
@@ -134,14 +183,22 @@ export class PackageDialogComponent implements OnInit {
           delete offer.end_date
         if (this.offerForm.get('start_date')?.dirty)
           delete offer.start_date
-        this.offerSrv.updateOfferByPackageId(offer, this.data.package.external_id)
+        this.offerSrv.updateOfferByPackageId(offer, this.data.package.external_id, this.offerForm)
+          .catch(e => {
+            if (e.message)
+              this.offerErrors = e.message;
+            this.packSrv.isLoading = false;
+          })
       }
-      this.onNoClick();
     }
     else {
       this.logger.log('add pack: ', this.packForm.value);
-      this.packSrv.createPackage(this.packForm.value, (this.offerForm.valid ? this.offerForm.value : undefined))
-      this.onNoClick();
+      this.packSrv.createPackage(this.packForm.value, this.packForm, (this.offerForm.valid ? this.offerForm.value : undefined)).then(() => this.onNoClick())
+        .catch(e => {
+          if (e.message)
+            this.packagesErrors = e.message;
+          this.packSrv.isLoading = false;
+        })
     }
   }
   replaceNumber(str: string) {

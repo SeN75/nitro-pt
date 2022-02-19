@@ -50,6 +50,7 @@ import { CloseOrderTableComponent } from './view/landing-page/profile/close-orde
 import { DietplanSectionComponent } from './view/landing-page/profile/dietplan-section/dietplan-section.component';
 import { SubscriptionInfoComponent } from './view/landing-page/profile/subscription-info/subscription-info.component';
 import { AuthInterceptor, authInterceptorProviders } from './_helpers/Interceptor-jwt';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -101,7 +102,8 @@ import { AuthInterceptor, authInterceptorProviders } from './_helpers/Intercepto
     }),
     DataTablesModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [
     authInterceptorProviders,

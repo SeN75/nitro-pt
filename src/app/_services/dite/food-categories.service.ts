@@ -1,11 +1,15 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { API } from 'src/app/_helpers/api.config';
+import { FormAlertService } from '../form-alert.service';
 import { LoggerService } from '../logger.service';
 import { ToastService } from '../toast.service';
 import { CategoryFood } from './../../_common/types';
+import { MessageService } from './../message.service';
+import { MessageRespones } from 'src/app/_common/types';
 
 const foodUrl = API + "diet/food/categories/"
 @Injectable({
@@ -25,7 +29,9 @@ export class FoodCategoriesService {
     private router: Router,
     private httpClient: HttpClient,
     private translateSrv: TranslateService,
-    private toaterSrv: ToastService,
+    private toastSrv: ToastService,
+    private messageSrv: MessageService,
+    private formAlert: FormAlertService,
     private logger: LoggerService) { }
   checkOfCategories() {
     if (this.categories === undefined)
@@ -54,64 +60,112 @@ export class FoodCategoriesService {
   }
 
   public getFoodCategoriesList() {
-    this.isLoading = true;
-    this.hasError = false;
+    return new Promise<MessageRespones>((resolve, rejects) => {
 
-    this._getFoodCategoriesList().subscribe((success: any) => {
-      this.loaded()
-      this.categories = success;
-      this.logger.log("get food categories List:", success)
-    }, (error: HttpErrorResponse) => {
-      this.hasError = true
-      this.logger.error("get food categories List error: ", error)
+      this.isLoading = true;
+      this.hasError = false;
+
+      this._getFoodCategoriesList().subscribe((success: any) => {
+        let count = 1;
+        this.loaded()
+        this.categories = success;
+        this.categories.forEach((e: any) => e.pos = count++)
+        this.logger.log("get food categories List:", success)
+        resolve({ status: 'Success', message: 'Complete', method: 'getFoodCategoriesList' })
+      }, (error: HttpErrorResponse) => {
+        this.hasError = true
+        this.logger.error("get food categories List error: ", error)
+        this.errorMsg(error, undefined, false).then(msgs => rejects({ status: 'Failed', message: msgs, method: 'getFoodCategoriesList' }))
+      })
     })
+
   }
   public __getFoodCategoriesList() {
     return this._getFoodCategoriesList()
   }
   public getFoodCategoriesById(id: string) {
-    this._getFoodCategoriesById(id).subscribe((success: any) => {
-      this.category = success;
-      this.logger.log("get food list by  id:", success)
-    }, (error: HttpErrorResponse) => {
-      this.logger.error("get food list by  id error: ", error)
+    return new Promise<MessageRespones>((resolve, rejects) => {
+
+      this._getFoodCategoriesById(id).subscribe((success: any) => {
+        this.category = success;
+        this.logger.log("get food list by  id:", success)
+        resolve({ status: 'Success', message: 'Complete', method: 'getFoodCategoriesById' })
+
+      }, (error: HttpErrorResponse) => {
+        this.logger.error("get food list by  id error: ", error)
+        this.errorMsg(error, undefined, false).then(msgs => rejects({ status: 'Failed', message: msgs, method: 'getFoodCategoriesById' }))
+      })
     })
   }
 
-  public createFoodCategory(data: any) {
-    this._createFoodCategory(data).subscribe((success: any) => {
-      this.translateSrv.get('SUCCESS.CATEGORY.new-cate').subscribe(msg => this.toaterSrv.success(msg))
-      this.getFoodCategoriesList()
-      this.logger.log("create food category:", success)
-    }, (error: HttpErrorResponse) => {
-      this.translateSrv.get('ERROR.CATEGORY.new-cate').subscribe(msg => this.toaterSrv.error(msg))
-      this.logger.error("create food category error: ", error)
+  public createFoodCategory(data: any, form: FormGroup) {
+    return new Promise<MessageRespones>((resolve, rejects) => {
+
+      this._createFoodCategory(data).subscribe((success: any) => {
+        this.messageSrv.successMessage('CATEGORY.new-cate').then(msg => this.toastSrv.success(msg))
+        this.getFoodCategoriesList()
+        this.logger.log("create food category:", success)
+        resolve({ status: 'Success', message: 'Complete', method: 'createFoodCategory' })
+
+      }, (error: HttpErrorResponse) => {
+        this.logger.error("create food category error: ", error)
+        this.errorMsg(error, form, false, 'new-cate').then(msgs => rejects({ status: 'Failed', message: msgs, method: 'createFoodCategory' }))
+      })
     })
   }
-  public updateFoodCategoriesById(data: any, id: string) {
-    this._updateFoodCategoriesById(data, id).subscribe((success: any) => {
-      this.translateSrv.get('SUCCESS.CATEGORY.update-cate').subscribe(msg => this.toaterSrv.success(msg))
-      this.getFoodCategoriesList();
-      this.logger.log("update food categories By Id:", success)
-    }, (error: HttpErrorResponse) => {
-      this.translateSrv.get('ERROR.CATEGORY.update-cate').subscribe(msg => this.toaterSrv.error(msg))
-      this.logger.error("update food categories By Id error: ", error)
+  public updateFoodCategoriesById(data: any, id: string, form: FormGroup) {
+    return new Promise<MessageRespones>((resolve, rejects) => {
+
+      this._updateFoodCategoriesById(data, id).subscribe((success: any) => {
+        this.messageSrv.successMessage('CATEGORY.update-cate').then(msg => this.toastSrv.success(msg))
+        this.getFoodCategoriesList();
+        this.logger.log("update food categories By Id:", success)
+        resolve({ status: 'Success', message: 'Complete', method: 'updateFoodCategoriesById' })
+
+      }, (error: HttpErrorResponse) => {
+        this.logger.error("update food categories By Id error: ", error)
+        this.errorMsg(error, form, false, 'update-cate').then(msgs => rejects({ status: 'Failed', message: msgs, method: 'updateFoodCategoriesById' }))
+      })
     })
   }
   public deleteFoodCategoriesById(id: string) {
-    this._deleteFoodCategoriesById(id).subscribe((success: any) => {
-      this.translateSrv.get('SUCCESS.CATEGORY.delete-cate').subscribe(msg => this.toaterSrv.success(msg))
-      this.getFoodCategoriesList()
-      this.logger.log("delete Food Categories By Id:", success)
-    }, (error: HttpErrorResponse) => {
-      this.translateSrv.get('ERROR.CATEGORY.delete-cate').subscribe(msg => this.toaterSrv.error(msg))
+    return new Promise<MessageRespones>((resolve, rejects) => {
 
-      this.logger.error("delete Food Categories By Id error: ", error)
+      this._deleteFoodCategoriesById(id).subscribe((success: any) => {
+        this.messageSrv.successMessage('CATEGORY.delete-cate').then(msg => this.toastSrv.success(msg))
+        this.getFoodCategoriesList()
+        this.logger.log("delete Food Categories By Id:", success)
+        resolve({ status: 'Success', message: 'Complete', method: 'deleteFoodCategoriesById' })
+
+      }, (error: HttpErrorResponse) => {
+        this.errorMsg(error, undefined, true, 'delete-cate').then(msgs => rejects({ status: 'Failed', message: msgs, method: 'deleteFoodCategoriesById' }))
+        this.logger.error("delete Food Categories By Id error: ", error)
+      })
     })
   }
 
 
   loaded() {
     setTimeout(() => this.isLoading = false, 500)
+  }
+  private errorMsg(error: HttpErrorResponse, form?: FormGroup, useAlert = false, altMessage: string = '') {
+    return new Promise((resolse, rej) => {
+
+      this.messageSrv.errors(error, 'CATEGORY.', 'GENRAL.', altMessage, false).then(res => {
+        if (form) {
+          this.logger.log('res errors: ', res)
+          let { controlErrors, notKey } = this.formAlert.setErrors(form, res.keySet, res.errors);
+          this.toastSrv.errors(notKey)
+          resolse({ controlErrors: controlErrors, notKey: notKey, keySet: res.keySet, errors: res.errors })
+        } else if (useAlert) {
+          this.toastSrv.error(res.errors)
+          resolse({ keySet: res.keySet, errors: res.errors })
+
+        } else {
+          resolse({ keySet: res.keySet, errors: res.errors })
+        }
+      })
+    })
+
   }
 }

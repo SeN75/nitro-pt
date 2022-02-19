@@ -13,6 +13,8 @@
           registerFormControl.controls.first_name_ar.errors.required ? 'VALIDATION.required':
           registerFormControl.controls.first_name_ar.errors.pattern ? 'VALIDATION.ar' :'' : '')
           | translate }}
+          <span
+            *ngIf="registerFormControl.controls.first_name_ar.errors && registerFormControl.controls.first_name_ar.errors.resError">{{registerFormControl.controls.first_name_ar.errors.resError}}</span>
         </div>
       </div>
       <div class="form-group  w-100"
@@ -26,6 +28,9 @@
           registerFormControl.controls.middle_name_ar.errors.required ? 'VALIDATION.required':
           registerFormControl.controls.middle_name_ar.errors.pattern ? 'VALIDATION.ar' :'' : '')
           | translate }}
+
+          <span
+            *ngIf="registerFormControl.controls.middle_name_ar.errors && registerFormControl.controls.middle_name_ar.errors.resError">{{registerFormControl.controls.middle_name_ar.errors.resError}}</span>
         </div>
       </div>
       <div class="form-group  w-100"
@@ -39,6 +44,8 @@
           registerFormControl.controls.last_name_ar.errors.required ? 'VALIDATION.required':
           registerFormControl.controls.last_name_ar.errors.pattern ? 'VALIDATION.ar' :'' : '')
           | translate }}
+          <span
+            *ngIf="registerFormControl.controls.last_name_ar.errors && registerFormControl.controls.last_name_ar.errors.resError">{{registerFormControl.controls.last_name_ar.errors.resError}}</span>
         </div>
       </div>
       <div class="form-group  w-100"
@@ -52,6 +59,8 @@
           registerFormControl.controls.username.errors.required ? 'VALIDATION.required':
           '' : '')
           | translate }}
+          <span
+            *ngIf="registerFormControl.controls.username.errors && registerFormControl.controls.username.errors.resError">{{registerFormControl.controls.username.errors.resError}}</span>
         </div>
       </div>
     </div>
@@ -62,30 +71,37 @@
         <input autocomplete="off" class="form-control" placeholder="email@example.com" formControlName="email">
         <div class="hint">
           {{(
-          registerFormControl.controls.email.errors&&registerFormControl.controls.email.touched ?
+          registerFormControl.controls.email.errors && registerFormControl.controls.email.touched ?
           registerFormControl.controls.email.errors.required ? 'VALIDATION.email.required':
-          'VALIDATION.email.': '')
-          | translate }}
+          registerFormControl.controls.email.errors.email ?'VALIDATION.email.': '': '')
+          | translate
+          }}
+          <span
+            *ngIf="registerFormControl.controls.email.errors && registerFormControl.controls.email.errors.resError">{{registerFormControl.controls.email.errors.resError}}</span>
         </div>
       </div>
       <div class="row justify-content-between align-items-end">
-        <div class="form-group col-7 col-sm-8" [class.has_error]="phoneNumber.invalid && phoneNumber.touched">
+        <div class="form-group col-7 col-sm-8"
+          [class.has_error]="phoneNumber.invalid && phoneNumber.touched || registerFormControl.controls.phone_number.invalid">
           <label for="input">{{'FORM.phone-mobile' | translate}}</label>
           <input autocomplete="off" name="input" type="tel" maxlength="9" class="form-control" placeholder="5XX-XXX-XX"
             [formControl]="phoneNumber">
 
         </div>
         <div class="form-group col-5 col-sm-4">
-          <select class="form-control" placeholder="+966" [formControl]="counterCode">
+          <select class="form-control" placeholder="+966" [formControl]="counterCode"
+            [class.has_error]="phoneNumber.invalid && phoneNumber.touched || registerFormControl.controls.phone_number.invalid">
             <option *ngFor="let code of countriesCode" [value]="code.phone_code">+ {{code.phone_code}}</option>
           </select>
         </div>
-        <div class="hint">
+        <div class="hint_error">
           {{(
           phoneNumber.errors&&phoneNumber.touched ?
           phoneNumber.errors.required ? 'VALIDATION.required':
           '' : '')
           | translate }}
+          <span
+            *ngIf="registerFormControl.controls.phone_number.errors && registerFormControl.controls.phone_number.errors.resError">{{registerFormControl.controls.phone_number.errors.resError}}</span>
         </div>
       </div>
       <div class="form-group password w-100"
@@ -103,6 +119,8 @@
           registerFormControl.controls.password.errors.minlength ? 'VALIDATION.password.minlength':
           registerFormControl.controls.password.errors.pattern ? 'VALIDATION.password.pattern': '' : '')
           | translate }}
+          <span
+            *ngIf="registerFormControl.controls.password.errors && registerFormControl.controls.password.errors.resError">{{registerFormControl.controls.password.errors.resError}}</span>
         </div>
       </div>
       <div class="form-group password w-100"
@@ -120,6 +138,8 @@
           registerFormControl.controls.re_password.errors.confirmPasswordValidator == true ?
           'VALIDATION.password.not-match' : '': '')
           | translate }}
+          <span
+            *ngIf="registerFormControl.controls.re_password.errors && registerFormControl.controls.re_password.errors.resError">{{registerFormControl.controls.re_password.errors.resError}}</span>
         </div>
       </div>
     </div>

@@ -50,6 +50,7 @@ export class ProfileComponent implements OnInit {
     setTimeout(() => this.isLoading = false, 500)
   }
   isSubscriptionExist() {
-    return Object.entries(this.userData.subscription).length == 0;
+    // return Object.entries(this.userData.subscription).length == 0;
+    return true
   }
 }

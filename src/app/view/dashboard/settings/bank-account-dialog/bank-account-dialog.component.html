@@ -11,6 +11,8 @@
         u.name}} </option>
       <div class="hint" *ngIf="bankForm.get('bank_id')?.invalid && bankForm.get('bank_id')?.dirty ">
         <span *ngIf="bankForm.get('bank_id')?.errors.required">{{'VALIDATION.required' | translate}}</span>
+        <span
+          *ngIf="bankForm.get('bank_id')?.errors && bankForm.get('bank_id')?.errors.resError">{{bankForm.get('bank_id')?.errors.resError}}</span>
       </div>
     </select>
   </div>
@@ -19,6 +21,8 @@
     <input name="input" formControlName="iban" class="form-control">
     <div class="hint" *ngIf="bankForm.get('iban')?.invalid && bankForm.get('iban')?.dirty ">
       <span *ngIf="bankForm.get('iban')?.errors.required">{{'VALIDATION.required' | translate}}</span>
+      <span
+        *ngIf="bankForm.get('iban')?.errors && bankForm.get('iban')?.errors.resError">{{bankForm.get('iban')?.errors.resError}}</span>
     </div>
   </div>
 </div>

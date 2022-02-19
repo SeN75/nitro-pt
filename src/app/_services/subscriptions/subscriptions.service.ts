@@ -148,7 +148,8 @@ export class SubscriptionsService {
     formData.append('gender', data.gender + "");
     formData.append('Allergens_food', data.Allergens_food + "");
     formData.append('surgeries_history', data.surgeries_history + "");
-    formData.append('method_measurement', data.method_measurement + "");
+    if (data.method_measurement)
+      formData.append('method_measurement', data.method_measurement + "");
 
     this._createNewSubscriptionRequest(formData).subscribe((success: Subscription) => {
       this.logger.log('create new subscrioption request: ', success)
@@ -253,7 +254,8 @@ export class SubscriptionsService {
       formData.append('Allergens_food', data.Allergens_food + "");
     if (data.surgeries_history)
       formData.append('surgeries_history', data.surgeries_history + "");
-
+    if (data.method_measurement)
+      formData.append('method_measurement', data.method_measurement + "");
     this._createUpdateDataRequest(formData).subscribe((success: Subscription) => {
       this.logger.log('create update data request: ', success)
       this.translateSrv.get('SUCCESS.SUBSCRIOPTION.update').subscribe(msg => this.toastSrv.success(msg))

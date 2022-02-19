@@ -1,0 +1,6 @@
+<ngb-datepicker outsideDays="hidden" [startDate]="startDate" [minDate]="minDate" [maxDate]="maxDate"
+  [markDisabled]="markDisabled" #dp [(ngModel)]="value" class="datepicker" (dateSelect)="_output($event)">
+</ngb-datepicker>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="slectedDate()">{{'FORM.select' | translate}}</button>
+</div>

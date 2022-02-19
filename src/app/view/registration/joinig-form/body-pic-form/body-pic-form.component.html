@@ -6,28 +6,28 @@
   <div [formGroup]="bodyPicForm">
     <div class="row ">
       <div class="col-6">
-        <button mat-button class="w-100 " (click)="front.click()">{{'BODY.front' | translate}}</button>
-        <img [src]="front_img" class="body_pic">
+        <button mat-button class="w-100 " disabled>{{'BODY.front' | translate}}</button>
+        <img [src]="front_img" class="body_pic" (click)="front.click()">
         <input type="file" hidden #front (change)="selectImg($event, 'front')"
           accept="image/jpg, image/jpeg, image/png, application/pdf">
       </div>
       <div class="col-6">
-        <button mat-button class="w-100 " (click)="back.click()">{{'BODY.back' | translate}}</button>
-        <img [src]="back_img" class="body_pic">
+        <button mat-button class="w-100 " disabled>{{'BODY.back' | translate}}</button>
+        <img [src]="back_img" class="body_pic" (click)="back.click()">
         <input type="file" hidden #back (change)="selectImg($event, 'back')"
           accept="image/jpg, image/jpeg, image/png, application/pdf">
       </div>
     </div>
     <div class="row">
       <div class="col-6">
-        <button mat-button class="w-100 " (click)="right.click()">{{'BODY.right' | translate}}</button>
-        <img [src]="right_img" class="body_pic">
+        <button mat-button class="w-100 " disabled>{{'BODY.right' | translate}}</button>
+        <img [src]="right_img" class="body_pic" (click)="right.click()">
         <input type="file" hidden #right (change)="selectImg($event, 'right')"
           accept="image/jpg, image/jpeg, image/png, application/pdf">
       </div>
       <div class="col-6">
-        <button mat-button class="w-100 " (click)="left.click()">{{'BODY.left' | translate}}</button>
-        <img [src]="left_img" class="body_pic">
+        <button mat-button class="w-100 " disabled>{{'BODY.left' | translate}}</button>
+        <img [src]="left_img" class="body_pic" (click)="left.click()">
         <input type="file" hidden #left (change)="selectImg($event, 'left')"
           accept="image/jpg, image/jpeg, image/png, application/pdf">
       </div>

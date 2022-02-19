@@ -9,7 +9,8 @@
         {{(
         loginFormControl.controls.userName.errors&&loginFormControl.controls.userName.touched ?
         loginFormControl.controls.userName.errors.required ? 'VALIDATION.required':
-        '' : '')
+        loginFormControl.controls.userName.errors.resError ? loginFormControl.controls.userName.errors.resError: '' :
+        '')
         | translate }}
       </div>
     </div>
@@ -25,7 +26,8 @@
         {{(
         loginFormControl.controls.password.errors&&loginFormControl.controls.password.touched ?
         loginFormControl.controls.password.errors.required ? 'VALIDATION.password.required':
-        '' : '')
+        loginFormControl.controls.password.errors.resError ? loginFormControl.controls.password.errors.resError :'' :
+        '')
         | translate }}
       </div>
     </div>

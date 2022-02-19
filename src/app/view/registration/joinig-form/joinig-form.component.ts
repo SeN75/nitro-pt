@@ -7,6 +7,7 @@ import { IdentityService } from 'src/app/_services/identity/identity.service';
 import { SubscriptionsService } from 'src/app/_services/subscriptions/subscriptions.service';
 import { Router } from '@angular/router';
 import { PackagesService } from 'src/app/_services/financial/packages.service';
+import { DatepickerService } from 'src/app/_services/datepicker.service';
 @Component({
   selector: 'app-joinig-form',
   templateUrl: './joinig-form.component.html',
@@ -45,20 +46,47 @@ export class JoinigFormComponent implements OnInit {
     ]
   };
   isFormValid = false;
+  isMove = false;
   caurselPos = 0;
   @ViewChild('slickModal')
   slickModal!: SlickCarouselComponent;
 
   next() {
-    this.caurselPos++;
-    if (this.caurselPos != 3)
-      this.isFormValid = false;
-    this.slickModal.slickNext();
+    this.isMove = true;
+    if (this.subscription.gender == 2 && this.caurselPos == 2) {
+      this.caurselPos += 2;
+      this.slickModal.slickNext();
+      setTimeout(() => {
+        this.slickModal.slickNext();
+        this.isMove = false;
+      }, 500)
+
+    }
+    else {
+      this.caurselPos++;
+      this.slickModal.slickNext();
+      setTimeout(() => this.isMove = false, 500);
+      if (this.caurselPos != 2)
+        this.isFormValid = false;
+    }
+
   }
 
   prev() {
-    this.caurselPos--;
-    this.slickModal.slickPrev();
+    this.isMove = true;
+    if (this.subscription.gender == 2 && this.caurselPos == 4) {
+      this.caurselPos -= 2;
+      this.slickModal.slickPrev();
+      setTimeout(() => {
+        this.slickModal.slickPrev();
+        this.isMove = false;
+      }, 500)
+    } else {
+      this.caurselPos--;
+      this.slickModal.slickPrev();
+      setTimeout(() => this.isMove = false, 500)
+    }
+
 
   }
   constructor(
@@ -66,7 +94,8 @@ export class JoinigFormComponent implements OnInit {
     public identitySrv: IdentityService,
     public subSrv: SubscriptionsService,
     public packageSrv: PackagesService,
-    private router: Router
+    private router: Router,
+    private dateSrv: DatepickerService
   ) {
     this.subscription = {}
     this.logger.log('packageId: ', this.subSrv.packageId)
@@ -97,11 +126,14 @@ export class JoinigFormComponent implements OnInit {
     console.log('beforeChange');
   }
   output(event: any) {
-    console.log(event)
+    // console.log(event)
     this.isFormValid = event.valid;
     if (this.caurselPos == 0) {
-      this.subscription.birthday_Gregorian = this.replaceNumber(imoment(event.data.birthDate).format('YYYY-MM-DD'));
-      this.subscription.birthday_Hiri = this.replaceNumber(imoment(event.data.birthDate).format('iYYYY-iMM-iDD'));
+      let birthDate: string = event.data.birthDate
+      let isDateHijri = this.dateSrv.isDateHijri(birthDate);
+
+      this.subscription.birthday_Gregorian = isDateHijri ? this.dateSrv.gergorianToString(birthDate, '-') : this.dateSrv.replaceNumber(imoment(birthDate).format('YYYY-MM-DD'));
+      this.subscription.birthday_Hiri = isDateHijri ? this.dateSrv.replaceNumber(imoment(birthDate).format('YYYY-MM-DD')) : this.dateSrv.hijriToString(birthDate, '-');
       this.subscription.social_status = event.data.social_status;
       this.subscription.city = event.data.city;
       this.subscription.height = event.data.height;

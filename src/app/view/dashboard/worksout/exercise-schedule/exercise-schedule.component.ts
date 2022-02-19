@@ -14,7 +14,8 @@ import { ExercisesCategoriesService } from 'src/app/_services/gym/exercises-cate
 export class ExerciseScheduleComponent implements OnInit {
   exerciseCategor: any;
   dtOptions: DataTables.Settings = {};
-  categoryId = ""
+  categoryId = "";
+  exercises: any[] = []
   constructor(
     public dialogSrv: DialogService,
     public exerciseSrv: ExercisesService,
@@ -25,6 +26,11 @@ export class ExerciseScheduleComponent implements OnInit {
     this.categoryId = this.router.url.replace('/worksout/', "").replace('exercise', '').replace('/', '');
 
     this.getExercises()
+    setTimeout(() => {
+      this.exercises = this.exerciseSrv.getExerciseListOnSameCategory(exerciseCategorSrv.exerciseCategory.name_ar)
+
+    }, 500)
+
     // this.workoutSrv.checkWorkout()
     // this.workout = this.workoutSrv.workout;
 

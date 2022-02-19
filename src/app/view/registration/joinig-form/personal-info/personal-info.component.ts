@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
+import { DatepickerService } from 'src/app/_services/datepicker.service';
 import { LanguageService } from 'src/app/_services/language.service';
 import { LoggerService } from 'src/app/_services/logger.service';
 import { cities } from './../../../../_common/cities';
@@ -27,22 +28,26 @@ export class PersonalInfoComponent implements OnInit {
     private formBuilder: FormBuilder,
     private logger: LoggerService,
     public subSrv: SubscriptionsService,
+    private dateSrv: DatepickerService,
     public lang: LanguageService) {
     this.personalInfoForm = this.formBuilder.group({
       birthDate: ['', Validators.required],
       social_status: [0, Validators.required],
-      height: ['', Validators.required],
-      weight: ['', Validators.required],
-      gender: [1, Validators.required],
+      height: ['', [Validators.required, Validators.pattern('([0-9]{1,3}\.{1}[0-9]{0,1})')]],
+      weight: ['', [Validators.required, Validators.pattern('([0-9]{1,3}\.{1}[0-9]{0,1})')]],
+      gender: [2, Validators.required],
       city: ['', Validators.required]
-    })
+    });
     this.personalInfoForm.valueChanges.subscribe(() => { this.isValid() })
     this.subSrv.getGenderList();
     this.subSrv.getSocialStatusList();
   }
 
   ngOnInit(): void {
+    this.isValid();
+
   }
+  get controls() { return this.personalInfoForm.controls }
   daysInMonth(month: any, year: any) {
     return new Date(year, month, 0).getDate();
   }
@@ -82,5 +87,16 @@ export class PersonalInfoComponent implements OnInit {
     this.value.data = this.personalInfoForm.value;
     this.personalInfo.emit(this.value);
     this.logger.log('form value: ', this.value)
+  }
+
+  birthDate() {
+    let birthDate: any = this.personalInfoForm.get('birthDate');
+    this.dateSrv.dateInput('PERSONAL-DATA.birthday', birthDate.value).subscribe(() => {
+      if (this.dateSrv.isValueChange) {
+        birthDate.setValue(this.dateSrv.dateToString());
+        this.dateSrv.newDate = undefined;
+        this.dateSrv.isValueChange = false;
+      }
+    })
   }
 }

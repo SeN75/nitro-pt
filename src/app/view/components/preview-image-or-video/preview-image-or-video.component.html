@@ -3,12 +3,14 @@
     <mat-icon>close</mat-icon>
   </button>
 </div>
-<div class="preview_contianer" *ngIf="data.type == 'photo'">
-  <img [src]="src" class="photo" (click)="onNoClick()">
-</div>
+<div class="" dialog-content>
+  <div class="preview_contianer" *ngIf="data.type == 'photo'">
+    <img [src]="src" class="photo" (click)="onNoClick()">
+  </div>
 
-<div class="preview_container" *ngIf="data.type == 'video'">
-  <video class="video" controls>
-    <source [src]="src">
-  </video>
+  <div class="preview_container" *ngIf="data.type == 'video'">
+    <video class="video" controls>
+      <source [src]="src">
+    </video>
+  </div>
 </div>

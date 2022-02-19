@@ -13,28 +13,37 @@
   </header>
   <loader title="{{'CATEGORIES.loading' | translate}}" *ngIf="categorySrv.isLoading" [hasError]="categorySrv.hasError">
   </loader>
-  <div class="body scroll" *ngIf="!categorySrv.isLoading">
+  <div class="body " *ngIf="!categorySrv.isLoading">
     <table class="table-theme-1 hover">
       <thead class="text-center">
         <tr>
-          <th>#</th>
-          <th>{{'CATEGORIES.name-type-ar' | translate}}</th>
-          <th>{{'CATEGORIES.number' | translate}}</th>
+          <th>
+            <tb-filter [data]="categorySrv.categories" mode="order" label="pos"></tb-filter>
+            #
+          </th>
+          <th>
+            <tb-filter [data]="categorySrv.categories" mode="order" label="{{lang.selected =='ar' ?'name_ar': 'name'}}">
+            </tb-filter>
+            {{'CATEGORIES.name-type-ar' | translate}}
+          </th>
+          <th>
+            <tb-filter [data]="categorySrv.categories" mode="order" label="total_items"></tb-filter>
+            {{'CATEGORIES.number' | translate}}
+          </th>
           <th></th>
         </tr>
       </thead>
       <tbody class="text-center">
         <ng-container *ngFor="let cat of categorySrv.categories; let i = index">
-          <tr class="row_space">
-            <td colspan="30"></td>
-          </tr>
-          <tr>
-            <td>{{i + 1 }}</td>
+
+          <tr (click)="showCompunds(cat)">
+            <td>{{ cat.pos }}</td>
             <td>{{lang.selected =='ar' ? cat.name_ar: cat.name}}</td>
-            <td>{{categoryItemSrv.getItemsWithSameCategory(cat.name).length}}</td>
+            <td>{{cat.total_items}}</td>
             <td class="text-end">
               <span>
-                <button mat-icon-button (click)="dialogSrv.openCategoryTypeDialog('edit', cat)">
+                <button mat-icon-button
+                  (click)="dialogSrv.openCategoryTypeDialog('edit', cat); $event.stopPropagation()">
                   <mat-icon>edit</mat-icon>
                 </button>
                 <button mat-icon-button (click)="showCompunds(cat)">

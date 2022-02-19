@@ -1,0 +1,30 @@
+[ngbDatepickerDayView] {
+  border-radius: 999px !important;
+}
+
+ngb-datepicker {
+  border: none !important;
+}
+
+.ngb-dp-month {
+  width: 100%;
+}
+
+.ngb-dp-week {
+  justify-content: space-between;
+}
+
+.custom-select option {
+  border-right: solid 1px #9e9e9e;
+  border-left: solid 1px #9e9e9e;
+}
+
+.ngb-dp-header.bg-light,
+.ngb-dp-weekdays.bg-light {
+  background-color: transparent !important;
+}
+
+ngb-datepicker-navigation,
+.ngb-datepicker-navigation {
+  direction: ltr;
+}

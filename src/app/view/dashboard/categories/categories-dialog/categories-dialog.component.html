@@ -12,6 +12,7 @@
         <span *ngIf="cateForm.get('name').errors.required && isSend">{{'VALIDATION.req' | translate}}
           {{'CATEGORIES.name-type' | translate}}</span>
         <span *ngIf="cateForm.get('name').errors.pattern">{{'VALIDATION.en' | translate}}</span>
+        <span *ngIf="cateForm.get('name').errors.resError">{{cateForm.get('name').errors.resError}}</span>
 
       </div>
     </div>
@@ -25,6 +26,7 @@
         <span *ngIf="cateForm.get('name_ar').errors.required && isSend">{{'VALIDATION.req' | translate}}
           {{'CATEGORIES.name-type-ar' | translate}}</span>
         <span *ngIf="cateForm.get('name_ar').errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+        <span *ngIf="cateForm.get('name_ar').errors.resError">{{cateForm.get('name_ar').errors.resError}}</span>
 
       </div>
     </div>
@@ -39,6 +41,8 @@
             {{'CATEGORIES.calc' | translate}}</span>
           <span *ngIf="cateForm.get('unit').errors.required && isSend">{{'VALIDATION.req' | translate}}
             {{'CATEGORIES.calc' | translate}}</span>
+          <span *ngIf="cateForm.get('unit').errors.resError">{{cateForm.get('unit').errors.resError}}</span>
+
         </div>
       </select>
     </div>
@@ -56,6 +60,8 @@
               {{'CATEGORIES.calories' | translate}}</span>
             <span *ngIf="cateForm.get('calories').errors.pattern">
               {{'VALIDATION.amount-2' | translate}}<br>{{'VALIDATION.amount-ex2' | translate}}</span>
+            <span *ngIf="cateForm.get('calories').errors.resError">{{cateForm.get('calories').errors.resError}}</span>
+
           </div>
         </div>
         <div class="form-group col-12 col-sm"
@@ -70,6 +76,8 @@
               {{'CATEGORIES.fat' | translate}}</span>
             <span *ngIf="cateForm.get('fat').errors.pattern">
               {{'VALIDATION.amount-2' | translate}}<br>{{'VALIDATION.amount-ex2' | translate}}</span>
+            <span *ngIf="cateForm.get('fat').errors.resError">{{cateForm.get('fat').errors.resError}}</span>
+
           </div>
         </div>
         <div class="form-group col-12 col-sm"
@@ -84,6 +92,8 @@
               {{'CATEGORIES.carb' | translate}}}</span>
             <span *ngIf="cateForm.get('carb').errors.pattern">
               {{'VALIDATION.amount-2' | translate}}<br>{{'VALIDATION.amount-ex2' | translate}}</span>
+            <span *ngIf="cateForm.get('carb').errors.resError">{{cateForm.get('carb').errors.resError}}</span>
+
           </div>
         </div>
         <div class="form-group col-12 col-sm"
@@ -99,6 +109,8 @@
               {{'CATEGORIES.protein' | translate}}</span>
             <span *ngIf="cateForm.get('protien').errors.pattern">
               {{'VALIDATION.amount-2' | translate}}<br>{{'VALIDATION.amount-ex2' | translate}}</span>
+            <span *ngIf="cateForm.get('protein').errors.resError">{{cateForm.get('protein').errors.resError}}</span>
+
           </div>
         </div>
       </div>

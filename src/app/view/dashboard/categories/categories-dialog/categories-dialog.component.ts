@@ -89,8 +89,9 @@ export class CategoriesDialogComponent implements OnInit {
     data.category = this.data.cate.categoryid;
 
     if (this.data.state != 'edit') {
-      this.foodItemSrv.createFoodItem(data, this.file)
-      this.onNoClick();
+      this.foodItemSrv.createFoodItem(data, this.cateForm, this.file)
+        .then(s => this.onNoClick())
+        .catch(e => e)
     }
     else {
       if (!this.cateForm.get('name')?.dirty)
@@ -98,8 +99,9 @@ export class CategoriesDialogComponent implements OnInit {
       if (!this.cateForm.get('name_ar')?.dirty)
         delete data.name_ar;
       this.logger.log('data: ', data)
-      this.foodItemSrv.updateFoodItemById(data, this.data.cate.id, this.file)
-      this.onNoClick();
+      this.foodItemSrv.updateFoodItemById(data, this.data.cate.id, this.cateForm, this.file)
+        .then(s => this.onNoClick())
+        .catch(e => e)
     }
     this.logger.log('value: ', this.cateForm)
 

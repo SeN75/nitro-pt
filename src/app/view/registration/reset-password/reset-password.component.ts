@@ -33,7 +33,7 @@ export class ResetPasswordComponent implements OnInit {
     if (this.resetPasswordForm.valid) {
       this.identitySrv.resetPasswordObj.new_password = this.resetPasswordForm.get('new_password')?.value;
       this.identitySrv.resetPasswordObj.re_new_password = this.resetPasswordForm.get('re_new_password')?.value;
-      this.identitySrv.resetPasswordConfirm(this.identitySrv.resetPasswordObj)
+      this.identitySrv.resetPasswordConfirm(this.identitySrv.resetPasswordObj, this.resetPasswordForm)
     }
     // this.identitySrv.resetPassword({ email: this.emailControl.value })
   }

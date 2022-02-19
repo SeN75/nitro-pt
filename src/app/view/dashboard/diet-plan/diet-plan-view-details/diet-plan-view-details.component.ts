@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DietPlanService } from 'src/app/_services/diet-plan.service';
+import { DietPlanService } from 'src/app/_services/dite/diet-plan.service';
 
 @Component({
   selector: 'app-diet-plan-view-details',
@@ -10,7 +10,6 @@ export class DietPlanViewDetailsComponent implements OnInit {
   programName: string = "البرنامج الغدائي";
   selectedPro = '';
   selectedMeal = '';
-  dtOptions: DataTables.Settings = {};
   dietplanArr = [
     {
       name: 'جدول 1', total_calories: 2000, note: 'هذا النص توضيحي لملاحظات المدرب', meals: [

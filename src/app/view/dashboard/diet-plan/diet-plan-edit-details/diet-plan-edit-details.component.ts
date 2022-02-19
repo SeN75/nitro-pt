@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DietPlanService } from './../../../../_services/diet-plan.service';
+import { DietPlanService } from '../../../../_services/dite/diet-plan.service';
 import { categories } from '../../../../_common/globle';
 import { DietplanTable } from '../../../../models/DietplanTable';
 import { DietplanMeal } from '../../../../models/DietplanMeal';

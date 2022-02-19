@@ -1,16 +1,27 @@
 <div class="package_card package_theme_{{theme_number}}">
   <div class="package_card_header">
     <a class="package_edit_link" *ngIf="!with_button" (click)="dialogSrv.openPackageDialog('edit', pack)">...</a>
-    <p>{{package_title}}</p>
+    <p class="package_title">{{package_title}}</p>
+    <p class="package_description">{{package_description || ''}}</p>
   </div>
   <div class="package_body ">
-    <div class="package_feature" *ngIf="package_description">
-      <p class="package_feature_title">وصف</p>
-      <p class="package_feature_value"
-        [class.len_10]='package_description && package_description.length >= 10 && package_description.length < 20'
-        [class.len_20]='package_description && package_description.length >= 20 '>{{package_description}} </p>
+    <div class="package_price_duration">
+      <div class="package_price">
+        <span class="pack_price">{{package_price}}</span>
+        <span class="pack_currncey">{{'FORM.sar' | translate}}</span>
+      </div>
+      <div class="package_slashline"></div>
+      <div class="package_duration">
+        <span class="pack_value">{{package_months > 2 && package_months < 12? package_months: '' }}</span>
+        <span [class.pack_duration]="package_months < 11 && package_months> 2"
+          [class.pack_duration_2]="package_months < 3 || package_months == 12 ">{{ ( package_months < 11 && package_months> 2 ? 'DURATIONS.month' :
+                package_months
+                >=
+                12 ? 'DURATIONS.year' :
+                'DURATIONS.'+package_months ) | translate}}</span>
+      </div>
     </div>
-    <div class="package_feature">
+    <!-- <div class="package_feature">
       <p class="package_feature_title">المدة</p>
       <p class="package_feature_value">{{package_months}} اشهر</p>
     </div>
@@ -18,7 +29,7 @@
     <div class="package_feature">
       <p class="package_feature_title">السعر</p>
       <p class="package_feature_value">{{package_price}} ريال</p>
-    </div>
+    </div> -->
     <div class="package_join_button">
       <a [routerLink]="path" class="{{class_button}}" (click)=" selectProgram(pack)">انضمام</a>
     </div>

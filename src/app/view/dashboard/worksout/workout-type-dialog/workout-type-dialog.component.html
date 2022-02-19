@@ -16,6 +16,8 @@
           | translate}} {{'WORKSOUT.type' | translate}}</span>
 
         <span *ngIf="exerciseCategroyForm.get('name').errors.pattern">{{'VALIDATION.en' | translate}}</span>
+        <span
+          *ngIf="exerciseCategroyForm.get('name').errors.resError">{{exerciseCategroyForm.get('name').errors.resError}}</span>
 
       </div>
     </div>
@@ -35,6 +37,8 @@
             |
             translate}} {{'WORKSOUT.type_ar' | translate}}</span>
           <span *ngIf="exerciseCategroyForm.get('name_ar')?.errors.pattern">{{'VALIDATION.ar' | translate}}</span>
+          <span
+            *ngIf="exerciseCategroyForm.get('name_ar').errors.resError">{{exerciseCategroyForm.get('name_ar').errors.resError}}</span>
         </div>
       </div>
     </div>

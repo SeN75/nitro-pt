@@ -1,0 +1,12 @@
+<h1 mat-dialog-title class="dialog-title"> {{'ERROR.an error occurred' | translate}}</h1>
+<div mat-dialog-content dir="rtl">
+  <ul class="error_list">
+    <li *ngFor="let e of data;">
+      {{e}}
+    </li>
+  </ul>
+  <div class="button-group">
+    <button mat-raised-button color="warn" (click)="onNoClick()" style="background-color: #c00707;"> {{'FORM.ok1' |
+      translate}} </button>
+  </div>
+</div>

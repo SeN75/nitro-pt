@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { SlickCarouselComponent } from 'ngx-slick-carousel';
+import { IdentityService } from 'src/app/_services/identity/identity.service';
+import { SubscriptionsService } from 'src/app/_services/subscriptions/subscriptions.service';
 
 @Component({
   selector: 'app-terms-and-condition',
@@ -11,6 +14,7 @@ export class TermsAndConditionComponent implements OnInit {
     name_ar: "محمد",
     name: "mehmed"
   }
+  isAggre: boolean = false;
   arr = [1, 2, 3, 4, 5]
   arr2 = [1, 2, 3, 4]
   slideConfig = {
@@ -41,9 +45,15 @@ export class TermsAndConditionComponent implements OnInit {
     this.slickModal.slickPrev();
 
   }
-  constructor() { }
+  constructor(
+    public identitySrv: IdentityService,
+    public subSrv: SubscriptionsService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    if (this.subSrv.packageId == '')
+      this.router.navigateByUrl('/register/join_program')
   }
   slickInit(e: any) {
     console.log('slick initialized');

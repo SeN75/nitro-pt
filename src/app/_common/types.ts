@@ -155,7 +155,9 @@ export interface PackageAttachment {
 export interface CategoryFood {
   name: string,
   name_ar: string,
-  id: number
+  id: number,
+  pos?: number,
+  total_items?: number
 }
 
 
@@ -194,4 +196,11 @@ export interface ResetPassword {
   new_password: string,
   phone_number?: string,
   re_new_password: string
+}
+
+type Status = 'Error' | 'Success' | 'Wait' | 'Warning' | 'Failed'
+export interface MessageRespones {
+  status: Status;
+  message: any,
+  method: string
 }

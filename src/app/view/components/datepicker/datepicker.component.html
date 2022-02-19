@@ -1,0 +1,23 @@
+<div class="date_title">
+  <button mat-icon-button mat-dialog-close (click)="onNoClick()">
+    <mat-icon>close</mat-icon>
+  </button>
+  <h2 mat-dialog-title color="primary">{{data.title | translate}}</h2>
+</div>
+<div class="dateType">
+  <button [class.typeActive]="isHijri" (click)="changeDateType(); ">{{'FORM.hijri' | translate}}</button>
+  <button [class.typeActive]="!isHijri" (click)="changeDateType(); ">{{'FORM.gregorian' | translate}}</button>
+</div>
+<div style="margin: auto -14px;">
+  <div mat-dialog-content>
+    <date-gregorian *ngIf="!isHijri" outsideDays="hidden" [startDate]="toDayDate" [value]="toDayDate"
+      [minDate]="minDate" [maxDate]="maxDate" [markDisabled]="config.markDisabled" class="datepicker"
+      (output)="valueChange($event)">
+    </date-gregorian>
+    <date-hijri *ngIf="isHijri" outsideDays="hidden" [startDate]="toDayDate" [value]="toDayDate" [minDate]="minDate"
+      [maxDate]="maxDate" [markDisabled]="config.markDisabled" class="datepicker" (output)="valueChange($event)">
+    </date-hijri>
+
+  </div>
+
+</div>
