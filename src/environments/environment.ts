@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
+<<<<<<< HEAD
   apiUrl: "https://awsapi.nitropt.com/stg/api/"
+=======
+  apiUrl: "https://awsapi.nitropt.com/dev/api/"
+>>>>>>> alsaggaf
 };
 
 /*
