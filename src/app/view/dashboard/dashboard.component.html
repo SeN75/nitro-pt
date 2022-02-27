@@ -2,34 +2,54 @@
 <section class="main" [class.side-menu-close]="isSideMenu">
   <div class="nav_bar">
     <span></span>
-    <img class="nitro-logo" src="../../../assets/images/Logo.svg">
-    <span></span>
-    <span></span>
-
+    <img class="nitro-logo" src="../../../assets/images/Logo.svg" />
+    <span class="d-sm-none d-block">
+      <button mat-icon-button (click)="isSideMenu = !isSideMenu">
+        <mat-icon class="white-icon">menu</mat-icon>
+      </button>
+    </span>
   </div>
   <div class="side-menu">
     <div class="menu-button-wrapper">
-  <button class="mat-menu-button" mat-icon-button (click)="isSideMenu = !isSideMenu">
-    <div *ngIf="isSideMenu"><mat-icon class="white-icon">keyboard_arrow_left</mat-icon></div>
-    <div *ngIf="!isSideMenu"><mat-icon class="white-icon">keyboard_arrow_right</mat-icon></div>
-  </button></div>
-    <img class="nitro-logo" src="../../../assets/images/Logo.svg">
+      <button
+        class="mat-menu-button"
+        mat-icon-button
+        (click)="isSideMenu = !isSideMenu"
+      >
+        <div *ngIf="isSideMenu">
+          <mat-icon class="white-icon">keyboard_arrow_left</mat-icon>
+        </div>
+        <div *ngIf="!isSideMenu">
+          <mat-icon class="white-icon">keyboard_arrow_right</mat-icon>
+        </div>
+      </button>
+    </div>
+    <img class="nitro-logo" src="../../../assets/images/Logo.svg" />
     <div class="logo-underline"></div>
 
     <!-- [routerLinkActive]="i != 0 ? 'active' : ''" -->
     <nav class="menu">
       <a class="items">
-        <img class="icon" src="../../../assets/icons/customer.svg">
-        <span>{{ 'SETTINGS.nitro' | translate}}</span>
+        <img class="icon" src="../../../assets/icons/customer.svg" />
+        <span>{{ "SETTINGS.nitro" | translate }}</span>
       </a>
-      <a *ngFor="let item of sideMenu; index as i" [routerLink]="item.path" class="items"
-        [class.active]="activeLink.includes(item.root+'')">
-        <img class="icon" src="../../../assets/icons/{{activeLink.includes(item.root+'')?item.activeImg:item.img}}">
-        <span>{{ item.name | translate}}</span>
+      <a
+        *ngFor="let item of sideMenu; index as i"
+        [routerLink]="item.path"
+        class="items"
+        [class.active]="activeLink.includes(item.root + '')"
+      >
+        <img
+          class="icon"
+          src="../../../assets/icons/{{
+            activeLink.includes(item.root + '') ? item.activeImg : item.img
+          }}"
+        />
+        <span>{{ item.name | translate }}</span>
       </a>
       <a class="items" routerLink="." (click)="signOut()">
-        <img class="icon" src="../../../assets/icons/logout_white_24dp.svg">
-        <span>{{ 'LANDINGPAGE.sign-out' | translate}}</span>
+        <img class="icon" src="../../../assets/icons/logout_white_24dp.svg" />
+        <span>{{ "LANDINGPAGE.sign-out" | translate }}</span>
       </a>
     </nav>
   </div>

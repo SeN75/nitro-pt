@@ -10,15 +10,15 @@ sidemenu
   border-radius: 0;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  overflow: hidden;
+  overflow: auto;
   transition: all 0.6s ease-in-out;
+  z-index: 1000;
   // direction: ltr;
 }
 
 .side-menu-close .side-menu {
   width: 50px;
   transition: all 0.6s ease-in-out;
-  overflow: none !important;
 }
 
 .nitro-logo {
@@ -41,17 +41,23 @@ sidemenu
   position: relative;
 }
 
+.side-menu-close .nav_bar {
+  height: 0;
+  transition: all 0.6s ease-in-out;
+}
 .nav_bar {
   display: flex;
   padding: 5px 20px;
   justify-content: space-between;
   height: 60px;
+  transition: all 0.6s ease-in-out;
 }
 
 .nav_bar .nitro-logo {
   width: 90px;
-  display: none;
   margin: 0;
+  height: 0;
+  transition: all 0.6s ease-in-out;
 }
 
 .logo-underline {
@@ -434,7 +440,32 @@ button.selected {
 .mat-dialog-content {
   max-width: 750px;
 }
-
+@media (max-width: 768px) {
+  .side-menu-landing .side-menu {
+    width: 0;
+    transition: all 0.6s ease-in-out;
+  }
+  .side-menu-close .side-menu-landing .side-menu {
+    width: 200px;
+    transition: all 0.6s ease-in-out;
+  }
+  .side-menu-close .side-menu-landing .side-menu .menu .items span {
+    text-transform: capitalize;
+    margin: 0 20px;
+    font-size: 14px;
+    opacity: 1;
+    position: absolute;
+    white-space: nowrap;
+    transition: opacity 3s ease-in-out;
+  }
+  .side-menu-close .side-menu-landing .nitro-logo {
+    margin: 0 auto !important;
+    width: 90px;
+  }
+  .side-menu-close .side-menu-landing .side-menu .menu .items span {
+    display: inline-block !important;
+  }
+}
 @media screen and (max-width: 578px) {
   .register_card {
     background: #fff;
@@ -465,7 +496,8 @@ button.selected {
   }
 
   .nav_bar .nitro-logo {
-    display: block;
+    height: 50px;
+    transition: all 0.6s ease-in-out;
   }
 
   .nav_bar button {
@@ -483,7 +515,8 @@ button.selected {
   }
 
   .side-menu {
-    display: none;
+    width: 0;
+    transition: all 0.6s ease-in-out;
   }
 
   .dashboard {
@@ -492,8 +525,17 @@ button.selected {
 
   .side-menu-close .side-menu {
     width: 200px;
+    transition: all 0.6s ease-in-out;
   }
-
+  .side-menu-close .side-menu .menu .items span {
+    text-transform: capitalize;
+    margin: 0 20px;
+    font-size: 14px;
+    opacity: 1;
+    position: absolute;
+    white-space: nowrap;
+    transition: opacity 3s ease-in-out;
+  }
   .side-menu-close .nitro-logo {
     margin: 0 auto !important;
     width: 90px;
@@ -501,6 +543,21 @@ button.selected {
 
   .side-menu-close .side-menu .menu .items span {
     display: inline-block !important;
+  }
+  .side-menu-close .nav_bar {
+    height: 0;
+    padding: 0;
+    transition: all 0.6s ease-in-out;
+  }
+  .side-menu-close .nav_bar .nitro-logo {
+    height: 0;
+  }
+  .nav_bar {
+    height: 60px;
+    transition: all 0.6s ease-in-out;
+  }
+  .nav_bar .nitro-logo {
+    height: 50px;
   }
 }
 .dropdown-toggle::after {
