@@ -12,7 +12,7 @@
       <a class="" routerLink=".">باقات الاشتراك</a>
       <a class="" routerLink=".">ماذا نقدم</a>
       <a class="" routerLink=".">من نحن</a>
-      <a class="" routerLink="." (click)="signOut()">{{
+      <a class="" routerLink="." (click)="signOut()" *ngIf="isLoggedin">{{
         "LANDINGPAGE.sign-out" | translate
       }}</a>
       <a
