@@ -1,0 +1,51 @@
+$breakpoint-mobile: 768px;
+@media (max-width: $breakpoint-mobile) {
+  .nav-item {
+    width: 100%;
+  }
+
+  .navbar .nitro-logo {
+    margin-top: 0;
+    height: 50px;
+  }
+
+  .menu_nav a {
+    padding: 0.5rem 1rem;
+  }
+  .side-menu-close .side-menu {
+    width: 200px;
+    transition: all 0.6s ease-in-out;
+  }
+  .side-menu-close .side-menu .menu .items span {
+    text-transform: capitalize;
+    margin: 0 20px;
+    font-size: 14px;
+    opacity: 1;
+    position: absolute;
+    white-space: nowrap;
+    transition: opacity 3s ease-in-out;
+  }
+  .side-menu-close .nitro-logo {
+    margin: 0 auto !important;
+    width: 90px;
+  }
+
+  .side-menu-close .side-menu .menu .items span {
+    display: inline-block !important;
+  }
+  .side-menu-close .nav_bar {
+    height: 0;
+    padding: 0;
+    transition: all 0.6s ease-in-out;
+  }
+  .side-menu-close .nav_bar .nitro-logo {
+    height: 0;
+  }
+  .nav_bar {
+    height: 60px;
+    transition: all 0.6s ease-in-out;
+  }
+  .nav_bar .nitro-logo {
+    height: 50px;
+  }
+}

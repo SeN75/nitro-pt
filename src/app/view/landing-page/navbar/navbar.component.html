@@ -1,15 +1,29 @@
-<nav class="navbar navbar-expand-lg">
+<!-- <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
-      aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="custom-toggler navbar-toggler-icon"></span>
+    <button
+      mat-icon-button
+      class="navbar-toggler white-icon"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#d"
+      aria-controls="navbarToggler"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <mat-icon class="white-icon">menu</mat-icon>
     </button>
     <a class="navbar-brand" routerLink=".">
-      <img class="nitro-logo" src="../../../assets/images/Logo_blue.svg">
+      <img
+        class="nitro-logo"
+        src="{{
+          mobileQuery && mobileQuery.matches
+            ? '../../../assets/images/Logo.svg'
+            : '../../../assets/images/Logo_blue.svg'
+        }}"
+      />
     </a>
     <div class="collapse navbar-collapse" id="navbarToggler">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
       <div class="d-flex" *ngIf="!isProfile">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
@@ -24,28 +38,117 @@
           </li>
 
           <li class="nav-item" *ngIf="isLoggedin">
-            <a class="nav-link " (click)="signOut()">{{'LANDINGPAGE.sign-out' | translate}}</a>
+            <a class="nav-link" (click)="signOut()">{{
+              "LANDINGPAGE.sign-out" | translate
+            }}</a>
           </li>
           <li class="nav-item" *ngIf="!isProfile">
-            <a *ngIf="isLoggedin" class="nav-link profile_button"
-              [routerLink]="identitySrv.userData.groups[0] == 1 ? '/dashboard/account-settings': identitySrv.userData.groups[0] == 0? '.': '/landing/profile'">{{identitySrv.userData.display_name_ar}}</a>
-            <a *ngIf="!isLoggedin" class="nav-link profile_button" routerLink="/register/login">إنضم الآن</a>
+            <a
+              *ngIf="isLoggedin"
+              class="nav-link profile_button"
+              [routerLink]="
+                identitySrv.userData.groups[0] == 1
+                  ? '/dashboard/account-settings'
+                  : identitySrv.userData.groups[0] == 0
+                  ? '.'
+                  : '/landing/profile'
+              "
+              >{{ identitySrv.userData.display_name_ar }}</a
+            >
+            <a
+              *ngIf="!isLoggedin"
+              class="nav-link profile_button"
+              routerLink="/register/login"
+              >إنضم الآن</a
+            >
           </li>
         </ul>
       </div>
-      <div class="d-flex " *ngIf="isProfile">
-        <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
+      <div class="d-flex" *ngIf="isProfile">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link nav-link-2 " (click)="signOut()">{{'LANDINGPAGE.sign-out' | translate}}</a>
+            <a class="nav-link nav-link-2" (click)="signOut()">{{
+              "LANDINGPAGE.sign-out" | translate
+            }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-2 " routerLink="/landing">{{'LANDINGPAGE.home' | translate}}</a>
+            <a class="nav-link nav-link-2" routerLink="/landing">{{
+              "LANDINGPAGE.home" | translate
+            }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link profile_button" routerLink=".">{{identitySrv.userData.display_name_ar}}</a>
+            <a class="nav-link profile_button" routerLink=".">{{
+              identitySrv.userData.display_name_ar
+            }}</a>
           </li>
         </ul>
       </div>
     </div>
   </div>
-</nav>
+</nav> -->
+
+<div class="container-xl p-0 main" [class.side-menu-close]="isSideMenu">
+  <div class="nav_bar">
+    <!-- <span></span> -->
+    <img
+      class="nitro-logo"
+      src="
+
+          ../../../assets/images/Logo_blue.svg
+     "
+    />
+
+    <div class="d-md-flex d-none menu_nav" *ngIf="!isProfile">
+      <a class="" routerLink=".">باقات الاشتراك</a>
+      <a class="" routerLink=".">ماذا نقدم</a>
+      <a class="" routerLink=".">من نحن</a>
+      <a class="" routerLink="." (click)="signOut()">{{
+        "LANDINGPAGE.sign-out" | translate
+      }}</a>
+      <a
+        routerLink="."
+        *ngIf="isLoggedin"
+        class="nav-link profile_button"
+        [routerLink]="
+          identitySrv.userData.groups[0] == 1
+            ? '/dashboard/account-settings'
+            : identitySrv.userData.groups[0] == 0
+            ? '.'
+            : '/landing/profile'
+        "
+        >{{ identitySrv.userData.display_name_ar }}</a
+      >
+      <a
+        *ngIf="!isLoggedin"
+        class="nav-link profile_button"
+        routerLink="/register/login"
+        >إنضم الآن</a
+      >
+    </div>
+    <div class="d-md-flex d-none menu_nav2 menu_nav" *ngIf="isProfile">
+      <a class="" routerLink="." (click)="signOut()">{{
+        "LANDINGPAGE.sign-out" | translate
+      }}</a>
+      <a class="" routerLink="/landing">{{ "LANDINGPAGE.home" | translate }}</a>
+      <a class="" routerLink=".">{{ identitySrv.userData.display_name_ar }}</a>
+    </div>
+    <span class="d-md-none d-block nav-icon">
+      <button
+        mat-icon-button
+        (click)="isSideMenu = !isSideMenu"
+        [disabled]="isSideMenu"
+      >
+        <mat-icon class=" {{ isProfile ? 'nav-link-2' : 'white-icon' }}"
+          >menu</mat-icon
+        >
+      </button>
+    </span>
+  </div>
+  <sidebar
+    (change)="isSideMenu = $event"
+    [isSideMenu]="isSideMenu"
+    [isProfile]="isProfile"
+    [isLoggedin]="isLoggedin"
+    class="d-md-none d-block side-menu-landing"
+  ></sidebar>
+</div>

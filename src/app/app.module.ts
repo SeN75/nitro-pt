@@ -51,6 +51,7 @@ import { DietplanSectionComponent } from './view/landing-page/profile/dietplan-s
 import { SubscriptionInfoComponent } from './view/landing-page/profile/subscription-info/subscription-info.component';
 import { AuthInterceptor, authInterceptorProviders } from './_helpers/Interceptor-jwt';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SidebarComponent } from './view/landing-page/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CloseOrderTableComponent,
     DietplanSectionComponent,
     SubscriptionInfoComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

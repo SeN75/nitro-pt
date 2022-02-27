@@ -1,0 +1,76 @@
+<div class="side-menu">
+  <div class="menu-button-wrapper">
+    <button
+      class="mat-menu-button"
+      mat-icon-button
+      (click)="isSideMenu = !isSideMenu; changeValue(isSideMenu)"
+    >
+      <div *ngIf="isSideMenu">
+        <mat-icon class="white-icon">keyboard_arrow_left</mat-icon>
+      </div>
+      <div *ngIf="!isSideMenu">
+        <mat-icon class="white-icon">keyboard_arrow_right</mat-icon>
+      </div>
+    </button>
+  </div>
+  <img class="nitro-logo" src="../../../assets/images/Logo.svg" />
+  <div class="logo-underline"></div>
+
+  <!-- [routerLinkActive]="i != 0 ? 'active' : ''" -->
+  <nav class="menu">
+    <!-- <a class="items" routerLink=".">
+      <img class="icon" src="../../../assets/icons/customer.svg" />
+      <span>{{ "SETTINGS.nitro" | translate }}</span>
+    </a> -->
+
+    <a
+      *ngIf="isLoggedin"
+      class="items profile_button"
+      [routerLink]="
+        identitySrv.userData.groups[0] == 1
+          ? '/dashboard/account-settings'
+          : identitySrv.userData.groups[0] == 0
+          ? '.'
+          : '/landing/profile'
+      "
+    >
+      <img class="icon" src="../../../assets/icons/customer.svg" />
+      <span>
+        {{ identitySrv.userData.display_name_ar }}
+      </span>
+    </a>
+
+    <a class="items" routerLink="/landing">
+      <img class="icon" src="../../../assets/icons/home.svg" />
+      <span>
+        {{ "LANDINGPAGE.home" | translate }}
+      </span>
+    </a>
+    <a class="items" routerLink="." *ngIf="!isLoggedin">
+      <img class="icon" src="../../../assets/icons/our_packages.svg" />
+      <span> باقات الاشتراك </span>
+    </a>
+    <a class="items" routerLink="." *ngIf="!isLoggedin">
+      <img class="icon" src="../../../assets/icons/work_white_24dp.svg" />
+      <span> ماذا نقدم </span>
+    </a>
+    <a class="items" routerLink="." *ngIf="!isLoggedin">
+      <img class="icon" src="../../../assets/icons/customer.svg" />
+
+      <span> من نحن </span>
+    </a>
+    <a
+      *ngIf="!isLoggedin"
+      class="items profile_button"
+      routerLink="/register/login"
+    >
+      <img class="icon" src="../../../assets/icons/join_us.svg" />
+
+      <span> إنضم الآن </span>
+    </a>
+    <a *ngIf="isLoggedin" class="items" routerLink="." (click)="signOut()">
+      <img class="icon" src="../../../assets/icons/logout_white_24dp.svg" />
+      <span>{{ "LANDINGPAGE.sign-out" | translate }}</span>
+    </a>
+  </nav>
+</div>
